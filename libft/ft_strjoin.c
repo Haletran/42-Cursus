@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 20:05:49 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/31 10:34:15 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/11/01 22:14:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void * ft_calloc( size_t elementCount, size_t elementSize )
+char *ft_strjoin(char const *s1, char const *s2)
 {
-    size_t c;
-    char * test;
+    char *result;
+    char *test2 = (char *)s2;
+    char *test1 = (char *)s1;
 
-    c = 0;
-    test = malloc(elementSize * elementCount);
-    if (test == NULL)
-        return NULL;
-    while (c < elementSize*elementCount)
-        test[c++] = 0;      
-    return (test);
+
+    result = malloc(sizeof(char *) * 100);
+    if (result == NULL)
+        return (NULL);
+    result = strcat(test1, test2);
+    size_t t = ft_strlen(result);
+    result[t] = '\0';
+    return(&result[t]);
 }

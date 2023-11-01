@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 20:05:49 by codespace        ###   ########.fr       */
+/*   Created: 2023/11/01 14:30:20 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/11/01 22:16:29 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void * ft_calloc( size_t elementCount, size_t elementSize )
+char *ft_strtrim(char const *s1, char const *set)
 {
-    size_t c;
-    char * test;
+    
 
-    c = 0;
-    test = malloc(elementSize * elementCount);
-    if (test == NULL)
-        return NULL;
-    while (c < elementSize*elementCount)
-        test[c++] = 0;      
-    return (test);
+
+
+    
 }
+
