@@ -6,18 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:30:20 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 22:16:29 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/01 22:17:37 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
-{
-    
-
-
-
-    
-}
+char *ft_strtrim(char const *s1, char const *set);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:05:42 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/10/31 18:31:32 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/11/01 22:21:24 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strchr(const char *str, int to_find)
 	c = 0;
 	d = 0;
 	test = 0;
-	if (str == NULL)
-		return NULL;
 	while (str[c])
 	{
 		if (str[c] == (unsigned char)to_find)
