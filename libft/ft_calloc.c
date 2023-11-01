@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 10:34:15 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 19:13:32 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/11/01 19:13:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char * ft_strnstr(const char *big,	const char *little, size_t len)
+void * ft_calloc( size_t elementCount, size_t elementSize )
 {
-	size_t c;
-	size_t d;
+    size_t c;
+    char * test;
 
-	c = 0;
-	d = 0;
-    char * str = (char *)big;
-    char * to_find = (char *) little;
-	if (to_find[0] == '\0' || to_find == 0)
-		return (str);
-	while (c < len)
-	{
-		while (str[c + d] == to_find[d])
-		{
-			d++;
-			if (to_find[d] == '\0')
-				return (&str[c]);
-		}
-			d = 0;
-			c++;
-	}
-	return (0);
+    c = 0;
+    test = malloc(elementSize * elementCount);
+    if (test == NULL)
+        return NULL;
+    while (c < elementSize*elementCount)
+        test[c++] = 0;      
+    return (test);
 }
