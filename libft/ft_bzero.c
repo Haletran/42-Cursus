@@ -6,7 +6,7 @@
 /*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:59:07 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/10/31 12:11:29 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:30:51 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, 0, sizeof(n));
+	ft_memset(s, 0, n);
 }

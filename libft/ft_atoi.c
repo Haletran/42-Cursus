@@ -6,11 +6,11 @@
 /*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:22:04 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/10/31 18:58:15 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:20:29 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int		c;
 	int		d;
@@ -23,11 +23,12 @@ int	ft_atoi(char *str)
 	e = 0;
 	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
 		c++;
-	if (str[c] == 43)
+	if (str[c] == 43 || str[c] == 45)
+	{
+		if (str[c] == 45)
+			d++;
 		c++;
-	else if (str[c] == 45)
-		c++;
-	d++;
+	}
 	while (str[c] >= '0' && str[c] <= '9')
 	{
 		e = e * 10 + str[c] - '0';
@@ -37,3 +38,4 @@ int	ft_atoi(char *str)
 		oe = -1;
 	return (e * oe);
 }
+

@@ -6,7 +6,7 @@
 /*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:40:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 11:17:26 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:55:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void ft_putstr_fd(char *s, int fd);
 void ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
 int strncmp(const char *first, const char * second, size_t lenght);
+size_t ft_strlcat(char *dst, const char *src, size_t size);
+
 
 #endif
 
