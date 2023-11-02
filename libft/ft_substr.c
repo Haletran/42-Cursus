@@ -6,45 +6,34 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/02 13:42:18 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/02 14:18:03 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
-{
-	size_t c;
-
-	c = 0;
-	while (src[c] != '\0' && c < n)
-	{
-		dest[c] = src[c];
-		c++;
-	}
-	while (c < n)
-	{
-		dest[c] = '\0';
-		c++;
-	}
-	return (dest);
-}
-
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char *dest;
-    char *tmp = (char *)s;
-
+    char *ptr;
+    size_t i;
+    size_t j;
+    
+    i = 0;
+    j = 0;
     if (!s)
         return (NULL);
-    dest = malloc(len + 1);
-    if (dest == NULL)
+    ptr = malloc(len + 1);
+    if (ptr == NULL)
         return NULL;
-    if (len > 0 && (!(start >= ft_strlen(s))))
+    while (s[i])
     {
-        ft_strncpy(dest, &tmp[start], len);
-        dest[len] = '\0';
-        return(dest);
+        if (i >= start && j < len)
+        {
+            ptr[j] = s[i];
+            j++;
+        }
+        i++;
     }
-    return 0;
+    ptr[j] = '\0';
+    return (ptr);
 }

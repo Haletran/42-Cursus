@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:30:20 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/02 14:09:57 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/02 14:12:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char *ft_strtrim(char const *s1, char const *set)
     trimright = 0;
     count = 0;
     trimleft = 0;
-
     char *dest;
     char *tr;
     if(!s1)
