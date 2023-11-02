@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:03:24 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 18:09:30 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/02 11:05:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_putstr_fd(char *s, int fd)
 
 	c = 0;
 	if (s == 0)
+		return ;
+	if (fd < 0 || fd > 3)
 		return ;
 	while (s[c] != '\0')
 	{
