@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/02 12:36:29 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/02 13:42:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     char *dest;
     char *tmp = (char *)s;
 
-
+    if (!s)
+        return (NULL);
     dest = malloc(len + 1);
     if (dest == NULL)
         return NULL;
