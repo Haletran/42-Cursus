@@ -6,34 +6,24 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:05:42 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/02 14:44:16 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/03 10:06:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int to_find)
+char *ft_strchr(const char *s, int c)
 {
-	int	c;
-	int d;
-	char *test;
+	int	i;
 
-	c = 0;
-	d = 0;
-	test = 0;
-	while (str[c])
+	i = 0;
+	while (s[i])
 	{
-		if (str[c] == (unsigned char)to_find)
-			d++;
-		c++;
+		if (s[i] == (char)c)
+			return ((char*)(s + i));
+		i++;
 	}
-	c = 0;
-	if (d > 0)
-	{
-		while(str[d] != '\0')
-			test[c++] = str[d++];
-		test[c] = '\0';
-		return (&test[c]);
-	}
-	return 0;
+	if (s[i] == (char)c)
+		return ((char*)(s + i));
+	return (NULL);
 }

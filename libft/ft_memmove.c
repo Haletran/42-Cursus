@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:18:54 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 17:31:08 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/03 10:12:06 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t size)
 {
-	if (!src && !dest)
-		return (0);
-	ft_memcpy(dest, src, size);	
-	return (dest);
+	unsigned char *tmp = (unsigned char *)dest;
+	unsigned char *tmp2 = (unsigned char *)src;
+	if (size >= 0)
+	{
+		if (src > dest)
+			ft_memcpy(tmp, tmp2, size);
+		else if (dest > src)
+			while(size--)
+				tmp[size] = tmp2[size];
+	}	
+	return (tmp);
 }
