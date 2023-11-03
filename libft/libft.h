@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:40:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/02 14:28:30 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/03 11:03:29 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ char *ft_strtrim(char const *s1, char const *set);
 void * ft_calloc( size_t elementCount, size_t elementSize );
 int ft_memcmp( const void * pointer1, const void * pointer2, size_t size );
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char *ft_strrchr(const char *s, int c);
+char *ft_itoa(int n);
 
 #endif
 

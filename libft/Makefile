@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2023/11/02 14:25:46 by codespace        ###   ########.fr        #
+#    Updated: 2023/11/03 13:01:56 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	ar -crs libft.a $(OBJ) 
+	ar -crs libft.a $(OBJ)
 
 clean:
 	rm -f $(OBJ)

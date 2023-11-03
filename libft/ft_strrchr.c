@@ -6,14 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:18:54 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/03 10:05:09 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/03 11:00:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char
-	*ft_strrchr(const char *s, int c)
+char *ft_strrchr(const char *s, int c)
 {
 	int	i;
 
