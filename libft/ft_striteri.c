@@ -10,4 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*));
+#include "libft.h"
+
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+    unsigned int c;
+    char *dest = (char *)f;
+    int size;
+
+    c = 0;
+    if (!s)
+        return ;
+    size = ft_strlen(s);
+    dest = malloc(size + 1);
+    if (!dest)
+        return ;
+    while(s[c])
+    {
+        f(c, &s[c]);
+        c++;
+    }
+}

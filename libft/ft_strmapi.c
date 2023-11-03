@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:18:54 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/03 13:59:08 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/03 14:05:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
         return NULL;
     while(s[c])
     {
-        dest[c] = f(s[c], c);
+        dest[c] = f(c, s[c]);
         c++;
     }
     dest[c] = '\0';

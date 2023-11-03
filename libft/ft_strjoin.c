@@ -39,6 +39,8 @@ char *ft_strjoin(char const *s1, char const *s2)
     char *test2 = (char *)s2;
     char *test1 = (char *)s1;
 
+	if(!s1 || !s2)
+		return NULL;
     result = malloc(sizeof(char *) * 100);
     if (result == NULL)
         return (NULL);
