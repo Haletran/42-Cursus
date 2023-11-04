@@ -16,7 +16,7 @@ void	*ft_memmove(void *dest, const void *src, size_t size)
 {
 	unsigned char *tmp = (unsigned char *)dest;
 	unsigned char *tmp2 = (unsigned char *)src;
-	if (size >= 0)
+	if (size > 0)
 	{
 		if (src > dest)
 			ft_memcpy(tmp, tmp2, size);

@@ -12,14 +12,13 @@
 
 OBJ = $(SRC:%.c=%.o)
 CFLAGS = -g -Wall -Werror -Wextra
-CC = clang
+CC = gcc
 NAME = libft
 SRC= $(wildcard *.c)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	ar -crs libft.a $(OBJ)
 
 clean:
