@@ -27,9 +27,9 @@ char * ft_strnstr(const char *big,	const char *little, size_t len)
 	{
 		while (str[c + d] == to_find[d])
 		{
+			d++;
 			if (to_find[d] == '\0')
 				return (&str[c]);
-			d++;
 		}
 		d = 0;
 		c++;

@@ -17,14 +17,11 @@ void	ft_putstr_fd(char *s, int fd)
 	int	c;
 
 	c = 0;
-	if (s == 0)
-		return ;
-	if (fd < 0 || fd > 3)
+	if (!s)
 		return ;
 	while (s[c] != '\0')
 	{
-		write(fd, &s[c], 1);
+		ft_putchar_fd(s[c], fd);
 		c++;
 	}
-	write(1, "\n", 1);
 }
