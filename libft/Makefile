@@ -12,7 +12,7 @@
 
 OBJ = $(SRC:%.c=%.o)
 CFLAGS = -g -Wall -Werror -Wextra
-CC = gcc
+CC = clang
 NAME = libft
 SRC= $(wildcard *.c)
 
