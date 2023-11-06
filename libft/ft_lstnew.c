@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 16:36:59 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/02 10:58:01 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/30 15:19:30 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/10/31 19:05:10 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int main()
+
+t_list *ft_lstnew(void *content)
 {
-    printf("%s", ft_strjoin("Hello", "World"));
+    t_list *element = malloc(sizeof(t_list));
+    if(!element)
+        return NULL;
+    element->content = content;
+    return element;
 }

@@ -12,38 +12,45 @@
 
 #include "libft.h"
 
+int ft_count(char *src, char *cr)
+{
+    int c;
+    int d;
+
+    d = 0;
+    c = 0;
+    while(src[c] != '\0')
+    {
+        if (src[c] == cr[c])
+            d++;
+        c++;
+    }
+    return(d);
+}
+
 char *ft_strtrim(char const *s1, char const *set)
 {
-    size_t count;
-    size_t trimright;
-    size_t trimleft;
-    trimright = 0;
-    count = 0;
-    trimleft = 0;
+    int c;
+    int d;
     char *dest;
-    char *tr;
-    if(!s1)
+    char *src = (char *)s1;
+    char *cr = (char *)set;
+
+    c = 0;
+    d = 0;
+    if (!s1)
         return NULL;
-    dest = malloc(sizeof(char *) * 10 + 1);
-    if (dest == NULL)
-        return NULL;
-    tr = (char *)s1;
-    while(s1[count] == *set)
-        count++;
-    trimleft = count;
-    while(ft_isalnum(ft_atoi(&tr[count])))
-    {
-        trimright++;
-        count++;
-    }
-    count = 0;
-    while(trimleft <= trimright)
-    {
-        dest[count] = tr[trimleft];
-        count++;
-        trimleft++;
-    }
-    dest[count] = '\0';
-    return (&dest[count]);  
+    c = 0;
+    d = ft_strlen(s1) - ft_count(src,  cr);
+    dest = malloc(sizeof(char *));
+    if (!dest)
+        return (NULL);
+    return (dest);
+
+    
+
+
+
+
 }
 

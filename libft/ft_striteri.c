@@ -15,10 +15,11 @@
 void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
     unsigned int c;
-    char *dest = (char *)f;
+    char *dest;
     int size;
 
     c = 0;
+    dest = (char *)f;
     if (!s)
         return ;
     size = ft_strlen(s);

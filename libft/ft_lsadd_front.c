@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lsadd_front.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 16:36:59 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/02 10:58:01 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/30 15:36:21 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/11/01 11:38:33 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int main()
+
+
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
-    printf("%s", ft_strjoin("Hello", "World"));
+    t_list* element = malloc(sizeof(t_list));
+    if (!new)
+        return ;
+    element->content = new;
+    *lst = new;
 }
+

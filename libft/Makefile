@@ -19,6 +19,7 @@ SRC= $(wildcard *.c)
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	ar -crs libft.a $(OBJ)
 
 clean:
