@@ -12,45 +12,66 @@
 
 #include "libft.h"
 
-int ft_count(char *src, char *cr)
+int check_size(char *src, char *cr)
 {
     int c;
     int d;
 
-    d = 0;
     c = 0;
-    while(src[c] != '\0')
+    d = ft_strlen(src);
+    while(!(src[c] >= 33 && src[c] <= 122) || src[c] == *cr)
+        c++;
+    while(!(src[d] >= 33 && src[d] <= 122) || src[d] == *cr)
+        d--;
+    return (d - c);
+}
+
+int check_alpha(char *str)
+{
+    int c;  
+    c = 0;
+
+    while (str[c] != '\0')
     {
-        if (src[c] == cr[c])
-            d++;
+        if (str[c] >= 33 && str[c] <= 126)
+            return 1;
         c++;
     }
-    return(d);
+    return 0;
 }
 
 char *ft_strtrim(char const *s1, char const *set)
 {
     int c;
     int d;
+    int e;
     char *dest;
+    char *empty = "";
     char *src = (char *)s1;
     char *cr = (char *)set;
 
+    e = 0;
     c = 0;
     d = 0;
     if (!s1)
         return NULL;
-    c = 0;
-    d = ft_strlen(s1) - ft_count(src,  cr);
-    dest = malloc(sizeof(char *));
+    d = ft_strlen(s1);
+    if (!d || !check_alpha(src))
+        return (empty);
+    dest = malloc(check_size(src, cr) + 2);
     if (!dest)
         return (NULL);
+    while(!(src[c] >= 33 && src[c] <= 126))
+        c++;
+    while(!(src[d] >= 33 && src[d] <= 126) || src[d] == *cr)
+        d--;
+    while(c <= d)
+    {
+        dest[e] = src[c];
+        c++;
+        e++;
+    }
+    dest[e] = '\0';
     return (dest);
-
-    
-
-
-
-
 }
 
