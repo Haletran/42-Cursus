@@ -6,13 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:18:54 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/03 11:14:04 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/07 15:55:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		negative(int nbr)
+int	negative(int nbr)
 {
 	if (nbr < 0)
 	{
@@ -21,9 +21,9 @@ int		negative(int nbr)
 	return (nbr);
 }
 
-int		int_len(int nbr)
+int	int_len(int nbr)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (nbr <= 0)
@@ -42,15 +42,14 @@ char	*ft_itoa(int n)
 {
 	char	*result;
 	int		len;
-    int tmp;
+	int		tmp;
 
 	len = int_len(n);
-    tmp = len;
+	tmp = len;
 	result = malloc(sizeof(char) * (len + 1));
-    if (!result)
-        return NULL;
-
-	    if (n < 0)
+	if (!result)
+		return (NULL);
+	if (n < 0)
 	{
 		result[0] = '-';
 	}
@@ -64,5 +63,6 @@ char	*ft_itoa(int n)
 		result[len] = negative(n % 10) + '0';
 		n = n / 10;
 	}
+	result[tmp] = '\0';
 	return (result);
 }
