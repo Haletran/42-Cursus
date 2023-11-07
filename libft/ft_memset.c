@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:30:48 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 11:30:55 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:26:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	*ft_memset(void *pointer, int value, size_t count)
 
 	p = pointer;
 	while (count > 0)
-    	{
-      	*p = value;
-      	p++;
-      	count--;
-    	}
-	return(pointer);
+	{
+		*p = value;
+		p++;
+		count--;
+	}
+	return (pointer);
 }

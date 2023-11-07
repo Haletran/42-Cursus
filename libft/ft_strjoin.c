@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:34:15 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/07 16:07:07 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/07 16:33:57 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*src1;
 	char	*src2;
 	char	*result;
-	int		c;
-	int		d;
 
 	if (!s1 || !s2)
 		return (NULL);

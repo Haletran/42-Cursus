@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:34:15 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/02 10:40:16 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/07 17:26:07 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	char * str = (char *)big;
-    char * to_find = (char *) little;
+	char	*str;
+	char	*to_find;
 
-
+	str = (char *)big;
+	to_find = (char *)little;
 	i = 0;
 	if (to_find[i] == 0)
 		return (str);
@@ -39,5 +40,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
-
-

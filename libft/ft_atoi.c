@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:22:04 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/01 14:20:29 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/11/07 16:39:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ int	ft_atoi(const char *str)
 		oe = -1;
 	return (e * oe);
 }
-

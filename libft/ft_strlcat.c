@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:30:20 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/03 11:10:08 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/07 17:25:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	j;
 	size_t	src_len;
 
-	if((!dst || !src) && !size)
-		return 0;
+	if ((!dst || !src) && !size)
+		return (0);
 	i = 0;
 	j = ft_strlen(dst);
 	src_len = ft_strlen(src);
