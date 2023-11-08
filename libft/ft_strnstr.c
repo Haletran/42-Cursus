@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:34:15 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/07 17:26:07 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/08 16:25:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		if (str[i] == to_find[j])
 		{
 			while ((i + j) < len && to_find[j] && str[i + j] == to_find[j])
-			{
 				j++;
-			}
 			if (to_find[j] == 0)
 				return (&str[i]);
 		}
