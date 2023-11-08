@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:40:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/03 11:03:29 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/07 17:54:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_size_t	ft_strlen(const char *str);
 int	ft_toupper(int c);
 int	ft_tolower(int c);
 char	*ft_strchr(const char *str, int to_find);
-int	ft_atoi(char *str);
+int	ft_atoi(const char *str);
 t_size_t ft_strlcpy(char *dest, const char *src, size_t size);
 void * ft_memset(void * pointer, int value, size_t count);
 void ft_bzero(void *s, size_t n);

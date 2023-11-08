@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:18:54 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/07 17:28:02 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/07 18:08:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
 	c = 0;
 	while (c < size)
 	{
-		if (mem[c] == searchedChar)
+		if (mem[c] == (char)searchedChar)
 			return (&mem[c]);
 		c++;
 	}
