@@ -6,15 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/08 01:02:05 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/08 01:14:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	get_size(char  const *s, unsigned int start);
-
-size_t check(char const *s, unsigned int start, size_t len)
+size_t ft_check_input(char const *s, unsigned int start, size_t len)
 {
 	if (start > ft_strlen(s))
 		return(len = 0);
@@ -32,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	j = 0;
-	size = check(s, start, len);
+	size = ft_check_input(s, start, len);
 	if (!s)
 		return (NULL);
 	ptr = malloc(size + 1);
