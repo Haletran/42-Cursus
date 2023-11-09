@@ -17,10 +17,14 @@ char	*get_str(char *src1, char *src2)
 	char	*result;
 	int		c;
 	int		d;
+	int	len;
 
 	c = 0;
 	d = 0;
-	result = malloc(sizeof(char *) * (ft_strlen(src1) + ft_strlen(src2)) + 1);
+	if(src1 == NULL || src2 == NULL)
+		return(NULL);
+	len = ft_strlen(src1) + ft_strlen(src2);
+	result = malloc(sizeof(*result) * len + 1);
 	if (result == NULL)
 		return (NULL);
 	while (c < (int)ft_strlen(src1))

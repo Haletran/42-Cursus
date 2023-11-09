@@ -14,22 +14,22 @@
 
 int	count_words(char const *s, char c)
 {
-	int		i;
-	int		l;
 	int		c_w;
+	int		tmp;
 
+	tmp = 0;
 	c_w = 0;
-	l = 0;
-	i = 0;
-	while (s[i])
+	while (*s != '\0')
 	{
-		if (((s[i] == c && s[i + 1] != c) || (s[i] == c && s[i - 1] != c)) && s[i + 1] != '\0')
+		if (tmp == 1 && *s == c)
+			in_substring = 0;
+		if (tmp == 0 && *s != c)
+		{
+			tmp = 1;
 			c_w++;
-		i++;
+		}
+		s++;
 	}
-	i = 0;
-	if (c_w == 0 && s[0] != c)
-		c_w = 1;
 	return (c_w);
 }
 
