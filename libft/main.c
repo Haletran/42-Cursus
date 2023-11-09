@@ -6,11 +6,12 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:36:59 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/07 23:36:10 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/09 03:36:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 int main()
 {
+    char * splitme = strdup("Tripouille");
 }

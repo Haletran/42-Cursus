@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:08:33 by ppitzini          #+#    #+#             */
-/*   Updated: 2023/11/09 01:34:36 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/09 03:34:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,26 @@ int	count_words(char const *s, char c)
 {
 	int		i;
 	int		l;
-	int		tmp;
 	int		c_w;
 
 	c_w = 0;
-	tmp = 0;
 	l = 0;
 	i = 0;
-	if (s[0] != '\0' && s[0] != c)
-		c_w++;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if (s[i] != c)
-		{
-			l++;
-			tmp = tmp + l;
-		}
-		else
+		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
 			c_w++;
-		l = 0;
 		i++;
 	}
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			l++;
+		i++;
+	}
+	if (l == 0)
+		c_w = 1;
 	return (c_w);
 }
 
@@ -45,11 +44,16 @@ char	**ft_split(char const *s, char c)
 	char	**dest;
 	int		i;
 	int		x;
+	int tmp;
 
+	i = 0;
 	x = 0;
 	if (!s)
 		return (NULL);
-	dest = malloc(sizeof(char **) * count_words(s, c) + 1);
+	tmp = count_words(s, c);
+	if (ft_strlen(s) == 0)
+		tmp = 0;
+	dest = malloc(sizeof(char *) * (tmp + 1));
 	if (!dest)
 		return (NULL);
 	while (*s)
