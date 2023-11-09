@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/08 14:12:13 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/08 19:16:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	j = 0;
-	size = ft_check_input(s, start, len);
 	if (!s)
 		return (NULL);
-	ptr = malloc(sizeof(size + 1));
+	size = ft_check_input(s, start, len);
+	ptr = malloc(size + 1);
 	if (!ptr)
 		return (NULL);
 	while (s[i] != '\0')
