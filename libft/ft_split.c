@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:08:33 by ppitzini          #+#    #+#             */
-/*   Updated: 2023/11/09 03:34:52 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/09 04:16:25 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,12 @@ int	count_words(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
+		if (((s[i] == c && s[i + 1] != c) || (s[i] == c && s[i - 1] != c)) && s[i + 1] != '\0')
 			c_w++;
 		i++;
 	}
 	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			l++;
-		i++;
-	}
-	if (l == 0)
+	if (c_w == 0 && s[0] != c)
 		c_w = 1;
 	return (c_w);
 }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:30:20 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/08 19:27:30 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/09 04:02:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ char *ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1) - 1;
 	while (check_trim(s1[start], set))
 		start++;
-	printf("START = %d", start);
 	while(check_trim(s1[end], set))
 		end--;
 	result = ft_substr(s1, start, (end - start) + 1);
