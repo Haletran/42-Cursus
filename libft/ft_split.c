@@ -22,7 +22,7 @@ int	count_words(char const *s, char c)
 	while (*s != '\0')
 	{
 		if (tmp == 1 && *s == c)
-			in_substring = 0;
+			tmp = 0;
 		if (tmp == 0 && *s != c)
 		{
 			tmp = 1;
