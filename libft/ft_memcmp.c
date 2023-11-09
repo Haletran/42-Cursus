@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:29:44 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/07 18:12:59 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/09 15:01:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_memcmp(const void *pointer1, const void *pointer2, size_t size)
 {
-	size_t c;
-	size_t b;
-	unsigned char *s1;
-	unsigned char *s2;
+	size_t			c;
+	size_t			b;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
 	c = 0;
 	b = 0;

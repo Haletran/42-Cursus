@@ -14,8 +14,8 @@
 
 void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
 {
-	size_t c;
-	char *mem;
+	size_t	c;
+	char	*mem;
 
 	mem = (char *)memoryBlock;
 	c = 0;

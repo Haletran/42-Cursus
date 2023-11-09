@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:29:44 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/08 19:03:06 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/09 15:01:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t size)
 {
-	t_size_t		s;
+	size_t			s;
 	unsigned char	*temp;
 	unsigned char	*temp2;
 
