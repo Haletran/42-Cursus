@@ -1,7 +1,7 @@
 #!bin/sh
 
 USERNAME="bapasqui"
-PACKAGES="vim ufsudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak
+PACKAGES="vim ufw sudo curl git"
 echo "password [success=2 default=ignore] pam_unix.so obscure sha512 minlen=10" >> /etc/pam.d/common-passwordpassword [success=2 default=ignore] pam_unix.so obscure sha512 minlen=8w ssh sudo libpam-pwquality"
 GROUPS="$USERNAME 42"
 
