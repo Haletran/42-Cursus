@@ -38,3 +38,9 @@ sudo chage --mindays 2 --warndays 7 --maxdays 30 root
 
 sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak
 echo "password [success=3 default=ignore] pam_unix.so obscure sha512 minlen=10" >> /etc/pam.d/common-password
+
+#SETUP SUDO
+MESSAGE="//Your Custom Failed Sudo Message"
+echo "Defaults    passwd_tries=3" >> /etc/sudoers
+echo "Defaults    badpass_message=$MESSAGE" >> /etc/sudoers
+
