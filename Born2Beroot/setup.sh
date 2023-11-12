@@ -7,7 +7,7 @@ GROUPS="$USERNAME 42"
 #BASIC SETUP
 apt update && apt upgrade -y
 apt install $PACKAGES
-groupadd user42
+groupadd $GROUPS
 usermod -aG sudo bapasqui42
 usermod -aG user42 bapasqui42
 
