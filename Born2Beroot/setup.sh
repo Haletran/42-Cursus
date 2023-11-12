@@ -2,14 +2,20 @@
 
 USERNAME="bapasqui"
 PACKAGES="vim ufw sudo curl git"
-GROUPS="$USERNAME 42"
 
 #BASIC SETUP
 apt update && apt upgrade -y
 apt install $PACKAGES
-groupadd $GROUPS
-usermod -aG sudo bapasqui42
-usermod -aG user42 bapasqui42
+groupadd user42
+usermod -aG sudo $USERNAME
+usermod -aG user42 $USERNAME
+hostname set-hostname $USERNAME"42"
+
+#SETUP UFW
+echo "IPV6=yes" >> /etc/default/ufw
+sudo ufw default deny incoming
+sudo ufw allow 4242/tcp
+sudo ufw enable
 
 #SETUP SSH
 STATUS="$(systemctl is-active sshd.service)"
@@ -24,13 +30,6 @@ else
     echo "Port 4242" >> /etc/ssh/sshd_config	  
 fi
 systemctl restart ssh
-
-#SETUP UFW
-echo "IPV6=yes" >> /etc/default/ufw
-sudo ufw default deny incoming
-sudo ufw allow 4242/tcp
-sudo ufw enable
-
 
 #SETUP PASSWORD DATE AND POLICIES
 sudo chage --mindays 2 --warndays 7 --maxdays 30 $USERNAME
