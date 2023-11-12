@@ -43,4 +43,9 @@ echo "password [success=3 default=ignore] pam_unix.so obscure sha512 minlen=10" 
 MESSAGE="//Your Custom Failed Sudo Message"
 echo "Defaults    passwd_tries=3" >> /etc/sudoers
 echo "Defaults    badpass_message=$MESSAGE" >> /etc/sudoers
+echo "Defaults    logfile="/var/log/sudo/sudo.log"" >> /etc/sudoers
+echo "Defaults    log_input, log_output" >> /etc/sudoers
+echo "Defaults    requiretty" >> /etc/sudoers
+echo "Defaults    secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"" >> /etc/sudoers
+
 
