@@ -15,10 +15,12 @@ usermod -aG user42 bapasqui42
 STATUS="$(systemctl is-active sshd.service)"
 if [ "${STATUS}" = "active"]; then
     echo "PORT 4242" >> /etc/ssh/sshd_config
+    echo "AllowGroups root" >> /ect/ssh/sshd_config
+    echo "DenyUsers user42" >> /etc/ssh/sshd_config
 else 
     sudo systemctl enable ssh.service
-	sudo systemctl start ssh.service
-	echo "Port 4242" >> /etc/ssh/sshd_config	  
+    sudo systemctl start ssh.service
+    echo "Port 4242" >> /etc/ssh/sshd_config	  
 fi
 systemctl restart ssh
 
