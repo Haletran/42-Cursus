@@ -1,7 +1,8 @@
 #!bin/sh
 
-USERNAME="bapasqui"
-PACKAGES="//Add your custom packages here"
+#GET VARIABLES FROM USER
+read -p $'\e[33mWhat is your username ?\e[0m ' USERNAME
+read -p $'\e[33mWhich packages do you want to install\e[0m ' PACKAGES
 
 #BASIC SETUP
 apt update && apt upgrade -y
@@ -39,7 +40,7 @@ sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak
 echo "password [success=3 default=ignore] pam_unix.so obscure sha512 minlen=10" >> /etc/pam.d/common-password
 
 #SETUP SUDO
-MESSAGE="//Your Custom Failed Sudo Message"
+read -p $'\e[33mCustom Message for failed Sudo password: \e[0m 'MESSAGE
 mkdir /var/log/sudo
 echo "Defaults    passwd_tries=3" >> /etc/sudoers
 echo "Defaults    badpass_message="$'\042'"$MESSAGE"$'\042' >> /etc/sudoers
