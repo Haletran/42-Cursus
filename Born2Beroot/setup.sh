@@ -1,7 +1,7 @@
 #!bin/sh
 
 USERNAME="bapasqui"
-PACKAGES="vim ufw sudo curl git"
+PACKAGES="//Add your custom packages here"
 
 #BASIC SETUP
 apt update && apt upgrade -y
