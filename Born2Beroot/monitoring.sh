@@ -22,6 +22,6 @@ echo "#Connection TCP: " $(netstat -an | grep -i "tcp" | grep ESTABLISHED | wc -
 echo "#User log: $(ps auxwww | grep sshd | grep pts | wc -l)"
 
 echo "#Network: " "IP" $(ip -4 addr show dev eno1 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')
-echo "#Sudo: " $(grep -c 'sudo:' /var/log/sudo/sudo.log | wc -l)
+echo "#Sudo: " $(grep -c 'sudo:' /var/log/sudo/sudo.log)
 
 
