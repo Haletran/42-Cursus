@@ -40,7 +40,7 @@ while [ $# -gt 0 ]; do
       read -p "Enter the password for root: " ROOT_PASSWORD
 
       #BASIC SETUP
-      apt-get update && sudo apt upgrade -y
+      apt-get update && sudo apt-get upgrade -y
       apt-get install -y sudo
       if [ $? -eq 0 ]; then echo "sudo installed successfully."; else echo "Failed to install sudo."; fi
       apt-get install -y ufw vim net-tools
@@ -100,9 +100,8 @@ while [ $# -gt 0 ]; do
       #SETUP PASSWORD EXPIRATION DATE AND POLICIES
       sudo chage --mindays 2 --warndays 7 --maxdays 30 $USERNAME
       sudo chage --mindays 2 --warndays 7 --maxdays 30 root
-      
       sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak
-      sudo echo "password [success=3 default=ignore] pam_unix.so obscure sha512 minlen=10" >> /etc/pam.d/common-password
+      sudo echo "password [success=3 default=ignore] pam_unix.so obscure sha512 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 difok=7 enforce_for_root reject_username" >> /etc/pam.d/common-password
       
       #SETUP SUDO
       read -p $'\e[33mCustom Message for failed Sudo password: \e[0m ' MESSAGE
@@ -113,7 +112,7 @@ while [ $# -gt 0 ]; do
       sudo echo "Defaults    log_input, log_output" >> /etc/sudoers
       sudo echo "Defaults    requiretty" >> /etc/sudoers
       sudo echo "Defaults    secure_path="$'\042'"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"$'\042' >> /etc/sudoers
-      printf "Your $DISTRIB VM is ready"
+      printf "${GREEN}Your $DISTRIB VM is ready, you might need to change your password if you didn't respect policy"
       ;;
   -b | --bonus)
       if [ "$EUID" -ne 0 ]; then
