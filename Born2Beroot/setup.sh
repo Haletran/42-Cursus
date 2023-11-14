@@ -25,7 +25,6 @@ pres() {
   printf ${BLUE}"\n-------------------------------------------------------------\n"${DEF_COLOR};
 }
 
-
 while [ $# -gt 0 ]; do
   case "$1" in
     -p1 | --part1)
@@ -34,9 +33,11 @@ while [ $# -gt 0 ]; do
         exit 1
       fi
       pres
-      # READ USERNAME INPUT
+      # READ USER INPUT
       read -p $'\e[33mWhat is your username ?\e[0m ' USERNAME
-      read -p $'\e[33mEnter new password for root: \e[0m ' PASSWORD
+      printf "${RED}~10 characters long, an uppercase letter, a lowercase letter, \nand a number, not 3 consecutive identical characters.\n${NC}"
+      read -p "Enter the password for user: " PASSWORD
+      read -p "Enter the password for root: " ROOT_PASSWORD
 
       #BASIC SETUP
       apt-get update && sudo apt upgrade -y
@@ -58,7 +59,7 @@ while [ $# -gt 0 ]; do
       hostname set-hostname $USERNAME"42"
 
       #CHANGE SUDO PASSWORD
-      echo "root:$PASSWORD" | passwd --stdin root
+      echo "root:$ROOT_PASSWORD" | passwd --stdin root
       if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
       printf "Logout of root and $USERNAME.\n Login as $USERNAME and execute the second part of the script.\n (sudo ./setup.sh -p2)"
       ;;
@@ -120,7 +121,7 @@ while [ $# -gt 0 ]; do
         exit 1
       fi
       pres
-      echo "Do Stuff"
+      echo "Do Stuff for Bonus"
       ;;
   *)
       printf "${RED}Invalid option:${NC} $1"
