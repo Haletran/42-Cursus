@@ -11,7 +11,7 @@ set -u
 while [ $# -gt 0 ]; do
   case "$1" in
     -a|--architecture)
-      echo ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC}
+      echo "${GREEN}Architecture:${NC} $(uname -a)"
       ;;
     -c|--cpu-physical)
       echo "${GREEN}CPU physical:${NC} $(nproc --all)"
