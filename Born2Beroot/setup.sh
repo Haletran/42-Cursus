@@ -2,24 +2,42 @@
 
 set -u
 
+#ANSI COLORS
+DEF_COLOR='\033[0;39m'
+YELLOW='\033[0;93m'
+BLUE='\033[0;94m'
+CYAN='\033[0;96m'
+NC='\033[0m'
+RED='\033[0;31m'
+
+
 usage() {
-  echo "Usage: $0 [-p1 <part1>] [-p2 <part2> ] [-b <bonus]"
+  printf "\n${RED}Usage:${NC} $0 [-p1 <part1>] [-p2 <part2> ] [-b <bonus>]\n"
 }
+
+pres() {
+  printf ${BLUE}"\n-------------------------------------------------------------\n"${DEF_COLOR};
+  printf ${YELLOW}"\n\t\tSCRIPT CREATED BY: "${DEF_COLOR};
+  printf ${CYAN}"bapasqui\t\n"${DEF_COLOR};
+  printf ${YELLOW}"\t    Github : ${NC}https://github.com/Haletran\t\n"${DEF_COLOR};
+  printf ${BLUE}"\n-------------------------------------------------------------\n"${DEF_COLOR};
+}
+
 
 while [ $# -gt 0 ]; do
   case "$1" in
     -p1 | --part1)
       if [ "$EUID" -ne 0 ]; then
-        echo "Please run this script as root."
+        echo "Please run this script as root. (Using this command : su -)"
         exit 1
       fi
-
+      pres
       # READ USERNAME INPUT
       read -p $'\e[33mWhat is your username ?\e[0m ' USERNAME
       read -p $'\e[33mEnter new password for root: \e[0m ' PASSWORD
 
       #BASIC SETUP
-      apt-get update
+      apt-get update && sudo apt upgrade -y
       apt-get install -y sudo
       if [ $? -eq 0 ]; then echo "sudo installed successfully."; else echo "Failed to install sudo."; fi
       apt-get install -y ufw vim net-tools
@@ -34,14 +52,14 @@ while [ $# -gt 0 ]; do
       ;;
   -p2 | --part2)
       if [ "$EUID" -ne 0 ]; then
-        echo "Please run this script as root."
+        printf "Please run this script as sudo. \n(sudo bash setup.sh <parameters> or sudo ./setup.sh <parameters>)\n"
         exit 1
       fi
-
+      pres
       #GET PASSWORD FROM USER
       read -p $'\e[33mEnter new password for root: \e[0m ' PASSWORD
 
-      #CHECK IF APP ARMOR or SELINUX IS ENABLED (for Debian 10<)
+      #CHECK IF APP ARMOR or SELINUX IS ENABLED (for Debian 10< or for Rocky)
       if cat /etc/os-release | grep -q Debian; then 
       	if (cat /sys/module/apparmor/parameters/enabled | grep -q Y); then echo "AppArmor already enabled"; else echo "You need to enable AppArmor"; fi
       else
@@ -91,13 +109,14 @@ while [ $# -gt 0 ]; do
       ;;
   -b | --bonus)
       if [ "$EUID" -ne 0 ]; then
-        echo "Please run this script as root."
+        printf "Please run this script as sudo. \n(sudo bash setup.sh <parameters> or sudo ./setup.sh <parameters>)\n"
         exit 1
       fi
+      pres
       echo "Do Stuff"
       ;;
   *)
-      echo "Invalid option: $1"
+      printf "${RED}Invalid option:${NC} $1"
 	    usage
       exit 1
       ;;
