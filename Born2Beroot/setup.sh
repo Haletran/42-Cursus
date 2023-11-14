@@ -56,7 +56,7 @@ while [ $# -gt 0 ]; do
 
       usermod -aG sudo $USERNAME
       usermod -aG user42 $USERNAME
-      hostname set-hostname $USERNAME"42"
+      hostnamectl set-hostname $USERNAME"42"
 
       #CHANGE SUDO PASSWORD
       echo "root:$ROOT_PASSWORD" | passwd --stdin root
@@ -92,9 +92,7 @@ while [ $# -gt 0 ]; do
           sudo systemctl start ssh.service
           echo "Port 4242" >> /etc/ssh/sshd_config	  
       fi
-      echo "AllowGroups root" >> /ect/ssh/sshd_config
-      echo "DenyUsers user42" >> /etc/ssh/sshd_config
-      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      echo "PermitRootLogin no" >> /etc/ssh/sshd_config
       systemctl restart ssh
       
       #SETUP PASSWORD EXPIRATION DATE AND POLICIES
@@ -112,6 +110,13 @@ while [ $# -gt 0 ]; do
       sudo echo "Defaults    log_input, log_output" >> /etc/sudoers
       sudo echo "Defaults    requiretty" >> /etc/sudoers
       sudo echo "Defaults    secure_path="$'\042'"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"$'\042' >> /etc/sudoers
+      sudo echo "$USERNAME  ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh" >> /etc/sudoers
+
+      #SETUP CRONJOB
+      #mv monitoring.sh /usr/local/bin/monitoring.sh
+      #sudo crontab -u root -e
+      #*/10 * * * * /usr/local/bin/monitoring.sh
+
       printf "${GREEN}Your $DISTRIB VM is ready, you might need to change your password if you didn't respect policy"
       ;;
   -b | --bonus)
@@ -121,6 +126,15 @@ while [ $# -gt 0 ]; do
       fi
       pres
       echo "Do Stuff for Bonus"
+      ;;
+  -t | --test)
+      if [ "$EUID" -ne 0 ]; then
+        echo "Please run this script as root. (Using this command : su -)"
+        exit 1
+      fi
+      git clone https://github.com/gemartin99/Born2beroot-Tester.git tester
+      cd tester
+      bash Test.sh
       ;;
   *)
       printf "${RED}Invalid option:${NC} $1"
