@@ -69,7 +69,7 @@ while [ $# -gt 0 ]; do
       ;;
     *)
       echo "${RED}Invalid option: $1${NC}"
-	  usage
+	    usage
       exit 1
       ;;
   esac
