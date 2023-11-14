@@ -8,6 +8,10 @@ NC='\033[0m'
 
 set -u
 
+usage() {
+  echo "Usage: $0 [-a <architecture>] [-c <cpu] ... [--all]"
+}
+
 while [ $# -gt 0 ]; do
   case "$1" in
     -a|--architecture)
@@ -65,6 +69,7 @@ while [ $# -gt 0 ]; do
       ;;
     *)
       echo "${RED}Invalid option: $1${NC}"
+	  usage
       exit 1
       ;;
   esac

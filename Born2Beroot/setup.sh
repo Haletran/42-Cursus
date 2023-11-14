@@ -1,11 +1,19 @@
 #!bin/sh
 
-#STEP 1
+# ANSI color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m'
+
+##STEP 1
 # Check if the script is run as root
 if [ "$EUID" -ne 0 ]; then
   echo "Please run this script as root."
   exit 1
 fi
+
+set -u
 
 # READ USERNAME INPUT
 read -p $'\e[33mWhat is your username ?\e[0m ' USERNAME
@@ -26,7 +34,7 @@ echo "root:$PASSWORD" | passwd --stdin root
 if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
 exit 1
 
-#STEP 2
+##STEP 2
 #GET PASSWORD FROM USER
 read -p $'\e[33mEnter new password for root: \e[0m ' PASSWORD
 
