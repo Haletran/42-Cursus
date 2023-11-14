@@ -10,6 +10,8 @@ CYAN='\033[0;96m'
 NC='\033[0m'
 RED='\033[0;31m'
 
+#VARS
+DISTRIB=$(lsb_release -a | grep Di | awk '{print $3}')
 
 usage() {
   printf "\n${RED}Usage:${NC} $0 [-p1 <part1>] [-p2 <part2> ] [-b <bonus>]\n"
@@ -42,6 +44,15 @@ while [ $# -gt 0 ]; do
       if [ $? -eq 0 ]; then echo "sudo installed successfully."; else echo "Failed to install sudo."; fi
       apt-get install -y ufw vim net-tools
       groupadd user42
+      if ! id "$username" &>/dev/null; then
+        useradd -m -s /bin/bash "$USERNAME"
+        echo "$USERNAME:$PASSWORD" | passwd --stdin $USERNAME
+        if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
+      else 
+        echo "$USERNAME:$PASSWORD" | passwd --stdin $USERNAME
+        if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
+      fi
+
       usermod -aG sudo $USERNAME
       usermod -aG user42 $USERNAME
       hostname set-hostname $USERNAME"42"
@@ -49,6 +60,7 @@ while [ $# -gt 0 ]; do
       #CHANGE SUDO PASSWORD
       echo "root:$PASSWORD" | passwd --stdin root
       if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
+      printf "Logout of root and $USERNAME.\n Login as $USERNAME and execute the second part of the script.\n (sudo ./setup.sh -p2)"
       ;;
   -p2 | --part2)
       if [ "$EUID" -ne 0 ]; then
@@ -56,8 +68,6 @@ while [ $# -gt 0 ]; do
         exit 1
       fi
       pres
-      #GET PASSWORD FROM USER
-      read -p $'\e[33mEnter new password for root: \e[0m ' PASSWORD
 
       #CHECK IF APP ARMOR or SELINUX IS ENABLED (for Debian 10< or for Rocky)
       if cat /etc/os-release | grep -q Debian; then 
@@ -102,10 +112,7 @@ while [ $# -gt 0 ]; do
       sudo echo "Defaults    log_input, log_output" >> /etc/sudoers
       sudo echo "Defaults    requiretty" >> /etc/sudoers
       sudo echo "Defaults    secure_path="$'\042'"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"$'\042' >> /etc/sudoers
-      
-      #CHANGE USER PASSWORD
-      echo "$USERNAME:$PASSWORD" | passwd --stdin $USERNAME
-      if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
+      printf "Your $DISTRIB VM is ready"
       ;;
   -b | --bonus)
       if [ "$EUID" -ne 0 ]; then
