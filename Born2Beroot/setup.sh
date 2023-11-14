@@ -40,6 +40,14 @@ while [ $# -gt 0 ]; do
 
       #GET PASSWORD FROM USER
       read -p $'\e[33mEnter new password for root: \e[0m ' PASSWORD
+
+      #CHECK IF APP ARMOR or SELINUX IS ENABLED (for Debian 10<)
+      if cat /etc/os-release | grep -q Debian; then 
+      	if (cat /sys/module/apparmor/parameters/enabled | grep -q Y); then echo "AppArmor already enabled"; else echo "You need to enable AppArmor"; fi
+      else
+      	if (sestatus | grep -q enabled); then echo "SELINUX already enabled"; else echo "You need to enable SELINUX"; fi
+       fi
+      
       
       #SETUP UFW
       echo "IPV6=yes" >> /etc/default/ufw
