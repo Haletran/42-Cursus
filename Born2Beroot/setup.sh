@@ -48,7 +48,6 @@ while [ $# -gt 0 ]; do
       	if (sestatus | grep -q enabled); then echo "SELINUX already enabled"; else echo "You need to enable SELINUX"; fi
        fi
       
-      
       #SETUP UFW
       echo "IPV6=yes" >> /etc/default/ufw
       sudo ufw default deny incoming
