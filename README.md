@@ -3,4 +3,8 @@
 All of my projects during 42 Cursus.
 
 ## Rank 0
-- [ ] libft : 30/09/2023 ->
+- [x] libft : 30/09/2023 -> 12/11/2023 | ✅ 100% |
+## Rank 1
+- [ ] Born2beroot : 12/11/2023 ->
+- [ ] ft_printf : 15/11/2023 ->
+- [ ] get_next_line :
