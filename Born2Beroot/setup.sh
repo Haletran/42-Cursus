@@ -94,8 +94,12 @@ while [ $# -gt 0 ]; do
       #SETUP PASSWORD EXPIRATION DATE AND POLICIES
       sudo chage --mindays 2 --warndays 7 --maxdays 30 $USERNAME
       sudo chage --mindays 2 --warndays 7 --maxdays 30 root
-      sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak
-      sudo echo "password [success=3 default=ignore] pam_unix.so obscure sha512 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 difok=7 enforce_for_root reject_username" >> /etc/pam.d/common-password
+      sudo mv /etc/pam.d/common-password /etc/pam.d/common-password.bak
+      touch /etc/pam.d/common-password
+      sudo echo "password [success=1 default=ignore] pam_unix.so obscure sha512 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 difok=7 enforce_for_root reject_username" >> /etc/pam.d/common-password
+      sudo echo "password requisite pam_deny.so" >> /etc/pam.d/common-password
+      sudo echo "password required pam_permit.so" >> /etc/pam.d/common-password
+
       
       #SETUP SUDO
       read -p $'\e[33mCustom Message for failed Sudo password: \e[0m ' MESSAGE
