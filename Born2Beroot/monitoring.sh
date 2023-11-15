@@ -58,7 +58,7 @@ while [ $# -gt 0 ]; do
       echo "#Disk Usage: $(df -h | grep sda1 | awk '{print $3}')/$(df -h | grep sda1 | awk '{print $2}') ($(df -h | grep sda1 | awk '{print $5}'))"
       echo "#CPU load: $(top -bn1 | awk '/Cpu/ { print $2}')%"
       echo "#Last boot: $(last reboot | head -n 1 | awk '{print $5, $6, $7, $8}')"
-      if lsblk | grep -q "lvm"; then echo "LVM use: yes"; else echo "LVM use: no"; fi
+      if lsblk | grep -q "lvm"; then echo "#LVM use: yes"; else echo "#LVM use: no"; fi
       echo "#Connection TCP: $(ss -neopt state established | wc -l)"
       echo "#User log: $(users | wc -w)"
       echo "#Network: IP $(ip -4 addr show dev enp0s3 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
