@@ -116,7 +116,7 @@ while [ $# -gt 0 ]; do
       sudo echo "$USERNAME  ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh" >> /etc/sudoers
 
       #SETUP CRONJOB
-      #mv monitoring.sh /usr/local/bin/monitoring.sh
+      mv monitoring.sh /usr/local/bin/monitoring.sh
       #sudo crontab -u root -e
       #*/10 * * * * /usr/local/bin/monitoring.sh
 
