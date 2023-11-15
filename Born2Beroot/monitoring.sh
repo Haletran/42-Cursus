@@ -68,7 +68,6 @@ while [ $# -gt 0 ]; do
       ;;
     --allc)
       echo ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC} | wall
-	  echo "----------------------"
       echo "${GREEN}Architecture:${NC} $(uname -a)"
       echo "${GREEN}CPU physical:${NC} $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)"
       echo "${GREEN}vCPU:${NC} $(grep "^processor" /proc/cpuinfo | wc -l)"
@@ -81,7 +80,6 @@ while [ $# -gt 0 ]; do
       echo "${GREEN}User log:${NC} $(users | wc -w)"
       echo "${GREEN}Network:${NC} IP $(ip -4 addr show dev enp0s3 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
       echo "${GREEN}Sudo:${NC} $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
-	    echo "----------------------"
       ;;
     *)
       echo "${RED}Invalid option: $1${NC}"
