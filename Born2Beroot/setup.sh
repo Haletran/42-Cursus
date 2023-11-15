@@ -73,13 +73,6 @@ while [ $# -gt 0 ]; do
 
       #GET USERNAME
       USERNAME=$(whoami)
-
-      #CHECK IF APP ARMOR or SELINUX IS ENABLED (for Debian 10< or for Rocky)
-      if cat /etc/os-release | grep -q Debian; then 
-      	if (cat /sys/module/apparmor/parameters/enabled | grep -q Y); then echo "AppArmor already enabled"; else echo "You need to enable AppArmor"; fi
-      else
-      	if (sestatus | grep -q enabled); then echo "SELINUX already enabled"; else echo "You need to enable SELINUX"; fi
-       fi
       
       #SETUP UFW
       echo "IPV6=yes" >> /etc/default/ufw
@@ -135,6 +128,14 @@ while [ $# -gt 0 ]; do
         echo "Please run this script as root. (Using this command : su -)"
         exit 1
       fi
+      #CHECK IF APP ARMOR or SELINUX IS ENABLED (for Debian 10< or for Rocky)
+      if cat /etc/os-release | grep -q Debian; then 
+      	if (cat /sys/module/apparmor/parameters/enabled | grep -q Y); then echo "AppArmor already enabled"; else echo "You need to enable AppArmor"; fi
+      else
+      	if (sestatus | grep -q enabled); then echo "SELINUX already enabled"; else echo "You need to enable SELINUX"; fi
+      fi
+
+      #CLONE AND USE TESTER
       git clone https://github.com/gemartin99/Born2beroot-Tester.git tester
       cd tester
       bash Test.sh
