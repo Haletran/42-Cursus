@@ -81,7 +81,7 @@ while [ $# -gt 0 ]; do
       sudo ufw enable
       
       #SETUP SSH
-      if [systemctl is-active sshd.service | grep -q "active"]; then
+      if (systemctl is-active sshd.service | grep -q "active"); then
           echo "PORT 4242" >> /etc/ssh/sshd_config
       else 
           sudo systemctl enable ssh.service
