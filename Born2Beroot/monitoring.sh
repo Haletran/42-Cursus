@@ -62,7 +62,7 @@ while [ $# -gt 0 ]; do
       if lsblk | grep -q "lvm"; then echo "LVM use: yes"; else echo "LVM use: no"; fi
       echo "#Connection TCP: $(ss -neopt state established | wc -l)"
       echo "#User log: $(users | wc -w)"
-      echo "#Network: IP $(ip -4 addr show dev eno1 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
+      echo "#Network: IP $(ip -4 addr show dev enp0s3 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
       echo "#Sudo: $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
 	    echo "----------------------"
       ;;
@@ -79,7 +79,7 @@ while [ $# -gt 0 ]; do
       if lsblk | grep -q "lvm"; then echo "${GREEN}LVM use:${NC} yes"; else echo "${GREEN}LVM use:${NC} no"; fi
       echo "${GREEN}Connection TCP:${NC} $(ss -neopt state established | wc -l)"
       echo "${GREEN}User log:${NC} $(users | wc -w)"
-      echo "${GREEN}Network:${NC} IP $(ip -4 addr show dev eno1 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
+      echo "${GREEN}Network:${NC} IP $(ip -4 addr show dev enp0s3 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
       echo "${GREEN}Sudo:${NC} $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
 	    echo "----------------------"
       ;;
