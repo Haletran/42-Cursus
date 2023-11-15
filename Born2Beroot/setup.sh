@@ -61,6 +61,7 @@ while [ $# -gt 0 ]; do
       #CHANGE SUDO PASSWORD
       echo "root:$ROOT_PASSWORD" | chpasswd
       if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
+      cp -r "../Born2Beroot" "/home/$USERNAME/"
       printf "Logout of root and $USERNAME.\n Login as $USERNAME and execute the second part of the script.\n (sudo ./setup.sh -p2)"
       ;;
   -p2 | --part2)
