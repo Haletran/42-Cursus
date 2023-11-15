@@ -36,8 +36,8 @@ while [ $# -gt 0 ]; do
       # READ USER INPUT
       read -p $'\e[33mWhat is your username ?\e[0m ' USERNAME
       printf "${RED}~10 characters long, an uppercase letter, a lowercase letter, \nand a number, not 3 consecutive identical characters.\n${NC}"
-      read -p "Enter the password for user: " PASSWORD
-      read -p "Enter the password for root: " ROOT_PASSWORD
+      #read -p "Enter the password for user: " PASSWORD
+      #read -p "Enter the password for root: " ROOT_PASSWORD
 
       #BASIC SETUP
       apt-get update && sudo apt-get upgrade -y
@@ -47,11 +47,11 @@ while [ $# -gt 0 ]; do
       groupadd user42
       if ! id "$USERNAME" &>/dev/null; then
         useradd -m -s /bin/bash "$USERNAME"
-        echo "$USERNAME:$PASSWORD" | chpasswd 
-        if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
-      else 
-        echo "$USERNAME:$PASSWORD" | chpasswd
-        if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
+        #echo "$USERNAME:$PASSWORD" | chpasswd 
+        #if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
+      #else 
+        #echo "$USERNAME:$PASSWORD" | chpasswd
+        #if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
       fi
 
       usermod -aG sudo $USERNAME
@@ -59,8 +59,8 @@ while [ $# -gt 0 ]; do
       hostnamectl set-hostname $USERNAME"42"
 
       #CHANGE SUDO PASSWORD
-      echo "root:$ROOT_PASSWORD" | chpasswd
-      if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
+      #echo "root:$ROOT_PASSWORD" | chpasswd
+      #if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
       cp -r "../Born2Beroot" "/home/$USERNAME/"
       printf "Logout of root and $USERNAME.\n Login as $USERNAME and execute the second part of the script.\n (sudo ./setup.sh -p2)"
       ;;
