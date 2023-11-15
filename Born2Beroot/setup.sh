@@ -120,7 +120,7 @@ while [ $# -gt 0 ]; do
       #sudo crontab -u root -e
       #*/10 * * * * /usr/local/bin/monitoring.sh
 
-      printf "${GREEN}Your $DISTRIB VM is ready, you might need to change your password if you didn't respect policy"
+      printf "${YELLOW}Your $DISTRIB VM is ready, you might need to change your password if you didn't respect policy"
       ;;
   -b | --bonus)
       if [ "$EUID" -ne 0 ]; then
