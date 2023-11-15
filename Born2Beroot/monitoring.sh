@@ -51,7 +51,23 @@ while [ $# -gt 0 ]; do
       echo "${GREEN}Sudo:${NC} $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
       ;;
     --all)
-      echo ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC}
+      echo "----------------------"
+      echo "#Architecture: $(uname -a)"
+      echo "#CPU physical: $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)"
+      echo "#vCPU: $(grep "^processor" /proc/cpuinfo | wc -l)"
+	  echo "#Memory Usage: $(free -m | awk 'NR==2{printf "%.2f%%\t\t", $3*100/$2 }')"
+      echo "#Disk Usage: $(df -h | grep sda1 | awk '{print $3}')/$(df -h | grep sda1 | awk '{print $2}') ($(df -h | grep sda1 | awk '{print $5}'))"
+      echo "#CPU load: $(top -bn1 | awk '/Cpu/ { print $2}')%"
+      echo "#Last boot: $(last reboot | head -n 1 | awk '{print $5, $6, $7, $8}')"
+      if lsblk | grep -q "lvm"; then echo "LVM use: yes"; else echo "LVM use: no"; fi
+      echo "#Connection TCP: $(ss -neopt state established | wc -l)"
+      echo "#User log: $(users | wc -w)"
+      echo "#Network: IP $(ip -4 addr show dev eno1 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
+      echo "#Sudo: $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
+	    echo "----------------------"
+      ;;
+    --allc)
+      echo ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC} | wall
 	  echo "----------------------"
       echo "${GREEN}Architecture:${NC} $(uname -a)"
       echo "${GREEN}CPU physical:${NC} $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)"
@@ -65,7 +81,7 @@ while [ $# -gt 0 ]; do
       echo "${GREEN}User log:${NC} $(users | wc -w)"
       echo "${GREEN}Network:${NC} IP $(ip -4 addr show dev eno1 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
       echo "${GREEN}Sudo:${NC} $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
-	  echo "----------------------"
+	    echo "----------------------"
       ;;
     *)
       echo "${RED}Invalid option: $1${NC}"
