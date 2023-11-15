@@ -88,7 +88,7 @@ while [ $# -gt 0 ]; do
       
       #SETUP SSH
       STATUS="$(systemctl is-active sshd.service)"
-      if "${STATUS}" = "active"; then
+      if ("${STATUS}" = "active"); then
           echo "PORT 4242" >> /etc/ssh/sshd_config
       else 
           sudo systemctl enable ssh.service
