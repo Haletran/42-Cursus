@@ -10,6 +10,19 @@ CYAN='\033[0;96m'
 NC='\033[0m'
 RED='\033[0;31m'
 
+#PASSWORD :
+# P@ssw0rd123
+#L1m!t3dP@ss
+#Ch0c0l@t3C@ke
+#R@1nb0w2Sky
+#F1sh1ngT!m3
+#S@lt&Pepp3r1
+#G00dM0rn!ng!
+#B@seb@llL0v3r
+#W1nt3rW@nd3rl@nd
+#H@pp1n3ss&J0y
+#D@nc3InTh3Ra1n
+
 #VARS
 DISTRIB=$(lsb_release -a | grep Di | awk '{print $3}')
 
