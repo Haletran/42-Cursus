@@ -56,7 +56,7 @@ while [ $# -gt 0 ]; do
       apt-get update && sudo apt-get upgrade -y
       apt-get install -y sudo
       if [ $? -eq 0 ]; then echo "sudo installed successfully."; else echo "Failed to install sudo."; fi
-      apt-get install -y ufw vim net-tools
+      apt-get install -y ufw vim net-tools libpam-pwquality
       groupadd user42
       if ! id "$USERNAME" &>/dev/null; then
         useradd -m -s /bin/bash "$USERNAME"
