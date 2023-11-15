@@ -121,7 +121,7 @@ while [ $# -gt 0 ]; do
         exit 1
       fi
       pres
-      echo "Do Stuff for Bonus"
+      echo "Figure out by yourself how to do the bonus part"
       ;;
   -t | --test)
       if [ "$EUID" -ne 0 ]; then
