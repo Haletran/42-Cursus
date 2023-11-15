@@ -6,12 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/08 14:23:52 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/12 10:52:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*ft_calloc(size_t elementCount, size_t elementSize)
 {

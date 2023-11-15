@@ -6,12 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:24:21 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/12 10:48:34 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/12 10:52:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strdup(const char *src)
 {

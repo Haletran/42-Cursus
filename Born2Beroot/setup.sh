@@ -45,12 +45,12 @@ while [ $# -gt 0 ]; do
       if [ $? -eq 0 ]; then echo "sudo installed successfully."; else echo "Failed to install sudo."; fi
       apt-get install -y ufw vim net-tools
       groupadd user42
-      if ! id "$username" &>/dev/null; then
+      if ! id "$USERNAME" &>/dev/null; then
         useradd -m -s /bin/bash "$USERNAME"
-        echo "$USERNAME:$PASSWORD" | passwd --stdin $USERNAME
+        echo "$USERNAME:$PASSWORD" | chpasswd 
         if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
       else 
-        echo "$USERNAME:$PASSWORD" | passwd --stdin $USERNAME
+        echo "$USERNAME:$PASSWORD" | chpasswd
         if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
       fi
 
@@ -59,7 +59,7 @@ while [ $# -gt 0 ]; do
       hostnamectl set-hostname $USERNAME"42"
 
       #CHANGE SUDO PASSWORD
-      echo "root:$ROOT_PASSWORD" | passwd --stdin root
+      echo "root:$ROOT_PASSWORD" | chpasswd
       if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
       printf "Logout of root and $USERNAME.\n Login as $USERNAME and execute the second part of the script.\n (sudo ./setup.sh -p2)"
       ;;
@@ -69,6 +69,9 @@ while [ $# -gt 0 ]; do
         exit 1
       fi
       pres
+
+      #GET USERNAME
+      USERNAME=$(whoami)
 
       #CHECK IF APP ARMOR or SELINUX IS ENABLED (for Debian 10< or for Rocky)
       if cat /etc/os-release | grep -q Debian; then 
