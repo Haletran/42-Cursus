@@ -10,6 +10,19 @@ CYAN='\033[0;96m'
 NC='\033[0m'
 RED='\033[0;31m'
 
+#PASSWORD :
+# P@ssw0rd123
+#L1m!t3dP@ss
+#Ch0c0l@t3C@ke
+#R@1nb0w2Sky
+#F1sh1ngT!m3
+#S@lt&Pepp3r1
+#G00dM0rn!ng!
+#B@seb@llL0v3r
+#W1nt3rW@nd3rl@nd
+#H@pp1n3ss&J0y
+#D@nc3InTh3Ra1n
+
 #VARS
 DISTRIB=$(lsb_release -a | grep Di | awk '{print $3}')
 
@@ -36,22 +49,22 @@ while [ $# -gt 0 ]; do
       # READ USER INPUT
       read -p $'\e[33mWhat is your username ?\e[0m ' USERNAME
       printf "${RED}~10 characters long, an uppercase letter, a lowercase letter, \nand a number, not 3 consecutive identical characters.\n${NC}"
-      read -p "Enter the password for user: " PASSWORD
-      read -p "Enter the password for root: " ROOT_PASSWORD
+      #read -p "Enter the password for user: " PASSWORD
+      #read -p "Enter the password for root: " ROOT_PASSWORD
 
       #BASIC SETUP
       apt-get update && sudo apt-get upgrade -y
       apt-get install -y sudo
       if [ $? -eq 0 ]; then echo "sudo installed successfully."; else echo "Failed to install sudo."; fi
-      apt-get install -y ufw vim net-tools
+      apt-get install -y ufw vim net-tools libpam-pwquality
       groupadd user42
       if ! id "$USERNAME" &>/dev/null; then
         useradd -m -s /bin/bash "$USERNAME"
-        echo "$USERNAME:$PASSWORD" | chpasswd 
-        if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
-      else 
-        echo "$USERNAME:$PASSWORD" | chpasswd
-        if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
+        #echo "$USERNAME:$PASSWORD" | chpasswd 
+        #if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
+      #else 
+        #echo "$USERNAME:$PASSWORD" | chpasswd
+        #if [ $? -eq 0 ]; then echo "$USERNAME password changed successfully."; else echo "Failed to change $USERNAME password."; fi
       fi
 
       usermod -aG sudo $USERNAME
@@ -59,8 +72,8 @@ while [ $# -gt 0 ]; do
       hostnamectl set-hostname $USERNAME"42"
 
       #CHANGE SUDO PASSWORD
-      echo "root:$ROOT_PASSWORD" | chpasswd
-      if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
+      #echo "root:$ROOT_PASSWORD" | chpasswd
+      #if [ $? -eq 0 ]; then echo "Root password changed successfully."; else echo "Failed to change root password."; fi
       cp -r "../Born2Beroot" "/home/$USERNAME/"
       printf "Logout of root and $USERNAME.\n Login as $USERNAME and execute the second part of the script.\n (sudo ./setup.sh -p2)"
       ;;
@@ -81,7 +94,7 @@ while [ $# -gt 0 ]; do
       sudo ufw enable
       
       #SETUP SSH
-      if [systemctl is-active sshd.service | grep -q "active"]; then
+      if (systemctl is-active sshd.service | grep -q "active"); then
           echo "PORT 4242" >> /etc/ssh/sshd_config
       else 
           sudo systemctl enable ssh.service
@@ -94,8 +107,9 @@ while [ $# -gt 0 ]; do
       #SETUP PASSWORD EXPIRATION DATE AND POLICIES
       sudo chage --mindays 2 --warndays 7 --maxdays 30 $USERNAME
       sudo chage --mindays 2 --warndays 7 --maxdays 30 root
-      sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak
-      sudo echo "password [success=3 default=ignore] pam_unix.so obscure sha512 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 difok=7 enforce_for_root reject_username" >> /etc/pam.d/common-password
+      sudo mv /etc/pam.d/common-password /etc/pam.d/common-password.bak
+      sudo echo "password        requisite         pam_pwquality.so minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 difok=7 enforce_for_root reject_username" >> /etc/pam.d/common-password
+
       
       #SETUP SUDO
       read -p $'\e[33mCustom Message for failed Sudo password: \e[0m ' MESSAGE

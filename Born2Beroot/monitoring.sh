@@ -74,7 +74,7 @@ while [ $# -gt 0 ]; do
       echo "#Sudo: $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
       ;;
     --allc)
-      echo ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC} | wall
+      echo ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC}
 	  echo "----------------------"
       echo "${GREEN}Architecture:${NC} $(uname -a)"
       echo "${GREEN}CPU physical:${NC} $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)"
