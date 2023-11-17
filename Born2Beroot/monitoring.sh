@@ -61,7 +61,7 @@ while [ $# -gt 0 ]; do
 printf "${RED}====${NC}HARDWARE INFORMATION${RED}====${NC}\n"
 cpu
 gpu
-printf "${GREEN}RAM:${NC} %s/%s\n" "$(df -h | grep sda1 | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB"
+printf "${GREEN}RAM:${NC} %s/%s\n" "$(free -m | grep Mem | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB"
 printf "${RED}====${NC}SOFTWARE INFORMATION${RED}====${NC}\n"
 opsys
 printf "${GREEN}Host:${NC} $host\n"
