@@ -2,6 +2,10 @@
 
 #OTHERS USEFULS SCRIPTS
 source utils.sh
+terminal_name=$(tty)
+kernel=$(uname -r)
+host=$(hostname)
+
 
 # ANSI color codes
 RED='\033[0;31m'
@@ -54,18 +58,30 @@ while [ $# -gt 0 ]; do
       printf "${GREEN}Sudo:${NC} $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
       ;;
     --all)
-      echo "#Architecture: $(uname -a)"
-      echo "#CPU physical: $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)"
-      echo "#vCPU: $(grep "^processor" /proc/cpuinfo | wc -l)"
-	    echo "#Memory Usage: $(free -m | awk 'NR==2{printf "%.2f%%\t\t", $3*100/$2 }')"
-      echo "#Disk Usage: $(df -h | grep sda1 | awk '{print $3}')/$(df -h | grep sda1 | awk '{print $2}') ($(df -h | grep sda1 | awk '{print $5}'))"
-      echo "#CPU load: $(top -bn1 | awk '/Cpu/ { print $2}')%"
-      echo "#Last boot: $(last reboot | head -n 1 | awk '{print $5, $6, $7, $8}')"
-      if lsblk | grep -q "lvm"; then echo "#LVM use: yes"; else echo "#LVM use: no"; fi
-      echo "#Connection TCP: $(ss -neopt state established | wc -l)"
-      echo "#User log: $(users | wc -w)"
-      echo "#Network: IP $(ip -4 addr show dev eth0 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')"
-      echo "#Sudo: $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
+echo "====HARDWARE INFORMATION===="
+cpu
+gpu
+printf "${GREEN}RAM:${NC} %s/%s\n" "$(df -h | grep sdb1 | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')"
+echo "====SOFTWARE INFORMATION===="
+opsys
+printf "${GREEN}Host:${NC} $host\n"
+printf "${GREEN}Kernel:${NC} $kernel\n"
+printf "${GREEN}Shell:${NC} $terminal_name\n" 
+Packages
+echo "====SYSTEM INFORMATION===="
+printf "${GREEN}Architecture:${NC} $(uname -o -p )\n"
+printf "${GREEN}Date:${NC} $(date)\n"
+printf "${GREEN}Last Reboot:${NC} $(last reboot | head -n 1 | awk '{print $5, $6, $7, $8}')\n"
+printf "${GREEN}Uptime:${NC} $(uptime -p)\n"
+printf "${GREEN}Locale:${NC} $(locale | grep "LANG=" | awk -F= '{print $2}')\n"
+echo "====INTERNET INFORMATION===="
+internet
+printf "${GREEN}IP: ${NC}$(ip -4 addr show dev eth0 | awk '/inet / {print $2}')\n"
+printf "${GREEN}MAC: ${NC}$(ip address | grep ether | head -n 1 | awk '{print $2}')\n"
+echo "====SERVICES STATUS===="
+if systemctl is-active --quiet "ssh"; then printf "${GREEN}SSH:${NC} Running\n" ; else printf "${GREEN}SSH:${NC} Not Running\n"; fi
+if systemctl is-active --quiet "ufw"; then printf "${GREEN}UFW:${NC} Running\n" ; else printf "${GREEN}UFW:${NC} Not Running\n"; fi
+echo "============================"
       ;;
     --allc)
       printf ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC}

@@ -28,9 +28,9 @@ internet()
 wget -q --spider http://google.com
 
 if [ $? -eq 0 ]; then
-    printf "${GREEN}Internet:${NC} ONLINE"
+    printf "${GREEN}Internet:${NC} ONLINE\n"
 else
-    print "${GREEN}Internet:${NC} OFFLINE"
+    print "${GREEN}Internet:${NC} OFFLINE\n"
 fi
 }
 
@@ -104,16 +104,12 @@ echo "====HARDWARE INFORMATION===="
 cpu
 gpu
 printf "${GREEN}RAM:${NC} %s/%s\n" "$(df -h | grep sdb1 | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')"
-
-
 echo "====SOFTWARE INFORMATION===="
 opsys
 printf "${GREEN}Host:${NC} $host\n"
 printf "${GREEN}Kernel:${NC} $kernel\n"
 printf "${GREEN}Shell:${NC} $terminal_name\n" 
 Packages
-
-
 echo "====SYSTEM INFORMATION===="
 printf "${GREEN}Architecture:${NC} $(uname -o -p )\n"
 printf "${GREEN}Date:${NC} $(date)\n"
@@ -122,7 +118,7 @@ printf "${GREEN}Uptime:${NC} $(uptime -p)\n"
 printf "${GREEN}Locale:${NC} $(locale | grep "LANG=" | awk -F= '{print $2}')\n"
 echo "====INTERNET INFORMATION===="
 internet
-printf "\n${GREEN}IP: ${NC}$(ip -4 addr show dev eth0 | awk '/inet / {print $2}')\n"
+printf "${GREEN}IP: ${NC}$(ip -4 addr show dev eth0 | awk '/inet / {print $2}')\n"
 printf "${GREEN}MAC: ${NC}$(ip address | grep ether | head -n 1 | awk '{print $2}')\n"
 echo "====SERVICES STATUS===="
 if systemctl is-active --quiet "ssh"; then printf "${GREEN}SSH:${NC} Running\n" ; else printf "${GREEN}SSH:${NC} Not Running\n"; fi
