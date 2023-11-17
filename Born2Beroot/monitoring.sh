@@ -75,8 +75,8 @@ while [ $# -gt 0 ]; do
       printf "${GREEN}vCPU:${NC} $(grep "^processor" /proc/cpuinfo | wc -l)\n"
       printf "${GREEN}MemoryUsage:${NC} " && mem
       printf "${GREEN}DiskUsage:${NC} " && disk
-      printf "${GREEN}Disk Usage: ${NC}%s/%s (%s)" "$(df -h | grep sda1 | awk '{print $3}')" "$(df -h | grep sda1 | awk '{print $2}')" "$(df -h | grep sda1 | awk '{print $5}')"
-      printf "\n${GREEN}CPU load: ${NC}%s" "$(top -bn1 | awk '/Cpu/ { print $2}')"
+      #printf "${GREEN}Disk Usage: ${NC}%s/%s (%s)" "$(df -h | grep sda1 | awk '{print $3}')" "$(df -h | grep sda1 | awk '{print $2}')" "$(df -h | grep sda1 | awk '{print $5}')"
+      printf "${GREEN}CPU load: ${NC}%s%%" "$(top -bn1 | awk '/Cpu/ { print $2}')"
       printf "\n${GREEN}Last boot: %s %s${NC}\n" "$(last reboot | head -n 1 | awk '{print $5, $6, $7, $8}')"
       if lsblk | grep -q "lvm"; then printf "${GREEN}LVM use:${NC} yes\n"; else printf "${GREEN}LVM use:${NC} no\n"; fi
       printf "${GREEN}Connection TCP:${NC} $(ss -neopt state established | wc -l)\n"
