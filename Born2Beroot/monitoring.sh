@@ -76,7 +76,7 @@ printf "${GREEN}Uptime:${NC} $(uptime -p)\n"
 printf "${GREEN}Locale:${NC} $(locale | grep "LANG=" | awk -F= '{print $2}')\n"
 echo "====INTERNET INFORMATION===="
 internet
-printf "${GREEN}IP: ${NC}$(ip -4 addr show dev eth0 | awk '/inet / {print $2}')\n"
+printf "${GREEN}IP: ${NC}$(ip -4 addr show dev enp0s3 | awk '/inet / {print $2}')\n"
 printf "${GREEN}MAC: ${NC}$(ip address | grep ether | head -n 1 | awk '{print $2}')\n"
 echo "====SERVICES STATUS===="
 if systemctl is-active --quiet "ssh"; then printf "${GREEN}SSH:${NC} Running\n" ; else printf "${GREEN}SSH:${NC} Not Running\n"; fi
