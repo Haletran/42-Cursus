@@ -65,6 +65,7 @@ cpu
 printf "${GREEN}CPU load: ${NC}%s%%\n" "$(top -bn1 | awk '/Cpu/ { print $2}')"
 gpu
 printf "${GREEN}RAM:${NC} %s/%s\n" "$(free -m | grep Mem | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB"
+printf "${GREEN}DiskUsage:${NC} " && disk
 printf "${RED}====${NC}SOFTWARE INFORMATION${RED}====${NC}\n"
 opsys
 printf "${GREEN}Host:${NC} $host\n"
@@ -87,6 +88,7 @@ printf "${GREEN}User log:${NC} $(users | wc -w)\n"
 printf "${RED}====${NC}SERVICES STATUS${RED}====${NC}\n"
 if systemctl is-active --quiet "ssh"; then printf "${GREEN}SSH:${NC} Running\n" ; else printf "${GREEN}SSH:${NC} Not Running\n"; fi
 if systemctl is-active --quiet "ufw"; then printf "${GREEN}UFW:${NC} Running\n" ; else printf "${GREEN}UFW:${NC} Not Running\n"; fi
+if lsblk | grep -q "lvm"; then printf "${GREEN}LVM use:${NC} yes\n"; else printf "${GREEN}LVM use:${NC} no\n"; fi
 printf "${RED}============================${NC}\n"
       ;;
     --allc)
