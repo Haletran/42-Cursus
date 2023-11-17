@@ -12,8 +12,8 @@ NC='\033[0m'
 disk()
 {
 let diskmax=$(df -h | grep sdb1 | awk '{print $2}' | sed 's/.$//')
-let diskmin=$(df -h | grep sdb1 | awk '{print $3}' | sed 's/.$//')/1000
-echo $(printBar $diskmin $diskmax 7) $(df -h | grep sdb1 | awk '{print $5}')
+let diskmin=$(df -h | grep sdb1 | awk '{print $3}' | sed 's/.$//')
+
 }
 
 mem()
