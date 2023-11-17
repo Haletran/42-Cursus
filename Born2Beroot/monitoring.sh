@@ -65,7 +65,7 @@ cpu
 printf "${GREEN}CPU load: ${NC}%s%%\n" "$(top -bn1 | awk '/Cpu/ { print $2}')"
 gpu
 printf "${GREEN}RAM:${NC} %s/%s\n" "$(free -m | grep Mem | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB"
-printf "${GREEN}DiskUsage:${NC} \n" "$(df -h | grep sdb1 | awk '{print $3}' | sed 's/.$//') / $(df -h | grep sdb1 | awk '{print $2}' | sed 's/.$//')"
+printf "${GREEN}DiskUsage:${NC} \n" "$(df -h | grep sda1 | awk '{print $3}' | sed 's/.$//') / $(df -h | grep sda1 | awk '{print $2}' | sed 's/.$//')"
 printf "${RED}====${NC}SOFTWARE INFORMATION${RED}====${NC}\n"
 opsys
 printf "${GREEN}Host:${NC} $host\n"
