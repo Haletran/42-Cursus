@@ -71,7 +71,9 @@ cpu()
 if [ -e "/proc/cpuinfo" ]; then
     # Get the CPU name using grep and awk
     cpu_name=$(grep -m1 "model name" /proc/cpuinfo | awk -F: '{print $2}' | xargs)
-    printf "${GREEN}CPU:${NC} $cpu_name\n"
+    cpu_phy=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)
+    vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)
+    printf "${GREEN}CPU:${NC} %s \n" "$cpu_name [Physical: $cpu_phy / VCPU: $vcpu]"
 else
     echo "/proc/cpuinfo not found. Unable to determine CPU name."
 fi
