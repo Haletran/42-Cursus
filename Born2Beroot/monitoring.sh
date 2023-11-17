@@ -58,30 +58,30 @@ while [ $# -gt 0 ]; do
       printf "${GREEN}Sudo:${NC} $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
       ;;
     --all)
-echo "====HARDWARE INFORMATION===="
+printf "${RED}====${NC}HARDWARE INFORMATION${RED}====${NC}\n"
 cpu
 gpu
 printf "${GREEN}RAM:${NC} %s/%s\n" "$(df -h | grep sda1 | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB"
-echo "====SOFTWARE INFORMATION===="
+printf "${RED}====${NC}SOFTWARE INFORMATION${RED}====${NC}\n"
 opsys
 printf "${GREEN}Host:${NC} $host\n"
 printf "${GREEN}Kernel:${NC} $kernel\n"
 printf "${GREEN}Shell:${NC} $terminal_name\n" 
 Packages
-echo "====SYSTEM INFORMATION===="
+printf "${RED}====${NC}SYSTEM INFORMATION${RED}====${NC}\n"
 printf "${GREEN}Architecture:${NC} $(uname -o -p )\n"
 printf "${GREEN}Date:${NC} $(date)\n"
 printf "${GREEN}Last Reboot:${NC} $(last reboot | head -n 1 | awk '{print $5, $6, $7, $8}')\n"
 printf "${GREEN}Uptime:${NC} $(uptime -p)\n"
 printf "${GREEN}Locale:${NC} $(locale | grep "LANG=" | awk -F= '{print $2}')\n"
-echo "====INTERNET INFORMATION===="
+printf "${RED}====${NC}INTERNET INFORMATION${RED}====${NC}\n"
 internet
 printf "${GREEN}IP: ${NC}$(ip -4 addr show dev enp0s3 | awk '/inet / {print $2}')\n"
 printf "${GREEN}MAC: ${NC}$(ip address | grep ether | head -n 1 | awk '{print $2}')\n"
-echo "====SERVICES STATUS===="
+printf "${RED}====${NC}SERVICES STATUS${RED}====${NC}\n"
 if systemctl is-active --quiet "ssh"; then printf "${GREEN}SSH:${NC} Running\n" ; else printf "${GREEN}SSH:${NC} Not Running\n"; fi
 if systemctl is-active --quiet "ufw"; then printf "${GREEN}UFW:${NC} Running\n" ; else printf "${GREEN}UFW:${NC} Not Running\n"; fi
-echo "============================"
+printf "${RED}============================${NC}\n"
       ;;
     --allc)
       printf ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC}
