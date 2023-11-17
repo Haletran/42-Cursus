@@ -11,9 +11,8 @@ NC='\033[0m'
 #FONCTIONS
 disk()
 {
-let diskmax=$(df -h | grep sdb1 | awk '{print $2}' | sed 's/.$//')
-let diskmin=$(df -h | grep sdb1 | awk '{print $3}' | sed 's/.$//')
 
+printf "${GREEN}DiskUsage:${NC} $(df -h / | awk 'NR==2 {print $3}') / $(df -h / | awk 'NR==2 {print $2}')\n"
 }
 
 mem()
