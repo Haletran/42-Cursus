@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:57:01 by baptiste          #+#    #+#             */
-/*   Updated: 2023/11/15 14:48:11 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/20 16:36:24 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(void)
 	printf("%%\n");			// Prints a percent sign
 	printf("Hello\n");      //Print without %
 	*/
-	ft_printf("Hello %d %d %d %d %d %d ", "Hello");
+	ft_printf("Hello : %s", "Hello");
 	
 
 }

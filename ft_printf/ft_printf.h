@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:57:01 by baptiste          #+#    #+#             */
-/*   Updated: 2023/11/15 14:30:55 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/20 16:17:05 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdio.h>
+#include "../libft/libft.h"
+
 
 void ft_printf(const char *format, ...);
 
