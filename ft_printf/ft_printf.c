@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:07:59 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/20 17:27:20 by baptiste         ###   ########.fr       */
+/*   Updated: 2023/11/20 17:40:36 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,12 @@
 
 int check_del(char format)
 {
-	if (format == '%')
-		return 1;
-	return 0;
+	return (format == '%');
 }
 
-int check_p(char format)
+int check_specifier(char format, char specifier)
 {
-	if (format == 's')
-		return 1;
-	return 0;
+	return (format == specifier);
 }
 
 void ft_printf(const char *format, ...)
@@ -44,8 +40,14 @@ void ft_printf(const char *format, ...)
 		if (check_del(format[c]) == 1)
 		{
 			c++;
-			if (check_p(format[c]) == 1)
+			if (check_specifier(format[c], 's'))
 				ft_putstr_fd(va_arg(args, char *), 1);
+			else if (check_specifier(format[c], 'd'))
+				ft_putnbr_fd(va_arg(args, int), 1);
+			else if (check_specifier(format[c], 'c'))
+				ft_putchar_fd(va_arg(args, int), 1);
+			else if (check_specifier(format[c], '%'))
+				ft_putchar_fd('%', 1);
 		}
 		else
 			write(1, &format[c], 1);

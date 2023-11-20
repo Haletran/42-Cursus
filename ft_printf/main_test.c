@@ -26,7 +26,5 @@ int main(void)
 	printf("%%\n");			// Prints a percent sign
 	printf("Hello\n");      //Print without %
 	*/
-	ft_printf("1 : %s  2 : %s", "Hello", "Goodbye");
-	
-
+	ft_printf("1 : %s  2 : %s  3 : %d 4 : %c  5 : %%", "Hello", "Goodbye", 10, 'd');
 }
