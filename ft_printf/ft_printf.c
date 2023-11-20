@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:07:59 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/20 17:54:55 by baptiste         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:16:11 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int check_specifier(char format, char specifier)
 	return (format == specifier);
 }
 
-void ft_printf(const char *format, ...)
+int ft_printf(const char *format, ...)
 {
 	int c;
 
 	c = 0;
 	if (!format)
-		return ;
+		return 0;
 	va_list args;
 	va_start(args, format);
 	while (format[c] != '\0')
@@ -54,6 +54,6 @@ void ft_printf(const char *format, ...)
 			write(1, &format[c], 1);
 		c++;
 	}
-
 	va_end(args);
+	return(ft_strlen(format));
 }
