@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:07:59 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/20 17:40:36 by baptiste         ###   ########.fr       */
+/*   Updated: 2023/11/20 17:54:55 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ void ft_printf(const char *format, ...)
 	int c;
 
 	c = 0;
+	if (!format)
+		return ;
 	va_list args;
 	va_start(args, format);
-
 	while (format[c] != '\0')
 	{
 		if (check_del(format[c]) == 1)
