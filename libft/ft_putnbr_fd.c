@@ -6,19 +6,38 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:07:24 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/07 17:26:29 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/22 16:19:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putnbr_fd(int n, int fd)
+static int	int_len(int nbr)
 {
+	int	len;
+
+	len = 0;
+	if (nbr <= 0)
+	{
+		len++;
+	}
+	while (nbr != 0)
+	{
+		len++;
+		nbr = nbr / 10;
+	}
+	return (len);
+}
+
+int	ft_putnbr_fd(int n, int fd)
+{
+	int tmp;
+	tmp = int_len(n);
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
-		return ;
+		return 0;
 	}
 	if (n < 0)
 	{
@@ -33,4 +52,5 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 		ft_putchar_fd('0' + n, fd);
+	return (tmp);
 }

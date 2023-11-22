@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:07:59 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/21 12:26:36 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:25:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 #include <stdarg.h>
 #include "ft_printf.h"
 
-void	ft_putnbr_special(int n, int fd)
+void	ft_putnbr_special(unsigned int n, unsigned int fd)
 {
-	if(n < 0)
-		ft_putstr_fd("4294967295", 1);
-	else if (n > 9)
+	if (n > 9)
 	{
 		ft_putnbr_fd(n / 10, fd);
 		ft_putnbr_fd(n % 10, fd);
@@ -30,24 +28,23 @@ void	ft_putnbr_special(int n, int fd)
 		ft_putchar_fd('0' + n, fd);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr_base(long long nb, char *base)
 {
-	if (nb < 0)
+	if(nb > 0)
 	{
-		nb = -nb;
-		ft_putnbr(nb);
+			ft_putnbr_base(nb/16, base);
+			ft_putchar_fd(base[nb % 16], 1);
 	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr (nb % 10);
-	}
-	else
-		ft_putchar_fd('0' + nb, 1);
 }
 
+void	v_pointer(void *ptr, char *base)
+{
 
-
+	long long x;
+	x = (long long)ptr;
+	ft_putstr_fd("0x", 1);
+	ft_putnbr_base(x, base);
+}	
 
 int check_del(char format)
 {
@@ -62,7 +59,9 @@ int check_specifier(char format, char specifier)
 int ft_printf(const char *format, ...)
 {
 	int c;
+	int len;
 
+	len = 0;
 	c = 0;
 	if (!format)
 		return 0;
@@ -74,24 +73,28 @@ int ft_printf(const char *format, ...)
 		{
 			c++;
 			if (check_specifier(format[c], 's'))
-				ft_putstr_fd(va_arg(args, char *), 1);
+				len += ft_putstr_fd(va_arg(args, char *), 1);
 			else if (check_specifier(format[c], 'd'))
-				ft_putnbr_fd(va_arg(args, int), 1);
+				len += ft_putnbr_fd(va_arg(args, int), 1);
 			else if (check_specifier(format[c], 'c'))
-				ft_putchar_fd(va_arg(args, int), 1);
+				len += ft_putchar_fd(va_arg(args, int), 1);
 			else if (check_specifier(format[c], '%'))
-				ft_putchar_fd('%', 1);
+				len += ft_putchar_fd('%', 1);
 			else if (check_specifier(format[c], 'i'))
-				ft_putnbr_fd(va_arg(args, int), 1);
+				len += ft_putnbr_fd(va_arg(args, int), 1);
 			else if (check_specifier(format[c], 'u'))
 				ft_putnbr_special(va_arg(args, unsigned int), 1);
 			else if (check_specifier(format[c], 'x'))
-				ft_putnbr(va_arg(args, unsigned int));
+				ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
+			else if (check_specifier(format[c], 'X'))
+				ft_putnbr_base(va_arg(args, int), "0123456789ABCDEF");
+			else if (check_specifier(format[c], 'p'))
+				v_pointer(va_arg(args, void *), "0123456789abcdef");
 		}
 		else
-			write(1, &format[c], 1);
+			len += write(1, &format[c], 1);
 		c++;
 	}
 	va_end(args);
-	return(ft_strlen(format));
+	return(len);
 }
