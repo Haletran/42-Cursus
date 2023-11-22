@@ -92,6 +92,7 @@ while [ $# -gt 0 ]; do
       sudo ufw default deny incoming
       sudo ufw allow 4242/tcp
       sudo ufw enable
+      sudo systemctl start ufw
       
       #SETUP SSH
       if (systemctl is-active sshd.service | grep -q "active"); then

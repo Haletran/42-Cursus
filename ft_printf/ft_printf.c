@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:07:59 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/22 18:07:41 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/22 18:32:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,7 @@ size_t ft_putnbr_base(size_t nb, char *base)
 	int i;
 	size_t quotient;
 	i = 0;
-	if (nb == __LONG_MAX__)
-	{
-		write(1, "ffffffff ", 8);
-		return (8);
-	}
+
 	quotient = nb / 16;
 	if (quotient > 0)
 		i = ft_putnbr_base(quotient, base);
