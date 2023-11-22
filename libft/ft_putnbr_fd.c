@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:07:24 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/22 16:19:18 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/22 17:41:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_putnbr_fd(int n, int fd)
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
-		return 0;
+		return (11);
 	}
 	if (n < 0)
 	{
