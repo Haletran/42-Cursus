@@ -108,6 +108,7 @@ while [ $# -gt 0 ]; do
       #SETUP PASSWORD EXPIRATION DATE AND POLICIES
       sudo chage --mindays 2 --warndays 7 --maxdays 30 $USERNAME
       sudo chage --mindays 2 --warndays 7 --maxdays 30 root
+      #/etc/login.defs
       sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak
       sudo echo "password        requisite         pam_pwquality.so minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 difok=7 enforce_for_root reject_username" >> /etc/pam.d/common-password
 
