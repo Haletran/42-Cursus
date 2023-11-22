@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 23:57:01 by baptiste          #+#    #+#             */
-/*   Updated: 2023/11/15 14:30:55 by codespace        ###   ########.fr       */
+/*   Created: 2023/11/21 10:23:16 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/11/21 10:23:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+char    *get_next_line(int fd)
+{
+    int c;
+    c = 0;
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdio.h>
+    
 
-void ft_printf(const char *format, ...);
 
-#endif
+
+
+}

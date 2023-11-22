@@ -71,7 +71,7 @@ printf "${RED}====${NC}SOFTWARE INFORMATION${RED}====${NC}\n"
 opsys
 printf "${GREEN}Host:${NC} $host\n"
 printf "${GREEN}Kernel:${NC} $kernel\n"
-printf "${GREEN}ShellShell:${NC} $terminal_name\n" 
+printf "${GREEN}Shell:${NC} $terminal_name\n" 
 Packages
 printf "${RED}====${NC}SYSTEM INFORMATION${RED}====${NC}\n"
 printf "${GREEN}Architecture:${NC} $(uname -o -p )\n"
