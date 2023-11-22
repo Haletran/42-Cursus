@@ -58,11 +58,11 @@ while [ $# -gt 0 ]; do
     -s|--sudo)
       printf "${GREEN}Sudo:${NC} $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
       ;;
-    --all)
+    --allc)
 printf "${RED}====${NC}HARDWARE INFORMATION${RED}====${NC}\n"
 cpu
-#printf "${GREEN}CPU physical:${NC} $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)\n"
-#printf "${GREEN}vCPU:${NC} $(grep "^processor" /proc/cpuinfo | wc -l)\n"
+printf "${GREEN}CPU physical:${NC} $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)\n"
+printf "${GREEN}vCPU:${NC} $(grep "^processor" /proc/cpuinfo | wc -l)\n"
 printf "${GREEN}CPU load: ${NC}%s%%\n" "$(top -bn1 | awk '/Cpu/ { print $2}')"
 gpu
 printf "${GREEN}RAM:${NC} %s/%s\n" "$(free -m | grep Mem | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB"
@@ -92,23 +92,39 @@ if systemctl is-active --quiet "ufw"; then printf "${GREEN}UFW:${NC} Running\n" 
 if lsblk | grep -q "lvm"; then printf "${GREEN}LVM use:${NC} yes\n"; else printf "${GREEN}LVM use:${NC} no\n"; fi
 printf "${RED}============================${NC}\n"
       ;;
-    --allc)
-      printf ${GREEN}$(whoami)${NC}@${GREEN}$(hostname)${NC}
-	  printf "\n----------------------\n"
-      printf "${GREEN}Architecture:${NC} $(uname -a)\n"
-      printf "${GREEN}CPU physical:${NC} $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)\n"
-      printf "${GREEN}vCPU:${NC} $(grep "^processor" /proc/cpuinfo | wc -l)\n"
-      printf "${GREEN}MemoryUsage:${NC} " && mem
-      disk
-      #printf "${GREEN}Disk Usage: ${NC}%s/%s (%s)" "$(df -h | grep sda1 | awk '{print $3}')" "$(df -h | grep sda1 | awk '{print $2}')" "$(df -h | grep sda1 | awk '{print $5}')"
-      printf "\n${GREEN}CPU load: ${NC}%s%%" "$(top -bn1 | awk '/Cpu/ { print $2}')"
-      printf "\n${GREEN}Last boot: %s %s${NC}\n" "$(last reboot | head -n 1 | awk '{print $5, $6, $7, $8}')"
-      if lsblk | grep -q "lvm"; then printf "${GREEN}LVM use:${NC} yes\n"; else printf "${GREEN}LVM use:${NC} no\n"; fi
-      printf "${GREEN}Connection TCP:${NC} $(ss -neopt state established | wc -l)\n"
-      printf "${GREEN}User log:${NC} $(users | wc -w)\n"
-      printf "${GREEN}Network:${NC} IP $(ip -4 addr show dev eth0 | awk '/inet / {print $2}') $(ip address | grep ether | head -n 1 | awk '{print $2}')\n"
-      printf "${GREEN}Sudo:${NC} $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)"
-	    printf "\n----------------------\n"
+    --all)
+printf "====HARDWARE INFORMATION====\n"
+cpu
+printf "CPU physical: $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)\n"
+printf "vCPU: $(grep "^processor" /proc/cpuinfo | wc -l)\n"
+printf "CPU load: %s%%\n" "$(top -bn1 | awk '/Cpu/ { print $2}')"
+gpu
+printf "RAM: %s/%s\n" "$(free -m | grep Mem | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB"
+disk
+printf "====SOFTWARE INFORMATION====\n"
+opsys
+printf "Host: $host\n"
+printf "Kernel: $kernel\n"
+printf "Shell: $terminal_name\n" 
+Packages
+printf "====SYSTEM INFORMATION====\n"
+printf "Architecture: $(uname -o -p )\n"
+printf "Date: $(date)\n"
+printf "Last Reboot: $(last reboot | head -n 1 | awk '{print $5, $6, $7, $8}')\n"
+printf "Uptime: $(uptime -p)\n"
+printf "Locale: $(locale | grep "LANG=" | awk -F= '{print $2}')\n"
+printf "Sudo: $(journalctl -q _COMM=sudo | grep COMMAND | wc -l)\n"
+printf "====INTERNET INFORMATION====\n"
+internet
+printf "IP: $(ip -4 addr show dev ${inter}| awk '/inet / {print $2}')\n"
+printf "MAC: $(ip address | grep ether | head -n 1 | awk '{print $2}')\n"
+printf "Connection TCP: $(ss -neopt state established | wc -l)\n"
+printf "User log: $(users | wc -w)\n"
+printf "====SERVICES STATUS====\n"
+if systemctl is-active --quiet "ssh"; then printf "SSH: Running\n" ; else printf "SSH: Not Running\n"; fi
+if systemctl is-active --quiet "ufw"; then printf "UFW: Running\n" ; else printf "UFW: Not Running\n"; fi
+if lsblk | grep -q "lvm"; then printf "LVM use: yes\n"; else printf "LVM use: no\n"; fi
+printf "============================\n"
       ;;
     *)
       printf "${RED}Invalid option: $1${NC}"

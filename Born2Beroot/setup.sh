@@ -126,7 +126,8 @@ while [ $# -gt 0 ]; do
 
       #SETUP CRONJOB
       mv monitoring.sh /usr/local/bin/monitoring.sh
-      #sudo crontab -u root -e
+      mv utils.sh /usr/local/bin/utils.sh
+      sudo crontab -u root -e
       #*/10 * * * * /usr/local/bin/monitoring.sh
 
       printf "${YELLOW}Your $DISTRIB VM is ready, you might need to change your password if you didn't respect policy${NC}\n"
