@@ -127,8 +127,8 @@ while [ $# -gt 0 ]; do
       #SETUP CRONJOB
       mv monitoring.sh /usr/local/bin/monitoring.sh
       mv utils.sh /usr/local/bin/utils.sh
-      sudo crontab -u root -e
-      #*/10 * * * * /usr/local/bin/monitoring.sh
+      #crontab -u root -e
+      #*/10 * * * * /usr/local/bin/monitoring.sh | wall (optionnal)
 
       printf "${YELLOW}Your $DISTRIB VM is ready, you might need to change your password if you didn't respect policy${NC}\n"
       ;;
@@ -138,7 +138,33 @@ while [ $# -gt 0 ]; do
         exit 1
       fi
       pres
-      echo "Figure out by yourself how to do the bonus part"
+
+      #INSTALL DEPENDENCIES
+      sudo apt-get install lighttpd mariadb-server mariadb-client software-properties-common
+      sudo add-apt-repository ppa:ondrej/php && sudo apt-get update
+      sudo apt install php7.1-cgi php7.1-mcrypt php7.1-cli php7.1-mysql php7.1-gd php7.1-imagick php7.1-recode php7.1-tidy php7.1-xml php7.1-xmlrpc
+
+      #SYSTEMCTL ENABLE AND START
+      sudo systemctl start lighttpd.service
+      sudo systemctl enable lighttpd.service
+      sudo systemctl start mysql.service
+      sudo systemctl enable mysql.service
+      
+      #SETUP DB
+      sudo mysql_secure_installation
+      sudo systemctl restart mysql.service
+
+      #SETUP PHP
+      sudo sudo lighttpd-enable-mod fastcgi
+      sudo lighttpd-enable-mod fastcgi-php
+      if [ $? -eq 0 ]
+        sudo apt install libterm-readline-gnu-perl
+      
+      sudo /etc/init.d/lighttpd force-reload
+
+
+
+
       ;;
   -t | --test)
       if [ "$EUID" -ne 0 ]; then
