@@ -155,15 +155,12 @@ while [ $# -gt 0 ]; do
       sudo systemctl restart mysql.service
 
       #SETUP PHP
-      sudo sudo lighttpd-enable-mod fastcgi
-      sudo lighttpd-enable-mod fastcgi-php
-      if [ $? -eq 0 ]
-        sudo apt install libterm-readline-gnu-perl
-      
-      sudo /etc/init.d/lighttpd force-reload
-
-
-
+      sudo apt install -y apt-transport-https lsb-release ca-certificates wget 
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list 
+      sudo apt update 
+      #https://www.osradar.com/install-lighttpd-debian-10/
+      #https://www.osradar.com/install-wordpress-with-lighttpd-debian-10/
 
       ;;
   -t | --test)

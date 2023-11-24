@@ -4,7 +4,7 @@
 #FONCTIONS
 disk()
 {
-printf "DiskUsage: $(df -h / | awk 'NR==2 {print $3}') / $(df -h / | awk 'NR==2 {print $2}')\n"
+printf "DiskUsage: %s (%s)" "$(df -h / | awk 'NR==2 {print $3}') / $(df -h / | awk 'NR==2 {print $2}')" "$(df -h / | awk 'NR==2 {print $5}')"
 }
 
 internet()
