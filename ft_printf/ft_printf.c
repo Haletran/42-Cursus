@@ -10,11 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "ft_printf.h"
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
 #include "ft_printf.h"
 
 int ft_putnbr_special(unsigned int n, unsigned int fd)
