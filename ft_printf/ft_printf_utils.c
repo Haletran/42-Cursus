@@ -6,12 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 08:26:40 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/27 09:31:11 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/27 09:53:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include <stdarg.h>
+#include "ft_printf.h"
 
 int	ft_putnbr_special(unsigned int n, unsigned int fd)
 {
