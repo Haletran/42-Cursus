@@ -129,6 +129,10 @@ while [ $# -gt 0 ]; do
       #SETUP CRONJOB
       mv monitoring.sh /usr/local/bin/monitoring.sh
       mv utils.sh /usr/local/bin/utils.sh
+      crontab -u root -l > crontmp
+      echo "*/10 * * * * bash /usr/local/bin/monitoring.sh | wall" > crontmp
+      crontab -u root crontmp
+      rm crontmp
       #crontab -u root -e
       #*/10 * * * * /usr/local/bin/monitoring.sh | wall (optionnal)
 
