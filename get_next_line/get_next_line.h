@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 14:36:52 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/28 14:36:58 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:24:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+char	*get_next_line(int fd);
 
 #endif
