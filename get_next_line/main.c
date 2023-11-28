@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 10:23:16 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/28 14:05:37 by codespace        ###   ########.fr       */
+/*   Created: 2023/11/28 14:59:12 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/11/28 14:05:46 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
+#include <fcntl.h>
 
-char	*get_next_line(int fd)
+int	main(void)
 {
-	if (fd < 0)
-		return (NULL);
+	int fd;
+	fd = open("test.txt", O_RDONLY);
+	get_next_line(fd);
 }
