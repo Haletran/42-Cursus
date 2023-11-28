@@ -106,6 +106,8 @@ while [ $# -gt 0 ]; do
       systemctl restart ssh
       
       #SETUP PASSWORD EXPIRATION DATE AND POLICIES
+      sed -i 's/PASS_MAX_DAYS	99999/PASS_MAX_DAYS	30/' /etc/login.defs
+      sed -i 's/PASS_MIN_DAYS	0/PASS_MIN_DAYS	2/' /etc/login.defs
       sudo chage --mindays 2 --warndays 7 --maxdays 30 $USERNAME
       sudo chage --mindays 2 --warndays 7 --maxdays 30 root
       #/etc/login.defs
@@ -127,6 +129,10 @@ while [ $# -gt 0 ]; do
       #SETUP CRONJOB
       mv monitoring.sh /usr/local/bin/monitoring.sh
       mv utils.sh /usr/local/bin/utils.sh
+      crontab -u root -l > crontmp
+      echo "*/10 * * * * bash /usr/local/bin/monitoring.sh | wall" > crontmp
+      crontab -u root crontmp
+      rm crontmp
       #crontab -u root -e
       #*/10 * * * * /usr/local/bin/monitoring.sh | wall (optionnal)
 

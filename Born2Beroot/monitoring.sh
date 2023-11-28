@@ -88,6 +88,7 @@ printf "${GREEN}Connection TCP:${NC} $(ss -neopt state established | wc -l)\n"
 printf "${GREEN}User log:${NC} $(users | wc -w)\n"
 printf "${RED}====${NC}SERVICES STATUS${RED}====${NC}\n"
 if systemctl is-active --quiet "ssh"; then printf "${GREEN}SSH:${NC} Running\n" ; else printf "${GREEN}SSH:${NC} Not Running\n"; fi
+if systemctl is-active --quiet "vsftpd"; then printf "FTP: Running\n" ; else printf "FTP: Not Running\n"; fi
 if systemctl is-active --quiet "ufw"; then printf "${GREEN}UFW:${NC} Running\n" ; else printf "${GREEN}UFW:${NC} Not Running\n"; fi
 if lsblk | grep -q "lvm"; then printf "${GREEN}LVM use:${NC} yes\n"; else printf "${GREEN}LVM use:${NC} no\n"; fi
 printf "${RED}============================${NC}\n"
@@ -99,7 +100,7 @@ printf "CPU physical: $(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)\
 printf "vCPU: $(grep "^processor" /proc/cpuinfo | wc -l)\n"
 printf "CPU load: %s%%\n" "$(top -bn1 | awk '/Cpu/ { print $2}')"
 gpu
-printf "RAM: %s/%s\n" "$(free -m | grep Mem | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB"
+printf "RAM: %s/%s\n" "$(free -m | grep Mem | awk '{print $3}')" "$(free -m | grep Mem | awk '{print $2}')GB" "$(
 disk
 printf "====SOFTWARE INFORMATION====\n"
 opsys
@@ -122,6 +123,7 @@ printf "Connection TCP: $(ss -neopt state established | wc -l)\n"
 printf "User log: $(users | wc -w)\n"
 printf "====SERVICES STATUS====\n"
 if systemctl is-active --quiet "ssh"; then printf "SSH: Running\n" ; else printf "SSH: Not Running\n"; fi
+if systemctl is-active --quiet "vsftpd"; then printf "FTP: Running\n" ; else printf "FTP: Not Running\n"; fi
 if systemctl is-active --quiet "ufw"; then printf "UFW: Running\n" ; else printf "UFW: Not Running\n"; fi
 if lsblk | grep -q "lvm"; then printf "LVM use: yes\n"; else printf "LVM use: no\n"; fi
 printf "============================\n"
