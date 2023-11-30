@@ -7,6 +7,8 @@ LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= test2.c
 OBJS	:= ${SRCS:.c=.o}
 
+#https://github.com/codam-coding-college/MLX42
+
 all: libmlx $(NAME)
 
 libmlx: 
