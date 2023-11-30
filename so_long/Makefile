@@ -1,3 +1,14 @@
+/------------------------------------------------------------------\
+  ________   _______   ___        ______    _____  ___    _______   
+ /"       ) /    " \  |"  |      /    " \  (\"   \|"  \  /" _   "|  
+(:   \___/ // ____  \ ||  |     // ____  \ |.\\   \    |(: ( \___)  
+ \___  \  /  /    ) :)|:  |    /  /    ) :)|: \.   \\  | \/ \       
+  __/  \\(: (____/ //  \  |___(: (____/ // |.  \    \. | //  \ ___  
+ /" \   :)\        /  ( \_|:  \\        /  |    \    \ |(:   _(  _| 
+(_______/  \"_____/    \_______)\"_____/    \___|\____\) \_______)  
+                                                                    
+\------------------------------------------------------------------/
+
 NAME	:= so_long
 CFLAGS	:= -Wextra -Wall -Werror
 LIBMLX	:= MLX42
@@ -7,7 +18,7 @@ LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= test2.c
 OBJS	:= ${SRCS:.c=.o}
 
-all: gt libmlx $(NAME)
+all: libmlx $(NAME)
 
 libmlx:
 	@echo "Building $@"	
@@ -22,9 +33,10 @@ $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
 
 gt:
-	@echo "You need to have MLX installed to execute so_long \n----------------------------------------"
+	@echo "You need to have MLX installed to execute so_long :\n----------------------------------------"
 	@echo -n "So do you want to install Codam MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/codam-coding-college/MLX42; fi
 	@echo -n "Then do you want to install 42 MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/42Paris/minilibx-linux; fi
+	@echo "----------------------------------------"
 
 clean:
 	@rm -rf $(OBJS) 
