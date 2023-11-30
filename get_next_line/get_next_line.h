@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 14:36:52 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/29 18:31:06 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/30 12:23:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,10 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_str(char *src1, char *src2);
+void	*ft_calloc(size_t elementCount, size_t elementSize);
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *str);
 
 #endif

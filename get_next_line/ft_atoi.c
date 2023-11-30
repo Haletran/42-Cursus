@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 14:59:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/30 17:35:32 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/30 18:22:04 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/11/30 16:09:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-
-int	main(void)
+int	ft_atoi(const char *str)
 {
-	int	fd;
+	int		c;
+	int		d;
+	int		e;
+	char	oe;
 
-	fd = open("test.txt", O_RDONLY);
-	for (int i = 0; i < 2; i++)
-		printf("%s", get_next_line(fd));
-	close(fd);
-	return (0);
+	c = 0;
+	oe = 1;
+	d = 0;
+	= 0;
+	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
+		c++;
+	if (str[c] == 43 || str[c] == 45)
+	{
+		if (str[c] == 45)
+			d++;
+		c++;
+	}
+	while (str[c] >= '0' && str[c] <= '9')
+	{
+		e = e * 10 + str[c] - '0';
+		c++;
+	}
+	if (d == 1)
+		oe = -1;
+	return (e * oe);
 }
