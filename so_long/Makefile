@@ -7,11 +7,9 @@ LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= test2.c
 OBJS	:= ${SRCS:.c=.o}
 
-#https://github.com/codam-coding-college/MLX42
+all: gt libmlx $(NAME)
 
-all: libmlx $(NAME)
-
-libmlx: 
+libmlx:
 	@echo "Building $@"	
 	@cmake $(LIBMLX) -B $(LIBMLX)/build
 	@make -C $(LIBMLX)/build -j4
@@ -22,6 +20,11 @@ libmlx:
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+
+gt:
+	@echo "You need to have MLX installed to execute so_long \n----------------------------------------"
+	@echo -n "So do you want to install Codam MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/codam-coding-college/MLX42; fi
+	@echo -n "Then do you want to install 42 MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/42Paris/minilibx-linux; fi
 
 clean:
 	@rm -rf $(OBJS) 
