@@ -3,8 +3,8 @@
 #include <MLX42/MLX42.h>
 #include <string.h>
 
-#define WIDTH 512
-#define HEIGHT 512
+#define WIDTH 500
+#define HEIGHT 500
 static mlx_image_t *img;
 
 int ft_hook(void *param)
@@ -14,22 +14,22 @@ int ft_hook(void *param)
 
     if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
         mlx_close_window(mlx);
-    else if (mlx_is_key_down(mlx, MLX_KEY_UP))
+    else if (mlx_is_key_down(mlx, MLX_KEY_UP) || mlx_is_key_down(mlx, MLX_KEY_W))
     {
         img->instances[0].y -= 5;
         printf("%s%d%s\n", "You moved ", len++, " times.");
     }
-    else if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
+    else if (mlx_is_key_down(mlx, MLX_KEY_DOWN) || mlx_is_key_down(mlx, MLX_KEY_S))
     {
         img->instances[0].y += 5;
         printf("%s%d%s\n", "You moved ", len++, " times.");
     }
-    else if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
+    else if (mlx_is_key_down(mlx, MLX_KEY_LEFT) || mlx_is_key_down(mlx, MLX_KEY_A))
     {
         img->instances[0].x -= 5;
         printf("%s%d%s\n", "You moved ", len++, " times.");
     }
-    else if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
+    else if (mlx_is_key_down(mlx, MLX_KEY_RIGHT) || mlx_is_key_down(mlx, MLX_KEY_D))
     {
         img->instances[0].x += 5;
         printf("%s%d%s\n", "You moved ", len++, " times.");
@@ -47,9 +47,11 @@ int main(void)
         return (EXIT_FAILURE);
     }
 
-    img = mlx_new_image(mlx, 50, 50);
-    memset(img->pixels, 200, img->width * img->height * sizeof(int32_t));
+    // img = mlx_new_image(mlx, 50, 50);
+    // memset(img->pixels, 200, img->width * img->height * sizeof(int32_t));
 
+    mlx_texture_t *texture = mlx_load_png("sus.png");
+    img = mlx_texture_to_image(mlx, texture);
     if (mlx_image_to_window(mlx, img, 0, 0) < 0)
     {
         puts(mlx_strerror(mlx_errno));
@@ -58,6 +60,9 @@ int main(void)
     mlx_loop_hook(mlx, (void *)ft_hook, mlx);
     mlx_loop(mlx);
 
+    // EXIT PROGRAM
+    mlx_delete_image(mlx, img);
+    mlx_delete_texture(texture);
     mlx_terminate(mlx);
     return (EXIT_SUCCESS);
 }

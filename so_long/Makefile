@@ -11,7 +11,7 @@ CFLAGS	:= -Wextra -Wall -Werror
 LIBMLX	:= MLX42
 
 HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm -Ofastsda
 SRCS	:= test2.c
 OBJS	:= ${SRCS:.c=.o}
 
