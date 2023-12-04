@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:16 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/04 14:47:59 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/04 15:09:50 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			reading;
 
-	if (!fd)
-		return (NULL);
 	line = ft_calloc(1, 1);
 	if (!buffer)
 		buffer = ft_calloc(BUFFER_SIZE + 1, 1);

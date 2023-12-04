@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:16 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/04 14:01:16 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/04 15:11:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	*ft_calloc(size_t elementCount, size_t elementSize)
 		test[c++] = 0;
 	return (test);
 }
+
 int	ft_strchr(const char *s, int c)
 {
 	int	i;
@@ -62,7 +63,8 @@ int	ft_strchr(const char *s, int c)
 	}
 	return (0);
 }
-char	*get_str(char *src1, char *src2)
+
+char	*ft_strjoin(char *src1, char *src2)
 {
 	char	*result;
 	int		c;
@@ -87,47 +89,3 @@ char	*get_str(char *src1, char *src2)
 	result[c] = '\0';
 	return (result);
 }
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*src1;
-	char	*src2;
-	char	*result;
-
-	if (!s1 || !s2)
-		return (NULL);
-	src1 = (char *)s1;
-	src2 = (char *)s2;
-	result = (get_str(src1, src2));
-	return (result);
-}
-/*
-char	*ft_reste(char *src)
-{
-	int		s;
-	int		d;
-	int		len;
-	char	*dest;
-	char	*reste;
-
-	s = 0;
-	d = 0;
-	len = ft_strlen(src);
-	dest = malloc(sizeof(char) * (len + 1));
-	if (dest == 0)
-		return (0);
-	while (src[s] != '\n')
-	{
-		dest[s] = src[s];
-		s++;
-	}
-	while (src[s])
-	{
-		reste[d] = src[s];
-		d++;
-		s++;
-	}
-	free(dest);
-	return (reste);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:22:04 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/04 10:09:32 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/04 15:10:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_atoi(const char *str)
 	c = 0;
 	oe = 1;
 	d = 0;
-	= 0;
+	e = 0;
 	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
 		c++;
 	if (str[c] == 43 || str[c] == 45)
