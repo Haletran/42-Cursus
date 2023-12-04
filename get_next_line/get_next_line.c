@@ -6,18 +6,18 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:16 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/04 15:09:50 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/04 22:07:12 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <string.h>
 
-char	*ft_n_copy(char *str)
+char *ft_n_copy(char *str)
 {
-	int		i;
-	char	*test;
-	int		j;
+	int i;
+	char *test;
+	int j;
 
 	j = 0;
 	i = 0;
@@ -37,36 +37,38 @@ char	*ft_n_copy(char *str)
 	return (test);
 }
 
-char	*ft_line(char *src)
+char *ft_get_line(char *src)
 {
-	int		s;
-	int		len;
-	char	*dest;
+	int i;
+	int len;
+	char *dest;
 
-	s = 0;
+	i = 0;
 	if (!src)
 		return (NULL);
 	len = ft_nstrlen(src);
 	dest = malloc(sizeof(char) * (len + 2));
 	if (dest == NULL)
 		return (NULL);
-	while (src[s] != '\n' && src[s])
+	while (src[i] != '\n' && src[i])
 	{
-		dest[s] = src[s];
-		s++;
+		dest[i] = src[i];
+		i++;
 	}
-	dest[s] = '\n';
-	dest[s + 1] = '\0';
+	dest[i] = '\n';
+	dest[i + 1] = '\0';
 	free(src);
 	return (dest);
 }
 
-char	*get_next_line(int fd)
+char *get_next_line(int fd)
 {
-	static char	*buffer = NULL;
-	char		*line;
-	int			reading;
+	static char *buffer = NULL;
+	char *line;
+	int reading;
 
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
+		return (NULL);
 	line = ft_calloc(1, 1);
 	if (!buffer)
 		buffer = ft_calloc(BUFFER_SIZE + 1, 1);
@@ -79,13 +81,13 @@ char	*get_next_line(int fd)
 		buffer[reading] = '\0';
 		line = ft_strjoin(line, buffer);
 	}
-	if (reading == 0)
+	if (reading <= 0)
 	{
 		free(buffer);
 		free(line);
 		return (NULL);
 	}
-	line = ft_line(line);
+	line = ft_get_line(line);
 	buffer = ft_n_copy(buffer);
 	return (line);
 }

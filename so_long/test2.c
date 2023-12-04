@@ -7,6 +7,7 @@
 #define HEIGHT 500
 static mlx_image_t *img;
 
+// HAndle moving the player
 int ft_hook(void *param)
 {
     static int len = 0;
@@ -50,6 +51,7 @@ int main(void)
     // img = mlx_new_image(mlx, 50, 50);
     // memset(img->pixels, 200, img->width * img->height * sizeof(int32_t));
 
+    // HANDLE Image
     mlx_texture_t *texture = mlx_load_png("sus.png");
     img = mlx_texture_to_image(mlx, texture);
     if (mlx_image_to_window(mlx, img, 0, 0) < 0)
