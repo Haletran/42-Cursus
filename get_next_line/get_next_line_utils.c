@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:16 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/30 17:16:37 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/04 14:01:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,17 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	while (str[i] != 0)
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+size_t	ft_nstrlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
 		i++;
 	return (i);
 }
@@ -39,7 +49,7 @@ void	*ft_calloc(size_t elementCount, size_t elementSize)
 		test[c++] = 0;
 	return (test);
 }
-char	*ft_strchr(const char *s, int c)
+int	ft_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -47,10 +57,10 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return ((char *)(s + i));
+			return (1);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 char	*get_str(char *src1, char *src2)
 {
@@ -89,11 +99,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	src1 = (char *)s1;
 	src2 = (char *)s2;
 	result = (get_str(src1, src2));
-	if (!result)
-	{
-		free(result);
-		return (NULL);
-	}
 	return (result);
 }
 /*

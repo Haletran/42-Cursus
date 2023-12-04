@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 14:59:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/30 17:35:32 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/04 14:42:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	main(void)
 {
 	int	fd;
 
-	fd = open("test.txt", O_RDONLY);
-	for (int i = 0; i < 2; i++)
+	fd = open("ft_atoi.c", O_RDONLY);
+	for (int i = 0; i < 5; i++)
 		printf("%s", get_next_line(fd));
 	close(fd);
 	return (0);
