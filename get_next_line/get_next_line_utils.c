@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:22:24 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/06 17:38:42 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/06 19:22:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ int	ft_strchr(const char *s, int c)
 
 char	*ft_strjoin(char *src1, char *src2)
 {
-	char	*result;
-	int		c;
-	int		d;
-	int		len;
+	char *result;
+	int c;
+	int d;
+	int len;
 
 	c = 0;
 	d = 0;

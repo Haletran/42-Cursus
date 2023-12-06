@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 14:36:52 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/06 15:44:25 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/06 19:03:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #  define BUFFER_SIZE 1
 # endif
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
