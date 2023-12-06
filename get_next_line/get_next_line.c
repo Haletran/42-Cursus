@@ -6,14 +6,14 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:16 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/04 15:09:50 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/06 16:05:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <string.h>
 
-char	*ft_n_copy(char *str)
+static char	*ft_n_copy(char *str)
 {
 	int		i;
 	char	*test;
@@ -23,7 +23,7 @@ char	*ft_n_copy(char *str)
 	i = 0;
 	while (str[i] != '\n')
 		i++;
-	test = malloc((ft_strlen(str) - ft_nstrlen(str)));
+	test = malloc((ft_strlen(str) - ft_nstrlen(str)) + 1);
 	if (!test)
 		return (NULL);
 	i++;
@@ -34,29 +34,31 @@ char	*ft_n_copy(char *str)
 		i++;
 	}
 	test[j] = '\0';
+	free(str);
 	return (test);
 }
 
-char	*ft_line(char *src)
+static char	*ft_get_line(char *src)
 {
-	int		s;
+	int		i;
 	int		len;
 	char	*dest;
 
-	s = 0;
+	i = 0;
+	len = 0;
 	if (!src)
 		return (NULL);
 	len = ft_nstrlen(src);
-	dest = malloc(sizeof(char) * (len + 2));
+	dest = malloc(sizeof(*dest) * (len + 2));
 	if (dest == NULL)
 		return (NULL);
-	while (src[s] != '\n' && src[s])
+	while (src[i] != '\n' && src[i])
 	{
-		dest[s] = src[s];
-		s++;
+		dest[i] = src[i];
+		i++;
 	}
-	dest[s] = '\n';
-	dest[s + 1] = '\0';
+	dest[i] = '\n';
+	dest[i + 1] = '\0';
 	free(src);
 	return (dest);
 }
@@ -67,25 +69,35 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			reading;
 
+	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0)
+		return (NULL);
 	line = ft_calloc(1, 1);
 	if (!buffer)
 		buffer = ft_calloc(BUFFER_SIZE + 1, 1);
 	reading = 1;
 	if (ft_strlen(buffer))
+	{
 		line = ft_strjoin(line, buffer);
+		free(buffer);
+		buffer = 0;
+	}
 	while (!(ft_strchr(buffer, '\n')) && reading > 0)
 	{
 		reading = read(fd, buffer, BUFFER_SIZE);
+		if (reading <= 0)
+		{
+			free(buffer);
+			buffer = 0;
+			free(line);
+			line = 0;
+			return (NULL);
+		}
 		buffer[reading] = '\0';
 		line = ft_strjoin(line, buffer);
 	}
-	if (reading == 0)
-	{
-		free(buffer);
+	line = ft_get_line(line);
+	if (!line)
 		free(line);
-		return (NULL);
-	}
-	line = ft_line(line);
 	buffer = ft_n_copy(buffer);
 	return (line);
 }

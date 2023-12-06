@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:16 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/04 15:11:14 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/06 15:44:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_nstrlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\n' && str[i] != '\0')
+	while (str[i] != '\n' && str[i])
 		i++;
 	return (i);
 }
@@ -66,17 +66,17 @@ int	ft_strchr(const char *s, int c)
 
 char	*ft_strjoin(char *src1, char *src2)
 {
-	char	*result;
-	int		c;
-	int		d;
-	int		len;
+	char *result;
+	int c;
+	int d;
+	int len;
 
 	c = 0;
 	d = 0;
-	if (src1 == NULL || src2 == NULL)
+	if (!src1 || !src2)
 		return (NULL);
-	len = ft_strlen(src1) + ft_strlen(src2);
-	result = malloc(sizeof(*result) * len + 1);
+	len = (ft_strlen(src1) + ft_strlen(src2) + 1);
+	result = malloc(sizeof(*result) * len);
 	if (result == NULL)
 		return (NULL);
 	while (c < (int)ft_strlen(src1))
@@ -87,5 +87,6 @@ char	*ft_strjoin(char *src1, char *src2)
 	while (c < (int)(ft_strlen(src1) + ft_strlen(src2)))
 		result[c++] = src2[d++];
 	result[c] = '\0';
+	free(src1);
 	return (result);
 }

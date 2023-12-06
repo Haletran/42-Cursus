@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "libft.h": "c",
-        "random": "c"
+        "random": "c",
+        "get_next_line.h": "c"
     }
 }
