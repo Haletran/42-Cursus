@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/06 16:22:20 by codespace         #+#    #+#             */
+/*   Updated: 2023/12/06 16:37:05 by codespace        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include <string.h>
 
@@ -37,6 +49,8 @@ static char	*ft_get_line(char *src)
 	if (!src)
 		return (NULL);
 	len = ft_nstrlen(src);
+	if (!len)
+		return (NULL);
 	dest = malloc(sizeof(*dest) * (len + 2));
 	if (dest == NULL)
 		return (NULL);
@@ -53,11 +67,11 @@ static char	*ft_get_line(char *src)
 
 char	*get_next_line(int fd)
 {
-	static char *buffer = NULL;
-	char *line;
-	int reading;
+	static char	*buffer = NULL;
+	char		*line;
+	int			reading;
 
-	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0)
+	if (fd <= 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0)
 		return (NULL);
 	line = ft_calloc(1, 1);
 	if (!buffer)
