@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 16:02:08 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/07 16:02:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main(void)
     if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
     {
         puts(mlx_strerror(mlx_errno));
-        pictures return (EXIT_FAILURE);
+        return (EXIT_FAILURE);
     }
 
     // img = mlx_new_image(mlx, 10, 10);
