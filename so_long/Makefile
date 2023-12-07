@@ -5,17 +5,34 @@
 #  __/  \\(: (____/ //  \  |___(: (____/ // |.  \    \. | //  \ ___  
 # /" \   :)\        /  ( \_|:  \\        /  |    \    \ |(:   _(  _| 
 #(_______/  \"_____/    \_______)\"_____/    \___|\____\) \_______)  
-                                                                    
+
+# Makefile vars                                                                  
 NAME	:= so_long
 CFLAGS	:= -Wextra -Wall -Werror
-LIBMLX	:= MLX42
-
-HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm -Ofastsda
 SRCS	:= test2.c
 OBJS	:= ${SRCS:.c=.o}
 
+#CODAM MLX VAR
+LIBMLX	:= MLX42
+HEADERS	:= -I ./include -I $(LIBMLX)/include
+LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm -Ofastsda
+
+#42 MLX VAR
+42MLX := minilibx-linux
+HEADERSC := -Imlx_linux -lXext -lX11
+LIBSC := -I/usr/include -Imlx_linux -O3
+
+
 all: libmlx $(NAME)
+
+42mlx:
+	@echo "Building $@"	
+	@make -C $(42MLX)
+	@mv $(42MLX)/libmlx_Linux.a ./mlx.a
+	@echo "Target $@ completed"
+	@echo "Compiling $(NAME)"
+	@$(CC) $(OBJ) $(HEADERSC) $(NAME) mlx.a
+	@echo "Compilation completed"
 
 libmlx:
 	@echo "Building $@"	
@@ -31,25 +48,22 @@ $(NAME): $(OBJS)
 
 gt:
 	@echo "\nYou need to have MLX installed to execute so_long :\n----------------------------------------"
-	@echo -n "So do you want to install Codam MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/codam-coding-college/MLX42; fi
+	@echo -n "So do you want to install Codam MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/codam-coding-college/MLX42 && make libmlx; fi
 	@echo -n "Then do you want to install 42 MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/42Paris/minilibx-linux; fi
 	@echo "----------------------------------------"
 
 clean:
 	@rm -rf $(OBJS) 
 	@rm -rf $(LIBMLX)/build
+	@rm -rf mlx.a
 
 fclean: clean
 	@rm -rf $(NAME)
 
+folder:
+	@rm -rf MLX42
+	@rm -rf minilibx-linux
+
 re: clean all
 
 .PHONY: all, clean, fclean, re, libmlx
-
-process_with_progress_bar:
-	@echo -n "Progress: "
-	@for i in {1..10}; do \
-		echo -n "."; \
-		sleep 1; \
-	done
-	@echo " Done"

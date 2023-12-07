@@ -6,15 +6,15 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:22:24 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 10:46:34 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/07 13:37:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t		ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -28,7 +28,7 @@ size_t	ft_nstrlen(const char *str)
 {
 	size_t	i;
 
-	i = 0;	
+	i = 0;
 	if (!str)
 		return (0);
 	while (str[i] != '\n' && str[i])
@@ -38,23 +38,23 @@ size_t	ft_nstrlen(const char *str)
 
 void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
-    size_t	c;
-    char	*test;
+	size_t	c;
+	char	*test;
 
-    c = 0;
-    if (elementCount == 0 || elementSize == 0)
-        return (malloc(1));
-    test = malloc(elementSize * elementCount);
-    if (!test)
-        return (NULL);
-    while (c < elementSize * elementCount)
-        test[c++] = 0;
-    return (test);
+	c = 0;
+	if (elementCount == 0 || elementSize == 0)
+		return (NULL);
+	test = malloc(elementSize * elementCount);
+	if (!test)
+		return (NULL);
+	while (c < elementSize * elementCount)
+		test[c++] = 0;
+	return (test);
 }
 
 int	ft_strchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s)
@@ -70,28 +70,28 @@ int	ft_strchr(const char *s, int c)
 
 char	*ft_strjoin(char *src1, char *src2)
 {
-    char *result;
-    int c;
-    int d;
-    int len;
+	char	*result;
+	int		c;
+	int		d;
+	int		len;
 
-    c = 0;
-    d = 0;
-    if (!src1 || !src2)
-        return (NULL);
-    len = (ft_strlen(src1) + ft_strlen(src2) + 1);
-    result = malloc(sizeof(*result) * len);
-    if (result == NULL)
-        return (NULL);
-    while (c < (int)ft_strlen(src1))
-    {
-        result[c] = src1[c];
-        c++;
-    }
-    while (c < (int)(ft_strlen(src1) + ft_strlen(src2)))
-        result[c++] = src2[d++];
-    result[c] = '\0';
-    if (src1)
-        ft_free(src1, NULL, NULL);
-    return (result);
+	c = 0;
+	d = 0;
+	if (!src1 || !src2)
+		return (NULL);
+	len = (ft_strlen(src1) + ft_strlen(src2) + 1);
+	result = malloc(sizeof(*result) * len);
+	if (result == NULL)
+		return (NULL);
+	while (c < (int)ft_strlen(src1))
+	{
+		result[c] = src1[c];
+		c++;
+	}
+	while (c < (int)(ft_strlen(src1) + ft_strlen(src2)))
+		result[c++] = src2[d++];
+	result[c] = '\0';
+	if (src1)
+		ft_free(src1, NULL, NULL);
+	return (result);
 }
