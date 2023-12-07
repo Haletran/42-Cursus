@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 14:29:26 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/07 15:34:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ int main(void)
         return (EXIT_FAILURE);
     }
 
-    // img = mlx_new_image(mlx, 50, 50);
-    // memset(img->pixels, 200, img->width * img->height * sizeof(int32_t));
+    img = mlx_new_image(mlx, 10, 10);
+    memset(img->pixels, 200, img->width * img->height * sizeof(int32_t));
 
     // HANDLE Image
-    mlx_texture_t *texture = mlx_load_png("sus.png");
-    img = mlx_texture_to_image(mlx, texture);
+    // mlx_texture_t *texture = mlx_load_png("sus.png");
+    // img = mlx_texture_to_image(mlx, texture);
     if (mlx_image_to_window(mlx, img, 0, 0) < 0)
     {
         puts(mlx_strerror(mlx_errno));
