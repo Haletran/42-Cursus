@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 15:56:56 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/07 16:00:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #define HEIGHT 500
 
 static mlx_image_t *img;
+static mlx_image_t *img2;
 
 // HAndle moving the player
 int ft_hook(void *param)
@@ -63,7 +64,7 @@ int main(void)
     if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
     {
         puts(mlx_strerror(mlx_errno));
-        return (EXIT_FAILURE);
+        pictures return (EXIT_FAILURE);
     }
 
     // img = mlx_new_image(mlx, 10, 10);
@@ -72,11 +73,20 @@ int main(void)
     // HANDLE Image
     mlx_texture_t *texture = mlx_load_png("images/player.png");
     img = mlx_texture_to_image(mlx, texture);
-    if (mlx_image_to_window(mlx, img, 0, 0) < 0)
+    if (mlx_image_to_window(mlx, img, 500, 250) < 0)
     {
         puts(mlx_strerror(mlx_errno));
         return (EXIT_FAILURE);
     }
+
+    mlx_texture_t *texture = mlx_load_png("images/coins.png");
+    img2 = mlx_texture_to_image(mlx, texture);
+    if (mlx_image_to_window(mlx, img2, 200, 100) < 0)
+    {
+        puts(mlx_strerror(mlx_errno));
+        return (EXIT_FAILURE);
+    }
+
     mlx_loop_hook(mlx, (void *)ft_hook, mlx);
     mlx_loop(mlx);
 
