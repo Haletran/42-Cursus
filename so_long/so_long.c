@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 15:40:14 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/07 15:56:56 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,71 +18,71 @@
 #define WIDTH 1000
 #define HEIGHT 500
 
-static mlx_image_t	*img;
+static mlx_image_t *img;
 
 // HAndle moving the player
-int	ft_hook(void *param)
+int ft_hook(void *param)
 {
-	static int	len = 0;
-	mlx_t		*mlx;
+    static int len = 0;
+    mlx_t *mlx;
 
-	mlx = param;
-	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(mlx);
-	else if (mlx_is_key_down(mlx, MLX_KEY_UP) || mlx_is_key_down(mlx,
-			MLX_KEY_W))
-	{
-		img->instances[0].y -= 5;
-		printf("%s%d%s\n", "You moved ", len++, " times.");
-	}
-	else if (mlx_is_key_down(mlx, MLX_KEY_DOWN) || mlx_is_key_down(mlx,
-			MLX_KEY_S))
-	{
-		img->instances[0].y += 5;
-		printf("%s%d%s\n", "You moved ", len++, " times.");
-	}
-	else if (mlx_is_key_down(mlx, MLX_KEY_LEFT) || mlx_is_key_down(mlx,
-			MLX_KEY_A))
-	{
-		img->instances[0].x -= 5;
-		printf("%s%d%s\n", "You moved ", len++, " times.");
-	}
-	else if (mlx_is_key_down(mlx, MLX_KEY_RIGHT) || mlx_is_key_down(mlx,
-			MLX_KEY_D))
-	{
-		img->instances[0].x += 5;
-		printf("%s%d%s\n", "You moved ", len++, " times.");
-	}
-	return (len);
+    mlx = param;
+    if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
+        mlx_close_window(mlx);
+    else if (mlx_is_key_down(mlx, MLX_KEY_UP) || mlx_is_key_down(mlx,
+                                                                 MLX_KEY_W))
+    {
+        img->instances[0].y -= 5;
+        printf("%s%d%s\n", "You moved ", len++, " times.");
+    }
+    else if (mlx_is_key_down(mlx, MLX_KEY_DOWN) || mlx_is_key_down(mlx,
+                                                                   MLX_KEY_S))
+    {
+        img->instances[0].y += 5;
+        printf("%s%d%s\n", "You moved ", len++, " times.");
+    }
+    else if (mlx_is_key_down(mlx, MLX_KEY_LEFT) || mlx_is_key_down(mlx,
+                                                                   MLX_KEY_A))
+    {
+        img->instances[0].x -= 5;
+        printf("%s%d%s\n", "You moved ", len++, " times.");
+    }
+    else if (mlx_is_key_down(mlx, MLX_KEY_RIGHT) || mlx_is_key_down(mlx,
+                                                                    MLX_KEY_D))
+    {
+        img->instances[0].x += 5;
+        printf("%s%d%s\n", "You moved ", len++, " times.");
+    }
+    return (len);
 }
 
-int	main(void)
+int main(void)
 {
-	mlx_t *mlx;
+    mlx_t *mlx;
 
-	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
-	{
-		puts(mlx_strerror(mlx_errno));
-		return (EXIT_FAILURE);
-	}
+    if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
+    {
+        puts(mlx_strerror(mlx_errno));
+        return (EXIT_FAILURE);
+    }
 
-	img = mlx_new_image(mlx, 10, 10);
-	memset(img->pixels, 200, img->width * img->height * sizeof(int32_t));
+    // img = mlx_new_image(mlx, 10, 10);
+    // memset(img->pixels, 200, img->width * img->height * sizeof(int32_t));
 
-	// HANDLE Image
-	// mlx_texture_t *texture = mlx_load_png("sus.png");
-	// img = mlx_texture_to_image(mlx, texture);
-	if (mlx_image_to_window(mlx, img, 0, 0) < 0)
-	{
-		puts(mlx_strerror(mlx_errno));
-		return (EXIT_FAILURE);
-	}
-	mlx_loop_hook(mlx, (void *)ft_hook, mlx);
-	mlx_loop(mlx);
+    // HANDLE Image
+    mlx_texture_t *texture = mlx_load_png("images/player.png");
+    img = mlx_texture_to_image(mlx, texture);
+    if (mlx_image_to_window(mlx, img, 0, 0) < 0)
+    {
+        puts(mlx_strerror(mlx_errno));
+        return (EXIT_FAILURE);
+    }
+    mlx_loop_hook(mlx, (void *)ft_hook, mlx);
+    mlx_loop(mlx);
 
-	// EXIT PROGRAM
-	mlx_delete_image(mlx, img);
-	// mlx_delete_texture(texture);
-	mlx_terminate(mlx);
-	return (EXIT_SUCCESS);
+    // EXIT PROGRAM
+    mlx_delete_image(mlx, img);
+    mlx_delete_texture(texture);
+    mlx_terminate(mlx);
+    return (EXIT_SUCCESS);
 }
