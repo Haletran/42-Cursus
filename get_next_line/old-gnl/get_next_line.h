@@ -27,5 +27,6 @@ void	*ft_calloc(size_t elementCount, size_t elementSize);
 int		ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
 size_t	ft_nstrlen(const char *str);
+char	*ft_free(char *buffer, char *line, char *test);
 
 #endif

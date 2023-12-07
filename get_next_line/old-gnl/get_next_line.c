@@ -6,25 +6,39 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:22:20 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/06 19:02:59 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/07 10:52:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <string.h>
 
+char	*ft_free(char *buffer, char *line, char *test)
+{
+	if (buffer)
+	{
+		free(buffer);
+		buffer = NULL;
+	}
+	if (line)
+	{
+		free(line);
+		line = NULL;
+	}
+	if (test)
+		return (NULL);
+	return (test);
+}
 static char	*ft_n_copy(char *str)
 {
 	int		i;
-	char	*test;
 	int		j;
+	char	*test;
 
-	j = 0;
 	i = 0;
+	j = 0;
 	while (str[i] != '\n')
 		i++;
-	test = malloc((ft_strlen(str) - ft_nstrlen(str)) + 1);
-	if (!test)
+	if (!(test = malloc(ft_strlen(str) - i + 1)))
 		return (NULL);
 	i++;
 	while (str[i] != '\0')
@@ -34,7 +48,7 @@ static char	*ft_n_copy(char *str)
 		i++;
 	}
 	test[j] = '\0';
-	free(str);
+	ft_free(str, NULL, NULL);
 	return (test);
 }
 
@@ -49,55 +63,43 @@ static char	*ft_get_line(char *src)
 	if (!src)
 		return (NULL);
 	len = ft_nstrlen(src);
-	dest = malloc(sizeof(*dest) * (len + 2));
-	if (dest == NULL)
+	if (!(dest = malloc(sizeof(*dest) * (len + 2))))
 		return (NULL);
-	while (src[i] != '\n' && src[i])
+	while (i < len)
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\n';
 	dest[i + 1] = '\0';
-	free(src);
+	ft_free(src, NULL, NULL);
 	return (dest);
 }
 
 char	*get_next_line(int fd)
 {
-	static char *buffer = NULL;
-	char *line;
-	int reading;
+    static char	*buffer = NULL;
+    char		*line;
+    int			reading;
 
-	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0)
-		return (NULL);
-	line = ft_calloc(1, 1);
+    if (fd < 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0)
+        return (NULL);
+    line = ft_calloc(1, 1);
 	if (!buffer)
 		buffer = ft_calloc(BUFFER_SIZE + 1, 1);
-	reading = 1;
-	if (ft_strlen(buffer))
-	{
+	else if (ft_strlen(buffer) > 0)
 		line = ft_strjoin(line, buffer);
-		free(buffer);
-		buffer = 0;
-	}
-	while (!(ft_strchr(buffer, '\n')) && reading > 0)
-	{
+    reading = 1;
+    while (!(ft_strchr(buffer, '\n')) && reading > 0)
+    {
 		reading = read(fd, buffer, BUFFER_SIZE);
 		if (reading <= 0)
-		{
-			free(buffer);
-			buffer = 0;
-			free(line);
-			line = 0;
-			return (NULL);
-		}
-		buffer[reading] = '\0';
-		line = ft_strjoin(line, buffer);
-	}
-	line = ft_get_line(line);
-	if (!line)
-		free(line);
-	buffer = ft_n_copy(buffer);
-	return (line);
+			return (ft_free(buffer, line, NULL));
+        buffer[reading] = '\0';
+        if (reading > 0)
+            line = ft_strjoin(line, buffer);
+    }
+    line = ft_get_line(line);
+    buffer = ft_n_copy(buffer);
+    return (line);
 }
