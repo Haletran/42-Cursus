@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 16:04:21 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/07 16:04:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int main(void)
     if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
     {
         puts(mlx_strerror(mlx_errno));
-        dddddreturn(EXIT_FAILURE);
+        return (EXIT_FAILURE);
     }
 
     // HANDLE Image
