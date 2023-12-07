@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 14:28:15 by codespace         #+#    #+#             */
+/*   Updated: 2023/12/07 14:29:26 by codespace        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <MLX42/MLX42.h>
 #include <string.h>
 
-#define WIDTH 500
+#define WIDTH 1000
 #define HEIGHT 500
 static mlx_image_t *img;
 

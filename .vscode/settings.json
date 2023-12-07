@@ -3,6 +3,7 @@
         "libft.h": "c",
         "random": "c",
         "get_next_line.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "stdio.h": "c"
     }
 }
