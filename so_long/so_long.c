@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 16:00:15 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/07 16:02:08 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int main(void)
         return (EXIT_FAILURE);
     }
 
-    mlx_texture_t *texture = mlx_load_png("images/coins.png");
+    mlx_texture_t *texture2 = mlx_load_png("images/coin.png");
     img2 = mlx_texture_to_image(mlx, texture);
     if (mlx_image_to_window(mlx, img2, 200, 100) < 0)
     {
@@ -93,6 +93,8 @@ int main(void)
     // EXIT PROGRAM
     mlx_delete_image(mlx, img);
     mlx_delete_texture(texture);
+    mlx_delete_image(mlx, img2);
+    mlx_delete_texture(texture2);
     mlx_terminate(mlx);
     return (EXIT_SUCCESS);
 }
