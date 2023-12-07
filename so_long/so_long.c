@@ -5,81 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 14:28:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 16:04:54 by codespace        ###   ########.fr       */
+/*   Created: 2023/12/07 17:20:19 by codespace         #+#    #+#             */
+/*   Updated: 2023/12/07 17:43:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <MLX42/MLX42.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "include/so_long.h"
 
-#define WIDTH 1000
-#define HEIGHT 500
-
-static mlx_image_t *img;
-
-// HAndle moving the player
-int ft_hook(void *param)
+char	*so_long(char *file)
 {
-    static int len = 0;
-    mlx_t *mlx;
+	char	*line;
+	int		fd;
 
-    mlx = param;
-    if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-        mlx_close_window(mlx);
-    else if (mlx_is_key_down(mlx, MLX_KEY_UP) || mlx_is_key_down(mlx,
-                                                                 MLX_KEY_W))
-    {
-        img->instances[0].y -= 5;
-        printf("%s%d%s\n", "You moved ", len++, " times.");
-    }
-    else if (mlx_is_key_down(mlx, MLX_KEY_DOWN) || mlx_is_key_down(mlx,
-                                                                   MLX_KEY_S))
-    {
-        img->instances[0].y += 5;
-        printf("%s%d%s\n", "You moved ", len++, " times.");
-    }
-    else if (mlx_is_key_down(mlx, MLX_KEY_LEFT) || mlx_is_key_down(mlx,
-                                                                   MLX_KEY_A))
-    {
-        img->instances[0].x -= 5;
-        printf("%s%d%s\n", "You moved ", len++, " times.");
-    }
-    else if (mlx_is_key_down(mlx, MLX_KEY_RIGHT) || mlx_is_key_down(mlx,
-                                                                    MLX_KEY_D))
-    {
-        img->instances[0].x += 5;
-        printf("%s%d%s\n", "You moved ", len++, " times.");
-    }
-    return (len);
+	fd = open(file, O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		ft_parse(line);
+		free(line);
+	}
+	return (line);
 }
-
-int main(void)
+int	main(int argc, char **argv)
 {
-    mlx_t *mlx;
-
-    if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
-    {
-        puts(mlx_strerror(mlx_errno));
-        return (EXIT_FAILURE);
-    }
-
-    // HANDLE Image
-    mlx_texture_t *texture = mlx_load_png("images/player.png");
-    img = mlx_texture_to_image(mlx, texture);
-    if (mlx_image_to_window(mlx, img, 500, 250) < 0)
-    {
-        puts(mlx_strerror(mlx_errno));
-        return (EXIT_FAILURE);
-    }
-    mlx_loop_hook(mlx, (void *)ft_hook, mlx);
-    mlx_loop(mlx);
-
-    // EXIT PROGRAM
-    mlx_delete_image(mlx, img);
-    mlx_delete_texture(texture);
-    mlx_terminate(mlx);
-    return (EXIT_SUCCESS);
+	if (argc == 2)
+	{
+		so_long(argv[1]);
+	}
+	else
+		printf("%s", "Invalid input\nUsage : ./solong <map.ber>\n");
+	return (0);
 }

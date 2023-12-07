@@ -9,7 +9,11 @@
 # Makefile vars                                                                  
 NAME	:= so_long
 CFLAGS	:= -Wextra -Wall -Werror
-SRCS	:= so_long.c
+SRCS	:= so_long.c \ 
+			src/get_next_line.c \
+			src/get_next_line_utils.c \
+			src/init.c \
+			src/parsing.c \
 OBJS	:= ${SRCS:.c=.o}
 
 #CODAM MLX VAR
@@ -23,7 +27,7 @@ HEADERSC := -Imlx_linux -lXext -lX11
 LIBSC := -I/usr/include -Imlx_linux -O3
 
 
-all: libmlx $(NAME)
+all: $(NAME)
 
 42mlx:
 	@echo "Building $@"	
@@ -49,7 +53,7 @@ $(NAME): $(OBJS)
 gt:
 	@echo "\nYou need to have MLX installed to execute so_long :\n----------------------------------------"
 	@echo -n "So do you want to install Codam MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/codam-coding-college/MLX42 && make libmlx; fi
-	@echo -n "Then do you want to install 42 MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/42Paris/minilibx-linux; fi
+	@echo -n "Then do you want to install 42 MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/42Paris/minilibx-linux && make 42mlx; fi
 	@echo "----------------------------------------"
 
 clean:

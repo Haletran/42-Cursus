@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft-atoi.c                                          :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 18:22:04 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/07 17:20:01 by codespace        ###   ########.fr       */
+/*   Created: 2023/12/07 17:43:25 by codespace         #+#    #+#             */
+/*   Updated: 2023/12/07 17:51:49 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
-{
-	int		c;
-	int		d;
-	int		e;
-	char	oe;
+#include "../include/so_long.h"
 
-	c = 0;
-	oe = 1;
-	d = 0;
-	e = 0;
-	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
-		c++;
-	if (str[c] == 43 || str[c] == 45)
+void	ft_init(void)
+{
+	mlx_t *mlx;
+	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
 	{
-		if (str[c] == 45)
-			d++;
-		c++;
+		perror("Error init");
+		return (EXIT_FAILURE);
 	}
-	while (str[c] >= '0' && str[c] <= '9')
-	{
-		e = e * 10 + str[c] - '0';
-		c++;
-	}
-	if (d == 1)
-		oe = -1;
-	return (e * oe);
+
+	mlx_loop(mlx);
+
+	mlx_terminate(mlx);
+	return (EXIT_SUCCESS);
 }
