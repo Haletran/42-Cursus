@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:20:19 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 17:43:04 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/08 08:54:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*so_long(char *file)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		ft_parse(line);
+		// ft_parse(line);
 		free(line);
 	}
 	return (line);

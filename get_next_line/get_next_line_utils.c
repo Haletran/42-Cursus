@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:22:24 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 14:23:53 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/08 09:26:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_strchr(const char *s, int c)
 
 	i = 0;
 	if (!s)
-		return (1);
+		return (0);
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -92,6 +92,6 @@ char	*ft_strjoin(char *src1, char *src2)
 		result[c++] = src2[d++];
 	result[c] = '\0';
 	if (src1)
-		ft_free(src1, NULL, NULL);
+		ft_free(src1, NULL);
 	return (result);
 }

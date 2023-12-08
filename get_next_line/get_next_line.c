@@ -6,14 +6,14 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:22:20 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 15:35:10 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/08 10:41:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 // Double free protection
-char	*ft_free(char *buffer, char *line, char *test)
+char	*ft_free(char *buffer, char *line)
 {
 	if (buffer)
 	{
@@ -25,9 +25,7 @@ char	*ft_free(char *buffer, char *line, char *test)
 		free(line);
 		line = NULL;
 	}
-	if (test)
-		return (NULL);
-	return (test);
+	return (NULL);
 }
 // Copy after the \n in the buffer
 static char	*ft_n_copy(char *str)
@@ -40,7 +38,8 @@ static char	*ft_n_copy(char *str)
 	if (!str)
 		return (NULL);
 	i = ft_nstrlen(str) + 1;
-	if (!(test = malloc((ft_strlen(str) - ft_nstrlen(str)) + 1)))
+	test = malloc((ft_strlen(str) - ft_nstrlen(str)) + 1);
+	if (!test)
 		return (NULL);
 	while (str[i] != '\0')
 	{
@@ -64,7 +63,8 @@ static char	*ft_get_line(char *src)
 	if (!src)
 		return (NULL);
 	len = ft_nstrlen(src);
-	if (!(dest = malloc(len + 2)))
+	dest = malloc((sizeof(*dest) * len) + 2);
+	if (!dest)
 		return (NULL);
 	while (i < len)
 	{
@@ -76,7 +76,6 @@ static char	*ft_get_line(char *src)
 	free(src);
 	return (dest);
 }
-
 // Main function GNL
 char	*get_next_line(int fd)
 {
@@ -96,7 +95,7 @@ char	*get_next_line(int fd)
 	{
 		reading = read(fd, buffer, BUFFER_SIZE);
 		if (reading <= 0)
-			return (ft_free(buffer, line, NULL));
+			return (ft_free(buffer, line));
 		buffer[reading] = '\0';
 		if (reading > 0)
 			line = ft_strjoin(line, buffer);

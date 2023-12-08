@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:22:04 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/07 17:20:01 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/08 10:37:50 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,4 @@ int	ft_atoi(const char *str)
 		e = e * 10 + str[c] - '0';
 		c++;
 	}
-	if (d == 1)
-		oe = -1;
-	return (e * oe);
 }
