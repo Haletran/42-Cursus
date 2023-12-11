@@ -6,28 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:22:20 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/08 10:41:52 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/11 15:44:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
-// Double free protection
-char	*ft_free(char *buffer, char *line)
-{
-	if (buffer)
-	{
-		free(buffer);
-		buffer = NULL;
-	}
-	if (line)
-	{
-		free(line);
-		line = NULL;
-	}
-	return (NULL);
-}
-// Copy after the \n in the buffer
 static char	*ft_n_copy(char *str)
 {
 	int		i;
@@ -51,7 +36,6 @@ static char	*ft_n_copy(char *str)
 	free(str);
 	return (test);
 }
-// Get the line to print
 static char	*ft_get_line(char *src)
 {
 	int		i;
@@ -73,34 +57,34 @@ static char	*ft_get_line(char *src)
 	}
 	dest[i] = '\n';
 	dest[i + 1] = '\0';
-	free(src);
 	return (dest);
 }
-// Main function GNL
 char	*get_next_line(int fd)
 {
-	static char	*buffer = NULL;
+	char		*buffer;
+	static char	*save;
 	char		*line;
 	int			reading;
 
-	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, NULL, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	line = ft_calloc(1, 1);
-	if (!buffer)
-		buffer = ft_calloc(BUFFER_SIZE + 1, 1);
-	else if (ft_strlen(buffer) > 0)
-		line = ft_strjoin(line, buffer);
+	buffer = ft_calloc(BUFFER_SIZE + 1, 1);
 	reading = 1;
-	while (!(ft_strchr(buffer, '\n')) && reading > 0)
+	while (!(ft_strchr(save, '\n')) && reading > 0)
 	{
 		reading = read(fd, buffer, BUFFER_SIZE);
 		if (reading <= 0)
-			return (ft_free(buffer, line));
+		{
+			free(buffer);
+			free(save);
+			return (NULL);
+		}
 		buffer[reading] = '\0';
 		if (reading > 0)
-			line = ft_strjoin(line, buffer);
+			save = ft_strjoin(save, buffer);
 	}
-	line = ft_get_line(line);
-	buffer = ft_n_copy(buffer);
+	line = ft_get_line(save);
+	save = ft_n_copy(save);
+	free(buffer);
 	return (line);
 }
