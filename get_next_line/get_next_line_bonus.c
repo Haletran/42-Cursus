@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:42:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/12 16:22:02 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/12 16:31:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ static char	*ft_n_copy(char *str)
 {
 	int		i;
 	int		j;
-	char	*test;
+	char	*dest;
 
 	j = 0;
 	if (!str)
 		return (NULL);
 	i = ft_nstrlen(str);
-	test = malloc(ft_strlen(str + i) + 1);
+	dest = malloc(ft_strlen(str + i) + 1);
 	while (str[i])
 	{
-		test[j] = str[i];
+		dest[j] = str[i];
 		j++;
 		i++;
 	}
-	test[j] = '\0';
+	dest[j] = '\0';
 	free(str);
-	return (test);
+	return (dest);
 }
 
 static char	*ft_get_line(char *src)
