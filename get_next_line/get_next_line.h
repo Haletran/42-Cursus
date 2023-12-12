@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 14:36:52 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/07 17:54:59 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/12 15:21:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ void	*ft_calloc(size_t elementCount, size_t elementSize);
 int		ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
 size_t	ft_nstrlen(const char *str);
-char	*ft_free(char *buffer, char *line);
 
 #endif
