@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:22:20 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/12 16:31:00 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/12 17:21:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ char	*ft_read(int fd, char *buffer, char *save)
 			break ;
 		buffer[reading] = '\0';
 		save = ft_strjoin(save, buffer);
-		if (ft_strchr(save, '\n'))
-			break ;
 	}
 	if (reading < 0 || (reading == 0 && !ft_strlen(save)))
 	{
