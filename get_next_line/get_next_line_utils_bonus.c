@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:43:00 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/12 16:43:02 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/12/12 20:47:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@ size_t	ft_nstrlen(const char *str)
 	if (str[i] == '\n')
 		i++;
 	return (i);
-}
-
-void	*ft_calloc(size_t elementCount, size_t elementSize)
-{
-	size_t	c;
-	char	*test;
-
-	c = 0;
-	if (elementCount <= 0 || elementSize <= 0)
-		return (malloc(1));
-	if ((long)elementSize < 0 || (long)elementCount < 0)
-		return (NULL);
-	test = malloc(elementSize * elementCount);
-	if (!test)
-		return (NULL);
-	while (c < elementSize * elementCount)
-		test[c++] = 0;
-	return (test);
 }
 
 int	ft_strchr(const char *s, int c)
