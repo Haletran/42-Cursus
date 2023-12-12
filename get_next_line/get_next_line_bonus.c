@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:42:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/12 17:25:09 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/12 17:47:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static char	*ft_n_copy(char *str)
 		return (NULL);
 	i = ft_nstrlen(str);
 	dest = malloc(ft_strlen(str + i) + 1);
+	if (!dest)
+		return (NULL);
 	while (str[i])
 	{
 		dest[j] = str[i];
