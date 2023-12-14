@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 13:13:53 by codespace         #+#    #+#              #
-#    Updated: 2023/12/14 20:39:26 by codespace        ###   ########.fr        #
+#    Updated: 2023/12/14 20:52:31 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,11 @@ libft:
 
 client: client.o
 	@echo "Compiling client..."
-	@$(CC) $(CFLAGS) libft.a client.o -o client
+	@$(CC) $(CFLAGS)  client.o -o client
 
 server: server.o
 	@echo "Compiling server..."
-	@$(CC) $(CFLAGS) libft.a server.o -o server
+	@$(CC) $(CFLAGS)  server.o -o server
 
 clean:
 	@make clean -C ../libft

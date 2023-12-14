@@ -5,6 +5,7 @@
         "get_next_line.h": "c",
         "fcntl.h": "c",
         "stdio.h": "c",
-        "minitalk.h": "c"
+        "minitalk.h": "c",
+        "stdlib.h": "c"
     }
 }
