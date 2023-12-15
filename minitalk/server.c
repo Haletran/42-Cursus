@@ -12,17 +12,56 @@
 
 #include "minitalk.h"
 
+char	binary_to_ascii(const char *binary);
+
 int	get_pid(int process_id)
 {
 	process_id = getpid();
 	return (process_id);
 }
-void	signalHandler(int signalNum)
+void signalHandler(int signalNum) {
+    static char *character = NULL;
+    static int i = 0;
+
+    if (character == NULL) 
+	{
+        character = malloc(8);
+        if (character == NULL)
+            return ;
+    }
+
+    if (i < 8) 
+	{
+        if (signalNum == SIGUSR1)
+            character[i] = '1';
+        else if (signalNum == SIGUSR2)
+            character[i] = '0';
+
+        i++;
+       write(1, &character[i-1], 1);
+	}
+}
+
+char	binary_to_ascii(const char *binary)
 {
-	if (signalNum == SIGUSR1)
-		printf("> Caught SIGUSR1 signal : %d\n", 1);
-	else if (signalNum == SIGUSR2)
-		printf("> Caught SIGUSR2 signal. %d\n", 0);
+	int	decimal;
+	int	base;
+	int	i;
+
+	decimal = 0;
+	base = 1;
+	i = 7;
+
+	while (i >= 0)
+	{
+		if (binary[i] == '1')
+			decimal += base;
+		base *= 2;
+		i--;
+	}
+	
+	printf("%c", decimal);
+	return ((char)decimal);
 }
 
 int	main(void)

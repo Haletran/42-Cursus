@@ -32,32 +32,11 @@ void	send_signal(int pid, unsigned char character)
 	}
 }
 
-char	binary_to_ascii(const char *binary)
-{
-	int	decimal;
-	int	base;
-	int	i;
-
-	decimal = 0;
-	base = 1;
-	i = 7;
-	while (i >= 0)
-	{
-		if (binary[i] == '1')
-			decimal += base;
-		base *= 2;
-		i--;
-	}
-	return ((char)decimal);
-}
 
 int	main(int argc, char **argv)
 {
 	(void)argc;
 	(void)argv;
-	char binary[] = "01001000"; // Example binary string
-	char ascii = binary_to_ascii(binary);
-	printf("ASCII character: %c\n", ascii);
-	// send_signal(atoi(argv[1]), ascii);
+	send_signal(atoi(argv[1]), argv[2][0]);
 	return (0);
 }
