@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:12:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/14 21:00:22 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/15 15:03:56 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,25 @@ void	send_signal(int pid, unsigned char character)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(42);
+		usleep(10000);
 	}
 }
-
 
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	(void)argv;
-	send_signal(atoi(argv[1]), argv[2][0]);
+	int i;
+	int j;
+	i = 0;
+	j = 0;
+
+	while (argv[2][i])
+		i++;
+	while (i > j)
+	{
+		send_signal(atoi(argv[1]), argv[2][j]);
+		j++;
+	}
+	// write(1, "\n", 1);
 	return (0);
 }
