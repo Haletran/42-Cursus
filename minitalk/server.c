@@ -6,13 +6,25 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:13:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/15 15:04:42 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/18 18:26:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
 char	binary_to_ascii(const char *binary);
+void ft_print_decimal(char *line);
+char *stock_decimal(char decimal);
+
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
+}
 
 int	get_pid(int process_id)
 {
@@ -21,7 +33,7 @@ int	get_pid(int process_id)
 }
 void	signalHandler(int signalNum)
 {
-	static char	*character = NULL;
+	static char	*character;
 	static int	i = 0;
 
 	if (character == NULL)
@@ -36,6 +48,7 @@ void	signalHandler(int signalNum)
 			character[i] = '1';
 		else if (signalNum == SIGUSR2)
 			character[i] = '0';
+			
 		i++;
 		if (i == 8)
 		{
@@ -49,9 +62,9 @@ void	signalHandler(int signalNum)
 
 char	binary_to_ascii(const char *binary)
 {
-	int	decimal;
-	int	base;
-	int	i;
+	int				decimal;
+	int				base;
+	int				i;
 
 	decimal = 0;
 	base = 1;
@@ -62,9 +75,27 @@ char	binary_to_ascii(const char *binary)
 			decimal += base;
 		base *= 2;
 		i--;
+		stock_decimal((char)decimal);
 	}
-	write(1, &decimal, 1);
 	return ((char)decimal);
+}
+
+char *stock_decimal(char decimal)
+{
+	static char *keep = NULL;
+	static int i = 0;
+	
+	if (keep)
+	{
+		free(keep);
+		keep = NULL;
+	}
+	keep = malloc(i++ + 1);
+	if (!keep)
+		return (NULL);	
+	keep[i] = decimal;
+	i++;
+	return(keep);
 }
 
 int	main(void)
@@ -86,6 +117,6 @@ int	main(void)
 	{
 		sigaction(SIGUSR1, &sa, NULL);
 		sigaction(SIGUSR2, &sa, NULL);
-		sleep(1);
+		sleep(10);
 	}
 }
