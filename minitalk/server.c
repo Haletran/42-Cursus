@@ -13,18 +13,6 @@
 #include "minitalk.h"
 
 char	binary_to_ascii(const char *binary);
-void ft_print_decimal(char *line);
-char *stock_decimal(char decimal);
-
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-		i++;
-	return (i);
-}
 
 int	get_pid(int process_id)
 {
@@ -75,27 +63,9 @@ char	binary_to_ascii(const char *binary)
 			decimal += base;
 		base *= 2;
 		i--;
-		stock_decimal((char)decimal);
 	}
+	write(1, &decimal, 1);
 	return ((char)decimal);
-}
-
-char *stock_decimal(char decimal)
-{
-	static char *keep = NULL;
-	static int i = 0;
-	
-	if (keep)
-	{
-		free(keep);
-		keep = NULL;
-	}
-	keep = malloc(i++ + 1);
-	if (!keep)
-		return (NULL);	
-	keep[i] = decimal;
-	i++;
-	return(keep);
 }
 
 int	main(void)
@@ -113,10 +83,11 @@ int	main(void)
 	printf("-----MINITALK-----\n");
 	printf("PID : %d\n", get_pid(process_id));
 	printf("-----MESSAGES-----\n\n");
+	
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 	{
-		sigaction(SIGUSR1, &sa, NULL);
-		sigaction(SIGUSR2, &sa, NULL);
-		sleep(10);
+		pause();
 	}
 }

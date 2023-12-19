@@ -27,7 +27,7 @@ void	send_signal(int pid, unsigned char character)
 			kill(pid, SIGUSR1);
 		else 
 			kill(pid, SIGUSR2);
-		usleep(1000);
+		usleep(100);
 	}
 }
 
@@ -35,18 +35,22 @@ int	main(int argc, char **argv)
 {
 	int i;
 	int j;
+	int pid;
 	i = 0;
 	j = 0;
 
+	pid = atoi(argv[1]);
 	if (argc == 3)
 	{
 		while (argv[2][i])
 			i++;
 		while (i > j)
 		{
-			send_signal(atoi(argv[1]), argv[2][j]);
+			send_signal(pid, argv[2][j]);
 			j++;
 		}
+		send_signal(pid, '\n');
 		return (1);
 	}
+	return (0);
 }
