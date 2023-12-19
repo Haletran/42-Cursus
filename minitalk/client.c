@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:12:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/19 15:07:33 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/19 17:33:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ int	main(int argc, char **argv)
 	i = 0;
 	j = 0;
 	if (argc != 3)
-		return (1);
+	{
+		printf("\033[1;31mError\033[0m : Invalid Usage\n");
+		exit(1);
+	}
 	pid = atoi(argv[1]);
 	while (argv[2][i])
 		i++;

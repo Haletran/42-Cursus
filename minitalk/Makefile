@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 13:13:53 by codespace         #+#    #+#              #
-#    Updated: 2023/12/14 20:52:31 by codespace        ###   ########.fr        #
+#    Updated: 2023/12/19 17:06:18 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ CFLAGS = -Wall -Wextra -Werror
 CC = cc
 NAME = minitalk
 
-SRCS := client.c server.c
 OBJS := $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -32,11 +31,11 @@ libft:
 
 client: client.o
 	@echo "Compiling client..."
-	@$(CC) $(CFLAGS)  client.o -o client
+	@$(CC) $(CFLAGS) client.o -o client libft.a
 
 server: server.o
 	@echo "Compiling server..."
-	@$(CC) $(CFLAGS)  server.o -o server
+	@$(CC) $(CFLAGS) server.o -o server libft.a
 
 clean:
 	@make clean -C ../libft
