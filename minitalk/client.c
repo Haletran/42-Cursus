@@ -12,10 +12,10 @@
 
 #include "minitalk.h"
 
-void	send_signal(int pid, unsigned char character)
+void send_signal(int pid, unsigned char character)
 {
-	int				i;
-	unsigned char	tmp;
+	int i;
+	unsigned char tmp;
 
 	i = 8;
 	tmp = character;
@@ -23,15 +23,15 @@ void	send_signal(int pid, unsigned char character)
 	{
 		i--;
 		tmp = character >> i;
-		if (tmp % 2 )
+		if (tmp % 2)
 			kill(pid, SIGUSR1);
-		else 
+		else
 			kill(pid, SIGUSR2);
-		usleep(1000);
+		usleep(100);
 	}
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int i;
 	int j;
@@ -39,18 +39,16 @@ int	main(int argc, char **argv)
 	i = 0;
 	j = 0;
 
-	pid = atoi(argv[1]);
-	if (argc == 3)
-	{
-		while (argv[2][i])
-			i++;
-		while (i > j)
-		{
-			send_signal(pid, argv[2][j]);
-			j++;
-		}
-		send_signal(pid, '\n');
+	if (argc != 3)
 		return (1);
+	pid = atoi(argv[1]);
+	while (argv[2][i])
+		i++;
+	while (i > j)
+	{
+		send_signal(pid, argv[2][j]);
+		j++;
 	}
+	send_signal(pid, '\n');
 	return (0);
 }
