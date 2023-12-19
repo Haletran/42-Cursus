@@ -6,16 +6,16 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:12:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/18 18:23:44 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/19 15:07:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void send_signal(int pid, unsigned char character)
+void	send_signal(int pid, unsigned char character)
 {
-	int i;
-	unsigned char tmp;
+	int				i;
+	unsigned char	tmp;
 
 	i = 8;
 	tmp = character;
@@ -27,18 +27,18 @@ void send_signal(int pid, unsigned char character)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(100);
+		usleep(1000);
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
-	int j;
-	int pid;
+	int	i;
+	int	j;
+	int	pid;
+
 	i = 0;
 	j = 0;
-
 	if (argc != 3)
 		return (1);
 	pid = atoi(argv[1]);
@@ -49,6 +49,6 @@ int main(int argc, char **argv)
 		send_signal(pid, argv[2][j]);
 		j++;
 	}
-	send_signal(pid, '\n');
+	send_signal(pid, '\0');
 	return (0);
 }
