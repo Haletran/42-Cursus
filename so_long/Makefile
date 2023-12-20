@@ -9,11 +9,7 @@
 # Makefile vars                                                                  
 NAME	:= so_long
 CFLAGS	:= -Wextra -Wall -Werror
-SRCS	:= so_long.c \ 
-			src/get_next_line.c \
-			src/get_next_line_utils.c \
-			src/init.c \
-			src/parsing.c \
+SRCS	:= test.c  
 OBJS	:= ${SRCS:.c=.o}
 
 #CODAM MLX VAR

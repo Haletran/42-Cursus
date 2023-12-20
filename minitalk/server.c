@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:13:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/20 18:34:54 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/20 20:31:30 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,25 @@ void	print_line(char *line, char decimal)
 char	*ft_join(char *src1, char src2)
 {
 	char	*result;
+	int		len_src1;
 	int		c;
-	int		len;
 
-	c = 0;
-	if (!src1 && !src2)
-		return (NULL);
-	len = (ft_strlen(src1) + 1);
-	result = malloc(sizeof(*result) * len);
+	len_src1 = ft_strlen(src1);
+	result = (char *)malloc(sizeof(*result) * (len_src1 + 2));
 	if (result == NULL)
 		return (NULL);
-	while (c < (int)ft_strlen(src1))
+	c = 0;
+	while (c < len_src1)
 	{
 		result[c] = src1[c];
 		c++;
 	}
-	while (c < (int)(ft_strlen(src1) + ft_strlen(&src2)))
-		result[c++] = src2;
-	result[c] = '\0';
+	result[c++] = src2;
+	result[c] = '\0'; 
 	free(src1);
 	return (result);
 }
+
 
 void	signalHandler(int signalNum)
 {
