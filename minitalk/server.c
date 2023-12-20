@@ -6,23 +6,51 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:13:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/19 17:35:43 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/20 18:34:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+static char	*line = NULL;
 
 int	get_pid(int process_id)
 {
 	process_id = getpid();
 	return (process_id);
 }
-void	print_char(char line)
+void	print_line(char *line, char decimal)
 {
-	if (line == 0)
+	ft_putstr_fd(line, 1);
+	if (decimal == 0)
 		ft_putchar_fd('\n', 1);
-	ft_putchar_fd(line, 1);
 }
+
+char	*ft_join(char *src1, char src2)
+{
+	char	*result;
+	int		c;
+	int		len;
+
+	c = 0;
+	if (!src1 && !src2)
+		return (NULL);
+	len = (ft_strlen(src1) + 1);
+	result = malloc(sizeof(*result) * len);
+	if (result == NULL)
+		return (NULL);
+	while (c < (int)ft_strlen(src1))
+	{
+		result[c] = src1[c];
+		c++;
+	}
+	while (c < (int)(ft_strlen(src1) + ft_strlen(&src2)))
+		result[c++] = src2;
+	result[c] = '\0';
+	free(src1);
+	return (result);
+}
+
 void	signalHandler(int signalNum)
 {
 	static char	*character;
@@ -66,7 +94,13 @@ void	binary_to_ascii(const char *binary)
 		base *= 2;
 		i--;
 	}
-	print_char((char)decimal);
+	if ((char)decimal == 0)
+	{
+		print_line(line, decimal);
+		free(line);
+		line = NULL;
+	}
+	line = ft_join(line, (char)decimal);
 }
 int	main(void)
 {

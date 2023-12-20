@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:12:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/19 17:33:36 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/20 18:27:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	send_signal(int pid, unsigned char character)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(1000);
+		usleep(100);
 	}
 }
 

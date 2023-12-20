@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:38:24 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/11/07 17:25:59 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/20 18:15:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != 0)
 		i++;
 	return (i);
