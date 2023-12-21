@@ -6,11 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:16:41 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/21 17:48:05 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/21 18:07:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	send_signal(int pid, unsigned char character)
 {

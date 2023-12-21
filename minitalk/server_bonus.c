@@ -6,11 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:17:02 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/21 17:47:32 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/21 18:07:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 static char	*g_line = NULL;
 
