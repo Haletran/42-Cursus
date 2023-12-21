@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:27:57 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/19 17:27:22 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/21 12:50:25 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	int		fd;
 	char	*line;
 
-	fd = open("./gnlTester/files/big_line_with_nl", O_RDONLY);
+	fd = open("./gnlTester/files/nl", O_RDONLY);
 	while (1)
 	{
 		line = get_next_line(fd);

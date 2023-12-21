@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:12:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/20 20:39:24 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:32:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void send_signal(int pid, unsigned char character)
+void	send_signal(int pid, unsigned char character)
 {
-	int i;
-	unsigned char tmp;
+	int				i;
+	unsigned char	tmp;
 
 	i = 8;
 	tmp = character;
@@ -30,7 +30,8 @@ void send_signal(int pid, unsigned char character)
 		usleep(500);
 	}
 }
-void ft_print_error(int error)
+
+void	ft_print_error(int error)
 {
 	if (error == 0)
 		ft_putstr_fd("\033[1;31mError\033[0m : Invalid Usage\n", 1);
@@ -38,11 +39,12 @@ void ft_print_error(int error)
 		ft_putstr_fd("\033[1;31mError\033[0m : Invalid PID\n", 1);
 	exit(EXIT_FAILURE);
 }
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-	int i;
-	int j;
-	int pid;
+	int	i;
+	int	j;
+	int	pid;
 
 	i = 0;
 	j = 0;

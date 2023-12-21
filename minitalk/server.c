@@ -6,15 +6,15 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:13:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/20 20:54:36 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/21 13:32:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static char *line = NULL;
+static char	*g_line = NULL;
 
-void print_banner(void)
+void	print_banner(void)
 {
 	ft_putstr_fd("=========================================\n", 1);
 	ft_putstr_fd("• ▌ ▄ ·. ▪   ▐ ▄ ▪  ▄▄▄▄▄ ▄▄▄· ▄▄▌  ▄ •▄\n", 1);
@@ -23,17 +23,17 @@ void print_banner(void)
 	ft_putstr_fd("██ ██▌▐█▌▐█▌██▐█▌▐█▌ ▐█▌·▐█▪ ▐▌▐█▌ ▄▐█.█▌\n", 1);
 	ft_putstr_fd("▀▀  █▪▀▀▀▀▀▀▀▀ █▪▀▀▀ ▀▀▀  ▀  ▀ .▀▀▀ ·▀  ▀\n", 1);
 	ft_putstr_fd("=========================================\n", 1);
-	ft_putstr_fd("	     PID : \e[1;32m", 1);
+	ft_putstr_fd("			PID : \e[1;32m", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putstr_fd("\e[1;37m\n\n", 1);
 	ft_putstr_fd("\e[1;37m> Messages :\n\n\e[0;37m", 1);
 }
 
-char *ft_join(char *src1, char src2)
+char	*ft_join(char *src1, char src2)
 {
-	char *result;
-	int len_src1;
-	int c;
+	char	*result;
+	int		len_src1;
+	int		c;
 
 	len_src1 = ft_strlen(src1);
 	result = (char *)malloc(sizeof(*result) * (len_src1 + 2));
@@ -51,11 +51,11 @@ char *ft_join(char *src1, char src2)
 	return (result);
 }
 
-void binary_to_ascii(const char *binary)
+void	binary_to_ascii(const char *binary)
 {
-	int decimal;
-	int base;
-	int i;
+	int	decimal;
+	int	base;
+	int	i;
 
 	decimal = 0;
 	base = 1;
@@ -69,25 +69,25 @@ void binary_to_ascii(const char *binary)
 	}
 	if ((char)decimal == 0)
 	{
-		ft_putstr_fd(line, 1);
+		ft_putstr_fd(g_line, 1);
 		if (decimal == 0)
 			ft_putchar_fd('\n', 1);
-		free(line);
-		line = NULL;
+		free(g_line);
+		g_line = NULL;
 	}
-	line = ft_join(line, (char)decimal);
+	g_line = ft_join(g_line, (char)decimal);
 }
 
-void signalHandler(int signalNum)
+void	signal_handler(int signalNum)
 {
-	static char *character;
-	static int i = 0;
+	static char	*character;
+	static int	i = 0;
 
 	if (character == NULL)
 	{
 		character = malloc(8);
 		if (character == NULL)
-			return;
+			return ;
 	}
 	if (i < 8)
 	{
@@ -106,11 +106,11 @@ void signalHandler(int signalNum)
 	}
 }
 
-int main(void)
+int	main(void)
 {
 	print_banner();
-	signal(SIGUSR1, signalHandler);
-	signal(SIGUSR2, signalHandler);
+	signal(SIGUSR1, signal_handler);
+	signal(SIGUSR2, signal_handler);
 	while (1)
 		pause();
 }
