@@ -12,10 +12,10 @@
 
 #include "minitalk.h"
 
-void	send_signal(int pid, unsigned char character)
+void send_signal(int pid, unsigned char character)
 {
-	int				i;
-	unsigned char	tmp;
+	int i;
+	unsigned char tmp;
 
 	i = 8;
 	tmp = character;
@@ -30,21 +30,31 @@ void	send_signal(int pid, unsigned char character)
 		usleep(500);
 	}
 }
-
-int	main(int argc, char **argv)
+void ft_print_error(int error)
 {
-	int	i;
-	int	j;
-	int	pid;
+	if (error == 0)
+		ft_putstr_fd("\033[1;31mError\033[0m : Invalid Usage\n", 1);
+	if (error == 1)
+		ft_putstr_fd("\033[1;31mError\033[0m : Invalid PID\n", 1);
+	exit(EXIT_FAILURE);
+}
+int main(int argc, char **argv)
+{
+	int i;
+	int j;
+	int pid;
 
 	i = 0;
 	j = 0;
 	if (argc != 3)
-	{
-		printf("\033[1;31mError\033[0m : Invalid Usage\n");
-		exit(1);
-	}
+		ft_print_error(0);
 	pid = atoi(argv[1]);
+	while (i < (int)ft_strlen(argv[1]))
+	{
+		if (!ft_isdigit(argv[1][i++]))
+			ft_print_error(1);
+	}
+	i = 0;
 	while (argv[2][i])
 		i++;
 	while (i > j)

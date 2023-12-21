@@ -12,25 +12,28 @@
 
 #include "minitalk.h"
 
-static char	*line = NULL;
+static char *line = NULL;
 
-int	get_pid(int process_id)
+void print_banner(void)
 {
-	process_id = getpid();
-	return (process_id);
-}
-void	print_line(char *line, char decimal)
-{
-	ft_putstr_fd(line, 1);
-	if (decimal == 0)
-		ft_putchar_fd('\n', 1);
+	ft_putstr_fd("=========================================\n", 1);
+	ft_putstr_fd("• ▌ ▄ ·. ▪   ▐ ▄ ▪  ▄▄▄▄▄ ▄▄▄· ▄▄▌  ▄ •▄\n", 1);
+	ft_putstr_fd("·██ ▐███▪██ •█▌▐███ •██  ▐█ ▀█ ██•  █▌▄▌▪\n", 1);
+	ft_putstr_fd("▐█ ▌▐▌▐█·▐█·▐█▐▐▌▐█· ▐█.▪▄█▀▀█ ██ ▪ ▐▀▀▄·\n", 1);
+	ft_putstr_fd("██ ██▌▐█▌▐█▌██▐█▌▐█▌ ▐█▌·▐█▪ ▐▌▐█▌ ▄▐█.█▌\n", 1);
+	ft_putstr_fd("▀▀  █▪▀▀▀▀▀▀▀▀ █▪▀▀▀ ▀▀▀  ▀  ▀ .▀▀▀ ·▀  ▀\n", 1);
+	ft_putstr_fd("=========================================\n", 1);
+	ft_putstr_fd("	     PID : \e[1;32m", 1);
+	ft_putnbr_fd(getpid(), 1);
+	ft_putstr_fd("\e[1;37m\n\n", 1);
+	ft_putstr_fd("\e[1;37m> Messages :\n\n\e[0;37m", 1);
 }
 
-char	*ft_join(char *src1, char src2)
+char *ft_join(char *src1, char src2)
 {
-	char	*result;
-	int		len_src1;
-	int		c;
+	char *result;
+	int len_src1;
+	int c;
 
 	len_src1 = ft_strlen(src1);
 	result = (char *)malloc(sizeof(*result) * (len_src1 + 2));
@@ -48,16 +51,43 @@ char	*ft_join(char *src1, char src2)
 	return (result);
 }
 
-void	signalHandler(int signalNum)
+void binary_to_ascii(const char *binary)
 {
-	static char	*character;
-	static int	i = 0;
+	int decimal;
+	int base;
+	int i;
+
+	decimal = 0;
+	base = 1;
+	i = 7;
+	while (i >= 0)
+	{
+		if (binary[i] == '1')
+			decimal += base;
+		base *= 2;
+		i--;
+	}
+	if ((char)decimal == 0)
+	{
+		ft_putstr_fd(line, 1);
+		if (decimal == 0)
+			ft_putchar_fd('\n', 1);
+		free(line);
+		line = NULL;
+	}
+	line = ft_join(line, (char)decimal);
+}
+
+void signalHandler(int signalNum)
+{
+	static char *character;
+	static int i = 0;
 
 	if (character == NULL)
 	{
 		character = malloc(8);
 		if (character == NULL)
-			return ;
+			return;
 	}
 	if (i < 8)
 	{
@@ -75,44 +105,10 @@ void	signalHandler(int signalNum)
 		}
 	}
 }
-void	binary_to_ascii(const char *binary)
-{
-	int	decimal;
-	int	base;
-	int	i;
 
-	decimal = 0;
-	base = 1;
-	i = 7;
-	while (i >= 0)
-	{
-		if (binary[i] == '1')
-			decimal += base;
-		base *= 2;
-		i--;
-	}
-	if ((char)decimal == 0)
-	{
-		print_line(line, decimal);
-		free(line);
-		line = NULL;
-	}
-	line = ft_join(line, (char)decimal);
-}
-int	main(void)
+int main(void)
 {
-	int	process_id;
-
-	process_id = 0;
-	ft_putstr_fd("=========================================\n", 1);
-	ft_putstr_fd("• ▌ ▄ ·. ▪   ▐ ▄ ▪  ▄▄▄▄▄ ▄▄▄· ▄▄▌  ▄ •▄\n", 1);
-	ft_putstr_fd("·██ ▐███▪██ •█▌▐███ •██  ▐█ ▀█ ██•  █▌▄▌▪\n", 1);
-	ft_putstr_fd("▐█ ▌▐▌▐█·▐█·▐█▐▐▌▐█· ▐█.▪▄█▀▀█ ██ ▪ ▐▀▀▄·\n", 1);
-	ft_putstr_fd("██ ██▌▐█▌▐█▌██▐█▌▐█▌ ▐█▌·▐█▪ ▐▌▐█▌ ▄▐█.█▌\n", 1);
-	ft_putstr_fd("▀▀  █▪▀▀▀▀▀▀▀▀ █▪▀▀▀ ▀▀▀  ▀  ▀ .▀▀▀ ·▀  ▀\n", 1);
-	ft_putstr_fd("=========================================\n", 1);
-	printf("		PID : \e[1;32m%d\e[1;37m\n\n", get_pid(process_id));
-	ft_putstr_fd("\e[1;37m> Messages :\n\n\e[0;37m", 1);
+	print_banner();
 	signal(SIGUSR1, signalHandler);
 	signal(SIGUSR2, signalHandler);
 	while (1)
