@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 13:13:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/21 15:37:17 by codespace        ###   ########.fr       */
+/*   Created: 2023/12/21 17:17:02 by codespace         #+#    #+#             */
+/*   Updated: 2023/12/21 17:47:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_join(char *src1, char src2)
 	return (result);
 }
 
-void	binary_to_ascii(const char *binary)
+void	binary_to_ascii(const char *binary, pid_t sender_pid)
 {
 	int	decimal;
 	int	base;
@@ -72,17 +72,19 @@ void	binary_to_ascii(const char *binary)
 		ft_putstr_fd(g_line, 1);
 		if (decimal == 0)
 			ft_putchar_fd('\n', 1);
+		kill(sender_pid, SIGUSR1);
 		free(g_line);
 		g_line = NULL;
 	}
 	g_line = ft_join(g_line, (char)decimal);
 }
 
-void	signal_handler(int signalNum)
+void	signal_handler(int signalNum, siginfo_t *info, void *context)
 {
 	static char	*character;
 	static int	i = 0;
 
+	(void)context;
 	if (character == NULL)
 	{
 		character = malloc(8);
@@ -98,7 +100,7 @@ void	signal_handler(int signalNum)
 		i++;
 		if (i == 8)
 		{
-			binary_to_ascii(character);
+			binary_to_ascii(character, info->si_pid);
 			free(character);
 			character = NULL;
 			i = 0;
@@ -108,9 +110,14 @@ void	signal_handler(int signalNum)
 
 int	main(void)
 {
+	struct sigaction	sa;
+
+	sa.sa_sigaction = &signal_handler;
+	sigemptyset(&sa.sa_mask);
+	sa.sa_flags = SA_SIGINFO;
 	print_banner();
-	signal(SIGUSR1, signal_handler);
-	signal(SIGUSR2, signal_handler);
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 		pause();
 }

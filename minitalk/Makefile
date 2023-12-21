@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 13:13:53 by codespace         #+#    #+#              #
-#    Updated: 2023/12/21 14:19:19 by codespace        ###   ########.fr        #
+#    Updated: 2023/12/21 17:29:06 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = Minitalk
 
-CLIENT_SRC = client.c
+CLIENT_SRC = client.c client_bonus.c
 CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
 CLIENT_TARGET = client
 
-SERVER_SRC = server.c
+SERVER_SRC = server.c server_bonus.c
 SERVER_OBJ = $(SERVER_SRC:.c=.o)
 SERVER_TARGET = server
 
@@ -39,14 +39,20 @@ $(SERVER_TARGET): $(SERVER_OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
+bonus: $(LIBFT_TARGET) server_bonus.o client_bonus.o
+	@make -C $(LIBFT_DIR)
+	$(CC) $(CFLAGS) -o server_bonus server_bonus.o $(LIBFT_TARGET)
+	$(CC) $(CFLAGS) -o client_bonus client_bonus.o $(LIBFT_TARGET)
+
 clean:
 	rm -f $(CLIENT_OBJ) $(SERVER_OBJ)
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	rm -f $(CLIENT_TARGET) $(SERVER_TARGET)
+	rm -f $(CLIENT_TARGET) $(SERVER_TARGET) $(CLIENT_TARGET)_bonus $(SERVER_TARGET)_bonus
 	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
+

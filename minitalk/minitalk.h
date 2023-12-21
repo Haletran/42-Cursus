@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:19:49 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/21 14:44:24 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/21 17:41:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,5 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-void	binary_to_ascii(const char *binary);
 
 #endif

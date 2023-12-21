@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 13:12:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/21 15:39:46 by codespace        ###   ########.fr       */
+/*   Created: 2023/12/21 17:16:41 by codespace         #+#    #+#             */
+/*   Updated: 2023/12/21 17:48:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,14 @@ void	send_signal(int pid, unsigned char character)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(100);
+		usleep(1000);
 	}
+}
+
+void	signal_handler(int signalNum)
+{
+	if (signalNum == SIGUSR1)
+		ft_putstr_fd("Message Received\n", 1);
 }
 
 void	ft_print_error(int error)
@@ -44,13 +50,12 @@ int	main(int argc, char **argv)
 {
 	int	i;
 	int	j;
-	int	pid;
 
 	i = 0;
 	j = 0;
 	if (argc != 3)
 		ft_print_error(0);
-	pid = atoi(argv[1]);
+	signal(SIGUSR1, signal_handler);
 	while (i < (int)ft_strlen(argv[1]))
 	{
 		if (!ft_isdigit(argv[1][i++]))
@@ -61,9 +66,9 @@ int	main(int argc, char **argv)
 		i++;
 	while (i > j)
 	{
-		send_signal(pid, argv[2][j]);
+		send_signal(atoi(argv[1]), argv[2][j]);
 		j++;
 	}
-	send_signal(pid, '\0');
+	send_signal(atoi(argv[1]), '\0');
 	return (0);
 }
