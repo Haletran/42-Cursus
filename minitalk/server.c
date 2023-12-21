@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:13:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/20 20:31:30 by bapasqui         ###   ########.fr       */
+/*   Updated: 2023/12/20 20:54:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ char	*ft_join(char *src1, char src2)
 		c++;
 	}
 	result[c++] = src2;
-	result[c] = '\0'; 
+	result[c] = '\0';
 	free(src1);
 	return (result);
 }
-
 
 void	signalHandler(int signalNum)
 {
@@ -105,9 +104,15 @@ int	main(void)
 	int	process_id;
 
 	process_id = 0;
-	ft_putstr_fd("--] MINITALK [--\n", 1);
-	printf("PID : %d\n\n", get_pid(process_id));
-	ft_putstr_fd("--] Messages [--\n\n", 1);
+	ft_putstr_fd("=========================================\n", 1);
+	ft_putstr_fd("• ▌ ▄ ·. ▪   ▐ ▄ ▪  ▄▄▄▄▄ ▄▄▄· ▄▄▌  ▄ •▄\n", 1);
+	ft_putstr_fd("·██ ▐███▪██ •█▌▐███ •██  ▐█ ▀█ ██•  █▌▄▌▪\n", 1);
+	ft_putstr_fd("▐█ ▌▐▌▐█·▐█·▐█▐▐▌▐█· ▐█.▪▄█▀▀█ ██ ▪ ▐▀▀▄·\n", 1);
+	ft_putstr_fd("██ ██▌▐█▌▐█▌██▐█▌▐█▌ ▐█▌·▐█▪ ▐▌▐█▌ ▄▐█.█▌\n", 1);
+	ft_putstr_fd("▀▀  █▪▀▀▀▀▀▀▀▀ █▪▀▀▀ ▀▀▀  ▀  ▀ .▀▀▀ ·▀  ▀\n", 1);
+	ft_putstr_fd("=========================================\n", 1);
+	printf("		PID : \e[1;32m%d\e[1;37m\n\n", get_pid(process_id));
+	ft_putstr_fd("\e[1;37m> Messages :\n\n\e[0;37m", 1);
 	signal(SIGUSR1, signalHandler);
 	signal(SIGUSR2, signalHandler);
 	while (1)
