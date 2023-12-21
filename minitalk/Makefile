@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 13:13:53 by codespace         #+#    #+#              #
-#    Updated: 2023/12/21 17:29:06 by codespace        ###   ########.fr        #
+#    Updated: 2023/12/21 17:50:35 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = Minitalk
 
-CLIENT_SRC = client.c client_bonus.c
+CLIENT_SRC = client.c
 CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
 CLIENT_TARGET = client
 
-SERVER_SRC = server.c server_bonus.c
+SERVER_SRC = server.c
 SERVER_OBJ = $(SERVER_SRC:.c=.o)
 SERVER_TARGET = server
 
@@ -46,6 +46,7 @@ bonus: $(LIBFT_TARGET) server_bonus.o client_bonus.o
 
 clean:
 	rm -f $(CLIENT_OBJ) $(SERVER_OBJ)
+	rm -rf server_bonus.o client_bonus.o
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean
