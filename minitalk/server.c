@@ -23,7 +23,7 @@ void	print_banner(void)
 	ft_putstr_fd("██ ██▌▐█▌▐█▌██▐█▌▐█▌ ▐█▌·▐█▪ ▐▌▐█▌ ▄▐█.█▌\n", 1);
 	ft_putstr_fd("▀▀  █▪▀▀▀▀▀▀▀▀ █▪▀▀▀ ▀▀▀  ▀  ▀ .▀▀▀ ·▀  ▀\n", 1);
 	ft_putstr_fd("=========================================\n", 1);
-	ft_putstr_fd("			PID : \e[1;32m", 1);
+	ft_putstr_fd("		PID : \e[1;32m", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putstr_fd("\e[1;37m\n\n", 1);
 	ft_putstr_fd("\e[1;37m> Messages :\n\n\e[0;37m", 1);
