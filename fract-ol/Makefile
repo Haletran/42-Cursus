@@ -6,7 +6,7 @@
 #    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 17:02:24 by baptiste          #+#    #+#              #
-#    Updated: 2023/12/30 17:28:49 by baptiste         ###   ########.fr        #
+#    Updated: 2023/12/30 17:54:43 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBMLX	:= MLX42
 HEADERS	:= -I ./include -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm -Ofast
 
-all: libmlx $(NAME)
+all: $(NAME)
 
 libmlx:
 	@echo "Building $@"
@@ -52,7 +52,6 @@ fclean: clean
 
 folder:
 	@rm -rf MLX42
-	@rm -rf minilibx-linux
 
 re: fclean all
 
