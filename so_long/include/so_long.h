@@ -37,5 +37,7 @@ int		ft_parse(char *line);
 int		ft_render(char **map);
 int		ft_transform(void);
 int		ft_check_validity(char **map);
+void	ft_init(void);
+
 
 #endif

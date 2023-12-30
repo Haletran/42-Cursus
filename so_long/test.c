@@ -12,6 +12,7 @@
 
 #include <MLX42/MLX42.h>
 #include <stdio.h>
+#include "include/so_long.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -60,12 +61,7 @@ int	main(void)
 {
 	mlx_t *mlx;
 
-	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
-	{
-		puts(mlx_strerror(mlx_errno));
-		return (EXIT_FAILURE);
-	}
-
+	mlx = ft_init();
 	// HANDLE Image
 	mlx_texture_t *texture = mlx_load_png("images/player.png");
 	img = mlx_texture_to_image(mlx, texture);
