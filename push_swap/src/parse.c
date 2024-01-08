@@ -6,13 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/08 17:54:35 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/08 17:58:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_isdigit(int i)
+static int	ft_isdigit(int i)
 {
 	if ((i >= '0' && i <= '9') || (i == 43 || i == 45 || i == 32))
 		return (1);
