@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 17:20:19 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/21 14:27:58 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
+/*   Updated: 2024/01/08 14:28:56 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/so_long.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-char	*so_long(char *file)
-{
-	char	*line;
-	int		fd;
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-	fd = open(file, O_RDONLY);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		// ft_parse(line);
-		free(line);
-	}
-	return (line);
-}
-int	main(int argc, char **argv)
-{
-	if (argc == 2)
-	{
-		so_long(argv[1]);
-	}
-	else
-		printf("%s", "Invalid input\nUsage : ./solong <map.ber>\n");
-	return (0);
-}
+#endif
