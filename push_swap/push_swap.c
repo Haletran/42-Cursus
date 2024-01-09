@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/09 17:12:24 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
+/*   Updated: 2024/01/09 17:26:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/push_swap.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_lst_stack
+int	main(int argc, char **argv)
 {
-	int					content;
-	struct s_lst_stack	*next;
-	struct s_lst_stack	*prev;
-}						t_lst_stack;
+	t_lst_stack *i;
+	t_lst_stack *j;
 
-/* FUNCTIONS */
-
-#endif
+	i = NULL;
+	j = NULL;
+	if (argc == 0)
+		return (0);
+	else if (ft_strlen(argv[1]) >= 3 && argc == 1)
+		ft_split(i->content, argv[1]);
+	check_validity(*i, argc, argv);
+}
