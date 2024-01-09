@@ -6,50 +6,43 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/09 19:55:57 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/09 20:15:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// check if same number multiple time
+// ✅ check if same number multiple time
 // check if the list is already sorted
 // ✅ check if there is others things than numbers (WORKING BUT WHEN NOT USING WITHOUT <"">)
 
 static int	check_list(int nb_args, char **src)
 {
 	int	i;
-	int	valid;
 	int	j;
 
 	i = 0;
-	valid = 0;
-	j = 0;
-	while (i < nb_args)
+	if (nb_args == 2)
+		nb_args = get_args(src);
+	while (i < nb_args - 1)
 	{
+		j = i + 1;
 		while (j < nb_args)
 		{
-			if (src[i] == src[j++])
-				valid++;
+			if (ft_atoi(src[i]) == ft_atoi(src[j]))
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	printf("%d", valid);
-	if (valid > 0)
-		return (0);
 	return (1);
 }
 
 static int	check_input(int nb_args, char **src)
 {
-	int	i;
-	int	cool;
-	int	j;
-	int	validity;
-
-	cool = 0;
-	validity = 0;
+	int i;
+	int j;
+	
 	i = 1;
 	if (nb_args == 2)
 		nb_args = get_args(src);
@@ -57,14 +50,10 @@ static int	check_input(int nb_args, char **src)
 	{
 		j = 0;
 		while (src[i][j])
-			validity += ft_isdigit(src[i][j++]);
-		if (validity == j)
-			cool++;
-		validity = 0;
+			if (!ft_isdigit(src[i][j++]))
+				return (0);
 		i++;
 	}
-	if (nb_args - 1 != cool)
-		return (0);
 	return (1);
 }
 
