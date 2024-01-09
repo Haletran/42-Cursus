@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/09 17:27:35 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/09 17:45:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	main(int argc, char **argv)
 	if (argc == 0)
 		return (0);
 	else if (ft_strlen(argv[1]) >= 3 && argc == 1)
-		ft_split(i->content, argv[1]);
+		argv = ft_split(argv[1], ' ');
 	check_validity(*i, argc, argv);
 }
