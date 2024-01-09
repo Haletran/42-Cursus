@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/01/09 17:33:58 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/09 18:06:45 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,8 @@ LIBFT_TARGET = $(LIBFT_DIR)/libft.a
 
 all: libft $(NAME)
 
-
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(LIBFT_TARGET) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_TARGET)
 
 libft:
 	@make -C $(LIBFT_DIR)
@@ -43,4 +42,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re libft

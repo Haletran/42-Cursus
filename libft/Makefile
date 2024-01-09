@@ -6,13 +6,13 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2023/11/09 15:18:14 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/09 18:02:59 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJS = $(SRCS:.c=.o)
 
-CC = clang
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
