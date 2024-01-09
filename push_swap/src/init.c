@@ -6,15 +6,29 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/09 20:15:05 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/09 20:44:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // ✅ check if same number multiple time
-// check if the list is already sorted
-// ✅ check if there is others things than numbers (WORKING BUT WHEN NOT USING WITHOUT <"">)
+// ✅ check if the list is already sorted
+// ✅ check if there is others things than numbers
+
+static int	is_sorted(int nb_args, char **src)
+{
+	int	i;
+
+	i = 0;
+	while (i < nb_args - 1)
+	{
+		if (ft_strcmp(src[i], src[i + 1]) > 0)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 static int	check_list(int nb_args, char **src)
 {
@@ -40,9 +54,9 @@ static int	check_list(int nb_args, char **src)
 
 static int	check_input(int nb_args, char **src)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 1;
 	if (nb_args == 2)
 		nb_args = get_args(src);
@@ -57,11 +71,10 @@ static int	check_input(int nb_args, char **src)
 	return (1);
 }
 
-int	valid_input(int nb_args, char **src)
+int	verif_input(int nb_args, char **src)
 {
-	if (check_input(nb_args, src) && check_list(nb_args, src))
-		write(1, "VALID\n", 6);
-	else
-		write(1, "NOT VALID\n", 10);
+	if (check_input(nb_args, src) && check_list(nb_args, src)
+		&& is_sorted(nb_args, src))
+		return (1);
 	return (0);
 }

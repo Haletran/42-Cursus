@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/09 19:35:39 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/09 20:43:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ typedef struct s_lst_stack
 }						t_lst_stack;
 
 /* FUNCTIONS */
+int						ft_strcmp(char *s1, char *s2);
 int						get_args(char **arr);
-int						valid_input(int nb_args, char **src);
+int						verif_input(int nb_args, char **src);
 
 #endif
