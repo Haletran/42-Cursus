@@ -6,7 +6,8 @@
         "fcntl.h": "c",
         "stdio.h": "c",
         "minitalk.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "push_swap.h": "c"
     },
     "functionHeaderExtension.headerFilePath": "/workspaces/42-Cursus/push_swap/includes/push_swap.h"
 }

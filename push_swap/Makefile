@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/01/09 18:06:45 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/09 19:27:13 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CC := cc
 CFLAGS := -Wextra -Wall -Werror -g
 
 SRCS	= src/init.c \
-		  push_swap.c
+		  src/utils.c \
+		  push_swap.c 
 OBJS	= ${SRCS:.c=.o}
 
 LIBFT_DIR = ../libft
