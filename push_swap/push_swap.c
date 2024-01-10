@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 13:46:51 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 13:48:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	// b = NULL;
 	if (argc == 0)
-		return (0);
+		return (ft_error());
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	if (verif_input(argc, argv))
