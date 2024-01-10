@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/01/09 20:43:38 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/10 12:18:46 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC := cc
 CFLAGS := -Wextra -Wall -Werror -g
 
 SRCS	= src/init.c \
+		  src/parse.c \
 		  src/utils.c \
 		  push_swap.c 
 OBJS	= ${SRCS:.c=.o}
@@ -30,7 +31,7 @@ $(NAME): $(OBJS)
 libft:
 	@make -C $(LIBFT_DIR)
 
-gdb: fclean $(NAME)
+gdb: fclean libft $(NAME)
 	gdb --tui ./push_swap
 
 clean:
