@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 17:30:18 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 17:44:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int argc, char **argv)
 	if (verif_input(argc, argv))
 	{
 		init_stack(a, argc, argv);
+		if (argc == 3 || get_args(argv) == 2)
+			sort_two_nodes(a, a->next);
 	}
 	else
 		return (ft_error());
