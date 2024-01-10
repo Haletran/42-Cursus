@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 11:49:06 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 17:30:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	ft_strcmp(char *s1, char *s2)
 		c++;
 	return (s1[c] - s2[c]);
 }
+
 int	ft_error(void)
 {
 	ft_putendl_fd("Error", 2);

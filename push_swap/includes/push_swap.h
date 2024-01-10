@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 14:54:18 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 17:29:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../../libft/libft.h"
+# include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -26,8 +27,8 @@ typedef struct node
 }						node_t;
 
 /* FUNCTIONS */
-int	check_input(int nb_args, char **src);
-void					init_stack(node_t *node, int size, char **arr);
+int						check_input(int nb_args, char **src);
+int						init_stack(node_t *node, int size, char **arr);
 int						ft_error(void);
 int						ft_strcmp(char *s1, char *s2);
 int						get_args(char **arr);
