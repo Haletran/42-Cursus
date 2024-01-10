@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 15:04:21 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 15:06:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ static int	check_list(int nb_args, char **src)
 	if(!src)
 		return (0);
 	if (nb_args == 2)
+	{
 		nb_args = get_args(src);
+		i = 0;
+	}
 	while (i < nb_args - 1)
 	{
 		j = i + 1;
