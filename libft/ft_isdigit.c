@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:42:46 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/10 14:17:28 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 14:57:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_isdigit(int c)
 {
 	if ((c >= '0' && c <= '9'))
 		return (1);
-	else if (c == '+' || c == '-')
+	if (c == '+' || c == '-')
 		return (1);
 	else
 		return (0);
