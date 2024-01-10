@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2024/01/09 18:02:59 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/10 13:09:02 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS =		ft_isalpha.c	\
 			ft_strtrim.c	\
 			ft_split.c		\
 			ft_itoa.c		\
+			ft_lstnew.c		\
 			ft_strmapi.c	\
 			ft_striteri.c	\
 			ft_putchar_fd.c	\

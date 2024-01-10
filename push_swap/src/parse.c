@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 12:46:26 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 13:46:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,19 @@ void	init_stack(node_t *head, int size, char **arr)
 	int	i;
 
 	i = 1;
-	while (i < size - 1)
+	if (size == 2)
+	{
+		size = get_args(arr);
+		i = 0;
+	}
+	while (i < size)
 	{
 		head = malloc(sizeof(node_t));
 		if (head == NULL)
 			return ;
 		head->content = ft_atoi(arr[i]);
 		printf("%d", head->content);
-		head->next = NULL;
+		ft_lstnew(head);
+		i++;
 	}
 }
