@@ -6,9 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:22:04 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/09 20:02:01 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 14:46:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../push_swap/includes/push_swap.h"
 
 int	ft_atoi(const char *str)
 {
@@ -23,6 +25,10 @@ int	ft_atoi(const char *str)
 	e = 0;
 	if (!str)
 		return (0);
+	if (str[c] == '-' && ft_strcmp((char*)str, "-2147483648") == 0)
+		return (-2147483648);
+	else if (str[c] == '+' && ft_strcmp((char*)str, "2147483647") == 0)
+		return (2147483647);
 	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
 		c++;
 	if (str[c] == 43 || str[c] == 45)

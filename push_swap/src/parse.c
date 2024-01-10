@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 13:46:40 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 14:42:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_stack(node_t *head, int size, char **arr)
 		if (head == NULL)
 			return ;
 		head->content = ft_atoi(arr[i]);
-		printf("%d", head->content);
+		printf("%d\n", head->content);
 		ft_lstnew(head);
 		i++;
 	}
