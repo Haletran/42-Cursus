@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 14:26:57 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/10 14:30:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	check_input(int nb_args, char **src)
 
 int	verif_input(int nb_args, char **src)
 {
-	if (check_input(nb_args, src) && check_list(nb_args, src) && get_args(src) > 1)
+	if (get_args(src) > 1 && check_input(nb_args, src) && check_list(nb_args, src))
 		return (1);
 	return (0);
 }
