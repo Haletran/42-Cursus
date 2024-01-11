@@ -6,12 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 18:49:03 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/11 19:38:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+// TODO: why the fuck is the arr is reversed in the new_node
 int	init_stack(node_t **head, int size, char **arr)
 {
 	int		i;

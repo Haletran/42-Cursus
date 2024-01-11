@@ -6,12 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:49:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 18:51:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/11 19:37:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// TODO: Why making sb if it is the same as sa but with b pile
 void	sb(node_t **node1)
 {
 	node_t	*node2;
