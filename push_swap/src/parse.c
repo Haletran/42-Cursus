@@ -6,15 +6,16 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 15:32:02 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/11 18:26:46 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	init_stack(node_t *head, int size, char **arr)
+int	init_stack(node_t **head, int size, char **arr)
 {
-	int	i;
+	int		i;
+	node_t	*new_node;
 
 	i = 1;
 	if (size == 2)
@@ -22,32 +23,39 @@ int	init_stack(node_t *head, int size, char **arr)
 		size = get_args(arr);
 		i = 0;
 	}
+	*head = NULL;
 	while (i < size)
 	{
-		head = malloc(sizeof(node_t));
-		if (head == NULL)
+		new_node = malloc(sizeof(node_t));
+		if (new_node == NULL)
 			return (0);
-		head->content = ft_atoi(arr[i]);
-		if (head->content >= INT_MAX || head->content <= INT_MIN
+		new_node->content = ft_atoi(arr[i]);
+		if (new_node->content >= INT_MAX || new_node->content <= INT_MIN
 			|| ft_strlen(arr[i]) >= 11)
+		{
+			free(new_node);
 			return (ft_error());
-		ft_lstnew(head);
+		}
+		new_node->next = *head;
+		*head = new_node;
 		i++;
 	}
 	return (1);
 }
 
-void sort_two_nodes(node_t *node1) {
-    if (node1 == NULL || node1->next == NULL) 
-        return;
+void	sort_two_nodes(node_t **node1)
+{
+	node_t	*node2;
+	int		temp;
 
-    node_t *node2 = node1->next;
-    if (node1->content > node2->content) 
+	if (*node1 == NULL || node1 == NULL)
+		return ;
+	node2 = (*node1)->next;
+	if ((*node1)->content < node2->content)
 	{
-        int temp = node1->content;
-        node1->content = node2->content;
-        node2->content = temp;
-        ft_putendl_fd("sa", 1);
-    }
+		temp = (*node1)->content;
+		(*node1)->content = node2->content;
+		node2->content = temp;
+		ft_putendl_fd("sa", 1);
+	}
 }
-
