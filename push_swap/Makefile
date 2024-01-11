@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/01/10 17:29:52 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/11 18:53:41 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CFLAGS := -Wextra -Wall -Werror -g
 SRCS	= src/init.c \
 		  src/parse.c \
 		  src/utils.c \
+		  src/instructions/sa.c \
+		  src/instructions/sb.c \
 		  push_swap.c 
 OBJS	= ${SRCS:.c=.o}
 
