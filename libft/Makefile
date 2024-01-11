@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2024/01/10 13:09:02 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/11 19:25:58 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,15 +58,23 @@ SRCS =		ft_isalpha.c	\
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): ft_printf $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
+ft_printf:
+	@make -C ../ft_printf
+	mv ../ft_printf/libftprintf.a $(NAME)
+
 clean:
+	@make -C ../get_next_line clean
+	@make -C ../ft_printf clean
 	rm -rf $(OBJS)
 
 fclean: clean
+	@make -C ../get_next_line fclean
+	@make -C ../ft_printf fclean
 	rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re ft_printf

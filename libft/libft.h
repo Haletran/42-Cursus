@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:40:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/10 13:10:04 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/11 19:13:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+#include "../ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
@@ -63,5 +64,6 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
 t_list				*ft_lstnew(void *content);
+char	*get_next_line(int fd);
 
 #endif

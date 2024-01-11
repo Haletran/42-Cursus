@@ -5,32 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2024/01/11 19:24:21 by codespace        ###   ########.fr        #
+#    Created: 2024/01/11 19:04:47 by codespace         #+#    #+#              #
+#    Updated: 2024/01/11 19:15:34 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-OBJS = $(SRCS:.c=.o)
+NAME := libftgnl.a
+CC := cc
+CFLAGS := -Wextra -Wall -Werror -g
 
-CC = cc
+SRCS	= get_next_line.c \
+		  get_next_line_utils.c
 
-CFLAGS = -Wall -Wextra -Werror
+OBJS	= ${SRCS:.c=.o}
 
-NAME = libftprintf.a
-
-SRCS =	ft_printf.c \
-		ft_printf_utils.c \
-		ft_printf_check.c \
-		ft_printf_lib.c \
-	
 all: $(NAME)
 
-$(NAME): gnl $(OBJS)
+$(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
-
-gnl:
-	@make -C ../get_next_line
-	mv ../get_next_line/libftgnl.a $(NAME)
 
 clean:
 	rm -rf $(OBJS)
