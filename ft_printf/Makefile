@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2024/01/11 19:24:21 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/11 19:27:46 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re gnl
