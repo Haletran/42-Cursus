@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/10 17:29:54 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/11 15:25:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@
 typedef struct node
 {
 	int					content;
-	struct s_lst_stack	*next;
-	struct s_lst_stack	*prev;
+	struct node	*next;
 }						node_t;
 
 /* FUNCTIONS */
-void sort_two_nodes(node_t *node1, node_t *node2);
+void sort_two_nodes(node_t *node1);
 int						check_input(int nb_args, char **src);
 int						init_stack(node_t *node, int size, char **arr);
 int						ft_error(void);
