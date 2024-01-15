@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 12:38:23 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 13:40:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,11 @@ int	main(int argc, char **argv)
 			sa(&a);
 		// Why I'm doing this instead of just one function
 		else if (argc == 4 || get_args(argv) == 3)
-			pa(&a, &b);
-		/* 		else if (argc == 6 || get_args(argv) == 5)
-					sort_two_nodes(a);
-				else
-					sort_multiples_nodes(a); */
-		freeList(a);
+			/* 		else if (argc == 6 || get_args(argv) == 5)
+						sort_two_nodes(a);
+					else
+						sort_multiples_nodes(a); */
+			freeList(a);
 	}
 	else
 		// TODO: - fix this shitty error if input already sorted
