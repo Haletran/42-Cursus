@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 08:40:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 12:00:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,20 @@ int	get_args(char **arr)
 	return (count);
 }
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	c;
-
-	c = 0;
-	while (s1[c] == s2[c] && (s1[c] != '\0' && s2[c] != '\0'))
-		c++;
-	return (s1[c] - s2[c]);
-}
-
 int	ft_error(void)
 {
 	ft_putendl_fd("Error", 2);
 	return (0);
 }
 
-void freeList(struct node* head)
+void	freeList(struct node *head)
 {
-   struct node* tmp;
+	struct node	*tmp;
 
-   while (head != NULL)
-    {
-       tmp = head;
-       head = head->next;
-       free(tmp);
-    }
+	while (head != NULL)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
 }

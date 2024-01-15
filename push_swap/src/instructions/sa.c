@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:45:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 21:40:30 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 12:01:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	sa(node_t **node1)
 {
-	node_t	*node2;
-	int		temp;
+	node_t *node2;
+	int temp;
 
 	if (*node1 == NULL || node1 == NULL)
 		return ;

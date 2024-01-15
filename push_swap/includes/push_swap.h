@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 18:51:25 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 12:00:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct node
 }				node_t;
 
 /* FUNCTIONS */
-void pa(node_t **node1, node_t **node2);
-void freeList(struct node* head);
+void			pa(node_t **node1, node_t **node2);
+void			freeList(struct node *head);
 int				check_input(int nb_args, char **src);
 int				init_stack(node_t **head, int size, char **arr);
 int				ft_error(void);

@@ -6,14 +6,14 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 08:38:18 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 12:00:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // TODO: why the fuck is the arr is reversed in the new_node
-// TODO: need to check another if the input is sorted in case of a split WTF (ex: "1 2" 1)
+// TODO: need to check another if the input is sorted in case of a split WTF (ex: "1 2" 3)
 int	init_stack(node_t **head, int size, char **arr)
 {
 	int		i;
