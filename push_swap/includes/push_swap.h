@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 12:00:04 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 12:38:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct node
 }				node_t;
 
 /* FUNCTIONS */
+int				ft_list_size(t_list *begin_list);
 void			pa(node_t **node1, node_t **node2);
 void			freeList(struct node *head);
 int				check_input(int nb_args, char **src);
@@ -38,5 +39,6 @@ int				verif_input(int nb_args, char **src);
 /*OPERATIONS*/
 void			sa(node_t **node1);
 void			sb(node_t **node1);
+void			pa(node_t **node1, node_t **node2);
 
 #endif
