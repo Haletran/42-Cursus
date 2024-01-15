@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 12:46:08 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 12:52:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pa(node_t **node1, node_t **node2)
 	if (*node2 == NULL || node2 == NULL)
 		return ;
 	first = **node2;
-
+	
 
 
 
