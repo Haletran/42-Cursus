@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 12:00:25 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 12:08:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 					sort_two_nodes(a);
 				else
 					sort_multiples_nodes(a); */
+					
 		freeList(a);
 	}
 	else
