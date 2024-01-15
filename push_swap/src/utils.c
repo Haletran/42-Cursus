@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 19:02:11 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 08:40:38 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,16 @@ int	ft_error(void)
 {
 	ft_putendl_fd("Error", 2);
 	return (0);
+}
+
+void freeList(struct node* head)
+{
+   struct node* tmp;
+
+   while (head != NULL)
+    {
+       tmp = head;
+       head = head->next;
+       free(tmp);
+    }
 }

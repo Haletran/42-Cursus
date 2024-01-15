@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 18:45:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 21:40:30 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
+/*   Updated: 2024/01/15 10:03:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sa(node_t **node1)
+void pa(node_t **node1, node_t **node2)
 {
-	node_t	*node2;
-	int		temp;
-
-	if (*node1 == NULL || node1 == NULL)
+	if (*node2 == NULL || node2 == NULL)
 		return ;
-	node2 = (*node1)->next;
-	if ((*node1)->content < node2->content)
-	{
-		temp = (*node1)->content;
-		(*node1)->content = node2->content;
-		node2->content = temp;
-		ft_putendl_fd("sa", 1);
-	}
+    node1 = (*node2)->content;
 }

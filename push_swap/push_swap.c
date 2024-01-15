@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 20:54:24 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/15 08:40:49 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 			sort_two_nodes(a);
 		else
 			sort_multiples_nodes(a); */
+		freeList(a);
 	}
 	else
 	// TODO: - fix this shitty error if input already sorted

@@ -26,6 +26,8 @@ typedef struct node
 }				node_t;
 
 /* FUNCTIONS */
+void pa(node_t **node1, node_t **node2);
+void freeList(struct node* head);
 int				check_input(int nb_args, char **src);
 int				init_stack(node_t **head, int size, char **arr);
 int				ft_error(void);
