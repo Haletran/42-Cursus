@@ -25,7 +25,7 @@ $(NAME): $(OBJS)
 
 gt:
 	@echo "\nYou need to have MLX installed to execute so_long :\n----------------------------------------"
-	@echo -n "So do you want to install Codam MLX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
+	@echo -n "So do you want to install MacroLibX? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
 	@echo "----------------------------------------"
 
 clean:
