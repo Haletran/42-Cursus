@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/16 15:53:11 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/01/16 20:03:16 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make -C MacroLibX
 	@make -C ../libft
-	@$(CC) $(OBJS) $(LIBS) ../libft/libft.a $(HEADERS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) ../libft/libft.a -o $(NAME)
 
 gt:
-	@echo "\nYou need to have MLX installed to execute so_long :\n----------------------------------------"
-	@echo -n "So do you want to install  MacroLibX ? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
-	@echo "----------------------------------------"
+	@echo -n "Do you want to install  MacroLibX ? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
 
 gdb: $(NAME)
 	gdb --tui ./so_long
@@ -46,9 +44,6 @@ clean:
 fclean: clean
 	@make -C MacroLibX fclean
 	@rm -rf $(NAME)
-
-folder:
-	rm -rf MacroLibX
 
 re: clean all
 

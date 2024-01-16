@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/16 19:51:44 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:57:49 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ static int	check_walls(char **map)
 			return (0);
 	}
 	j = 0;
-    // Bug Parfois jsp pas pourquoi
-/* 	while (map[tmp][j] != '\0')
+    // Bug car nl at end of file
+	while (map[tmp][j] != '\0')
 	{
         ft_printf("%d", tmp);
 		if (map[tmp][j++] != '1')
 			return (0);
-	} */
+	}
 	return (1);
 }
 
