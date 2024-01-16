@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 13:40:12 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/16 12:53:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	main(int argc, char **argv)
 {
 	node_t	*a;
-	node_t	*b;
 
+	/* 	node_t	*b; */
 	a = NULL;
-	b = NULL;
+	/* 	b = NULL; */
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (ft_error());
 	else if (argc == 2)
