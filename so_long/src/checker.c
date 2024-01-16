@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/16 17:56:40 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/16 17:58:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ static int	check_p(char **map)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'P')
-				value++ : if (map[i][j] == 'E') value2++;
+				value++;
+			if (map[i][j] == 'E')
+				value2++;
 			j++;
 		}
 		i++;
