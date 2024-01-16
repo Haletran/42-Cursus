@@ -3,18 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/16 11:13:39 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/16 15:53:11 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Makefile vars                                                                  
 NAME	:= so_long
-CFLAGS	:= -Wextra -Wall -Werror
+CFLAGS	:= -Wextra -Wall -Werror -g
 SRCS	:= so_long.c \
-		   src/parsing.c
+		   src/utils.c \
+		   src/parse.c \
+		   src/checker.c
 OBJS	:= ${SRCS:.c=.o}
 LIBS	:= MacroLibX/libmlx.so -lSDL2
 
@@ -22,28 +24,32 @@ LIBS	:= MacroLibX/libmlx.so -lSDL2
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@make -C MacroLibX
+	@make -C ../libft
+	@$(CC) $(OBJS) $(LIBS) ../libft/libft.a $(HEADERS) -o $(NAME)
 
 gt:
 	@echo "\nYou need to have MLX installed to execute so_long :\n----------------------------------------"
 	@echo -n "So do you want to install  MacroLibX ? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
 	@echo "----------------------------------------"
 
+gdb: $(NAME)
+	gdb --tui ./so_long
+
 clean:
+	@make -C MacroLibX clean
 	@rm -rf $(OBJS) 
-	@rm -rf $(LIBMLX)/build
-	@rm -rf mlx.a
 
 fclean: clean
+	@make -C MacroLibX fclean
 	@rm -rf $(NAME)
 
 folder:
-	@rm -rf MLX42
-	@rm -rf minilibx-linux
+	rm -rf MacroLibX
 
 re: clean all
 
-.PHONY: all, clean, fclean, re, libmlx
+.PHONY: all, clean, fclean, re, folder, gt

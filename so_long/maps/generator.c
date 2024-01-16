@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   generator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:29:56 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/07 15:27:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/16 14:58:42 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 // E = map exit (appear after  collecting all the coins)
 // P = player starting position
 
-#include "include/so_long.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void generate_smap(int x, int y)
 {
@@ -24,11 +27,11 @@ void generate_smap(int x, int y)
     int d = 0;
 
     // write(1, "Simple Map :\n\n", 14);
-    if (x < y || x == y)
+/*     if (x < y || x == y)
     {
         write(1, "Error, invalid size\n", 20);
         return;
-    }
+    } */
     while (c < x)
     {
         write(1, "1", 1);

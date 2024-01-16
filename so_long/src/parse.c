@@ -1,13 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/16 11:05:47 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/16 15:17:34 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/01/16 15:18:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+char	**stock_map(int fd)
+{
+    char **map;
+    int i;
+	map = malloc(100 * sizeof(char *));
+	if (!map)
+		return (NULL);
+	i = 0;
+	while (i < 100 - 1)
+	{
+		map[i] = get_next_line(fd);
+		if (map[i] == NULL)
+			break ;
+		i++;
+	}
+	i = 0;
+	close(fd);
+	return (map);
+}
