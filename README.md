@@ -10,5 +10,5 @@ All of my projects during 42 Cursus.
 - [x] get_next_line : 29/11/2023 -> 13/12/2023 | ✅ 112% |
 ## Rank 2
 - [ ] so_long : 27/11/2023 ->
-- [ ] minitalk : 13/12/2023 -> 23/12/2023 (only one correction left)
+- [x] minitalk : 13/12/2023 -> 23/12/2023 | ✅ 125% |
 - [ ] push_swap : 08/01/2024 ->
