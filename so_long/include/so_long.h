@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 16:33:28 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/16 11:05:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #  define BUFFER_SIZE 1
 # endif
 
-# include "MacroLibX/includes/mlx.h"
-# define WIDTH 1000
+# include "../MacroLibX/includes/mlx.h"
+# define WIDTH 500
 # define HEIGHT 500
 
 # include <fcntl.h>
