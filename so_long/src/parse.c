@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:17:34 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/16 15:18:19 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:15:46 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ char	**stock_map(int fd)
 			break ;
 		i++;
 	}
-	i = 0;
 	close(fd);
 	return (map);
 }

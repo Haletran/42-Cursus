@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/16 17:58:18 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/16 19:51:44 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ static int	check_walls(char **map)
 			return (0);
 	}
 	j = 0;
-	while (map[tmp][j] != '\0')
+    // Bug Parfois jsp pas pourquoi
+/* 	while (map[tmp][j] != '\0')
 	{
+        ft_printf("%d", tmp);
 		if (map[tmp][j++] != '1')
 			return (0);
-	}
+	} */
 	return (1);
 }
 
@@ -83,10 +85,10 @@ static int	check_p(char **map)
 	i = 0;
 	value = 0;
 	value2 = 0;
-	j = 0;
-	while (map[i])
+	while (map[i] != NULL)
 	{
-		while (map[i][j])
+		j = 0;
+		while (map[i][j] != '\0')
 		{
 			if (map[i][j] == 'P')
 				value++;
@@ -96,7 +98,31 @@ static int	check_p(char **map)
 		}
 		i++;
 	}
-	if (value >= 0 || value2 >= 0)
+	if (value == 1 || value2 == 1)
+		return (1);
+	return (0);
+}
+
+static int check_collectibles(char **map)
+{
+    int	i;
+	int	value;
+	int	j;
+
+	i = 0;
+	value = 0;
+	while (map[i] != NULL)
+	{
+		j = 0;
+		while (map[i][j] != '\0')
+		{
+			if (map[i][j] == 'C')
+				value++;
+			j++;
+		}
+		i++;
+	}
+	if (value == 0)
 		return (0);
 	return (1);
 }
@@ -106,7 +132,7 @@ int	global_checker(int fd)
 	char	**map;
 
 	map = stock_map(fd);
-	if (check_if_rectangle(map) && check_walls(map))
+	if (check_if_rectangle(map) && check_walls(map) && check_p(map) && check_collectibles(map))
 		return (1);
 	return (0);
 }
