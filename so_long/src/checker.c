@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 13:56:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:04:54 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,22 @@ static int	check_walls(char **map)
 	tmp = 0;
 	j = 0;
 	while (map[0][j])
-	{
 		if (ft_strcmp(&map[i][j++], "1") == 0)
 			return (0);
-	}
 	i = 0;
 	j = (int)ft_strlen(map[0]);
 	while (map[i] != NULL)
-	{
 		if (map[i++][0] != '1')
 			return (0);
-	}
 	tmp = i - 1;
 	i = 0;
 	while (map[i][j])
-	{
 		if (ft_strcmp(&map[i++][j], "1") == 0)
 			return (0);
-	}
 	j = 0;
-    // Bug car nl at end of file
 	while (map[tmp][j] != '\0')
-	{
 		if (map[tmp][j++] != '1')
 			return (0);
-	}
 	return (1);
 }
 
@@ -102,9 +93,9 @@ static int	check_p(char **map)
 	return (0);
 }
 
-static int check_collectibles(char **map)
+static int	check_collectibles(char **map)
 {
-    int	i;
+	int	i;
 	int	value;
 	int	j;
 
@@ -128,10 +119,12 @@ static int check_collectibles(char **map)
 
 int	global_checker(int fd)
 {
-	mlx_t *data = malloc(sizeof(mlx_t));
+	mlx_t	*data;
 
+	data = malloc(sizeof(mlx_t));
 	data->map = initialize_mlx(fd);
-	if (check_if_rectangle(data->map) && check_walls(data->map) && check_p(data->map) && check_collectibles(data->map))
+	if (check_if_rectangle(data->map) && check_walls(data->map)
+		&& check_p(data->map) && check_collectibles(data->map))
 		return (1);
 	return (0);
 }
