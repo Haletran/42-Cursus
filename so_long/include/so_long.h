@@ -40,6 +40,7 @@ typedef struct
 }			mlx_t;
 
 /* FUNCTIONS */
+int check_file(char *filename);
 char	*ft_strstr(char *str, char *to_find);
 char		**initialize_map(int fd);
 int			ft_strcmp(char *s1, char *s2);

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 18:54:17 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:08:32 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	if (argc != 2 || argc > 3)
 		return (ft_error(2));
 	fd = open(argv[1], O_RDONLY);
-	if (fd < 0 || !check_file(argv))
+	if (fd < 0 || !check_file(argv[1]))
 		return (ft_error(1));
 	if (!global_checker(fd))
 		return (ft_error(3));

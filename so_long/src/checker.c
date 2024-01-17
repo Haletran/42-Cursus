@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 18:52:47 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:34:39 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static int	check_if_rectangle(char **map)
 	int	x;
 	int	tmp;
 	int	y;
-	mlx_t *data = malloc(sizeof(mlx_t));
 
 	y = 0;
 	x = 0;
@@ -67,8 +66,6 @@ static int	check_if_rectangle(char **map)
 		y = 0;
 		x++;
 	}
-	data->map_width = y;
-	data->map_height = x;
 	return (1);
 }
 
@@ -99,6 +96,12 @@ static int	check_p(char **map)
 		return (1);
 	return (0);
 }
+static int isNotInSet(char c) 
+{
+    if (c != 'C' && c != 'P' && c != '0' && c != '1' && c != 'E' && c != '\0') 
+        return (1);
+    return (0);
+}
 
 static int	check_collectibles(char **map)
 {
@@ -111,10 +114,12 @@ static int	check_collectibles(char **map)
 	while (map[x] != NULL)
 	{
 		y = 0;
-		while (map[x][y] != '\0')
+		while (map[x][y] != '\n' && map[x][y] != '\0')
 		{
 			if (map[x][y] == 'C')
 				value++;
+			if (isNotInSet(map[x][y]))
+				return (0);
 			y++;
 		}
 		x++;
@@ -123,6 +128,18 @@ static int	check_collectibles(char **map)
 		return (0);
 	return (1);
 }
+
+int check_file(char *filename)
+{
+	size_t len = ft_strlen(filename) - 4;
+	if (len < 4)
+		return (0);
+
+	if (ft_strstr(filename, ".ber") && strcmp(filename + len, ".ber") == 0) 
+		return (1);
+	return (0);
+}
+
 
 int	global_checker(int fd)
 {
