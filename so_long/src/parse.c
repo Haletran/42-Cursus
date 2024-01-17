@@ -6,13 +6,13 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:17:34 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/17 14:06:36 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:26:27 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-char	**initialize_mlx(int fd)
+char	**initialize_map(int fd)
 {
 	int		i;
 	mlx_t	*new_mlx;

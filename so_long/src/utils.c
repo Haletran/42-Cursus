@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:39:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/17 14:01:07 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:55:44 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,32 @@ int	ft_error(int choice)
 		ft_putendl_fd("\033[1m\033[31m[ Error ]\033[0m : Map Invalid", 2);
 		return (0);
 	}
-	return (1);
+	return (0);
+}
+
+char	*ft_strstr(char *str, char *to_find)
+{
+	int	c;
+	int	d;
+
+	c = 0;
+	d = 0;
+	if (to_find[0] == '\0' || to_find == 0)
+		return (str);
+	if (str == 0)
+		return (0);
+	while (str[c] != '\0')
+	{
+		while (str[c + d] == to_find[d])
+		{
+			d++;
+			if (to_find[d] == '\0')
+				return (&str[c]);
+		}
+			d = 0;
+			c++;
+	}
+	return (0);
 }
 
 int	ft_strcmp(char *s1, char *s2)

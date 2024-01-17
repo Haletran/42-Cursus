@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 14:01:33 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:42:04 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <string.h>
 
 typedef struct
 {
@@ -39,9 +40,9 @@ typedef struct
 }			mlx_t;
 
 /* FUNCTIONS */
-char		**initialize_mlx(int fd);
+char	*ft_strstr(char *str, char *to_find);
+char		**initialize_map(int fd);
 int			ft_strcmp(char *s1, char *s2);
-char		**stock_map(int fd);
 int			global_checker(int fd);
 int			ft_error(int choice);
 

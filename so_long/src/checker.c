@@ -6,111 +6,118 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 14:04:54 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:52:47 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static int	check_walls(char **map)
+static int check_walls(char **map)
 {
-	int	i;
-	int	tmp;
-	int	j;
+    int x;
+    int y;
 
-	i = 0;
-	tmp = 0;
-	j = 0;
-	while (map[0][j])
-		if (ft_strcmp(&map[i][j++], "1") == 0)
-			return (0);
-	i = 0;
-	j = (int)ft_strlen(map[0]);
-	while (map[i] != NULL)
-		if (map[i++][0] != '1')
-			return (0);
-	tmp = i - 1;
-	i = 0;
-	while (map[i][j])
-		if (ft_strcmp(&map[i++][j], "1") == 0)
-			return (0);
-	j = 0;
-	while (map[tmp][j] != '\0')
-		if (map[tmp][j++] != '1')
-			return (0);
-	return (1);
+    x = 0;
+    y = 0;
+    while (map[0][y] != '\n')
+        if (map[0][y++] != '1')
+            return 0;
+
+    y = 0;
+    while (map[x + 1] != NULL)
+        x++;
+    while (y < x)
+        if (map[y++][0] != '1')
+            return 0;
+
+    y = 0;
+    while (map[x] != NULL && map[x][y] != '\0')
+        if (map[x][y++] != '1')
+            return 0;
+
+    x = 0;
+    while (map[x] != NULL && map[x][y - 1] != '\0')
+        if (map[x++][y - 1] != '1')
+            return 0;
+
+    return (1);
 }
+
+
 
 static int	check_if_rectangle(char **map)
 {
-	int	i;
+	int	x;
 	int	tmp;
-	int	j;
+	int	y;
+	mlx_t *data = malloc(sizeof(mlx_t));
 
-	j = 0;
-	i = 0;
-	while (map[i] != NULL)
-		i++;
-	tmp = i;
-	i = 0;
-	while (i < tmp)
+	y = 0;
+	x = 0;
+	while (map[x] != NULL)
+		x++;
+	tmp = x;
+	x = 0;
+	while (x < tmp)
 	{
-		while (map[i][j])
-			j++;
-		if (tmp == j)
+		while (map[x][y])
+			y++;
+		if (tmp == y)
 			return (0);
-		j = 0;
-		i++;
+		y = 0;
+		x++;
 	}
+	data->map_width = y;
+	data->map_height = x;
 	return (1);
 }
 
 static int	check_p(char **map)
 {
-	int	i;
+	int	x;
 	int	value;
 	int	value2;
-	int	j;
+	int	y;
 
-	i = 0;
+	x = 0;
 	value = 0;
 	value2 = 0;
-	while (map[i] != NULL)
+	while (map[x] != NULL)
 	{
-		j = 0;
-		while (map[i][j] != '\0')
+		y = 0;
+		while (map[x][y] != '\0')
 		{
-			if (map[i][j] == 'P')
+			if (map[x][y] == 'P')
 				value++;
-			if (map[i][j] == 'E')
+			if (map[x][y] == 'E')
 				value2++;
-			j++;
+			y++;
 		}
-		i++;
+		x++;
 	}
-	if (value == 1 || value2 == 1)
+	if (value == 1 && value2 == 1)
 		return (1);
 	return (0);
 }
 
 static int	check_collectibles(char **map)
 {
-	int	i;
+	int	x;
 	int	value;
-	int	j;
+	int	y;
 
-	i = 0;
+	x = 0;
 	value = 0;
-	while (map[i] != NULL)
+	while (map[x] != NULL)
 	{
-		j = 0;
-		while (map[i][j] != '\0')
+		y = 0;
+		while (map[x][y] != '\0')
 		{
-			if (map[i][j] == 'C')
+			if (map[x][y] == 'C')
 				value++;
-			j++;
+			y++;
 		}
-		i++;
+		x++;
 	}
 	if (value == 0)
 		return (0);
@@ -122,9 +129,14 @@ int	global_checker(int fd)
 	mlx_t	*data;
 
 	data = malloc(sizeof(mlx_t));
-	data->map = initialize_mlx(fd);
-	if (check_if_rectangle(data->map) && check_walls(data->map)
-		&& check_p(data->map) && check_collectibles(data->map))
-		return (1);
-	return (0);
+	data->map = initialize_map(fd);
+	if (!check_if_rectangle(data->map))
+		return (0);
+	if (!check_collectibles(data->map))
+		return (0);
+	if (!check_walls(data->map))
+		return (0);
+	if (!check_p(data->map))
+		return (0);
+	return (1);
 }

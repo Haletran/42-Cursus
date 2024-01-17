@@ -6,24 +6,25 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/16 20:03:16 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/01/17 15:09:00 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Makefile vars                                                                  
-NAME	:= so_long
-CFLAGS	:= -Wextra -Wall -Werror -g
-SRCS	:= so_long.c \
-		   src/utils.c \
-		   src/parse.c \
-		   src/checker.c
-OBJS	:= ${SRCS:.c=.o}
-LIBS	:= MacroLibX/libmlx.so -lSDL2
-
+NAME    := so_long
+CFLAGS  := -Wextra -Wall -Werror -g
+SRCS    := so_long.c \
+           src/utils.c \
+           src/parse.c \
+           src/checker.c
+OBJS_DIR := obj
+OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
+LIBS    := MacroLibX/libmlx.so -lSDL2
 
 all: $(NAME)
 
-%.o: %.c
+$(OBJS_DIR)/%.o: %.c
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
@@ -39,7 +40,7 @@ gdb: $(NAME)
 
 clean:
 	@make -C MacroLibX clean
-	@rm -rf $(OBJS) 
+	@rm -rf $(OBJS_DIR)
 
 fclean: clean
 	@make -C MacroLibX fclean
@@ -47,4 +48,7 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all, clean, fclean, re, folder, gt
+.PHONY: all clean fclean re folder gt
+
+
+
