@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 19:08:32 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 23:03:57 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0 || !check_file(argv[1]))
 		return (ft_error(1));
-	if (!global_checker(fd))
+	if (!global_checker(fd) && !flood_fill(mlx, fd))
 		return (ft_error(3));
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, 400, 400, "So_long");

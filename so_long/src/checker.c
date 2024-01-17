@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 19:34:39 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:46:52 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,6 @@ static int	check_p(char **map)
 		return (1);
 	return (0);
 }
-static int isNotInSet(char c) 
-{
-    if (c != 'C' && c != 'P' && c != '0' && c != '1' && c != 'E' && c != '\0') 
-        return (1);
-    return (0);
-}
 
 static int	check_collectibles(char **map)
 {
@@ -128,18 +122,6 @@ static int	check_collectibles(char **map)
 		return (0);
 	return (1);
 }
-
-int check_file(char *filename)
-{
-	size_t len = ft_strlen(filename) - 4;
-	if (len < 4)
-		return (0);
-
-	if (ft_strstr(filename, ".ber") && strcmp(filename + len, ".ber") == 0) 
-		return (1);
-	return (0);
-}
-
 
 int	global_checker(int fd)
 {

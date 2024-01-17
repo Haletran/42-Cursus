@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:39:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/17 18:56:45 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:44:03 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,23 @@ int	ft_error(int choice)
 		return (0);
 	}
 	return (0);
+}
+int check_file(char *filename)
+{
+	size_t len = ft_strlen(filename) - 4;
+	if (len < 4)
+		return (0);
+
+	if (ft_strstr(filename, ".ber") && strcmp(filename + len, ".ber") == 0) 
+		return (1);
+	return (0);
+}
+
+int isNotInSet(char c) 
+{
+    if (c != 'C' && c != 'P' && c != '0' && c != '1' && c != 'E' && c != '\0') 
+        return (1);
+    return (0);
 }
 
 char	*ft_strstr(char *str, char *to_find)

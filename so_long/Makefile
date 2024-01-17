@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
+#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/17 15:09:00 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/01/17 22:48:17 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS  := -Wextra -Wall -Werror -g
 SRCS    := so_long.c \
            src/utils.c \
            src/parse.c \
+		   src/validity.c \
            src/checker.c
 OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
