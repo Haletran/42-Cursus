@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/16 19:57:49 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:56:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static int	check_walls(char **map)
     // Bug car nl at end of file
 	while (map[tmp][j] != '\0')
 	{
-        ft_printf("%d", tmp);
 		if (map[tmp][j++] != '1')
 			return (0);
 	}
@@ -129,10 +128,10 @@ static int check_collectibles(char **map)
 
 int	global_checker(int fd)
 {
-	char	**map;
+	mlx_t *data = malloc(sizeof(mlx_t));
 
-	map = stock_map(fd);
-	if (check_if_rectangle(map) && check_walls(map) && check_p(map) && check_collectibles(map))
+	data->map = initialize_mlx(fd);
+	if (check_if_rectangle(data->map) && check_walls(data->map) && check_p(data->map) && check_collectibles(data->map))
 		return (1);
 	return (0);
 }

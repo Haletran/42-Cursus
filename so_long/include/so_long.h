@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/16 15:27:29 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:38:06 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,16 @@ typedef struct
 {
     void* mlx;
     void* win;
+    char **map;
+    int map_width;
+    int map_height;
+    int player_x;
+    int player_y;
 } mlx_t;
 
 
 /* FUNCTIONS */
+char **initialize_mlx(int fd);
 int	ft_strcmp(char *s1, char *s2);
 char	**stock_map(int fd);
 int global_checker(int fd);
