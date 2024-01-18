@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/18 17:19:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/18 18:42:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ int	main(int argc, char **argv)
 		return (ft_error(3));
 
 	// MAIN MLX FUNCTION WIN
+	int a = 0;
+	while (mlx->map[a] != NULL)
+		printf("%s", mlx->map[a++]);
 	mlx->mlx = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlx, mlx->width*50, mlx->height*10, "So_long");
+	mlx->win = mlx_new_window(mlx->mlx, mlx->height*60, mlx->width*60, "So_long");
 
 
 
