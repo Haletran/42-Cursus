@@ -6,13 +6,30 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/18 15:02:10 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:04:08 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 //flood fill
+mlx_t *get_mapwh(mlx_t *data)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	x = 0;
+    while (data->map[x] != NULL)
+        x++;
+    data->width = x;
+    x = 0;
+    while (data->map[x][y] != '\0' && data->map[x][y] != '\n')
+        y++;
+    data->height = y;
+    return (data);
+}
+
 mlx_t *get_co(mlx_t *data)
 {
     int x;
@@ -20,6 +37,7 @@ mlx_t *get_co(mlx_t *data)
 
     x = 0;
     y = 0;
+    get_mapwh(data);
     while(data->map[x] != NULL)
     {
         while(data->map[x][y] != '\0')
@@ -42,18 +60,12 @@ mlx_t *get_co(mlx_t *data)
     return (data);
 }
 
+
+
+
 int flood_fill(mlx_t *data)
 {
-    //data->map = initialize_map(data->fd);
     data = get_co(data);
-    
-    
-    ft_printf("Player : %c\n", data->map[data->player_x][data->player_y]);
-    ft_printf("Ending : %c\n", data->map[data->end_x][data->end_y]);
-
-    ft_printf("Player Position : X=%d Y=%d\n", data->player_x, data->player_y);
-    ft_printf("Ending Position : X=%d Y=%d\n", data->end_x, data->end_y);
-    
     return (1);
 }
 

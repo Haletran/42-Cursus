@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/18 14:57:06 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:04:21 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # include "../../libft/libft.h"
 # include "../MacroLibX/includes/mlx.h"
-# define WIDTH 500
+# define WIDTH 1000
 # define HEIGHT 500
 
 # include <fcntl.h>
@@ -33,14 +33,22 @@ typedef struct
 	void	*mlx;
 	void	*win;
 	char	**map;
+	int    width;
+	int   height;
 	int		player_x;
 	int		player_y;
 	int		end_x;
 	int		end_y;
 	int	    fd;
+	void   *ground;
+	void   *wall;
+	void   *player;
+	void   *exit;
+	void   *coin;
 }			mlx_t;
 
 /* FUNCTIONS */
+void render_map(mlx_t *data);
 int			flood_fill(mlx_t *data);
 int			check_file(char *filename);
 char		*ft_strstr(char *str, char *to_find);
