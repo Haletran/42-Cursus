@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/18 17:04:21 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:25:14 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ int			ft_strcmp(char *s1, char *s2);
 int			global_checker(mlx_t *data);
 int			ft_error(int choice);
 int			isNotInSet(char c);
+mlx_t *get_co(mlx_t *data);
+void move_player(int keycode);
 
 #endif

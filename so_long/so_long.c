@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/18 18:42:40 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:24:56 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ int	key_hook(int key, void *param)
 {
 	if (key == 41)
 		mlx_loop_end(param);
+	if (key == 4)
+		ft_printf("a");
+	if (key == 22)
+		ft_printf("s");
+	if (key == 26)
+		move_player(key);
+	if (key == 7)
+		ft_printf("d");
 	return (0);
 }
 
@@ -43,7 +51,7 @@ int	main(int argc, char **argv)
 	while (mlx->map[a] != NULL)
 		printf("%s", mlx->map[a++]);
 	mlx->mlx = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlx, mlx->height*60, mlx->width*60, "So_long");
+	mlx->win = mlx_new_window(mlx->mlx, mlx->height*32, mlx->width*32, "So_long");
 
 
 
