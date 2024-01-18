@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 22:46:52 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:01:03 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ static int check_walls(char **map)
     while (map[x] != NULL && map[x][y - 1] != '\0')
         if (map[x++][y - 1] != '1')
             return 0;
-
+			
     return (1);
 }
-
-
 
 static int	check_if_rectangle(char **map)
 {
@@ -123,12 +121,9 @@ static int	check_collectibles(char **map)
 	return (1);
 }
 
-int	global_checker(int fd)
+int	global_checker(mlx_t *data)
 {
-	mlx_t	*data;
-
-	data = malloc(sizeof(mlx_t));
-	data->map = initialize_map(fd);
+	data->map = initialize_map(data->fd);
 	if (!check_if_rectangle(data->map))
 		return (0);
 	if (!check_collectibles(data->map))

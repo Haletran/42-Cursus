@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/17 23:03:57 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:03:41 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,24 @@ int	window_hook(int event, void *param)
 
 int	main(int argc, char **argv)
 {
-	mlx_t	mlx;
-	int		fd;
+	mlx_t	*mlx = malloc(sizeof(mlx_t));
 
 	if (argc != 2 || argc > 3)
 		return (ft_error(2));
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0 || !check_file(argv[1]))
+	mlx->fd = open(argv[1], O_RDONLY);
+	if (mlx->fd < 0 || !check_file(argv[1]))
 		return (ft_error(1));
-	if (!global_checker(fd) && !flood_fill(mlx, fd))
+	if (!global_checker(mlx) || !flood_fill(mlx))
 		return (ft_error(3));
-	mlx.mlx = mlx_init();
-	mlx.win = mlx_new_window(mlx.mlx, 400, 400, "So_long");
-	mlx_on_event(mlx.mlx, mlx.win, MLX_KEYDOWN, key_hook, mlx.mlx);
-	mlx_on_event(mlx.mlx, mlx.win, MLX_WINDOW_EVENT, window_hook, mlx.mlx);
-	mlx_loop(mlx.mlx);
-	mlx_destroy_window(mlx.mlx, mlx.win);
-	mlx_destroy_display(mlx.mlx);
+
+	
+	ft_putendl_fd("\033[1m\033[32m[ OK ]\033[0m", 1);
+/* 	mlx->mlx = mlx_init();
+	mlx->win = mlx_new_window(mlx->mlx, WIDTH, HEIGHT, "So_long");
+	mlx_on_event(mlx->mlx, mlx->win, MLX_KEYDOWN, key_hook, mlx->mlx);
+	mlx_on_event(mlx->mlx, mlx->win, MLX_WINDOW_EVENT, window_hook, mlx->mlx);
+	mlx_loop(mlx->mlx);
+	mlx_destroy_window(mlx->mlx, mlx->win);
+	mlx_destroy_display(mlx->mlx); */
 	return (0);
 }
