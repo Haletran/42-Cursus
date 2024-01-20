@@ -6,7 +6,7 @@
 #    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/20 16:47:55 by baptiste         ###   ########.fr        #
+#    Updated: 2024/01/20 16:53:52 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,20 +23,16 @@ OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 LIBS    := MacroLibX/libmlx.so -lSDL2
 
-all: gt $(NAME)
+all: $(NAME)
 
 $(OBJS_DIR)/%.o: %.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
-	@make -C MacroLibX
+	@if [ ! -d "MacroLibX" ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
 	@make -C ../libft
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) ../libft/libft.a -o $(NAME)
-
-gt:
-	@if [ ! -d "MacroLibX" ]; then git clone https://github.com/seekrs/MacroLibX.git; fi
-
 
 gdb: $(NAME)
 	gdb --tui ./so_long
