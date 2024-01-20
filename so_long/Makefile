@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
+#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/18 15:03:56 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/01/20 16:47:55 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 LIBS    := MacroLibX/libmlx.so -lSDL2
 
-all: $(NAME)
+all: gt $(NAME)
 
 $(OBJS_DIR)/%.o: %.c
 	@mkdir -p $(@D)
@@ -35,7 +35,8 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) ../libft/libft.a -o $(NAME)
 
 gt:
-	@echo -n "Do you want to install  MacroLibX ? [y/N] " && read ans && if [ $${ans:-'N'} = 'y' ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
+	@if [ ! -d "MacroLibX" ]; then git clone https://github.com/seekrs/MacroLibX.git; fi
+
 
 gdb: $(NAME)
 	gdb --tui ./so_long
