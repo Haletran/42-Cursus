@@ -6,7 +6,7 @@
 #    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/20 16:53:52 by baptiste         ###   ########.fr        #
+#    Updated: 2024/01/21 21:51:35 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS    := so_long.c \
            src/parse.c \
 		   src/validity.c \
 		   src/render.c \
+		   src/mov.c \
            src/checker.c
 OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))

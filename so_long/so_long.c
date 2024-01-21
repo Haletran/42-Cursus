@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 17:55:37 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 22:07:32 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	key_hook(int key, void *param)
 {
 	mlx_t *mlx;
 	mlx = param;
-	//mlx_string_put(mlx->mlx, mlx->win, 10, 10, 0xFFFFFFFF, ft_itoa(data->nb_move)); 
 	if (key == 41)
 		mlx_loop_end(mlx->mlx);
 	if (key == 4)
@@ -49,6 +48,7 @@ void rendering(mlx_t *mlx)
 	mlx_on_event(mlx->mlx, mlx->win, MLX_WINDOW_EVENT, window_hook, mlx);
 	mlx_loop(mlx->mlx);
 
+	ft_printf("[ \033[1m\033[32mFINISH\033[0m ]\n");
 	// WHEN EXITING WINDOW
 	mlx_destroy_image(mlx->mlx, mlx->wall);
 	mlx_destroy_image(mlx->mlx, mlx->ground);
@@ -57,6 +57,7 @@ void rendering(mlx_t *mlx)
 	mlx_destroy_image(mlx->mlx, mlx->exit);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	mlx_destroy_display(mlx->mlx);
+	free(mlx);
 }
 
 int	main(int argc, char **argv)
