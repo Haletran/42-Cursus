@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 16:24:32 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:55:37 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ int	key_hook(int key, void *param)
 
 int	window_hook(int event, void *param)
 {
+	mlx_t *mlx;
+	mlx = param;
 	if (event == 0)
-		mlx_loop_end(param);
+		mlx_loop_end(mlx->mlx);
 	return (0);
 }
 
@@ -68,11 +70,5 @@ int	main(int argc, char **argv)
 		return (ft_error(1));
 	if (!global_checker(mlx) || !flood_fill(mlx))
 		return (ft_error(3));
-
-	int a = 0;
-	while (mlx->map[a] != NULL)
-		printf("%s", mlx->map[a++]);
-
 	rendering(mlx);
-
 }

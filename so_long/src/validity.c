@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/21 15:21:35 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:37:22 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ mlx_t *get_co(mlx_t *data)
                 data->player_x = x;
                 data->player_y = y;
             }
+            if (data->map[x][y] == 'C')
+                data->coins++;
             y++;
         }
         y = 0;

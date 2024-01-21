@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 16:20:37 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:29:09 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct
 	void   *exit;
 	void   *coin;
 	int		nb_move;
+	int		coins;
+	int		nb_coin;
 }			mlx_t;
 
 /* FUNCTIONS */

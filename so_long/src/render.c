@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:50 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/21 16:26:49 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:57:25 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void    get_var(mlx_t *data)
     int height;
     int width;
 
+    data->nb_coin = 0;
 	data->wall = mlx_png_file_to_image(data->mlx, "images/wall.png", &height, &width);
     data->ground = mlx_png_file_to_image(data->mlx, "images/black.png", &height, &width);
     data->exit = mlx_png_file_to_image(data->mlx, "images/exit.png", &height, &width);
@@ -43,8 +44,6 @@ void render_map(mlx_t *data)
                 mlx_put_image_to_window(data->mlx, data->win, data->coin, y*32 , x*32 );
             else if (data->map[x][y] == 'P')
                 mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, data->player_x*32);
-            else if (data->map[x][y] == 'E')
-                mlx_put_image_to_window(data->mlx, data->win, data->exit, y*32, x*32);
             y++;
         }
         y = 0;
@@ -59,9 +58,16 @@ void move_up(mlx_t *data)
     tmp = data->player_x;
     if (data->map[data->player_x - 1][data->player_y] != '1')
     {
+        ft_printf("COINS :%d Recolted :%d\n", data->coins, data->nb_coin);
+        if (data->map[data->player_x - 1][data->player_y] == 'C')
+            data->nb_coin++;
+        if (data->nb_coin == data->coins)
+            mlx_put_image_to_window(data->mlx, data->win, data->exit, data->end_y*32, data->end_x*32);
         mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, (data->player_x - 1)*32);
         data->player_x--;
         mlx_put_image_to_window(data->mlx, data->win, data->ground, data->player_y*32, tmp*32);
+        if (data->nb_coin >= data->coins && data->map[data->player_x][data->player_y] == 'E')
+            mlx_loop_end(data->mlx);
         mlx_string_put(data->mlx, data->win, 10, 10, 0xFF0000FF, ft_itoa(data->nb_move++));   
     }
 }
@@ -72,9 +78,16 @@ void move_down(mlx_t *data)
     tmp = data->player_x;
     if (data->map[data->player_x + 1][data->player_y] != '1')
     {
+        ft_printf("COINS :%d Recolted :%d\n", data->coins, data->nb_coin);
+        if (data->map[data->player_x + 1][data->player_y] == 'C')
+            data->nb_coin++;
+        if (data->nb_coin == data->coins)
+            mlx_put_image_to_window(data->mlx, data->win, data->exit, data->end_y*32, data->end_x*32);
         mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, (data->player_x + 1)*32);
         data->player_x++;
         mlx_put_image_to_window(data->mlx, data->win, data->ground, data->player_y*32, tmp*32);
+        if (data->nb_coin >= data->coins && data->map[data->player_x][data->player_y] == 'E')
+            mlx_loop_end(data->mlx);
         mlx_string_put(data->mlx, data->win, 10, 10, 0xFF0000FF, ft_itoa(data->nb_move++)); 
     }
 }
@@ -85,9 +98,16 @@ void move_right(mlx_t *data)
     tmp = data->player_y;
     if (data->map[data->player_x][data->player_y + 1] != '1')
     {
+        ft_printf("COINS :%d Recolted :%d\n", data->coins, data->nb_coin);
+        if (data->map[data->player_x][data->player_y + 1] == 'C')
+            data->nb_coin++;
+        if (data->nb_coin == data->coins)
+            mlx_put_image_to_window(data->mlx, data->win, data->exit, data->end_y*32, data->end_x*32);
         mlx_put_image_to_window(data->mlx, data->win, data->player, (data->player_y + 1)*32, data->player_x*32);
         data->player_y++;
         mlx_put_image_to_window(data->mlx, data->win, data->ground, tmp*32, data->player_x*32);
+        if (data->nb_coin >= data->coins && data->map[data->player_x][data->player_y] == 'E')
+            mlx_loop_end(data->mlx);
         mlx_string_put(data->mlx, data->win, 10, 10, 0xFF0000FF, ft_itoa(data->nb_move++)); 
     }
 }
@@ -98,9 +118,16 @@ void move_left(mlx_t *data)
     tmp = data->player_y;
     if (data->map[data->player_x][data->player_y - 1] != '1')
     {
+        ft_printf("COINS :%d Recolted :%d\n", data->coins, data->nb_coin);
+        if (data->map[data->player_x][data->player_y - 1] == 'C')
+            data->nb_coin += 1;
+        if (data->nb_coin == data->coins)
+            mlx_put_image_to_window(data->mlx, data->win, data->exit, data->end_y*32, data->end_x*32);
         mlx_put_image_to_window(data->mlx, data->win, data->player, (data->player_y - 1)*32, data->player_x*32);
         data->player_y--;
         mlx_put_image_to_window(data->mlx, data->win, data->ground, tmp*32, data->player_x*32);
+        if (data->nb_coin >= data->coins && data->map[data->player_x][data->player_y] == 'E')
+            mlx_loop_end(data->mlx);
         mlx_string_put(data->mlx, data->win, 10, 10, 0xFF0000FF, ft_itoa(data->nb_move++)); 
     }
 }
