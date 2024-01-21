@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:50 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/21 16:02:47 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:26:49 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,38 +57,50 @@ void move_up(mlx_t *data)
 {
     int tmp;
     tmp = data->player_x;
-    mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, (data->player_x - 1)*32);
-    data->player_x--;
-    mlx_put_image_to_window(data->mlx, data->win, data->ground, data->player_y*32, tmp*32);    
+    if (data->map[data->player_x - 1][data->player_y] != '1')
+    {
+        mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, (data->player_x - 1)*32);
+        data->player_x--;
+        mlx_put_image_to_window(data->mlx, data->win, data->ground, data->player_y*32, tmp*32);
+        mlx_string_put(data->mlx, data->win, 10, 10, 0xFF0000FF, ft_itoa(data->nb_move++));   
+    }
 }
 
 void move_down(mlx_t *data)
 {
     int tmp;
     tmp = data->player_x;
-    mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, (data->player_x + 1)*32);
-    data->player_x++;
-    mlx_put_image_to_window(data->mlx, data->win, data->ground, data->player_y*32, tmp*32);  
+    if (data->map[data->player_x + 1][data->player_y] != '1')
+    {
+        mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, (data->player_x + 1)*32);
+        data->player_x++;
+        mlx_put_image_to_window(data->mlx, data->win, data->ground, data->player_y*32, tmp*32);
+        mlx_string_put(data->mlx, data->win, 10, 10, 0xFF0000FF, ft_itoa(data->nb_move++)); 
+    }
 }
 
 void move_right(mlx_t *data)
 {
     int tmp;
     tmp = data->player_y;
-    mlx_put_image_to_window(data->mlx, data->win, data->player, (data->player_y + 1)*32, data->player_x*32);
-    data->player_y++;
-    mlx_put_image_to_window(data->mlx, data->win, data->ground, tmp*32, data->player_x*32);  
+    if (data->map[data->player_x][data->player_y + 1] != '1')
+    {
+        mlx_put_image_to_window(data->mlx, data->win, data->player, (data->player_y + 1)*32, data->player_x*32);
+        data->player_y++;
+        mlx_put_image_to_window(data->mlx, data->win, data->ground, tmp*32, data->player_x*32);
+        mlx_string_put(data->mlx, data->win, 10, 10, 0xFF0000FF, ft_itoa(data->nb_move++)); 
+    }
 }
 
 void move_left(mlx_t *data)
 {
     int tmp;
     tmp = data->player_y;
-    mlx_put_image_to_window(data->mlx, data->win, data->player, (data->player_y - 1)*32, data->player_x*32);
-    data->player_y--;
-    mlx_put_image_to_window(data->mlx, data->win, data->ground, tmp*32, data->player_x*32);  
+    if (data->map[data->player_x][data->player_y - 1] != '1')
+    {
+        mlx_put_image_to_window(data->mlx, data->win, data->player, (data->player_y - 1)*32, data->player_x*32);
+        data->player_y--;
+        mlx_put_image_to_window(data->mlx, data->win, data->ground, tmp*32, data->player_x*32);
+        mlx_string_put(data->mlx, data->win, 10, 10, 0xFF0000FF, ft_itoa(data->nb_move++)); 
+    }
 }
-
-
-
-

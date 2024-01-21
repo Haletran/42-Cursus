@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 16:04:32 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:24:32 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	key_hook(int key, void *param)
 {
 	mlx_t *mlx;
 	mlx = param;
+	//mlx_string_put(mlx->mlx, mlx->win, 10, 10, 0xFFFFFFFF, ft_itoa(data->nb_move)); 
 	if (key == 41)
 		mlx_loop_end(mlx->mlx);
 	if (key == 4)
@@ -24,7 +25,6 @@ int	key_hook(int key, void *param)
 		move_down(mlx);
 	if (key == 26)
 		move_up(mlx);
-		//ft_printf("w");
 	if (key == 7)
 		move_right(mlx);
 	return (0);
