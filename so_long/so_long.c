@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 15:45:03 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:04:32 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int	key_hook(int key, void *param)
 	mlx_t *mlx;
 	mlx = param;
 	if (key == 41)
-		mlx_loop_end(param);
+		mlx_loop_end(mlx->mlx);
 	if (key == 4)
-		ft_printf("a");
+		move_left(mlx);
 	if (key == 22)
-		ft_printf("s");
+		move_down(mlx);
 	if (key == 26)
-		ft_printf("%d", mlx->player_x);
+		move_up(mlx);
 		//ft_printf("w");
 	if (key == 7)
-		ft_printf("d");
+		move_right(mlx);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:50 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/21 15:26:05 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:02:47 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,42 @@ void render_map(mlx_t *data)
     
 }
 
-/* void move_player()
+void move_up(mlx_t *data)
 {
-    mlx_t *data;
-
-    data = malloc(sizeof(mlx_t));
-    data = get_co(data);
+    int tmp;
+    tmp = data->player_x;
     mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, (data->player_x - 1)*32);
-    mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, data->player_x*32);    
-} */
+    data->player_x--;
+    mlx_put_image_to_window(data->mlx, data->win, data->ground, data->player_y*32, tmp*32);    
+}
+
+void move_down(mlx_t *data)
+{
+    int tmp;
+    tmp = data->player_x;
+    mlx_put_image_to_window(data->mlx, data->win, data->player, data->player_y*32, (data->player_x + 1)*32);
+    data->player_x++;
+    mlx_put_image_to_window(data->mlx, data->win, data->ground, data->player_y*32, tmp*32);  
+}
+
+void move_right(mlx_t *data)
+{
+    int tmp;
+    tmp = data->player_y;
+    mlx_put_image_to_window(data->mlx, data->win, data->player, (data->player_y + 1)*32, data->player_x*32);
+    data->player_y++;
+    mlx_put_image_to_window(data->mlx, data->win, data->ground, tmp*32, data->player_x*32);  
+}
+
+void move_left(mlx_t *data)
+{
+    int tmp;
+    tmp = data->player_y;
+    mlx_put_image_to_window(data->mlx, data->win, data->player, (data->player_y - 1)*32, data->player_x*32);
+    data->player_y--;
+    mlx_put_image_to_window(data->mlx, data->win, data->ground, tmp*32, data->player_x*32);  
+}
+
 
 
 

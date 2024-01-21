@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 15:12:31 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:02:56 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ int			global_checker(mlx_t *data);
 int			ft_error(int choice);
 int			isNotInSet(char c);
 mlx_t *get_co(mlx_t *data);
+void move_up(mlx_t *data);
 void    get_var(mlx_t *data);
+void move_down(mlx_t *data);
+void move_right(mlx_t *data);
+void move_left(mlx_t *data);
 
 #endif
