@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:39:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/22 13:12:47 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:26:29 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	ft_error(int choice)
 
 int	isnotinset(char c)
 {
-	if (c != 'C' && c != 'P' && c != '0' && c != '1' && c != 'E' && c != '\0' && c != 'Y')
+	if (c != 'C' && c != 'P' && c != '0' && c != '1' && c != 'E' && c != '\0'
+		&& c != 'Y')
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 13:04:31 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:27:26 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 
 # include "../../libft/libft.h"
 # include "../MacroLibX/includes/mlx.h"
-# define WIDTH 1000
-# define HEIGHT 500
 
 # include <fcntl.h>
 # include <stdio.h>

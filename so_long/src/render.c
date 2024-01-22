@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:50 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/22 13:08:04 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:27:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ void	get_var(t_mlx *data)
 			&height, &width);
 	data->coin = mlx_png_file_to_image(data->mlx, "images/coin4.png", &height,
 			&width);
-    data->player_flip = mlx_png_file_to_image(data->mlx, "images/playerflip.png", &height,
-			&width);
-    data->player_front = mlx_png_file_to_image(data->mlx, "images/player_front.png", &height,
-			&width);
-    data->player_back = mlx_png_file_to_image(data->mlx, "images/player_back.png", &height,
-			&width);
-    data->enemy = mlx_png_file_to_image(data->mlx, "images/enemy.png", &height,
+	data->player_flip = mlx_png_file_to_image(data->mlx,
+			"images/playerflip.png", &height, &width);
+	data->player_front = mlx_png_file_to_image(data->mlx,
+			"images/player_front.png", &height, &width);
+	data->player_back = mlx_png_file_to_image(data->mlx,
+			"images/player_back.png", &height, &width);
+	data->enemy = mlx_png_file_to_image(data->mlx, "images/enemy.png", &height,
 			&width);
 }
+
 void	render_en(t_mlx *data)
 {
 	data->x = 0;
@@ -55,6 +56,7 @@ void	render_en(t_mlx *data)
 		data->x++;
 	}
 }
+
 void	render_map(t_mlx *data)
 {
 	data->x = 0;
@@ -80,5 +82,5 @@ void	render_map(t_mlx *data)
 		data->y = 0;
 		data->x++;
 	}
-    render_en(data);
+	render_en(data);
 }
