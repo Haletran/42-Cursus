@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 17:11:14 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:50:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	rendering(t_mlx *mlx)
 	render_map(mlx);
 	mlx_on_event(mlx->mlx, mlx->win, MLX_KEYDOWN, key_hook, mlx);
 	mlx_on_event(mlx->mlx, mlx->win, MLX_WINDOW_EVENT, window_hook, mlx);
+	mlx_string_put(mlx->mlx, mlx->win, 10, 28, 0xFFFFFFFF,
+			ft_itoa(mlx->nb_move));
 	mlx_loop(mlx->mlx);
 	ft_printf("[ \033[1m\033[32mFINISH\033[0m ]\n");
 	mlx_destroy_image(mlx->mlx, mlx->wall);
