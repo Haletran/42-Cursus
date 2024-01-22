@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:50 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/22 12:47:05 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:08:04 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,26 @@ void	get_var(t_mlx *data)
 			&width);
     data->player_back = mlx_png_file_to_image(data->mlx, "images/player_back.png", &height,
 			&width);
+    data->enemy = mlx_png_file_to_image(data->mlx, "images/enemy.png", &height,
+			&width);
 }
-
+void	render_en(t_mlx *data)
+{
+	data->x = 0;
+	data->y = 0;
+	while (data->map[data->x] != NULL)
+	{
+		while (data->map[data->x][data->y] != '\0')
+		{
+			if (data->map[data->x][data->y] == 'Y')
+				mlx_put_image_to_window(data->mlx, data->win, data->enemy,
+					data->y * 32, data->x * 32);
+			data->y++;
+		}
+		data->y = 0;
+		data->x++;
+	}
+}
 void	render_map(t_mlx *data)
 {
 	data->x = 0;
@@ -62,4 +80,5 @@ void	render_map(t_mlx *data)
 		data->y = 0;
 		data->x++;
 	}
+    render_en(data);
 }

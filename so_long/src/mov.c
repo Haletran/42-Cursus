@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:51:06 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/22 12:47:25 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:12:25 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	move_up(t_mlx *data)
 	{
 		if (data->map[data->player_x - 1][data->player_y] == 'C')
 			data->nb_coin++;
+        if (data->map[data->player_x - 1][data->player_y] == 'Y')
+            mlx_loop_end(data->mlx);
 		if (data->nb_coin == data->coins)
 			mlx_put_image_to_window(data->mlx, data->win, data->exit,
 				data->end_y * 32, data->end_x * 32);
@@ -64,6 +66,8 @@ void	move_down(t_mlx *data)
 	{
 		if (data->map[data->player_x + 1][data->player_y] == 'C')
 			data->nb_coin++;
+        if (data->map[data->player_x  + 1][data->player_y] == 'Y')
+            mlx_loop_end(data->mlx);
 		if (data->nb_coin == data->coins)
 			mlx_put_image_to_window(data->mlx, data->win, data->exit,
 				data->end_y * 32, data->end_x * 32);
@@ -89,6 +93,8 @@ void	move_right(t_mlx *data)
 	{
 		if (data->map[data->player_x][data->player_y + 1] == 'C')
 			data->nb_coin++;
+        if (data->map[data->player_x][data->player_y + 1] == 'Y')
+            mlx_loop_end(data->mlx);
 		if (data->nb_coin == data->coins)
 			mlx_put_image_to_window(data->mlx, data->win, data->exit,
 				data->end_y * 32, data->end_x * 32);
@@ -114,6 +120,8 @@ void	move_left(t_mlx *data)
 	{
 		if (data->map[data->player_x][data->player_y - 1] == 'C')
 			data->nb_coin += 1;
+        if (data->map[data->player_x][data->player_y - 1] == 'Y')
+            mlx_loop_end(data->mlx);
 		if (data->nb_coin == data->coins)
 			mlx_put_image_to_window(data->mlx, data->win, data->exit,
 				data->end_y * 32, data->end_x * 32);

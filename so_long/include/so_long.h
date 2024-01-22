@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 12:46:28 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:04:31 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_mlx
 	void	*player_flip;
 	void	*player_front;
 	void	*player_back;
+	void	*enemy;
 	int		nb_move;
 	int		coins;
 	int		nb_coin;
