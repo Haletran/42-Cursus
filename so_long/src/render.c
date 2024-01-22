@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:50 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/22 10:22:55 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:35:45 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,18 @@ void	get_var(t_mlx *data)
 
 	mlx_set_font_scale(data->mlx, data->win, "default", 20);
 	data->nb_coin = 0;
-	data->wall = mlx_png_file_to_image(data->mlx, "images/wall.png", &height,
+	data->wall = mlx_png_file_to_image(data->mlx, "images/test.png", &height,
 			&width);
 	data->ground = mlx_png_file_to_image(data->mlx, "images/black.png", &height,
 			&width);
 	data->exit = mlx_png_file_to_image(data->mlx, "images/exit.png", &height,
 			&width);
-	data->player = mlx_png_file_to_image(data->mlx, "images/player.png",
+	data->player = mlx_png_file_to_image(data->mlx, "images/player3.png",
 			&height, &width);
-	data->coin = mlx_png_file_to_image(data->mlx, "images/coin.png", &height,
+	data->coin = mlx_png_file_to_image(data->mlx, "images/coin4.png", &height,
 			&width);
+/*     data->player_flip = mlx_png_file_to_image(data->mlx, "images/playerflip.png", &height,
+			&width); */
 }
 
 void	render_map(t_mlx *data)

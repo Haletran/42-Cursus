@@ -6,13 +6,13 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:51:06 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/22 10:00:54 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:34:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	handle_mv(mlx_t *data)
+void	handle_mv(t_mlx *data)
 {
 	if (data->nb_move >= 0 && data->nb_move < 10)
 	{
@@ -30,7 +30,7 @@ void	handle_mv(mlx_t *data)
 	}
 }
 
-void	move_up(mlx_t *data)
+void	move_up(t_mlx *data)
 {
 	int	tmp;
 
@@ -55,7 +55,7 @@ void	move_up(mlx_t *data)
 	}
 }
 
-void	move_down(mlx_t *data)
+void	move_down(t_mlx *data)
 {
 	int	tmp;
 
@@ -80,7 +80,7 @@ void	move_down(mlx_t *data)
 	}
 }
 
-void	move_right(mlx_t *data)
+void	move_right(t_mlx *data)
 {
 	int	tmp;
 
@@ -105,7 +105,7 @@ void	move_right(mlx_t *data)
 	}
 }
 
-void	move_left(mlx_t *data)
+void	move_left(t_mlx *data)
 {
 	int	tmp;
 
@@ -129,3 +129,4 @@ void	move_left(mlx_t *data)
 		handle_mv(data);
 	}
 }
+

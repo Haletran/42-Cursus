@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 10:21:58 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:27:24 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_mlx
 	void	*player;
 	void	*exit;
 	void	*coin;
+	void	*player_flip;
 	int		nb_move;
 	int		coins;
 	int		nb_coin;

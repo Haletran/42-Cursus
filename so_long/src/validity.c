@@ -6,14 +6,14 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/22 10:03:26 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:34:44 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 // flood fill
-mlx_t	*get_mapwh(mlx_t *data)
+t_mlx	*get_mapwh(t_mlx *data)
 {
 	int	x;
 	int	y;
@@ -30,7 +30,7 @@ mlx_t	*get_mapwh(mlx_t *data)
 	return (data);
 }
 
-mlx_t	*get_co(mlx_t *data)
+t_mlx	*get_co(t_mlx *data)
 {
 	data->x = 0;
 	data->y = 0;
@@ -59,7 +59,7 @@ mlx_t	*get_co(mlx_t *data)
 	return (data);
 }
 
-int	flood_fill(mlx_t *data)
+int	flood_fill(t_mlx *data)
 {
 	data = get_co(data);
 	return (1);

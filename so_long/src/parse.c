@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:17:34 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/22 10:00:49 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:34:51 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 char	**initialize_map(int fd)
 {
 	int		i;
-	mlx_t	*new_mlx;
+	t_mlx	*new_mlx;
 
 	i = 0;
-	new_mlx = malloc(sizeof(mlx_t));
+	new_mlx = malloc(sizeof(t_mlx));
 	if (!new_mlx)
 		return (NULL);
 	new_mlx->map = malloc(100 * sizeof(char *));
