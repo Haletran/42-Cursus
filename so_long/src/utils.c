@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:39:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/17 22:44:03 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:13:28 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_error(int choice)
 	}
 	else if (choice == 2)
 	{
-		ft_putendl_fd("\033[1m\033[31m[ Error ]\033[0m : Too many or not enough arguments",
+		ft_putendl_fd("\033[1m\033[31m[ Error ]\033[0m : Argument count issue.",
 			2);
 		ft_putendl_fd("Usage : ./so_long mapname.ber", 1);
 		return (0);
@@ -34,22 +34,24 @@ int	ft_error(int choice)
 	}
 	return (0);
 }
-int check_file(char *filename)
-{
-	size_t len = ft_strlen(filename) - 4;
-	if (len < 4)
-		return (0);
 
-	if (ft_strstr(filename, ".ber") && strcmp(filename + len, ".ber") == 0) 
+int	isnotinset(char c)
+{
+	if (c != 'C' && c != 'P' && c != '0' && c != '1' && c != 'E' && c != '\0')
 		return (1);
 	return (0);
 }
 
-int isNotInSet(char c) 
+int	check_file(char *filename)
 {
-    if (c != 'C' && c != 'P' && c != '0' && c != '1' && c != 'E' && c != '\0') 
-        return (1);
-    return (0);
+	size_t	len;
+
+	len = ft_strlen(filename) - 4;
+	if (len < 4)
+		return (0);
+	if (ft_strstr(filename, ".ber") && strcmp(filename + len, ".ber") == 0)
+		return (1);
+	return (0);
 }
 
 char	*ft_strstr(char *str, char *to_find)
@@ -71,8 +73,8 @@ char	*ft_strstr(char *str, char *to_find)
 			if (to_find[d] == '\0')
 				return (&str[c]);
 		}
-			d = 0;
-			c++;
+		d = 0;
+		c++;
 	}
 	return (0);
 }

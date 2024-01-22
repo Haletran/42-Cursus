@@ -3,44 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 17:36:43 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:10:26 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static int check_walls(char **map)
+static int	check_walls(char **map)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    x = 0;
-    y = 0;
-    while (map[0][y] != '\n')
-        if (map[0][y++] != '1')
-            return 0;
-
-    y = 0;
-    while (map[x + 1] != NULL)
-        x++;
-    while (y < x)
-        if (map[y++][0] != '1')
-            return 0;
-
-    y = 0;
-    while (map[x] != NULL && map[x][y] != '\0')
-        if (map[x][y++] != '1')
-            return 0;
-
-    x = 0;
-    while (map[x] != NULL && map[x][y - 1] != '\0')
-        if (map[x++][y - 1] != '1')
-            return 0;
-			
-    return (1);
+	x = 0;
+	y = 0;
+	while (map[0][y] != '\n')
+		if (map[0][y++] != '1')
+			return (0);
+	y = 0;
+	while (map[x + 1] != NULL)
+		x++;
+	while (y < x)
+		if (map[y++][0] != '1')
+			return (0);
+	y = 0;
+	while (map[x] != NULL && map[x][y] != '\0')
+		if (map[x][y++] != '1')
+			return (0);
+	x = 0;
+	while (map[x] != NULL && map[x][y - 1] != '\0')
+		if (map[x++][y - 1] != '1')
+			return (0);
+	return (1);
 }
 
 static int	check_if_rectangle(char **map)
@@ -110,7 +106,7 @@ static int	check_collectibles(char **map)
 		{
 			if (map[x][y] == 'C')
 				value++;
-			if (isNotInSet(map[x][y]))
+			if (isnotinset(map[x][y]))
 				return (0);
 			y++;
 		}

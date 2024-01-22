@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/21 17:29:09 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:21:58 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,43 +28,45 @@
 # include <string.h>
 # include <unistd.h>
 
-typedef struct
+typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
 	char	**map;
-	int    width;
-	int   height;
+	int		width;
+	int		height;
 	int		player_x;
 	int		player_y;
 	int		end_x;
 	int		end_y;
-	int	    fd;
-	void   *ground;
-	void   *wall;
-	void   *player;
-	void   *exit;
-	void   *coin;
+	int		fd;
+	void	*ground;
+	void	*wall;
+	void	*player;
+	void	*exit;
+	void	*coin;
 	int		nb_move;
 	int		coins;
 	int		nb_coin;
-}			mlx_t;
+	int		x;
+	int		y;
+}			t_mlx;
 
 /* FUNCTIONS */
-void render_map(mlx_t *data);
-int			flood_fill(mlx_t *data);
+void		render_map(t_mlx *data);
+int			flood_fill(t_mlx *data);
 int			check_file(char *filename);
 char		*ft_strstr(char *str, char *to_find);
 char		**initialize_map(int fd);
 int			ft_strcmp(char *s1, char *s2);
-int			global_checker(mlx_t *data);
+int			global_checker(t_mlx *data);
 int			ft_error(int choice);
-int			isNotInSet(char c);
-mlx_t *get_co(mlx_t *data);
-void move_up(mlx_t *data);
-void    get_var(mlx_t *data);
-void move_down(mlx_t *data);
-void move_right(mlx_t *data);
-void move_left(mlx_t *data);
+int			isnotinset(char c);
+t_mlx		*get_co(t_mlx *data);
+void		move_up(t_mlx *data);
+void		get_var(t_mlx *data);
+void		move_down(t_mlx *data);
+void		move_right(t_mlx *data);
+void		move_left(t_mlx *data);
 
 #endif
