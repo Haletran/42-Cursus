@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 12:34:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:48:57 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	rendering(t_mlx *mlx)
 	mlx_destroy_image(mlx->mlx, mlx->wall);
 	mlx_destroy_image(mlx->mlx, mlx->ground);
 	mlx_destroy_image(mlx->mlx, mlx->player);
+	mlx_destroy_image(mlx->mlx, mlx->player_flip);
+	mlx_destroy_image(mlx->mlx, mlx->player_back);
+	mlx_destroy_image(mlx->mlx, mlx->player_front);
 	mlx_destroy_image(mlx->mlx, mlx->coin);
 	mlx_destroy_image(mlx->mlx, mlx->exit);
 	mlx_destroy_window(mlx->mlx, mlx->win);
