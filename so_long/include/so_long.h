@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 13:27:26 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:34:11 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		render_map(t_mlx *data);
 int			flood_fill(t_mlx *data);
 int			check_file(char *filename);
 char		*ft_strstr(char *str, char *to_find);
-char		**initialize_map(int fd);
+char	**initialize_map(t_mlx *data);
 int			ft_strcmp(char *s1, char *s2);
 int			global_checker(t_mlx *data);
 int			ft_error(int choice);

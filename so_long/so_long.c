@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 13:26:11 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:26:25 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	key_hook(int key, void *param)
 	mlx = param;
 	if (key == 41)
 		mlx_loop_end(mlx->mlx);
-	if (key == 4)
+	if (key == 4 || key == 80)
 		move_left(mlx);
-	if (key == 22)
+	if (key == 22 || key == 81)
 		move_down(mlx);
-	if (key == 26)
+	if (key == 26 || key == 82)
 		move_up(mlx);
-	if (key == 7)
+	if (key == 7 || key == 79)
 		move_right(mlx);
 	return (0);
 }
@@ -62,11 +62,14 @@ void	rendering(t_mlx *mlx)
 	mlx_destroy_image(mlx->mlx, mlx->exit);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	mlx_destroy_display(mlx->mlx);
+	close(mlx->fd);
+	free(mlx->map);
 	free(mlx);
 }
 
 int	main(int argc, char **argv)
 {
+	int x = 0;
 	t_mlx	*mlx;
 
 	mlx = malloc(sizeof(t_mlx));
@@ -74,8 +77,17 @@ int	main(int argc, char **argv)
 		return (ft_error(2));
 	mlx->fd = open(argv[1], O_RDONLY);
 	if (mlx->fd < 0 || !check_file(argv[1]))
+	{
+		free(mlx);
 		return (ft_error(1));
+	}
 	if (!global_checker(mlx) || !flood_fill(mlx))
+	{	
+		while (mlx->map[x])
+			free(mlx->map[x++]);
+		free(mlx->map);
+		free(mlx);
 		return (ft_error(3));
+	}
 	rendering(mlx);
 }

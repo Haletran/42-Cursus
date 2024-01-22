@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 13:36:15 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:32:24 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,9 @@ static int	check_collectibles(char **map)
 
 int	global_checker(t_mlx *data)
 {
-	data->map = initialize_map(data->fd);
+	data->map = initialize_map(data);
+	if (data->map == NULL)
+		return (0);
 	if (!check_if_rectangle(data->map))
 		return (0);
 	if (!check_collectibles(data->map))

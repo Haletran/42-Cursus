@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:51:06 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/22 13:31:28 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:46:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	handle_mv(t_mlx *data)
 	if (data->nb_move >= 0 && data->nb_move < 10)
 	{
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 0, 0);
-		mlx_string_put(data->mlx, data->win, 10, 30, 0xFF223344,
+		mlx_string_put(data->mlx, data->win, 10, 28, 0xFFFFFFFF,
 			ft_itoa(data->nb_move++));
 	}
 	else if (data->nb_move >= 10)
@@ -26,7 +26,7 @@ void	handle_mv(t_mlx *data)
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 64, 0);
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 32, 0);
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 0, 0);
-		mlx_string_put(data->mlx, data->win, 10, 30, 0xFF223344,
+		mlx_string_put(data->mlx, data->win, 10, 28, 0xFFFFFFFF,
 			ft_itoa(data->nb_move++));
 	}
 }
