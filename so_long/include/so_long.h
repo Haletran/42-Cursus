@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 15:56:27 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:12:04 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include "../../libft/libft.h"
 # include "../MacroLibX/includes/mlx.h"
-
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -31,6 +30,7 @@ typedef struct s_mlx
 	void	*mlx;
 	void	*win;
 	char	**map;
+	char	**map_tmp;
 	int		width;
 	int		height;
 	int		player_x;
@@ -56,10 +56,10 @@ typedef struct s_mlx
 
 /* FUNCTIONS */
 void		render_map(t_mlx *data);
-int			flood_fill(t_mlx *data);
+int			store(t_mlx *data);
 int			check_file(char *filename);
 char		*ft_strstr(char *str, char *to_find);
-char	**initialize_map(t_mlx *data);
+char		**initialize_map(t_mlx *data);
 int			ft_strcmp(char *s1, char *s2);
 int			global_checker(t_mlx *data);
 int			ft_error(int choice);
@@ -70,6 +70,6 @@ void		get_var(t_mlx *data);
 void		move_down(t_mlx *data);
 void		move_right(t_mlx *data);
 void		move_left(t_mlx *data);
-void	ft_free(t_mlx *mlx);
+void		ft_free(t_mlx *mlx);
 
 #endif

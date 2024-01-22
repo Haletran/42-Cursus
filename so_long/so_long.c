@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 15:57:43 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:11:14 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 		free(mlx);
 		return (ft_error(1));
 	}
-	if (!global_checker(mlx) || !flood_fill(mlx))
+	if (!global_checker(mlx) || !store(mlx))
 	{
 		ft_free(mlx);
 		return (ft_error(3));

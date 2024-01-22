@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/22 15:56:17 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:37:14 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,21 @@ t_mlx	*get_co(t_mlx *data)
 	return (data);
 }
 
-int	flood_fill(t_mlx *data)
+/* void flood_fill(t_mlx *data, int x, int y) 
+{
+	data->map_tmp = data->map;
+	if (data->map_tmp[x][y] == '1')
+		return (0);
+    if (data->map_tmp[x][y] != 'S')
+        return;
+    map[x][y] = 'S';
+    flood_fill(data->map_tmp, x + 1, y, target, 'S');
+    flood_fill(data->map_tmp, x - 1, y, target, 'S');
+    flood_fill(data->map_tmp, x, y + 1, target, replacement);
+    flood_fill(data->map_tmp, x, y - 1, target, replacement);
+} */
+
+int	store(t_mlx *data)
 {
 	data = get_co(data);
 	if (!data->map)
