@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:17:34 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/22 15:33:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:57:22 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ char	**initialize_map(t_mlx *data)
 	data->map = malloc(100 * sizeof(char *));
 	if (!data->map)
 	{
-		free(data->map);
-		free(data);
+		ft_free(data);
 		return (NULL);
 	}
 	while (1)

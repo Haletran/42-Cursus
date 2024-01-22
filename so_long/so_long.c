@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 15:26:25 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:57:43 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,17 @@ int	window_hook(int event, void *param)
 	return (0);
 }
 
+void	ft_free(t_mlx *mlx)
+{
+	int	i;
+
+	i = 0;
+	while (mlx->map[i])
+		free(mlx->map[i++]);
+	free(mlx->map);
+	free(mlx);
+}
+
 void	rendering(t_mlx *mlx)
 {
 	mlx->mlx = mlx_init();
@@ -63,13 +74,11 @@ void	rendering(t_mlx *mlx)
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	mlx_destroy_display(mlx->mlx);
 	close(mlx->fd);
-	free(mlx->map);
-	free(mlx);
+	ft_free(mlx);
 }
 
 int	main(int argc, char **argv)
 {
-	int x = 0;
 	t_mlx	*mlx;
 
 	mlx = malloc(sizeof(t_mlx));
@@ -82,11 +91,8 @@ int	main(int argc, char **argv)
 		return (ft_error(1));
 	}
 	if (!global_checker(mlx) || !flood_fill(mlx))
-	{	
-		while (mlx->map[x])
-			free(mlx->map[x++]);
-		free(mlx->map);
-		free(mlx);
+	{
+		ft_free(mlx);
 		return (ft_error(3));
 	}
 	rendering(mlx);

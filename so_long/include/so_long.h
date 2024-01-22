@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 15:34:11 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:56:27 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void		get_var(t_mlx *data);
 void		move_down(t_mlx *data);
 void		move_right(t_mlx *data);
 void		move_left(t_mlx *data);
+void	ft_free(t_mlx *mlx);
 
 #endif

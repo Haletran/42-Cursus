@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/22 14:36:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:56:17 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,10 @@ t_mlx	*get_co(t_mlx *data)
 int	flood_fill(t_mlx *data)
 {
 	data = get_co(data);
+	if (!data->map)
+	{
+		ft_free(data);
+		return (0);
+	}
 	return (1);
 }
