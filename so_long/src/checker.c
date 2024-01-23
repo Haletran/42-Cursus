@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/23 19:25:23 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/24 00:24:07 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,6 @@ int	global_checker(t_mlx *data)
 {
 	data->map = initialize_map(data);
 	cpy(data->map, &(data->tmp));
-	data = get_co(data);
 	if (data->map == NULL)
 		return (0);
 	if (!check_if_rectangle(data->map))
@@ -132,6 +131,7 @@ int	global_checker(t_mlx *data)
 		return (0);
 	if (!check_p(data->map))
 		return (0);
+	data = get_co(data);
 	data->exit_count = 0;
 	data->coin_count = 0;
 	flood_fill(data->tmp, data, data->player_x, data->player_y);
