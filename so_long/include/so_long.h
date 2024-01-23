@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/22 17:12:04 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:48:37 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #  define BUFFER_SIZE 1
 # endif
 
-# include "../../libft/libft.h"
 # include "../MacroLibX/includes/mlx.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -38,6 +38,7 @@ typedef struct s_mlx
 	int		end_x;
 	int		end_y;
 	int		fd;
+	int	    fd2;
 	void	*ground;
 	void	*wall;
 	void	*player;
@@ -52,6 +53,8 @@ typedef struct s_mlx
 	int		nb_coin;
 	int		x;
 	int		y;
+	int		exit_count;
+	int		coin_count;
 }			t_mlx;
 
 /* FUNCTIONS */
@@ -71,5 +74,8 @@ void		move_down(t_mlx *data);
 void		move_right(t_mlx *data);
 void		move_left(t_mlx *data);
 void		ft_free(t_mlx *mlx);
+void flood_fill(char **map_tmp, t_mlx *data, int x, int y, int rows, int cols);
+t_mlx	*get_mapwh(t_mlx *data);
+char	**initialize_map_tmp(t_mlx *data);
 
 #endif

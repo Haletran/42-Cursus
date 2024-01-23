@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/22 17:43:55 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:09:47 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,26 @@ t_mlx	*get_co(t_mlx *data)
 	return (data);
 }
 
-/* void flood_fill(t_mlx *data, int x, int y) 
+void flood_fill(char **map_tmp, t_mlx *data, int x, int y, int rows, int cols) 
 {
-	data->map_tmp = data->map;
-	if (data->map_tmp[x][y] == '1')
-		return (0);
-    if (data->map_tmp[x][y] != 'S')
+    if (x < 0 || x >= rows || y < 0 || y >= cols || map_tmp[x][y] == '1' || map_tmp[x][y] == 'S')
         return;
-    map[x][y] = 'S';
-    flood_fill(data->map_tmp, x + 1, y, target, 'S');
-    flood_fill(data->map_tmp, x - 1, y, target, 'S');
-    flood_fill(data->map_tmp, x, y + 1, target, replacement);
-    flood_fill(data->map_tmp, x, y - 1, target, replacement);
-} */
+    if (map_tmp[x][y] == 'C')
+        data->coin_count++;
+    else if (map_tmp[x][y] == 'E')
+        data->exit_count++;
+    map_tmp[x][y] = 'S';
+	flood_fill(map_tmp, data, x + 1, y, rows, cols);
+    flood_fill(map_tmp, data, x - 1, y, rows, cols);
+    flood_fill(map_tmp, data, x, y + 1, rows, cols);
+    flood_fill(map_tmp, data, x, y - 1, rows, cols);
+}
+
 
 int	store(t_mlx *data)
 {
 	data = get_co(data);
+	*data->map_tmp = ft_strdup(*data->map);
 	if (!data->map)
 	{
 		ft_free(data);

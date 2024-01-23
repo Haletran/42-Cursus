@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/21 21:51:35 by baptiste         ###   ########.fr        #
+#    Updated: 2024/01/22 18:26:38 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,16 @@ OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 LIBS    := MacroLibX/libmlx.so -lSDL2
 
-all: gt $(NAME)
+all: $(NAME)
 
 $(OBJS_DIR)/%.o: %.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
-	@make -C ../libft
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) ../libft/libft.a -o $(NAME)
+	@make -C MacroLibX
+	@make -C libft
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) libft/libft.a -o $(NAME)
 
 gdb: $(NAME)
 	gdb --tui ./so_long
@@ -41,10 +42,12 @@ gt:
 	@if [ ! -d "MacroLibX" ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
 
 clean:
+	@make -C libft clean
 	@make -C MacroLibX clean
 	@rm -rf $(OBJS_DIR)
 
 fclean: clean
+	@make -C libft fclean
 	@make -C MacroLibX fclean
 	@rm -rf $(NAME)
 
