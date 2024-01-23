@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/23 17:09:47 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:09:17 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,24 @@ void flood_fill(char **map_tmp, t_mlx *data, int x, int y, int rows, int cols)
     flood_fill(map_tmp, data, x, y - 1, rows, cols);
 }
 
-
-int	store(t_mlx *data)
+char **cpy(char **src, char ***dest)
 {
-	data = get_co(data);
-	*data->map_tmp = ft_strdup(*data->map);
-	if (!data->map)
-	{
-		ft_free(data);
-		return (0);
-	}
-	return (1);
+    int i;
+    int len;
+
+    i = 0;
+    len = 0;
+    while (src[len] != NULL)
+        len++;
+    *dest = malloc((len + 1) * sizeof(char *));
+	if (!dest)
+		return (NULL);
+    while (src[i] != NULL)
+    {
+        (*dest)[i] = strdup(src[i]);
+        i++;
+    }
+    (*dest)[i] = NULL;
+    return *dest;
 }
+

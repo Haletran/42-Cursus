@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/23 17:17:49 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:13:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,55 +117,12 @@ static int	check_collectibles(char **map)
 		return (0);
 	return (1);
 }
-char	*ft_strejoin(char *src1, char *src2)
-{
-	char	*result;
-	int		c;
-	int		d;
-	int		len;
-
-	c = 0;
-	d = 0;
-	if (!src1 && !src2)
-		return (NULL);
-	len = (ft_strlen(src1) + ft_strlen(src2) + 1);
-	result = malloc(sizeof(*result) * len);
-	if (result == NULL)
-		return (NULL);
-	while (c < (int)ft_strlen(src1))
-	{
-		result[c] = src1[c];
-		c++;
-	}
-	while (c < (int)(ft_strlen(src1) + ft_strlen(src2)))
-		result[c++] = src2[d++];
-	result[c] = '\0';
-	free(src1);
-	return (result);
-}
-char	*ft_stredup(const char *src)
-{
-	int		s;
-	int		len;
-	char	*dest;
-
-	s = 0;
-	len = ft_strlen(src);
-	dest = malloc(sizeof(char) * (len + 1));
-	if (dest == 0)
-		return (0);
-	while (src[s] != '\0')
-	{
-		dest[s] = src[s];
-		s++;
-	}
-	dest[s] = '\0';
-	return (dest);
-}
 
 int	global_checker(t_mlx *data)
 {
 	data->map = initialize_map(data);
+	cpy(data->map, &(data->tmp));
+	data = get_co(data);
 	if (data->map == NULL)
 		return (0);
 	if (!check_if_rectangle(data->map))
@@ -176,15 +133,10 @@ int	global_checker(t_mlx *data)
 		return (0);
 	if (!check_p(data->map))
 		return (0);
-	data = get_co(data);
 	data->exit_count = 0;
 	data->coin_count = 0;
-	for (int i = 0; i < data->width; i++)
-		data->map_tmp[i] = ft_stredup(data->map[i]);
-	flood_fill(data->map_tmp, data, data->player_x, data->player_y, data->width, data->height);
+	flood_fill(data->tmp, data, data->player_x, data->player_y, data->width, data->height);
 	if (data->exit_count == 0 || data->coin_count == 0)
 		return (0);
-	for(int i = 0; i < 12; i++)
-		ft_printf("%s", data->map[i]);
 	return (1);
 }

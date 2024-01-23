@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 16:42:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2023/12/12 17:47:14 by codespace        ###   ########.fr       */
+/*   Created: 2023/12/12 17:24:36 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/12/12 18:45:32 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ char	*ft_read(int fd, char *buffer, char *save)
 			break ;
 		buffer[reading] = '\0';
 		save = ft_strjoin(save, buffer);
-		if (ft_strchr(save, '\n'))
-			break ;
 	}
 	if (reading < 0 || (reading == 0 && !ft_strlen(save)))
 	{

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/23 16:48:37 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:05:45 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_mlx
 	void	*mlx;
 	void	*win;
 	char	**map;
-	char	**map_tmp;
+	char	**tmp;
 	int		width;
 	int		height;
 	int		player_x;
@@ -38,7 +38,7 @@ typedef struct s_mlx
 	int		end_x;
 	int		end_y;
 	int		fd;
-	int	    fd2;
+	int		fd2;
 	void	*ground;
 	void	*wall;
 	void	*player;
@@ -57,6 +57,7 @@ typedef struct s_mlx
 	int		coin_count;
 }			t_mlx;
 
+
 /* FUNCTIONS */
 void		render_map(t_mlx *data);
 int			store(t_mlx *data);
@@ -74,8 +75,10 @@ void		move_down(t_mlx *data);
 void		move_right(t_mlx *data);
 void		move_left(t_mlx *data);
 void		ft_free(t_mlx *mlx);
-void flood_fill(char **map_tmp, t_mlx *data, int x, int y, int rows, int cols);
-t_mlx	*get_mapwh(t_mlx *data);
-char	**initialize_map_tmp(t_mlx *data);
+void		flood_fill(char **map_tmp, t_mlx *data, int x, int y, int rows,
+				int cols);
+t_mlx		*get_mapwh(t_mlx *data);
+char		**initialize_map_tmp(t_mlx *data);
+char		**cpy(char **src, char ***dest);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/23 14:44:35 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:13:11 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,11 @@ void	ft_free(t_mlx *mlx)
 	i = 0;
 	while (mlx->map[i])
 		free(mlx->map[i++]);
+	i = 0;
+	while (mlx->tmp[i])
+		free(mlx->tmp[i++]);
 	free(mlx->map);
+	free(mlx->tmp);
 	free(mlx);
 }
 
@@ -90,7 +94,7 @@ int	main(int argc, char **argv)
 		free(mlx);
 		return (ft_error(1));
 	}
-	if (!global_checker(mlx) || !store(mlx))
+	if (!global_checker(mlx))
 	{
 		ft_free(mlx);
 		return (ft_error(3));
