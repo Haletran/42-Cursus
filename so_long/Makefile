@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/22 18:26:38 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/01/23 19:31:47 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,9 @@ $(NAME): $(OBJS)
 
 gdb: $(NAME)
 	gdb --tui ./so_long
+
+norm:
+	@norminette -R CheckForbiddenSourceHeader ft_printf/ get_next_line/ include libft so_long.c src
 
 gt:	
 	@if [ ! -d "MacroLibX" ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/23 19:13:19 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:25:23 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ static int	check_collectibles(char **map)
 
 	x = 0;
 	value = 0;
-	
 	while (map[x] != NULL)
 	{
 		y = 0;
@@ -135,7 +134,7 @@ int	global_checker(t_mlx *data)
 		return (0);
 	data->exit_count = 0;
 	data->coin_count = 0;
-	flood_fill(data->tmp, data, data->player_x, data->player_y, data->width, data->height);
+	flood_fill(data->tmp, data, data->player_x, data->player_y);
 	if (data->exit_count == 0 || data->coin_count == 0)
 		return (0);
 	return (1);

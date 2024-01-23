@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:50 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/23 19:08:46 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:18:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	get_var(t_mlx *data)
 {
 	int	height;
 	int	width;
-	
+
 	data->nb_move = 1;
 	mlx_set_font_scale(data->mlx, data->win, "default", 20);
 	data->wall = mlx_png_file_to_image(data->mlx, "images/test.png", &height,
@@ -43,8 +43,7 @@ void	render_en(t_mlx *data)
 {
 	data->x = 0;
 	data->y = 0;
-	mlx_string_put(data->mlx, data->win, 10, 28, 0xFFFFFFFF,
-		"0");
+	mlx_string_put(data->mlx, data->win, 10, 28, 0xFFFFFFFF, "0");
 	while (data->map[data->x] != NULL)
 	{
 		while (data->map[data->x][data->y] != '\0')
@@ -63,7 +62,6 @@ void	render_map(t_mlx *data)
 {
 	data->x = 0;
 	data->y = 0;
-	
 	while (data->map[data->x] != NULL)
 	{
 		while (data->map[data->x][data->y] != '\0')
