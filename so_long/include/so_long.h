@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/23 19:30:21 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:33:30 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,9 @@ void		move_right(t_mlx *data);
 void		move_left(t_mlx *data);
 void		ft_free(t_mlx *mlx);
 void		flood_fill(char **map_tmp, t_mlx *data, int x, int y);
-t_mlx		*get_mapwh(t_mlx *data);
+t_mlx		*get_map_size(t_mlx *data);
 char		**initialize_map_tmp(t_mlx *data);
 char		**cpy(char **src, char ***dest);
+void		ft_end(t_mlx *mlx, int value);
 
 #endif

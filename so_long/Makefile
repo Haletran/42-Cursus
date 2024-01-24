@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/24 01:00:56 by baptiste         ###   ########.fr        #
+#    Updated: 2024/01/24 16:16:19 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ gdb: $(NAME)
 	gdb --tui ./so_long
 
 norm:
-	@norminette -R CheckForbiddenSourceHeader ft_printf/ get_next_line/ include libft so_long.c src
+	@norminette -R CheckForbiddenSourceHeader ft_printf/ get_next_line/ include/ libft so_long.c src/
 
 gt:	
 	@if [ ! -d "MacroLibX" ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi

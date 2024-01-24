@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/23 19:18:15 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:31:13 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	rendering(t_mlx *mlx)
 			"So_long");
 	get_var(mlx);
 	render_map(mlx);
+	mlx_set_fps_goal(mlx->mlx, 60);
 	mlx_on_event(mlx->mlx, mlx->win, MLX_KEYDOWN, key_hook, mlx);
 	mlx_on_event(mlx->mlx, mlx->win, MLX_WINDOW_EVENT, window_hook, mlx);
 	mlx_loop(mlx->mlx);
-	ft_printf("[ \033[1m\033[32mFINISH\033[0m ]\n");
 	mlx_destroy_image(mlx->mlx, mlx->wall);
 	mlx_destroy_image(mlx->mlx, mlx->ground);
 	mlx_destroy_image(mlx->mlx, mlx->player);

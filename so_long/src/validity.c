@@ -6,14 +6,14 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/23 19:28:03 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:33:17 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 // flood fill
-t_mlx	*get_mapwh(t_mlx *data)
+t_mlx	*get_map_size(t_mlx *data)
 {
 	int	x;
 	int	y;
@@ -34,7 +34,7 @@ t_mlx	*get_co(t_mlx *data)
 {
 	data->x = 0;
 	data->y = 0;
-	get_mapwh(data);
+	get_map_size(data);
 	while (data->map[data->x] != NULL)
 	{
 		while (data->map[data->x][data->y] != '\0')
@@ -59,20 +59,18 @@ t_mlx	*get_co(t_mlx *data)
 	return (data);
 }
 
-void	flood_fill(char **map_tmp, t_mlx *data, int x, int y)
+void	ft_end(t_mlx *data, int value)
 {
-	if (x < 0 || x >= data->width || y < 0 || y >= data->height
-		|| map_tmp[x][y] == '1' || map_tmp[x][y] == 'S')
-		return ;
-	if (map_tmp[x][y] == 'C')
-		data->coin_count++;
-	else if (map_tmp[x][y] == 'E')
-		data->exit_count++;
-	map_tmp[x][y] = 'S';
-	flood_fill(map_tmp, data, x + 1, y);
-	flood_fill(map_tmp, data, x - 1, y);
-	flood_fill(map_tmp, data, x, y + 1);
-	flood_fill(map_tmp, data, x, y - 1);
+	if (value == 1)
+	{
+		mlx_loop_end(data->mlx);
+		ft_printf("[ \033[1m\033[32mSUCCESS\033[0m ]\n");
+	}
+	else if (value == 2)
+	{
+		mlx_loop_end(data->mlx);
+		ft_printf("[ \033[1m\033[31mGAME OVER\033[0m ]\n");
+	}
 }
 
 char	**cpy(char **src, char ***dest)

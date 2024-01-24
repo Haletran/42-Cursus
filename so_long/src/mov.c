@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:51:06 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/23 19:18:49 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:58:41 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	move_up(t_mlx *data)
 			data->map[data->player_x - 1][data->player_y] = '0';
 		}
 		if (data->map[data->player_x - 1][data->player_y] == 'Y')
-			mlx_loop_end(data->mlx);
+			ft_end(data, 2);
 		if (data->nb_coin == data->coins)
 			mlx_put_image_to_window(data->mlx, data->win, data->exit,
 				data->end_y * 32, data->end_x * 32);
@@ -55,7 +55,7 @@ void	move_up(t_mlx *data)
 			data->player_y * 32, tmp * 32);
 		if (data->nb_coin == data->coins
 			&& data->map[data->player_x][data->player_y] == 'E')
-			mlx_loop_end(data->mlx);
+			ft_end(data, 1);
 		handle_mv(data);
 	}
 }
@@ -73,7 +73,7 @@ void	move_down(t_mlx *data)
 			data->map[data->player_x + 1][data->player_y] = '0';
 		}
 		if (data->map[data->player_x + 1][data->player_y] == 'Y')
-			mlx_loop_end(data->mlx);
+			ft_end(data, 2);
 		if (data->nb_coin == data->coins)
 			mlx_put_image_to_window(data->mlx, data->win, data->exit,
 				data->end_y * 32, data->end_x * 32);
@@ -84,7 +84,7 @@ void	move_down(t_mlx *data)
 			data->player_y * 32, tmp * 32);
 		if (data->nb_coin == data->coins
 			&& data->map[data->player_x][data->player_y] == 'E')
-			mlx_loop_end(data->mlx);
+			ft_end(data, 1);
 		handle_mv(data);
 	}
 }
@@ -102,7 +102,7 @@ void	move_right(t_mlx *data)
 			data->map[data->player_x][data->player_y + 1] = '0';
 		}
 		if (data->map[data->player_x][data->player_y + 1] == 'Y')
-			mlx_loop_end(data->mlx);
+			ft_end(data, 2);
 		if (data->nb_coin == data->coins)
 			mlx_put_image_to_window(data->mlx, data->win, data->exit,
 				data->end_y * 32, data->end_x * 32);
@@ -113,7 +113,7 @@ void	move_right(t_mlx *data)
 			data->player_x * 32);
 		if (data->nb_coin == data->coins
 			&& data->map[data->player_x][data->player_y] == 'E')
-			mlx_loop_end(data->mlx);
+			ft_end(data, 1);
 		handle_mv(data);
 	}
 }
@@ -131,7 +131,7 @@ void	move_left(t_mlx *data)
 			data->map[data->player_x][data->player_y - 1] = '0';
 		}
 		if (data->map[data->player_x][data->player_y - 1] == 'Y')
-			mlx_loop_end(data->mlx);
+			ft_end(data, 2);
 		if (data->nb_coin == data->coins)
 			mlx_put_image_to_window(data->mlx, data->win, data->exit,
 				data->end_y * 32, data->end_x * 32);
@@ -142,7 +142,7 @@ void	move_left(t_mlx *data)
 			data->player_x * 32);
 		if (data->nb_coin == data->coins
 			&& data->map[data->player_x][data->player_y] == 'E')
-			mlx_loop_end(data->mlx);
+			ft_end(data, 1);
 		handle_mv(data);
 	}
 }

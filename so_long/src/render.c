@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:50 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/23 19:18:01 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:32:24 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	get_var(t_mlx *data)
 			&width);
 }
 
-void	render_en(t_mlx *data)
+void	render_enemy(t_mlx *data)
 {
 	data->x = 0;
 	data->y = 0;
@@ -83,5 +83,5 @@ void	render_map(t_mlx *data)
 		data->y = 0;
 		data->x++;
 	}
-	render_en(data);
+	render_enemy(data);
 }
