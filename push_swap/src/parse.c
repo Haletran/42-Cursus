@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/16 13:01:37 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/26 15:40:13 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,20 @@ int	init_stack(node_t **head, int size, char **arr)
 		i = 0;
 	}
 	*head = NULL;
+	ft_printf("test : %d\n", size);
 	while (i < size)
 	{
 		new_node = malloc(sizeof(node_t));
 		if (new_node == NULL)
 			return (0);
 		new_node->content = ft_atoi(arr[i]);
-		if (new_node->content >= INT_MAX || new_node->content <= INT_MIN
+		if (new_node->content > INT_MAX || new_node->content < INT_MIN
 			|| ft_strlen(arr[i]) >= 11)
 		{
 			free(new_node);
 			return (ft_error());
 		}
+		printf("%d\n", new_node->content);
 		new_node->next = *head;
 		*head = new_node;
 		i++;

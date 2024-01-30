@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/24 18:28:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:45:05 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,16 @@ static int	check_walls(char **map)
 	return (1);
 }
 
-static int	check_if_rectangle(char **map)
+static int	check_if_rectangle(t_mlx *data)
 {
-	int	x;
-	int	tmp;
-	int	y;
+	int	i;
 
-	y = 0;
-	x = 0;
-	while (map[x] != NULL)
-		x++;
-	tmp = x - 1;
-	x = 0;
-	while (x < tmp)
-	{
-		while (map[x][y])
-			y++;
-		if (tmp == y)
-			return (0);
-		y = 0;
-		x++;
-	}
+	i = 0;
+	data = get_co(data);
+	while (data->map[i] != NULL)
+		i++;
+	if (i == data->height)
+		return (0);
 	return (1);
 }
 
@@ -121,9 +110,9 @@ int	global_checker(t_mlx *data)
 {
 	data->map = initialize_map(data);
 	cpy(data->map, &(data->tmp));
-	if (data->map == NULL)
+	if (data->map == NULL || !ft_strlen(*data->map))
 		return (0);
-	if (!check_if_rectangle(data->map))
+	if (!check_if_rectangle(data))
 		return (0);
 	if (!check_collectibles(data->map))
 		return (0);
@@ -131,7 +120,8 @@ int	global_checker(t_mlx *data)
 		return (0);
 	if (!check_p(data->map))
 		return (0);
-	data = get_co(data);
+	if (!check_lines(data))
+		return (0);
 	data->exit_count = 0;
 	data->coin_count = 0;
 	flood_fill(data->tmp, data, data->player_x, data->player_y);

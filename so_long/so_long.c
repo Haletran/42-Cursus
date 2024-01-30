@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:25:12 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/24 16:31:13 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:49:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	main(int argc, char **argv)
 	if (argc != 2 || argc > 3)
 		return (ft_error(2));
 	mlx->fd = open(argv[1], O_RDONLY);
+	mlx->fd_tmp = open(argv[1], O_RDONLY);
 	if (mlx->fd < 0 || !check_file(argv[1]))
 	{
 		free(mlx);

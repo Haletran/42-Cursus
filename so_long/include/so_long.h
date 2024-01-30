@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:25:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/24 16:33:30 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:46:05 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_mlx
 	int		end_x;
 	int		end_y;
 	int		fd;
+	int		fd_tmp;
 	void	*ground;
 	void	*wall;
 	void	*player;
@@ -78,5 +79,6 @@ t_mlx		*get_map_size(t_mlx *data);
 char		**initialize_map_tmp(t_mlx *data);
 char		**cpy(char **src, char ***dest);
 void		ft_end(t_mlx *mlx, int value);
+int			check_lines(t_mlx *data);
 
 #endif

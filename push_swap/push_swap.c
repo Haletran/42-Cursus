@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/16 12:53:10 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/26 15:41:20 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	main(int argc, char **argv)
 	if (verif_input(argc, argv))
 	{
 		init_stack(&a, argc, argv);
-		if (argc == 3 || get_args(argv) == 2)
+		if (argc - 1 == 2 || get_args(argv) == 2)
 			sa(&a);
 		// Why I'm doing this instead of just one function
-		else if (argc == 4 || get_args(argv) == 3)
+		else if (argc - 1 == 3 || get_args(argv) == 3)
 			/* 		else if (argc == 6 || get_args(argv) == 5)
 						sort_two_nodes(a);
 					else

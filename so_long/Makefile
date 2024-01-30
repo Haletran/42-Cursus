@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 11:04:36 by codespace         #+#    #+#              #
-#    Updated: 2024/01/24 16:16:19 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/01/29 16:07:32 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ norm:
 gt:	
 	@if [ ! -d "MacroLibX" ]; then git clone https://github.com/seekrs/MacroLibX.git && make -C MacroLibX; fi
 
+valgrind: $(NAME)
+	valgrind --leak-check=full --suppressions=MacroLibX/valgrind.supp ./so_long maps/valid_maps/map_4x5.ber
 clean:
 	@make -C libft clean
 	@make -C MacroLibX clean
@@ -56,7 +58,7 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all clean fclean re folder gt
+.PHONY: all clean fclean re folder gt valgrind norm
 
 
 

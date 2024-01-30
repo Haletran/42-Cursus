@@ -6,13 +6,12 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:47:37 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/24 16:33:17 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:44:21 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// flood fill
 t_mlx	*get_map_size(t_mlx *data)
 {
 	int	x;
