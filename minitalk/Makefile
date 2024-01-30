@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 13:13:53 by codespace         #+#    #+#              #
-#    Updated: 2023/12/21 18:06:27 by codespace        ###   ########.fr        #
+#    Updated: 2023/12/21 19:20:39 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SERVER_SRC = server.c
 SERVER_OBJ = $(SERVER_SRC:.c=.o)
 SERVER_TARGET = server
 
-LIBFT_DIR = ../libft
+LIBFT_DIR = libft
 LIBFT_TARGET = $(LIBFT_DIR)/libft.a
 
 all: $(LIBFT_TARGET) $(CLIENT_TARGET) $(SERVER_TARGET)

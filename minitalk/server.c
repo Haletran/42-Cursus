@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:13:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 20:57:01 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/09 16:42:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,6 @@ void	signal_handler(int signalNum)
 			character[i] = '1';
 		else if (signalNum == SIGUSR2)
 			character[i] = '0';
-		else
-		{
-			free(g_line);
-			free(character);
-			exit(0);
-		}
 		i++;
 		if (i == 8)
 		{
@@ -117,8 +111,6 @@ int	main(void)
 	print_banner();
 	signal(SIGUSR1, signal_handler);
 	signal(SIGUSR2, signal_handler);
-	signal(SIGINT, signal_handler);
 	while (1)
 		pause();
 }
-

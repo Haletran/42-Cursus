@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:12:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/11 20:56:29 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/08 19:07:05 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,3 @@ int	main(int argc, char **argv)
 	send_signal(pid, '\0');
 	return (0);
 }
-
