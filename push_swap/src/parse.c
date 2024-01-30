@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 08:38:18 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/30 16:15:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 // TODO: why the fuck is the arr is reversed in the new_node
 // TODO: need to check another if the input is sorted in case of a split WTF (ex: "1 2" 1)
-int	init_stack(node_t **head, int size, char **arr)
+int	init_stack(t_lst **head, int size, char **arr)
 {
 	int		i;
-	node_t	*new_node;
+	t_lst	*new_node;
 
 	i = 1;
 	if (size == 2)
@@ -28,7 +28,7 @@ int	init_stack(node_t **head, int size, char **arr)
 	*head = NULL;
 	while (i < size)
 	{
-		new_node = malloc(sizeof(node_t));
+		new_node = malloc(sizeof(t_lst));
 		if (new_node == NULL)
 			return (0);
 		new_node->content = ft_atoi(arr[i]);

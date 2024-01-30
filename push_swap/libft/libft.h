@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:40:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/23 15:32:37 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:13:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 # include "../ft_printf/ft_printf.h"
 # include <stdlib.h>
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -63,7 +57,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strrchr(const char *s, int c);
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
-t_list				*ft_lstnew(void *content);
+//t_list				*ft_lstnew(void *content);
 char				*get_next_line(int fd);
 char				*ft_strcpy(char *dest, char *src);
 

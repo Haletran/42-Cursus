@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/15 08:40:49 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/30 16:15:43 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	node_t	*a;
+	t_lst	*a;
 
-	// t_lst_stack	*b;
+	// t_lst	*b;
 	a = NULL;
 	// b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	if (verif_input(argc, argv))
 	{
 		init_stack(&a, argc, argv);
-		if (argc == 3 || get_args(argv) == 2)
+		if (argc - 1 == 2 || get_args(argv) == 2)
 			sa(&a);
 		// Why I'm doing this instead of just one function
 /* 		else if (argc == 6 || get_args(argv) == 5)

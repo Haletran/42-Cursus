@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/01/30 16:48:20 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/01/30 16:15:42 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJS	= ${SRCS:.c=.o}
 LIBFT_DIR = libft
 LIBFT_TARGET = $(LIBFT_DIR)/libft.a
 
-all: libft $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C libft
