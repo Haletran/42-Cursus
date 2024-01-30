@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 14:36:52 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/01/11 19:13:10 by codespace        ###   ########.fr       */
+/*   Created: 2023/12/12 17:25:02 by bapasqui          #+#    #+#             */
+/*   Updated: 2023/12/12 17:26:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_str(char *src1, char *src2);
+void	*ft_calloc(size_t elementCount, size_t elementSize);
 int		ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
 size_t	ft_nstrlen(const char *str);

@@ -95,6 +95,12 @@ void	signal_handler(int signalNum)
 			character[i] = '1';
 		else if (signalNum == SIGUSR2)
 			character[i] = '0';
+		else
+		{
+			free(g_line);
+			free(character);
+			exit(0);
+		}
 		i++;
 		if (i == 8)
 		{
@@ -111,6 +117,7 @@ int	main(void)
 	print_banner();
 	signal(SIGUSR1, signal_handler);
 	signal(SIGUSR2, signal_handler);
+	signal(SIGINT, signal_handler);
 	while (1)
 		pause();
 }
