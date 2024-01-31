@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/01/30 16:22:12 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/31 16:36:59 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g
+CFLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 
 SRCS	= src/init.c \
 		  src/parse.c \

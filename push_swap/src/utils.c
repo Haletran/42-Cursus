@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/30 16:15:40 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/31 16:41:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,17 @@ int	ft_error(void)
 	return (0);
 }
 
-void freeList(struct node* head)
+void freeList(t_lst *a)
 {
-   struct node* tmp;
+   struct s_lst* tmp;
 
-   while (head != NULL)
+   while (a != NULL)
     {
-       tmp = head;
-       head = head->next;
+       tmp = a;
+       a = a->next;
        free(tmp);
     }
 }
+
+
+

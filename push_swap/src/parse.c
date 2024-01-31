@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/30 16:15:39 by codespace        ###   ########.fr       */
+/*   Updated: 2024/01/31 16:41:45 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	init_stack(t_lst **head, int size, char **arr)
 {
 	int		i;
 	t_lst	*new_node;
-
 	i = 1;
 	if (size == 2)
 	{
@@ -38,10 +37,11 @@ int	init_stack(t_lst **head, int size, char **arr)
 			free(new_node);
 			return (ft_error());
 		}
-		new_node->next = *head;
-		*head = new_node;
+		ft_lstadd_back(new_node, new_node->content);
+		//ft_printf("%d\n", new_node->content);
 		i++;
 	}
 	return (1);
 }
+
 
