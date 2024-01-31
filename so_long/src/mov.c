@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mov.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:51:06 by baptiste          #+#    #+#             */
-/*   Updated: 2024/01/29 14:16:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:19:25 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,25 @@
 
 void	handle_mv(t_mlx *data)
 {
+	char *tab;
 	if (data->nb_move >= 0 && data->nb_move < 10)
 	{
+		tab = ft_itoa(data->nb_move++);
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 0, 0);
 		mlx_string_put(data->mlx, data->win, 10, 28, 0xFFFFFFFF,
-			ft_itoa(data->nb_move++));
+			tab);
 	}
 	else if (data->nb_move >= 10)
 	{
+		tab = ft_itoa(data->nb_move++);
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 96, 0);
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 64, 0);
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 32, 0);
 		mlx_put_image_to_window(data->mlx, data->win, data->wall, 0, 0);
 		mlx_string_put(data->mlx, data->win, 10, 28, 0xFFFFFFFF,
-			ft_itoa(data->nb_move++));
+			tab);
 	}
+	free(tab);
 }
 
 void	move_up(t_mlx *data)
