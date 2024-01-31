@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
+#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/01/31 18:48:50 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/01/31 23:45:57 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,9 @@ $(NAME): $(OBJS)
 
 gdb: fclean $(NAME)
 	gdb --tui ./push_swap
+
+valgrind: $(NAME)
+	valgrind --leak-check=full ./push_swap "5 3 2"
 
 clean:
 	rm -rf $(OBJS)

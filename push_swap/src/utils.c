@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/31 19:05:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/01/31 23:53:25 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,29 @@ int	ft_error(void)
 	return (0);
 }
 
-void	freeList(t_lst *a)
+void	ft_free(t_lst *a, char **arr)
 {
 	struct s_lst	*tmp;
+	int i;
+	
+	i = 0;
 
-/* 	if (!a)
-		while(a)
-			a = a->prev; */
-		
 	while (a != NULL)
 	{
 		tmp = a;
 		a = a->next;
 		free(tmp);
 	}
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
-/*
-		if (new_node->content > INT_MAX || new_node->content < INT_MIN
-			|| ft_strlen(arr[i]) >= 11)
-		{
-			free(new_node);
-			ft_error();
-			return (0);
-		} */
+
+void	print_list(t_lst *lst)
+{
+	while (lst)
+	{
+		ft_printf("%d", lst->content);
+		lst = lst->next;
+	}
+}
