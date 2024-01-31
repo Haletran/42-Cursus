@@ -43,7 +43,7 @@ valgrind: $(NAME)
 	valgrind --leak-check=full ./push_swap "5 3 2"
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS_DIR)
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
