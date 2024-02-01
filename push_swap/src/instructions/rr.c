@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:21:14 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/01 19:02:10 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:09:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 void ra(t_lst **a)
 {
     t_lst *head;
-    t_lst *tmp;
-    tmp = (*a);
+    int tmp;
+    tmp = (*a)->content;
     head = (*a)->next;
-    tmp->next = NULL;
     while((*a)->next != NULL)
         (*a) = (*a)->next;
-    (*a)->next = tmp;
+    (*a)->next = ft_lstnew(tmp);
     (*a) = head;
     ft_putendl_fd("ra", 1);
 }

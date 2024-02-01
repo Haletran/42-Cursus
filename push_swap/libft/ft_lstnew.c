@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:09:14 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/31 23:29:02 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:04:07 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_lstnew(int content)
 {
 	t_lst	*elem;
-
+	
 	elem = malloc(sizeof(t_lst));
 	if (!elem)
 		return (NULL);
