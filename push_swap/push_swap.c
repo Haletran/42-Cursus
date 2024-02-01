@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/31 23:53:20 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:44:32 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		return (ft_error());
-	ft_free(a, argv);
+	ft_free(a, argc, argv);
 }

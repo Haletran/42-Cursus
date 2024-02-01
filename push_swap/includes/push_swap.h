@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/31 23:53:32 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:44:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 /* FUNCTIONS */
 void	pa(t_lst **node1, t_lst **node2);
-void	ft_free(t_lst *a, char **arr);
+void	ft_free(t_lst *a, int size, char **arr);
 int		check_input(int nb_args, char **src);
 t_lst	*init_stack(t_lst *a, int size, char **arr, int count);
 int		ft_error(void);
