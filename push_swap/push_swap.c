@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 12:23:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:02:00 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_lst	*a;
-	//t_lst	*b;
+	t_lst	**a;
+	t_lst	**b;
 	int count;
 
 	count = 1;
@@ -26,12 +26,15 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 		count--;
 	}
-	a = NULL;
-	//b = NULL;
-	if (verif_input(argc, argv))
+	a = ft_calloc(sizeof(t_lst *), argc - 1);
+	b = ft_calloc(sizeof(t_lst *), argc - 1);
+	if (verif_input(argc, argv)) 
 	{
-		a = init_stack(a, argc, argv, count);
-		print_list(a);
+		*a = init_stack(*a, argc, argv, count);
+		*b = init_stack(*b, argc, argv, count);
+		ra(a);
+		print_list("A\n_", *a);
+		//print_list("\nB\n_", b);
 /* 		if (argc - 1 <= 5 || get_args(argv) <= 5)
 			sort_small_stack(a, b);
 		else if (argc - 1 > 5 || get_args(argv) > 5)
@@ -39,8 +42,8 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_free(a, argc, argv);
+		ft_free(a, b, argc, argv);
 		return (ft_error());
 	}
-	ft_free(a, argc, argv);
+	ft_free(a, b, argc, argv);
 }

@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2024/01/31 16:59:23 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/01 15:54:57 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCS =		ft_isalpha.c	\
 			ft_strcpy.c		\
 			ft_lstnew.c		\
 			ft_lst_add_back.c \
+			ft_lst_add_front.c \
 			ft_putnbr_fd.c
 
 

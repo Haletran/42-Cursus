@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 12:12:11 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:02:20 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@
 # include <unistd.h>
 
 /* FUNCTIONS */
-void	pa(t_lst **node1, t_lst **node2);
-void	ft_free(t_lst *a, int size, char **arr);
+void	ft_free(t_lst **a, t_lst **b, int size, char **arr);
 int		check_input(int nb_args, char **src);
 t_lst	*init_stack(t_lst *a, int size, char **arr, int count);
 int		ft_error(void);
@@ -31,12 +30,14 @@ int		get_args(char **arr);
 int		verif_input(int nb_args, char **src);
 void	sort_small_stack(t_lst *a, t_lst *b);
 void	sort_big_stack(t_lst *a, t_lst *b);
-void	print_list(t_lst *lst);
+void	print_list(char *string, t_lst *lst);
 
 /*OPERATIONS*/
 void	sa(t_lst *a);
 void	sb(t_lst *b);
-void ss(t_lst *a, t_lst *b);
-
+void	ss(t_lst *a, t_lst *b);
+void	pa(t_lst *a, t_lst *b);
+void	pb(t_lst *b, t_lst *a);
+void ra(t_lst **a);
 
 #endif

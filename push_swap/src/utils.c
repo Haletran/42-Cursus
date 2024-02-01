@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 12:23:01 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:48:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,32 @@ int	ft_error(void)
 	return (0);
 }
 
-void	ft_free(t_lst *a, int size, char **arr)
+void	ft_free(t_lst **a, t_lst **b, int size, char **arr)
 {
 	struct s_lst	*tmp;
 	int i;
 	
 	i = 0;
 
-	while (a != NULL)
+	if (a)
 	{
-		tmp = a;
-		a = a->next;
-		free(tmp);
+		while (*a != NULL)
+		{
+			tmp = *a;
+			*a = (*a)->next;
+			free(tmp);
+		}
+		free(a);
+	}
+	if (b)
+	{
+		while (*b != NULL)
+		{
+			tmp = *b;
+			*b = (*b)->next;
+			free(tmp);
+		}
+		free(b);
 	}
   	if (size == 2)
 	{
@@ -62,11 +76,12 @@ void	ft_free(t_lst *a, int size, char **arr)
 	}
 }
 
-void	print_list(t_lst *lst)
+void	print_list(char *string, t_lst *lst)
 {
+	ft_printf("%s\n", string);
 	while (lst)
 	{
-		ft_printf("%d\n", lst->content);
+		ft_printf("%d\n",lst->content);
 		lst = lst->next;
 	}
 }

@@ -6,19 +6,21 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/01 12:14:55 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/01 18:52:12 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g -fsanitize=address
+CFLAGS := -Wextra -Wall -Werror -g
 
 SRCS	= src/init.c \
 		  src/parse.c \
 		  src/utils.c \
 		  src/sort.c \
 		  src/instructions/ss.c \
+		  src/instructions/pa.c \
+		  src/instructions/rr.c \
 		  push_swap.c
 OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
@@ -39,7 +41,7 @@ gdb: fclean $(NAME)
 	gdb --tui ./push_swap
 
 valgrind: $(NAME)
-	valgrind --leak-check=full ./push_swap "5 3 2"
+	valgrind --leak-check=full ./push_swap 5 10 2 1
 
 clean:
 	rm -rf $(OBJS_DIR)
