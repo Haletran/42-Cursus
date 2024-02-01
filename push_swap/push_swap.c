@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 19:02:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:28:33 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	main(int argc, char **argv)
 	{
 		*a = init_stack(*a, argc, argv, count);
 		*b = init_stack(*b, argc, argv, count);
-		ra(a);
+		//*a = ra(*a);
 		print_list("A\n_", *a);
-		//print_list("\nB\n_", b);
+		print_list("\nB\n_", *b);
 /* 		if (argc - 1 <= 5 || get_args(argv) <= 5)
 			sort_small_stack(a, b);
 		else if (argc - 1 > 5 || get_args(argv) > 5)

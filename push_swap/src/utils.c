@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 18:48:40 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:30:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	ft_free(t_lst **a, t_lst **b, int size, char **arr)
 	{
 		while (*a != NULL)
 		{
-			tmp = *a;
-			*a = (*a)->next;
-			free(tmp);
+			tmp = (*a)->next;
+			free(*a);
+			*a = tmp;
 		}
 		free(a);
 	}

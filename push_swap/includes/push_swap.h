@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 19:02:20 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:27:42 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	sb(t_lst *b);
 void	ss(t_lst *a, t_lst *b);
 void	pa(t_lst *a, t_lst *b);
 void	pb(t_lst *b, t_lst *a);
-void ra(t_lst **a);
+t_lst	*ra(t_lst *a);
+t_lst	*rb(t_lst *b);
 
 #endif
