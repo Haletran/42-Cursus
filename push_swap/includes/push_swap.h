@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 19:27:42 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:33:20 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ss(t_lst *a, t_lst *b);
 void	pa(t_lst *a, t_lst *b);
 void	pb(t_lst *b, t_lst *a);
 t_lst	*ra(t_lst *a);
-t_lst	*rb(t_lst *b);
+t_lst   *rb(t_lst *b);
+t_lst   *rra(t_lst *a);
+t_lst   *rrb(t_lst *b);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 19:28:33 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:33:36 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (ft_error());
 	else if (argc == 2)
-	{
+{
 		argv = ft_split(argv[1], ' ');
 		count--;
 	}
@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 		*a = init_stack(*a, argc, argv, count);
 		*b = init_stack(*b, argc, argv, count);
 		//*a = ra(*a);
+		*a = rra(*a);
+		*b = rrb(*b);
 		print_list("A\n_", *a);
 		print_list("\nB\n_", *b);
 /* 		if (argc - 1 <= 5 || get_args(argv) <= 5)
