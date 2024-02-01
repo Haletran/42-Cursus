@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 11:44:32 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:23:00 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ int	main(int argc, char **argv)
 			sort_big_stack(a, b); */
 	}
 	else
+	{
+		ft_free(a, argc, argv);
 		return (ft_error());
+	}
 	ft_free(a, argc, argv);
 }

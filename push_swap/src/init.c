@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/30 16:15:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/01 12:23:06 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// ✅ check if same number multiple time
-// ✅ check if the list is already sorted
-// ✅ check if there is others things than numbers
-
-/* static int	is_sorted(int nb_args, char **src)
+static int	is_sorted(int nb_args, char **src)
 {
 	int	i;
 
@@ -27,9 +23,8 @@
 			return (1);
 		i++;
 	}
-	write(1, "UNVALID\n", 6);
 	return (0);
-} */
+}
 
 static int	check_list(int nb_args, char **src)
 {
@@ -82,7 +77,7 @@ int	check_input(int nb_args, char **src)
 int	verif_input(int nb_args, char **src)
 {
 	if (check_input(nb_args, src) && check_list(nb_args, src)
-		&& get_args (src) > 1)
+		&& get_args (src) > 1 && is_sorted(nb_args, src))
 		return (1);
 	return (0);
 }

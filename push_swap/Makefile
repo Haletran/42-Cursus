@@ -3,23 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/01/31 23:45:57 by baptiste         ###   ########.fr        #
+#    Updated: 2024/02/01 12:14:55 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g
+CFLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 
 SRCS	= src/init.c \
 		  src/parse.c \
 		  src/utils.c \
 		  src/sort.c \
-		  src/instructions/sa.c \
-		  src/instructions/sb.c \
+		  src/instructions/ss.c \
 		  push_swap.c
 OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 11:44:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:12:11 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ void	print_list(t_lst *lst);
 /*OPERATIONS*/
 void	sa(t_lst *a);
 void	sb(t_lst *b);
+void ss(t_lst *a, t_lst *b);
+
 
 #endif

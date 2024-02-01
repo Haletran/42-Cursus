@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 18:45:47 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/31 15:47:22 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/02/01 12:10:24 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/02/01 12:23:07 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,35 @@ void	sa(t_lst *a)
 	a->next->content = tmp->content;
 	free(tmp);
 	ft_putendl_fd("sa", 1);
+}
+
+void	sb(t_lst *b)
+{
+	struct s_lst *tmp;
+
+	tmp = malloc(sizeof(t_lst));
+	tmp->content = b->content;
+	b->content = b->next->content;
+	b->next->content = tmp->content;
+	free(tmp);
+	ft_putendl_fd("sb", 1);
+}
+
+void ss(t_lst *a, t_lst *b)
+{
+    struct s_lst *tmp;
+
+	tmp = malloc(sizeof(t_lst));
+	tmp->content = b->content;
+	b->content = b->next->content;
+	b->next->content = tmp->content;
+	free(tmp);
+
+    tmp = malloc(sizeof(t_lst));
+	tmp->content = a->content;
+	a->content = a->next->content;
+	a->next->content = tmp->content;
+	free(tmp);
+    
+    ft_putendl_fd("ss", 1);
 }

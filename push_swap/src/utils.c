@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 11:46:05 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:23:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	print_list(t_lst *lst)
 {
 	while (lst)
 	{
-		ft_printf("%d", lst->content);
+		ft_printf("%d\n", lst->content);
 		lst = lst->next;
 	}
 }
