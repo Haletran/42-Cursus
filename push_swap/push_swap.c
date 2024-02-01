@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 22:09:14 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/01 22:43:22 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	main(int argc, char **argv)
 		print_list("A\n_", *a);
 		print_list("\nB\n_", *b);
 /* 		if (argc - 1 <= 5 || get_args(argv) <= 5)
-			sort_small_stack(a, b);
-		else if (argc - 1 > 5 || get_args(argv) > 5)
+			sort_small_stack(a, b); */
+/* 		else if (argc - 1 > 5 || get_args(argv) > 5)
 			sort_big_stack(a, b); */
 	}
 	else
