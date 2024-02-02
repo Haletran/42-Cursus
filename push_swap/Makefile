@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/02 15:21:00 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/02 15:24:24 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ endif
 NAME := push_swap
 CC := cc 
 CFLAGS := -Wextra -Wall -Werror -g
+
+#Var to check leaks instead of using valgrind
 FSANITIZE := -fsanitize=address
 
 SRCS	= src/init.c \
