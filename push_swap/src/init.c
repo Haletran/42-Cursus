@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 14:45:41 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:02:42 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	check_input(int nb_args, char **src)
 int	verif_input(int nb_args, char **src)
 {
 	if (check_input(nb_args, src) && check_list(nb_args, src)
-		&& get_args (src) > 1 && is_sorted(nb_args, src))
+		&& get_args(src) > 1 && is_sorted(nb_args, src))
 		return (1);
 	return (0);
 }

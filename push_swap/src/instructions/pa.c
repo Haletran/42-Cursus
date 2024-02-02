@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 21:44:14 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:03:00 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /* void	pa(t_lst *a, t_lst *b)
 {
-
 }
 
 void	pb(t_lst *b, t_lst *a)

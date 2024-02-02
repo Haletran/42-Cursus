@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 22:43:22 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:20:18 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_lst	**a;
 	t_lst	**b;
-	int count;
-	int size;
+	int		count;
+	int		size;
 
 	count = 1;
 	size = argc;
@@ -31,17 +31,14 @@ int	main(int argc, char **argv)
 	}
 	a = ft_calloc(sizeof(t_lst *), size);
 	b = ft_calloc(sizeof(t_lst *), size);
-	if (verif_input(argc, argv)) 
+	if (verif_input(argc, argv))
 	{
 		*a = init_stack(*a, size, argv, count);
 		*b = init_stack(*b, size, argv, count);
-		//*a = ra(*a);
-		print_list("A\n_", *a);
-		print_list("\nB\n_", *b);
 /* 		if (argc - 1 <= 5 || get_args(argv) <= 5)
-			sort_small_stack(a, b); */
-/* 		else if (argc - 1 > 5 || get_args(argv) > 5)
-			sort_big_stack(a, b); */
+				sort_small_stack(*a, *b);
+ 		else if (argc - 1 > 5 || get_args(argv) > 5)
+				sort_big_stack(*a, *b); */
 	}
 	else
 	{

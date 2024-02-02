@@ -3,45 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:14:50 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/01 21:35:29 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:05:04 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_lst *rra(t_lst *a)
+t_lst	*rra(t_lst *a)
 {
-    t_lst *head;
-    t_lst *secondLast;
+	t_lst	*head;
+	t_lst	*second_last;
 
-    head = a;
-    while (a->next != NULL) 
-    {
-        secondLast = a;
-        a = a->next;
-    }
-    a->next = head;
-    secondLast->next = NULL;
-    ft_putendl_fd("rra", 1);
-    return (a);
+	head = a;
+	while (a->next != NULL)
+	{
+		second_last = a;
+		a = a->next;
+	}
+	a->next = head;
+	second_last->next = NULL;
+	ft_putendl_fd("rra", 1);
+	return (a);
 }
 
-t_lst *rrb(t_lst *b)
+t_lst	*rrb(t_lst *b)
 {
-    t_lst *head;
-    t_lst *secondLast;
+	t_lst	*head;
+	t_lst	*second_last;
 
-    head = b;
-    while (b->next != NULL) 
-    {
-        secondLast = b;
-        b = b->next;
-    }
-    b->next = head;
-    secondLast->next = NULL;
-    ft_putendl_fd("rrb", 1);
-    return (b);
+	head = b;
+	while (b->next != NULL)
+	{
+		second_last = b;
+		b = b->next;
+	}
+	b->next = head;
+	second_last->next = NULL;
+	ft_putendl_fd("rrb", 1);
+	return (b);
 }

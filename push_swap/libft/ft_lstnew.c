@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:09:14 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 19:04:07 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:08:51 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_lstnew(int content)
 {
 	t_lst	*elem;
-	
+
 	elem = malloc(sizeof(t_lst));
 	if (!elem)
 		return (NULL);

@@ -3,22 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 22:07:37 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:09:54 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-// TODO: need to check another if the input is sorted in case of a split WTF (ex: "1 2" 1)
 // TODO: add check if the number is > MAX_INT or < MIN_INT or else
 
 t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 {
 	t_lst	*start;
-	
+
 	start = NULL;
 	while (count != size)
 	{
