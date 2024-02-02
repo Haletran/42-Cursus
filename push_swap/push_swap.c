@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/02 15:03:40 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:17:33 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(int argc, char **argv)
 
 	count = 1;
 	size = argc;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 2 && !argv[1][0])
 		return (ft_error());
-	else if (argc == 2)
+	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
 		count--;
@@ -43,6 +43,8 @@ int	main(int argc, char **argv)
 	else
 	{
 		ft_free(a, b, argc, argv);
+		if (argc == 1)
+			return (0);
 		return (ft_error());
 	}
 	ft_free(a, b, argc, argv);
