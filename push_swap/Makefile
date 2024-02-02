@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/02 15:24:24 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/02 15:25:15 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ valgrind: $(NAME)
 
 norm:
 	@printf "\n$(PROJECT_NAME)[ Norm check : ]\n"
-	@norminette $(SRCS) includes libft get_next_line ft_printf  | grep 'Error' ; true
+	@norminette $(SRCS) includes libft get_next_line ft_printf  | grep 'Error'
 
 clean:
 	echo "-> Clean OBJ files"
