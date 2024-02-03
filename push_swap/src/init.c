@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/02 13:02:42 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/03 01:58:16 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@ static int	is_sorted(int nb_args, char **src)
 	}
 	return (0);
 }
+
+static int is_above(char **src)
+{
+	int i;
+
+	i = 1;
+	while(src[i])
+	{
+		if (ft_atoi(src[i]) < INT_MIN || ft_atoi(src[i]) > INT_MAX)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 
 static int	check_list(int nb_args, char **src)
 {
@@ -77,7 +92,7 @@ int	check_input(int nb_args, char **src)
 int	verif_input(int nb_args, char **src)
 {
 	if (check_input(nb_args, src) && check_list(nb_args, src)
-		&& get_args(src) > 1 && is_sorted(nb_args, src))
+		&& get_args(src) > 1 && is_sorted(nb_args, src) && is_above(src))
 		return (1);
 	return (0);
 }

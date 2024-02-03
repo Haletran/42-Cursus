@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/02 13:09:54 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/03 01:45:37 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 {
 	t_lst	*start;
-
+	
 	start = NULL;
 	while (count != size)
 	{
