@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/02 15:25:15 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/05 16:25:08 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS	= src/init.c \
 		  src/instructions/rr.c \
 		  src/instructions/rrr.c \
 		  src/algo.c \
+		  src/ft_free.c \
 		  push_swap.c
 
 OBJS_DIR := obj

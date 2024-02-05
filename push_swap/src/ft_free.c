@@ -1,39 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 16:21:05 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/02/05 16:23:37 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/02/05 16:25:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// TODO: add check if the number is > MAX_INT or < MIN_INT or else
-
-t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
+static void	ft_free_arr(char **arr, int size)
 {
-	t_lst	*start;
+	int	i;
 
-	start = NULL;
-	while (count != size)
+	i = 0;
+	if (size == 2)
 	{
-		if (!a)
-		{
-			a = ft_lstnew(ft_atoi(arr[count]));
-			start = a;
-		}
-		else
-		{
-			while (a && a->next != NULL)
-				a = a->next;
-			ft_lstadd_back(a, ft_atoi(arr[count]));
-		}
-		count++;
+		while (arr[i])
+			free(arr[i++]);
+		free(arr);
 	}
-	a = start;
-	return (a);
+}
+
+void	ft_free(t_lst **a, t_lst **b, int size, char **arr)
+{
+	struct s_lst	*tmp;
+	int				i;
+
+	i = 0;
+	if (a)
+	{
+		while (*a != NULL)
+		{
+			tmp = (*a)->next;
+			free(*a);
+			*a = tmp;
+		}
+		free(a);
+	}
+	if (b)
+	{
+		while (*b != NULL)
+		{
+			tmp = *b;
+			*b = (*b)->next;
+			free(tmp);
+		}
+		free(b);
+	}
+	ft_free_arr(arr, size);
 }
