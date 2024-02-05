@@ -28,9 +28,7 @@ static void	ft_free_arr(char **arr, int size)
 void	ft_free(t_lst **a, t_lst **b, int size, char **arr)
 {
 	struct s_lst	*tmp;
-	int				i;
 
-	i = 0;
 	if (a)
 	{
 		while (*a != NULL)

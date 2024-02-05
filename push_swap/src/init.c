@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 15:43:48 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:14:17 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-static int	is_sorted(int nb_args, char **src)
-{
-	int	i;
-
-	i = 0;
-	while (i < nb_args - 1)
-	{
-		if (ft_strcmp(src[i], src[i + 1]) > 0)
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 static int	is_above(char **src)
 {
@@ -91,7 +77,7 @@ int	check_input(int nb_args, char **src)
 int	verif_input(int nb_args, char **src)
 {
 	if (check_input(nb_args, src) && check_list(nb_args, src)
-		&& get_args(src) > 1 && is_sorted(nb_args, src) && is_above(src))
+		&& get_args(src) > 1 && is_above(src))
 		return (1);
 	return (0);
 }

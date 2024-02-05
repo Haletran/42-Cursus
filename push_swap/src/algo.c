@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/05 16:28:28 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:48:30 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	is_sorted_list(t_lst **a)
+int	is_sorted_list(t_lst **a)
 {
 	t_lst	*head;
 
@@ -26,9 +26,11 @@ static int	is_sorted_list(t_lst **a)
 	return (1);
 }
 
-t_lst	**sort_small_stack(t_lst **a, t_lst **b, int size)
+t_lst	**sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 {
 	(void)b;
+	if (count == 0)
+		size += 1;
 	if (size - 1 == 2)
 		sa(*a);
 	else if (size - 1 == 3)

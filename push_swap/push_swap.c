@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 16:28:03 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:54:57 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
+
 
 int	main(int argc, char **argv)
 {
@@ -31,19 +32,21 @@ int	main(int argc, char **argv)
 	}
 	a = ft_calloc(sizeof(t_lst *), size);
 	b = ft_calloc(sizeof(t_lst *), size);
-	if (verif_input(argc, argv))
-	{
-		*a = init_stack(*a, size, argv, count);
-		*b = init_stack(*b, size, argv, count);
-		if (argc - 1 <= 5 || get_args(argv) <= 5)
-			a = sort_small_stack(a, b, size);
-	}
-	else
+	if (!verif_input(argc, argv))
 	{
 		ft_free(a, b, argc, argv);
 		if (argc == 1)
 			return (0);
 		return (ft_error());
 	}
+	*a = init_stack(*a, size, argv, count);
+	*b = init_stack(*b, size, argv, count);
+	if (is_sorted_list(a))
+	{
+		ft_free(a, b, argc, argv);
+		return (ft_error());
+	}
+	if (size - 1 <= 5 || get_args(argv) <= 5)
+		a = sort_small_stack(a, b, size, count);
 	ft_free(a, b, argc, argv);
 }

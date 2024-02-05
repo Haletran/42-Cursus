@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 15:46:56 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:48:37 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int		ft_error(void);
 int		ft_strcmp(char *s1, char *s2);
 int		get_args(char **arr);
 int		verif_input(int nb_args, char **src);
-t_lst	**sort_small_stack(t_lst **a, t_lst **b, int size);
+t_lst	**sort_small_stack(t_lst **a, t_lst **b, int size, int count);
 void	sort_big_stack(t_lst *a, t_lst *b);
 void	print_list(char *string, t_lst *lst);
+int	is_sorted_list(t_lst **a);
 
 /*OPERATIONS*/
 void	sa(t_lst *a);
