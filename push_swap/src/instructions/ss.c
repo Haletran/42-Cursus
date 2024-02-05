@@ -6,13 +6,13 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:10:24 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/02 13:06:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:35:34 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sa(t_lst *a)
+void 	sa(t_lst *a)
 {
 	struct s_lst	*tmp;
 

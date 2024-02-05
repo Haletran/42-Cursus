@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/03 01:58:16 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:43:48 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ static int	is_sorted(int nb_args, char **src)
 	return (0);
 }
 
-static int is_above(char **src)
+static int	is_above(char **src)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	while(src[i])
+	while (src[i])
 	{
 		if (ft_atoi(src[i]) < INT_MIN || ft_atoi(src[i]) > INT_MAX)
 			return (0);
@@ -39,7 +39,6 @@ static int is_above(char **src)
 	}
 	return (1);
 }
-
 
 static int	check_list(int nb_args, char **src)
 {
