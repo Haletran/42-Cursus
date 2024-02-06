@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:48:49 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/02 13:09:02 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:36:11 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_lst_add_front(t_lst **a, t_lst *new)
 {
-	new->next = *a;
-	*a = new;
+	if (a)
+	{
+		if (*a)
+			new->next = *a;
+		*a = new;
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/05 23:48:30 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:31:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,4 @@ t_lst	**sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 	return (a);
 }
 
-void		sort_big_stack(t_lst *a, t_lst *b);
+void	sort_big_stack(t_lst *a, t_lst *b);

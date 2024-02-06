@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 23:54:57 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:00:11 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
-
 
 int	main(int argc, char **argv)
 {
@@ -46,7 +45,10 @@ int	main(int argc, char **argv)
 		ft_free(a, b, argc, argv);
 		return (ft_error());
 	}
-	if (size - 1 <= 5 || get_args(argv) <= 5)
-		a = sort_small_stack(a, b, size, count);
+	pa(a, b);
+	print_list("A\n", *a);
+	print_list("B\n", *b);
+/* 	if (size - 1 <= 5 || get_args(argv) <= 5)
+		a = sort_small_stack(a, b, size, count); */
 	ft_free(a, b, argc, argv);
 }

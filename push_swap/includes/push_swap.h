@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 23:48:37 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:45:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int		verif_input(int nb_args, char **src);
 t_lst	**sort_small_stack(t_lst **a, t_lst **b, int size, int count);
 void	sort_big_stack(t_lst *a, t_lst *b);
 void	print_list(char *string, t_lst *lst);
-int	is_sorted_list(t_lst **a);
+int		is_sorted_list(t_lst **a);
 
 /*OPERATIONS*/
 void	sa(t_lst *a);
 void	sb(t_lst *b);
 void	ss(t_lst *a, t_lst *b);
-void	pa(t_lst *a, t_lst *b);
+void	pa(t_lst **a, t_lst **b);
 void	pb(t_lst *b, t_lst *a);
 t_lst	*ra(t_lst *a);
 t_lst	*rb(t_lst *b);
