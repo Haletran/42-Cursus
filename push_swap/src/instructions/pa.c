@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 17:50:39 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:52:20 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	pa(t_lst **a, t_lst **b)
         ft_lst_add_front(b, *a);
     }
     *a = afrique;
+    ft_putendl_fd("pa", 1);
 }
