@@ -6,11 +6,14 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 17:53:07 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 21:50:09 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
+
+/* print_list("A\n", *a);
+print_list("B\n", *b); */
 
 int	main(int argc, char **argv)
 {
@@ -45,10 +48,9 @@ int	main(int argc, char **argv)
 		ft_free(a, b, argc, argv);
 		return (ft_error());
 	}
-	pa(a, b);
-	//print_list("A\n", *a);
-	//print_list("B\n", *b);
-/* 	if (size - 1 <= 5 || get_args(argv) <= 5)
-		a = sort_small_stack(a, b, size, count); */
+	if (size - 1 <= 5 || get_args(argv) <= 5)
+		a = sort_small_stack(a, b, size, count);
+	print_list("A\n", *a);
+	print_list("B\n", *b);
 	ft_free(a, b, argc, argv);
 }

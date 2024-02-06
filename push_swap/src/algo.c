@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/06 15:31:12 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 22:02:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,19 @@ t_lst	**sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 			else if ((*a)->content < (*a)->next->content)
 				(*a) = rra(*a);
 		}
+	}
+	else if (size - 1 == 4 || size - 1 == 5)
+	{
+		t_lst *head;
+		head = *a;
+		if ((*a)->content > (*a)->next->content)
+			sa(*a);
+		while (ft_lst_size(*a) != 3)
+		{
+			pb(a, b);
+			*a = (*a)->next;
+		}
+		sort_small_stack(a, b, 4, count);
 	}
 	return (a);
 }
