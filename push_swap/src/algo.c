@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/06 23:15:44 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:23:28 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ int	is_sorted_list(t_lst **a, t_lst **b)
 
 void	sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 {
-	t_lst	*head;
-
-	(void)b;
 	if (count == 0)
 		size += 1;
 	if (size - 1 == 2)
@@ -51,24 +48,29 @@ void	sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 		}
 	}
 	else if (size - 1 == 4)
+		sort_medium_stack(a, b, size, count);
+}
+
+void	sort_medium_stack(t_lst **a, t_lst **b, int size, int count)
+{
+	t_lst	*head;
+
+	head = *a;
+	while (!is_sorted_list(a, b))
 	{
-		head = *a;
-		while (!is_sorted_list(a, b))
+		while (ft_lst_size(head) != 3)
 		{
-			while (ft_lst_size(head) != 3)
-			{
-				pb(a, b);
-				head = *a;
-			}
-			if (count == 0)
-				sort_small_stack(a, b, size - 2, count);
-			else
-				sort_small_stack(a, b, size - 1, count);
-			if (*b != NULL)
-				pa(a, b);
-			if ((*a)->content > (*a)->next->content)
-				sa(*a);
+			pb(a, b);
+			head = *a;
 		}
+		if (count == 0)
+			sort_small_stack(a, b, size - 2, count);
+		else
+			sort_small_stack(a, b, size - 1, count);
+		if (*b != NULL)
+			pa(a, b);
+		if ((*a)->content > (*a)->next->content)
+			sa(*a);
 	}
 }
 
