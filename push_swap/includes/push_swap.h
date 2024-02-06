@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 23:22:22 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:25:13 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		verif_input(int nb_args, char **src);
 void	sort_small_stack(t_lst **a, t_lst **b, int size, int count);
 void	sort_big_stack(t_lst *a, t_lst *b);
 void	print_list(char *string, t_lst *lst);
-int		is_sorted_list(t_lst **a, t_lst **b);
+int		is_sorted_list(t_lst **a);
 void	sort_medium_stack(t_lst **a, t_lst **b, int size, int count);
 
 /*OPERATIONS*/
