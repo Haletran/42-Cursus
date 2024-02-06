@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2024/02/06 21:35:08 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/06 23:41:56 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ SRCS =		ft_isalpha.c	\
 all: $(NAME)
 
 $(NAME): ft_printf $(OBJS)
+	echo "Compiling\033[1m\033[32m libft \033[0m"
 	ar rc $(NAME) $(OBJS)
 
 ft_printf:

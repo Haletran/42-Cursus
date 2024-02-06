@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/06 23:29:18 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/06 23:53:10 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ endif
 
 NAME := push_swap
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g -fsanitize=address
+CFLAGS := -Wextra -Wall -Werror -g
 CHECKER_LINK= "https://cdn.intra.42.fr/document/document/23552/checker_linux"
 
 #Var to check leaks instead of using valgrind
@@ -46,10 +46,10 @@ $(OBJS_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
-	echo "-> Compiling push_swap"
 	@make -C libft
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_TARGET)
-	echo "Successfully compilated :)"
+	echo "Compiling\033[1m\033[32m" $@ "\033[0m"
+	echo "\033[42mSuccessfully compiled :)\033[0m"
 
 checker:
 	@if [ ! -f checker_linux ]; then wget $(CHECKER_LINK) -q --show-progress; fi
@@ -66,15 +66,14 @@ norm:
 	@norminette $(SRCS) includes libft get_next_line ft_printf  | grep 'Error'
 
 clean:
-	echo "-> Clean OBJ files"
 	rm -rf $(OBJS_DIR)
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	echo "-> Clean the project"
 	rm -rf $(NAME)
 	rm -rf checker_linux
 	make -C $(LIBFT_DIR) fclean
+	echo "\033[41m$(NAME) cleaned\033[0m"
 
 re: fclean all
 

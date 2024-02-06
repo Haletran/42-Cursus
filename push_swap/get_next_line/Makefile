@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 19:04:47 by codespace         #+#    #+#              #
-#    Updated: 2024/01/11 19:15:34 by codespace        ###   ########.fr        #
+#    Updated: 2024/02/06 23:41:14 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ OBJS	= ${SRCS:.c=.o}
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	echo "Compiling \033[1m\033[32mget_next_line\033[0m"
 	ar rc $(NAME) $(OBJS)
 
 clean:
