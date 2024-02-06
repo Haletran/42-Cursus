@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/06 23:15:14 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:15:44 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	is_sorted_list(t_lst **a, t_lst **b)
 
 void	sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 {
-	t_lst *head;
+	t_lst	*head;
 
 	(void)b;
 	if (count == 0)
