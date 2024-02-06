@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:32:48 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/06 21:51:06 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 22:39:53 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int ft_lst_size(t_lst *a)
 {
     int size;
+    t_lst  *tmp;
     
     size = 0;
-    while (a != NULL)
+    tmp = a;
+    while (tmp != NULL)
     {
-        a = a->next; 
+        tmp = tmp->next; 
         size++;
     }
     return (size);
