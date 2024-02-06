@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 17:46:11 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:50:39 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	pa(t_lst **a, t_lst **b)
     {
         *b = ft_lstnew((**a).content);
         free(*a);
+        *a = afrique;
     }
-/*     else 
+    else
     {
         ft_lst_add_front(b, *a);
-        free(*a);
-    } */
+    }
     *a = afrique;
 }
