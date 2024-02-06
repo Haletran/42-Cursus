@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/06 23:04:07 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/06 23:29:18 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ endif
 NAME := push_swap
 CC := cc 
 CFLAGS := -Wextra -Wall -Werror -g -fsanitize=address
+CHECKER_LINK= "https://cdn.intra.42.fr/document/document/23552/checker_linux"
 
 #Var to check leaks instead of using valgrind
 FSANITIZE := -fsanitize=address
@@ -50,6 +51,10 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_TARGET)
 	echo "Successfully compilated :)"
 
+checker:
+	@if [ ! -f checker_linux ]; then wget $(CHECKER_LINK) -q --show-progress; fi
+	@if [ $$? -eq 0 ]; then echo "\033[92;1;5m[checker_linux]\033[0m Downloaded Successfully" && chmod 777 checker_linux; fi
+
 gdb: fclean $(NAME)
 	gdb --tui ./push_swap
 
@@ -68,8 +73,9 @@ clean:
 fclean: clean
 	echo "-> Clean the project"
 	rm -rf $(NAME)
+	rm -rf checker_linux
 	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re norm
+.PHONY: all clean fclean re norm checker

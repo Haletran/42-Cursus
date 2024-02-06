@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 23:03:22 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:28:48 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	}
 	*a = init_stack(*a, size, argv, count);
 	*b = NULL;
-	if (is_sorted_list(a, b))
+	if (is_sorted_list(a))
 	{
 		ft_free(a, b, argc, argv);
 		return (ft_error());
