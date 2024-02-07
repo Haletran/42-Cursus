@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 14:52:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:07:17 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ int	main(int argc, char **argv)
 	}
 	if (count == 0)
 		size += 1;
+	print_list("A\n", *a);
 	if (size - 1 <= 4 || get_args(argv) <= 4)
 		sort_small_stack(a, b, size, count);
 	else if (size - 1 > 5 || get_args(argv) > 5)
-		sort_big_stack(a, b);
+		radix_sort(a, b);
 	ft_free(a, b, argc, argv);
 }

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/07 16:08:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:22:11 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	sort_big_stack(t_lst **a, t_lst **b)
 {
 	int		tmp;
 	t_lst	*head;
-	t_lst *start;
+	t_lst	*start;
 	int		i;
 
 	head = *a;
@@ -82,7 +82,7 @@ void	sort_big_stack(t_lst **a, t_lst **b)
 		head = head->next;
 		i++;
 	}
-	while((*a)->content < head->content)
+	while ((*a)->content < head->content)
 	{
 		pb(a, b);
 		*a = (*a)->next;
@@ -93,4 +93,3 @@ void	sort_big_stack(t_lst **a, t_lst **b)
 	// ft_printf("%d", tmp);
 }
 
-void	radix_sort(t_lst **a, t_lst **b);

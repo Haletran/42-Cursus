@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/05 16:21:05 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:55:58 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 		{
 			a = ft_lstnew(ft_atoi(arr[count]));
 			start = a;
+			start->index++;
 		}
 		else
 		{
 			while (a && a->next != NULL)
 				a = a->next;
 			ft_lstadd_back(a, ft_atoi(arr[count]));
+			start->index++;
 		}
 		count++;
 	}

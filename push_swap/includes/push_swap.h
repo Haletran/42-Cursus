@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 14:54:39 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:07:46 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <unistd.h>
 
 /* FUNCTIONS */
+void radix_sort(t_lst **a, t_lst **b);
 void	ft_free(t_lst **a, t_lst **b, int size, char **arr);
 int		check_input(int nb_args, char **src);
 t_lst	*init_stack(t_lst *a, int size, char **arr, int count);
@@ -33,7 +34,6 @@ void	sort_big_stack(t_lst **a, t_lst **b);
 void	print_list(char *string, t_lst *lst);
 int		is_sorted_list(t_lst **a);
 void	sort_medium_stack(t_lst **a, t_lst **b, int size, int count);
-void radix_sort(t_lst **a, t_lst **b);
 
 /*OPERATIONS*/
 void	sa(t_lst *a);
