@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/06 23:25:20 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:53:20 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	is_sorted_list(t_lst **a)
 
 void	sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 {
-	if (count == 0)
-		size += 1;
 	if (size - 1 == 2)
 		sa(*a);
 	else if (size - 1 == 3)
@@ -60,10 +58,7 @@ void	sort_medium_stack(t_lst **a, t_lst **b, int size, int count)
 			pb(a, b);
 			head = *a;
 		}
-		if (count == 0)
-			sort_small_stack(a, b, size - 2, count);
-		else
-			sort_small_stack(a, b, size - 1, count);
+		sort_small_stack(a, b, size - 1, count);
 		if (*b != NULL)
 			pa(a, b);
 		if ((*a)->content > (*a)->next->content)
@@ -71,4 +66,9 @@ void	sort_medium_stack(t_lst **a, t_lst **b, int size, int count)
 	}
 }
 
-void	sort_big_stack(t_lst *a, t_lst *b);
+void	sort_big_stack(t_lst **a, t_lst **b)
+{
+	print_list("A\n", *a);
+	print_list("B\n", *b);
+
+}

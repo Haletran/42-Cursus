@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/06 23:55:18 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/07 14:20:45 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ endif
 
 NAME := push_swap
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g
+CFLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 CHECKER_LINK= "https://cdn.intra.42.fr/document/document/23552/checker_linux"
 
 #Var to check leaks instead of using valgrind
