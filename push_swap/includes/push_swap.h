@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 14:39:20 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:54:39 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	sort_big_stack(t_lst **a, t_lst **b);
 void	print_list(char *string, t_lst *lst);
 int		is_sorted_list(t_lst **a);
 void	sort_medium_stack(t_lst **a, t_lst **b, int size, int count);
+void radix_sort(t_lst **a, t_lst **b);
 
 /*OPERATIONS*/
 void	sa(t_lst *a);

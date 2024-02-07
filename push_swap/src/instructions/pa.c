@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/06 21:47:35 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:07:17 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	pb(t_lst **a, t_lst **b)
 		*a = afrique;
 	}
 	else
-	{
 		ft_lst_add_front(b, *a);
-	}
 	*a = afrique;
 	ft_putendl_fd("pb", 1);
 }
@@ -43,9 +41,7 @@ void	pa(t_lst **a, t_lst **b)
 		*b = afrique;
 	}
 	else
-	{
 		ft_lst_add_front(a, *b);
-	}
 	*b = afrique;
 	ft_putendl_fd("pa", 1);
 }
