@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 17:07:17 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 22:32:21 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	main(int argc, char **argv)
 	if (count == 0)
 		size += 1;
 	print_list("A\n", *a);
-	if (size - 1 <= 4 || get_args(argv) <= 4)
+/* 	if (size - 1 <= 4 || get_args(argv) <= 4)
 		sort_small_stack(a, b, size, count);
 	else if (size - 1 > 5 || get_args(argv) > 5)
-		radix_sort(a, b);
+		sort_big_stack(a, b); */
 	ft_free(a, b, argc, argv);
 }

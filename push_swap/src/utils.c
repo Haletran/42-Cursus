@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 17:02:57 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 22:32:11 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_list(char *string, t_lst *lst)
 	ft_printf("%s\n", string);
 	while (lst)
 	{
-		ft_printf("%d %d\n", lst->content);
+		ft_printf("%d %d\n", lst->content, lst->index);
 		lst = lst->next;
 	}
 }

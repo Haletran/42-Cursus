@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/07 18:22:11 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/07 22:31:07 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ void	sort_big_stack(t_lst **a, t_lst **b)
 {
 	int		tmp;
 	t_lst	*head;
-	t_lst	*start;
+	//t_lst	*start;
 	int		i;
 
 	head = *a;
-	start = *a;
+	//start = *a;
 	i = 0;
 	tmp = ft_lst_size(*a);
 	while (i != tmp / 2)
