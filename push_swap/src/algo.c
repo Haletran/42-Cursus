@@ -93,3 +93,28 @@ void	sort_big_stack(t_lst **a, t_lst **b)
 	// ft_printf("%d", tmp);
 }
 
+void	radix_sort(t_lst *a, t_lst *b)
+{
+	int		i;
+	t_lst	*head;
+	int		j;
+
+	i = 0;
+	head = a;
+	while (!is_sorted_list(&a))
+	{
+		head = a;
+		j = ft_lst_size(head);
+		while (j > 0)
+		{
+			if ((head->index >> i) & 1)
+				ra(a);
+			else
+				pb(&a, &b);
+			j--;
+		}
+		i++;
+		while (b)
+			pa(&a, &b);
+	}
+}
