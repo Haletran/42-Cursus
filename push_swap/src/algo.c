@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/07 22:31:07 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:27:28 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,20 +101,19 @@ void	radix_sort(t_lst *a, t_lst *b)
 
 	i = 0;
 	head = a;
-	while (!is_sorted_list(&a))
+	while (!is_sorted_list(&a) && ft_lst_size(b) == 0)
 	{
-		head = a;
-		j = ft_lst_size(head);
+		j = ft_lst_size(a);
 		while (j > 0)
 		{
-			if ((head->index >> i) & 1)
+			if ((a->index >> i) & 1)
 				ra(a);
 			else
 				pb(&a, &b);
 			j--;
 		}
 		i++;
-		while (b)
+		while (ft_lst_size(b) != 0)
 			pa(&a, &b);
 	}
 }

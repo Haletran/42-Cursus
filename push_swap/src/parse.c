@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 22:39:56 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:00:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,48 @@
 
 // TODO: add check if the number is > MAX_INT or < MIN_INT or else
 
+void	index_list(t_lst *stack, int index)
+{
+	t_lst	*current;
+	int		smallest;
+
+	current = stack;
+	smallest = INT_MAX;
+	while (current)
+	{
+		if (smallest >= current->content && current->index == 0)
+			smallest = current->content;
+		current = current->next;
+	}
+	current = stack;
+	while (current->content != smallest)
+		current = current->next;
+	current->index = index;
+}
+
+t_lst	*ft_index(t_lst *a, int size)
+{
+	int	index;
+	int	j;
+
+	index = 1;
+	j = 0;
+	
+	while (j < size - 1)
+	{
+		index_list(a, index);
+		j++;
+		index++;
+	}
+	return (a);
+}
+
 t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 {
 	t_lst	*start;
-	int tmp;
-	start = NULL;
+	int		tmp;
 
+	start = NULL;
 	tmp = 0;
 	while (count != size)
 	{
@@ -27,18 +63,16 @@ t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 		{
 			a = ft_lstnew(ft_atoi(arr[count]));
 			start = a;
-			a->index = tmp++;
 		}
 		else
 		{
 			while (a && a->next != NULL)
 				a = a->next;
 			ft_lstadd_back(a, ft_atoi(arr[count]));
-			a->index = tmp++;
 		}
 		count++;
 	}
-	a->next->index = tmp++;
 	a = start;
+	a = ft_index(a, size);
 	return (a);
 }
