@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 15:35:12 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:14:04 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 	int		tmp;
 
 	start = NULL;
-	tmp = 0;
+	tmp = count;
 	while (count != size)
 	{
 		if (!a)
@@ -72,6 +72,9 @@ t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 		count++;
 	}
 	a = start;
-	//ft_index(&a, size);
+	if (tmp == 0)
+		ft_index(&a, size + 1);
+	else
+		ft_index(&a, size);
 	return (a);
 }
