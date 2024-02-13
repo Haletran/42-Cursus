@@ -6,13 +6,42 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 16:14:04 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:26:16 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// TODO: add check if the number is > MAX_INT or < MIN_INT or else
+static long	long ft_atoi_test(const char *str)
+{
+	int		c;
+	int		d;
+	long long	e;
+	char	oe;
+
+	c = 0;
+	oe = 1;
+	d = 0;
+	e = 0;
+	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
+		c++;
+	if (str[c] == 43 || str[c] == 45)
+	{
+		if (str[c] == 45)
+			d++;
+		c++;
+	}
+	while (str[c] >= '0' && str[c] <= '9')
+	{
+		e = e * 10 + str[c] - '0';
+		c++;
+	}
+	if (d == 1)
+		oe = -1;
+	if (e > INT_MAX || e < -2147483647)
+		exit(ft_error());
+	return (e * oe);
+}
 
 void	index_list(t_lst *stack, int index)
 {
@@ -60,14 +89,14 @@ t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 	{
 		if (!a)
 		{
-			a = ft_lstnew(ft_atoi(arr[count]));
+			a = ft_lstnew(ft_atoi_test(arr[count]));
 			start = a;
 		}
 		else
 		{
 			while (a && a->next != NULL)
 				a = a->next;
-			ft_lstadd_back(a, ft_atoi(arr[count]));
+			ft_lstadd_back(a, ft_atoi_test(arr[count]));
 		}
 		count++;
 	}

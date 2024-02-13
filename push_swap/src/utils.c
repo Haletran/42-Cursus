@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/12 17:33:58 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:32:15 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,30 @@ int	get_args(char **arr)
 		arr++;
 	}
 	return (count);
+}
+int	ft_atoi_test(const char *str)
+{
+	int		c;
+	int		e;
+	char	oe;
+
+	c = 0;
+	oe = 1;
+	e = 0;
+	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
+		c++;
+	if (str[c] == 43 || str[c] == 45)
+		if (str[c] == 45)
+			oe = -1;
+	c++;
+	while (str[c] >= '0' && str[c] <= '9')
+	{
+		e = e * 10 + str[c] - '0';
+		c++;
+	}
+	if (e > INT_MAX)
+		exit(1);
+	return (e * oe);
 }
 
 int	ft_strcmp(char *s1, char *s2)
