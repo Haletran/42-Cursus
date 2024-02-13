@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/13 15:21:26 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:22:28 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,5 +131,7 @@ void	radix_sort(t_lst *a, t_lst *b)
 		i++;
 		while (ft_lst_size(b) != 0)
 			pa(&a, &b);
+		print_list("A\n", a);
+		sleep(1);
 	}
 }
