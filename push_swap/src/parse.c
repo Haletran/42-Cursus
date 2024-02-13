@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 17:26:16 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:24:23 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static long	long ft_atoi_test(const char *str)
 	oe = 1;
 	d = 0;
 	e = 0;
+	if ((str[c] == 43 || str[c] == 45) && !(str[c + 1] >= '0' && str[c + 1] <= '9'))
+		exit(ft_error());
 	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
 		c++;
 	if (str[c] == 43 || str[c] == 45)
@@ -38,9 +40,10 @@ static long	long ft_atoi_test(const char *str)
 	}
 	if (d == 1)
 		oe = -1;
-	if (e > INT_MAX || e < -2147483647)
+	e = e * oe;
+	if (e > INT_MAX || e < INT_MIN)
 		exit(ft_error());
-	return (e * oe);
+	return (e);
 }
 
 void	index_list(t_lst *stack, int index)
