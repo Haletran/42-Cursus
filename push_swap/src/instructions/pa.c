@@ -6,11 +6,24 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/07 17:05:27 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:11:16 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+void	*ft_lst_new(int content, int index)
+{
+	t_lst	*elem;
+
+	elem = malloc(sizeof(t_lst));
+	if (!elem)
+		return (NULL);
+	elem->content = content;
+	elem->index = index;
+	elem->next = NULL;
+	return (elem);
+}
 
 void	pb(t_lst **a, t_lst **b)
 {
@@ -19,7 +32,7 @@ void	pb(t_lst **a, t_lst **b)
 	afrique = (*a)->next;
 	if (*b == NULL)
 	{
-		*b = ft_lstnew((**a).content);
+		*b = ft_lst_new((**a).content, (**a).index);
 		free(*a);
 		*a = afrique;
 	}
@@ -36,7 +49,7 @@ void	pa(t_lst **a, t_lst **b)
 	afrique = (*b)->next;
 	if (*a == NULL)
 	{
-		*a = ft_lstnew((**b).content);
+		*a = ft_lst_new((**a).content, (**a).index);
 		free(*b);
 		*b = afrique;
 	}

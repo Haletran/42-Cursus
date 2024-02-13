@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/12 18:27:28 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:21:26 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,29 @@ int	is_sorted_list(t_lst **a)
 {
 	t_lst	*head;
 
-	if (a == NULL || *a == NULL)
+	if (a == NULL || *a == NULL || (*a)->next == NULL)
 		return (0);
 	head = *a;
 	while (head && head->next)
-	{
+	{ 
 		if (head->content > head->next->content)
 			return (0);
 		head = head->next;
+	}
+	return (1);
+}
+static int	is_sorted_test(t_lst *head)
+{
+	t_lst	*current;
+
+	if (head == NULL || head->next == NULL)
+		return (1);
+	current = head;
+	while (current->next != NULL && current)
+	{
+		if (current->content > current->next->content)
+			return (0);
+		current = current->next;
 	}
 	return (1);
 }
@@ -31,13 +46,13 @@ int	is_sorted_list(t_lst **a)
 void	sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 {
 	if (size - 1 == 2)
-		sa(*a);
+		sa(a);
 	else if (size - 1 == 3)
 	{
 		while (!is_sorted_list(a))
 		{
 			if ((*a)->content > (*a)->next->content)
-				sa(*a);
+				sa(a);
 			else if ((*a)->content < (*a)->next->content)
 				(*a) = rra(*a);
 		}
@@ -62,7 +77,7 @@ void	sort_medium_stack(t_lst **a, t_lst **b, int size, int count)
 		if (*b != NULL)
 			pa(a, b);
 		if ((*a)->content > (*a)->next->content)
-			sa(*a);
+			sa(a);
 	}
 }
 
@@ -70,11 +85,11 @@ void	sort_big_stack(t_lst **a, t_lst **b)
 {
 	int		tmp;
 	t_lst	*head;
-	//t_lst	*start;
+	t_lst	*start;
 	int		i;
 
 	head = *a;
-	//start = *a;
+	start = *a;
 	i = 0;
 	tmp = ft_lst_size(*a);
 	while (i != tmp / 2)
@@ -101,13 +116,14 @@ void	radix_sort(t_lst *a, t_lst *b)
 
 	i = 0;
 	head = a;
-	while (!is_sorted_list(&a) && ft_lst_size(b) == 0)
+	j = ft_lst_size(head);
+	while (!is_sorted_test(a))
 	{
-		j = ft_lst_size(a);
+		head = a;
 		while (j > 0)
 		{
-			if ((a->index >> i) & 1)
-				ra(a);
+			if (((head->index >> i) & 1) == 1)
+				ra(&a);
 			else
 				pb(&a, &b);
 			j--;
