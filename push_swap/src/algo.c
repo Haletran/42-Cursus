@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/13 15:22:28 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:29:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_sorted_list(t_lst **a)
 	}
 	return (1);
 }
-static int	is_sorted_test(t_lst *head)
+/* static int	is_sorted_test(t_lst *head)
 {
 	t_lst	*current;
 
@@ -41,7 +41,7 @@ static int	is_sorted_test(t_lst *head)
 		current = current->next;
 	}
 	return (1);
-}
+} */
 
 void	sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 {
@@ -108,30 +108,28 @@ void	sort_big_stack(t_lst **a, t_lst **b)
 	// ft_printf("%d", tmp);
 }
 
-void	radix_sort(t_lst *a, t_lst *b)
+void	radix_sort(t_lst **a, t_lst **b)
 {
 	int		i;
 	t_lst	*head;
 	int		j;
 
 	i = 0;
-	head = a;
+	head = *a;
 	j = ft_lst_size(head);
-	while (!is_sorted_test(a))
+	while (!is_sorted_list(a))
 	{
-		head = a;
+		j = ft_lst_size(*a);
 		while (j > 0)
 		{
-			if (((head->index >> i) & 1) == 1)
-				ra(&a);
+			if ((((*a)->index >> i) & 1) == 1)
+				ra(a);
 			else
-				pb(&a, &b);
+				pb(a, b);
 			j--;
 		}
+		while (ft_lst_size(*b) != 0)
+			pa(a, b);
 		i++;
-		while (ft_lst_size(b) != 0)
-			pa(&a, &b);
-		print_list("A\n", a);
-		sleep(1);
 	}
 }

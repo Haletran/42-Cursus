@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 14:52:29 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:35:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 		count++;
 	}
 	a = start;
-	ft_index(&a, size);
+	//ft_index(&a, size);
 	return (a);
 }
