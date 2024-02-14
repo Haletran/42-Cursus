@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/13 15:57:31 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/14 01:30:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,13 @@ int	is_sorted_list(t_lst **a)
 		return (0);
 	head = *a;
 	while (head && head->next)
-	{ 
+	{
 		if (head->content > head->next->content)
 			return (0);
 		head = head->next;
 	}
 	return (1);
 }
-/* static int	is_sorted_test(t_lst *head)
-{
-	t_lst	*current;
-
-	if (head == NULL || head->next == NULL)
-		return (1);
-	current = head;
-	while (current->next != NULL && current)
-	{
-		if (current->content > current->next->content)
-			return (0);
-		current = current->next;
-	}
-	return (1);
-} */
 
 void	sort_small_stack(t_lst **a, t_lst **b, int size, int count)
 {
@@ -79,33 +64,6 @@ void	sort_medium_stack(t_lst **a, t_lst **b, int size, int count)
 		if ((*a)->content > (*a)->next->content)
 			sa(a);
 	}
-}
-
-void	sort_big_stack(t_lst **a, t_lst **b)
-{
-	int		tmp;
-	t_lst	*head;
-	t_lst	*start;
-	int		i;
-
-	head = *a;
-	start = *a;
-	i = 0;
-	tmp = ft_lst_size(*a);
-	while (i != tmp / 2)
-	{
-		head = head->next;
-		i++;
-	}
-	while ((*a)->content < head->content)
-	{
-		pb(a, b);
-		*a = (*a)->next;
-	}
-	//*a = start;
-	print_list("A\n", *a);
-	print_list("B\n", *b);
-	// ft_printf("%d", tmp);
 }
 
 void	radix_sort(t_lst **a, t_lst **b)

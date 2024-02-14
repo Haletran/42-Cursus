@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:58:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/07 16:42:55 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/13 22:37:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 typedef struct s_lst
 {
 	int				content;
-	int	index;
+	int				index;
 	struct s_lst	*next;
-	struct s_lst	*prev;
 }					t_lst;
 
 #endif

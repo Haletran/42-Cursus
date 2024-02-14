@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 19:19:15 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/14 00:39:48 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int	check_input(int nb_args, char **src)
 	}
 	return (1);
 }
-
 
 int	verif_input(int nb_args, char **src)
 {
