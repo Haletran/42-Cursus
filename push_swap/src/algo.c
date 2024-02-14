@@ -6,27 +6,11 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/14 03:24:04 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:41:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	is_sorted_list(t_lst **a)
-{
-	t_lst	*head;
-
-	if (a == NULL || *a == NULL || (*a)->next == NULL)
-		return (0);
-	head = *a;
-	while (head && head->next)
-	{
-		if (head->content > head->next->content)
-			return (0);
-		head = head->next;
-	}
-	return (1);
-}
 
 void	sort_small_stack(t_lst **a)
 {
@@ -35,7 +19,7 @@ void	sort_small_stack(t_lst **a)
 		if ((*a)->content > (*a)->next->content)
 			sa(a);
 		else if ((*a)->content < (*a)->next->content)
-			(*a) = rra(*a);
+			rra(a);
 	}
 }
 
@@ -85,6 +69,31 @@ void	radix_sort(t_lst **a, t_lst **b)
 	}
 }
 
+void	sort_five(t_lst **a, t_lst **b)
+{
+	t_lst	*head_a;
+	t_lst	*prev_a;
+
+	head_a = *a;
+	prev_a = NULL;
+	while ((*a)->next != NULL)
+	{
+		if ((*a)->index != 1)
+			prev_a = *a;
+		else if ((*a)->index == 1)
+			pb(a, b);
+		*a = (*a)->next;
+	}
+	*a = head_a;
+	if (prev_a)
+		prev_a->next = NULL;
+	sort_medium_stack(a, b);
+	while (*b)
+		pa(a, b);
+	print_list("A", *a);
+	print_list("B", *b);
+}
+
 void	choose_sort(t_lst **a, t_lst **b, int size)
 {
 	if (size - 1 == 2)
@@ -93,6 +102,8 @@ void	choose_sort(t_lst **a, t_lst **b, int size)
 		sort_small_stack(a);
 	else if (size - 1 == 4)
 		sort_medium_stack(a, b);
+	else if (size - 1 == 5)
+		sort_five(a, b);
 	else if (size - 1 >= 5)
 		radix_sort(a, b);
 }

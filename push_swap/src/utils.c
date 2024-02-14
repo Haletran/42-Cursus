@@ -6,11 +6,27 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:26:30 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 23:03:32 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:14:41 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	is_sorted_list(t_lst **a)
+{
+	t_lst	*head;
+
+	if (a == NULL || *a == NULL || (*a)->next == NULL)
+		return (0);
+	head = *a;
+	while (head && head->next)
+	{
+		if (head->content > head->next->content)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
 
 int	get_args(char **arr)
 {
