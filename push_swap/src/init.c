@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/14 02:28:27 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 00:35:29 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 static long long	ft_atoi_test(const char *str, int flag)
 {
 	int			c;
-	int			d;
 	long long	e;
 	char		oe;
 
 	c = 0;
 	oe = 1;
-	d = 0;
 	e = 0;
 	if ((str[c] == 43 || str[c] == 45) && !(str[c + 1] >= '0' && str[c \
 			+ 1] <= '9'))
