@@ -6,13 +6,13 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/14 02:06:47 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/14 02:18:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static long long	ft_atoi_test(const char *str, t_lst *a, char **arr)
+/* static long long	ft_atoi_test(const char *str, t_lst *a, char **arr)
 {
 	int			c;
 	int			d;
@@ -39,7 +39,7 @@ static long long	ft_atoi_test(const char *str, t_lst *a, char **arr)
 	if ((e * oe) > INT_MAX || (e * oe) < INT_MIN)
 		ft_freeror(&a, arr);
 	return (e * oe);
-}
+} */
 
 void	index_list(t_lst *stack, int index)
 {
@@ -88,14 +88,14 @@ t_lst	*init_stack(t_lst *a, int size, char **arr, int count)
 	{
 		if (!a)
 		{
-			a = ft_lstnew(ft_atoi_test(arr[count], a, arr));
+			a = ft_lstnew(ft_atoi(arr[count]));
 			start = a;
 		}
 		else
 		{
 			while (a && a->next != NULL)
 				a = a->next;
-			ft_lstadd_back(a, ft_atoi_test(arr[count], start, arr));
+			ft_lstadd_back(a, ft_atoi(arr[count]));
 		}
 		count++;
 	}
