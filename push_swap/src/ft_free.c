@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:23:37 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/14 02:08:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/14 02:28:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,6 @@ static void	ft_free_arr(char **arr, int size)
 			free(arr[i++]);
 		free(arr);
 	}
-}
-
-int	ft_freeror(t_lst **a, char **arr)
-{
-	//struct s_lst	*tmp;
-	int				i;
-
-	i = 0;
-	(void)arr;
-	(void)a;
-	ft_putendl_fd("Error", 2);
-	return (1);
 }
 
 void	ft_free(t_lst **a, t_lst **b, int size, char **arr)
