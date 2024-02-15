@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/15 16:58:46 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:54:51 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,18 @@ void	sort_five(t_lst **a, t_lst **b)
 	pa(a, b);
 }
 
-void	choose_sort(t_lst **a, t_lst **b, int size)
+void	choose_sort(t_lst **a, t_lst **b, int size, int flag)
 {
-	if (size - 1 == 2)
+	if (flag == 0)
+		size--;
+	if (size == 2)
 		sa(a);
-	else if (size - 1 == 3)
+	else if (size == 3)
 		sort_small_stack(a);
-	else if (size - 1 == 4)
+	else if (size == 4)
 		sort_medium_stack(a, b);
-	else if (size - 1 == 5)
+	else if (size == 5)
 		sort_five(a, b);
-	else if (size - 1 >= 5)
+	else if (size >= 5)
 		radix_sort(a, b);
 }

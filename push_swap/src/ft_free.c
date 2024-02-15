@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:23:37 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/14 02:28:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:34:12 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_free_arr(char **arr, int size)
 	int	i;
 
 	i = 0;
-	if (size == 2)
+	if (size == 1)
 	{
 		while (arr[i])
 			free(arr[i++]);

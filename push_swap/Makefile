@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
+#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/15 18:40:47 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/15 22:25:43 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ gdb: fclean $(OBJS)
 	@echo -n "Do you want to launch GDB? [y/N] " && read ans && if [ "$${ans:-N}" = 'y' ]; then gdb --tui ./push_swap ; fi
 
 valgrind: $(NAME)
-	valgrind --leak-check=full --track-origins=yes ./push_swap $1
+	valgrind --leak-check=full --track-origins=yes ./push_swap 5 4 3 2 1
 
 norm:
 	@printf "\n$(PROJECT_NAME)[ Norm check : ]\n"

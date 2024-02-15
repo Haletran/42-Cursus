@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/15 19:43:12 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 23:28:23 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,20 @@ static long long	ft_atoi_test(const char *str, int flag)
 	return (flag);
 }
 
-static int	check_list(int nb_args, char **src)
+static int	check_list(int nb_args, int flag, char **src)
 {
 	int	i;
 	int	j;
 
 	i = 1;
+	if (flag == 1)
+		i = 0;
 	if (!src)
 		return (0);
-	if (nb_args == 2)
-	{
-		nb_args = get_args(src);
-		i = 0;
-	}
 	while (i < nb_args)
 	{
 		j = i + 1;
-		while (j < nb_args - 1)
+		while (j < nb_args)
 		{
 			if (ft_strlen(src[i]) == 0)
 				return (0);
@@ -68,19 +65,16 @@ static int	check_list(int nb_args, char **src)
 	return (1);
 }
 
-int	check_input(int nb_args, char **src)
+int	check_input(int nb_args, int flag, char **src)
 {
 	int	i;
 	int	j;
 
 	i = 1;
+	if (flag == 1)
+		i = 0;
 	if (!src)
 		return (0);
-	if (nb_args == 2)
-	{
-		nb_args = get_args(src);
-		i = 0;
-	}
 	while (i != nb_args)
 	{
 		j = 0;
@@ -109,9 +103,10 @@ static int	ft_isabove(char **src)
 	return (1);
 }
 
-int	verif_input(int nb_args, char **src)
+int	verif_input(int nb_args, int flag, char **src)
 {
-	if (check_input(nb_args, src) && check_list(nb_args, src) && ft_isabove(src))
+	if (nb_args >= 2 && check_input(nb_args, flag, src) && check_list(nb_args, flag, src) \
+		&& ft_isabove(src))
 		return (1);
 	return (0);
 }
