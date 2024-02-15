@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:20:08 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/02 13:12:57 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:27:56 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	*ft_lstadd_back(t_lst *lst, int value)
 	head = lst;
 	if (lst == NULL)
 	{
-		lst = ft_lstnew(value);
+		lst = ft_lst_new(value, 0);
 		return (lst);
 	}
 	while (lst->next != NULL)
 		lst = lst->next;
-	lst->next = ft_lstnew(value);
+	lst->next = ft_lst_new(value, 0);
 	lst = head;
 	return (lst);
 }

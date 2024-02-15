@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/15 15:08:31 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:20:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*execution(int size, int count, char **arr, int argc)
 	t_lst	**a;
 	t_lst	**b;
 
-	a = ft_calloc(sizeof(t_lst *), size);
+	a = ft_calloc(sizeof(t_lst *), size + 1);
 	b = ft_calloc(sizeof(t_lst *), size);
 	*a = init_stack(*a, size, arr, count);
 	*b = NULL;

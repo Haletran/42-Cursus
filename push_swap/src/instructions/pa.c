@@ -6,24 +6,11 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/13 22:36:07 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:22:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-void	*ft_lst_new(int content, int index)
-{
-	t_lst	*elem;
-
-	elem = malloc(sizeof(t_lst));
-	if (!elem)
-		return (NULL);
-	elem->content = content;
-	elem->index = index;
-	elem->next = NULL;
-	return (elem);
-}
 
 void	pb(t_lst **a, t_lst **b)
 {

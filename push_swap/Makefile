@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/15 15:09:42 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/15 15:18:20 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ gdb: fclean $(NAME)
 	gdb --tui ./push_swap
 
 valgrind: $(NAME)
-	valgrind --leak-check=full ./push_swap 5 10 2 1
+	valgrind --leak-check=full --track-origins=yes ./push_swap 5 10 2 1
 
 norm:
 	@printf "\n$(PROJECT_NAME)[ Norm check : ]\n"
@@ -67,6 +67,7 @@ norm:
 
 tester: checker
 	@git clone https://gitlab.com/hydrasho/push_swap-testeur-max.git
+	@git clone https://github.com/o-reo/push_swap_visualizer
 
 clean:
 	rm -rf $(OBJS_DIR)
