@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/15 02:00:11 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/15 02:05:23 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	radix_sort(t_lst **a, t_lst **b)
 	}
 }
 
-void sort_five(t_lst **a, t_lst **b) 
+/* void sort_five(t_lst **a, t_lst **b) 
 {
     t_lst *head_a = *a;
     t_lst *prev_a = NULL;
@@ -107,8 +107,20 @@ void sort_five(t_lst **a, t_lst **b)
 		sort_small_stack(a);
 	pa(a, b);
 	pa(a, b);
-}
+} */
 
+void sort_five(t_lst **a, t_lst **b)
+{
+	while ((*a)->index != 1)
+		ra(a);
+	pb(a, b);
+	while ((*a)->index != 2)
+		ra(a);
+	pb(a, b);
+	sort_small_stack(a);
+	pa(a, b);
+	pa(a, b);
+}
 
 
 void	choose_sort(t_lst **a, t_lst **b, int size)
