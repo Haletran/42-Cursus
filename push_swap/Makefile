@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/15 15:18:20 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/15 18:40:47 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,9 @@ endif
 
 NAME := push_swap
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror
+CFLAGS := -Wextra -Wall -Werror -g
+DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 CHECKER_LINK= "https://cdn.intra.42.fr/document/document/23552/checker_linux"
-
-#Var to check leaks instead of using valgrind
-FSANITIZE := -fsanitize=address
 
 SRCS	= src/init.c \
 		  src/parse.c \
@@ -55,11 +53,14 @@ checker:
 	@if [ ! -f checker_linux ]; then wget $(CHECKER_LINK) -q --show-progress; fi
 	@if [ $$? -eq 0 ]; then echo "\033[92;1;5m[checker_linux]\033[0m Downloaded Successfully" && chmod 777 checker_linux; fi
 
-gdb: fclean $(NAME)
-	gdb --tui ./push_swap
+gdb: fclean $(OBJS)
+	@make -C libft
+	$(CC) $(DEBUG_FLAGS) -o $(NAME) $(OBJS) $(LIBFT_TARGET)
+	echo "\033[41mDEGUG MODE : ON\033[0m"
+	@echo -n "Do you want to launch GDB? [y/N] " && read ans && if [ "$${ans:-N}" = 'y' ]; then gdb --tui ./push_swap ; fi
 
 valgrind: $(NAME)
-	valgrind --leak-check=full --track-origins=yes ./push_swap 5 10 2 1
+	valgrind --leak-check=full --track-origins=yes ./push_swap $1
 
 norm:
 	@printf "\n$(PROJECT_NAME)[ Norm check : ]\n"
@@ -67,7 +68,6 @@ norm:
 
 tester: checker
 	@git clone https://gitlab.com/hydrasho/push_swap-testeur-max.git
-	@git clone https://github.com/o-reo/push_swap_visualizer
 
 clean:
 	rm -rf $(OBJS_DIR)

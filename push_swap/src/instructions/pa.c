@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:54:17 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/15 15:22:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:34:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,34 @@
 
 void	pb(t_lst **a, t_lst **b)
 {
-	t_lst	*afrique;
+	t_lst	*to_free;
 
-	afrique = (*a)->next;
+	to_free = (*a)->next;
 	if (*b == NULL)
 	{
 		*b = ft_lst_new((**a).content, (**a).index);
 		free(*a);
-		*a = afrique;
+		*a = to_free;
 	}
 	else
 		ft_lst_add_front(b, *a);
-	*a = afrique;
+	*a = to_free;
 	ft_putendl_fd("pb", 1);
 }
 
 void	pa(t_lst **a, t_lst **b)
 {
-	t_lst	*afrique;
+	t_lst	*to_free;
 
-	afrique = (*b)->next;
+	to_free = (*b)->next;
 	if (*a == NULL)
 	{
 		*a = ft_lst_new((**a).content, (**a).index);
 		free(*b);
-		*b = afrique;
+		*b = to_free;
 	}
 	else
 		ft_lst_add_front(a, *b);
-	*b = afrique;
+	*b = to_free;
 	ft_putendl_fd("pa", 1);
 }

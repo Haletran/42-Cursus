@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/15 14:42:18 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:43:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ static int	check_list(int nb_args, char **src)
 		nb_args = get_args(src);
 		i = 0;
 	}
-	while (i < nb_args - 1)
+	while (i < nb_args)
 	{
 		j = i + 1;
-		while (j < nb_args)
+		while (j < nb_args - 1)
 		{
 			if (ft_strlen(src[i]) == 0)
 				return (0);
@@ -111,8 +111,7 @@ static int	ft_isabove(char **src)
 
 int	verif_input(int nb_args, char **src)
 {
-	if (check_input(nb_args, src) && check_list(nb_args, src) && ft_isabove(src)
-		&& get_args(src) > 1)
+	if (check_input(nb_args, src) && check_list(nb_args, src) && ft_isabove(src))
 		return (1);
 	return (0);
 }
