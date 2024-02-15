@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/15 02:05:23 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:26:36 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,59 +69,59 @@ void	radix_sort(t_lst **a, t_lst **b)
 	}
 }
 
-/* void sort_five(t_lst **a, t_lst **b) 
+/* void sort_five(t_lst **a, t_lst **b)
 {
-    t_lst *head_a = *a;
-    t_lst *prev_a = NULL;
+	t_lst	*head_a;
+	t_lst	*prev_a;
 
-    while ((*a)->index != 1) {
-        prev_a = *a;
-        *a = (*a)->next;
-    }
-    if ((*a)->index == 1) 
-	{
-        if (prev_a != NULL)
-            prev_a->next = (*a)->next;
-        else
-            head_a = (*a)->next;
-        pb(a, b);
-    }
-    *a = head_a;
 	head_a = *a;
-    prev_a = NULL;
-	print_list("A\n", *a);
-    while ((*a)->index != 2) {
-        prev_a = *a;
-        *a = (*a)->next;
-    }
-    if ((*a)->index == 2) 
+	prev_a = NULL;
+	while ((*a)->index != 1) {
+		prev_a = *a;
+		*a = (*a)->next;
+	}
+	if ((*a)->index == 1)
 	{
-        if (prev_a != NULL)
-            prev_a->next = (*a)->next;
-        else
-            head_a = (*a)->next;
-        pb(a, b);
-    }
-    *a = head_a;
+		if (prev_a != NULL)
+			prev_a->next = (*a)->next;
+		else
+			head_a = (*a)->next;
+		pb(a, b);
+	}
+	*a = head_a;
+	head_a = *a;
+	prev_a = NULL;
+	print_list("A\n", *a);
+	while ((*a)->index != 2) {
+		prev_a = *a;
+		*a = (*a)->next;
+	}
+	if ((*a)->index == 2)
+	{
+		if (prev_a != NULL)
+			prev_a->next = (*a)->next;
+		else
+			head_a = (*a)->next;
+		pb(a, b);
+	}
+	*a = head_a;
 	if(!(is_sorted_list(a)))
 		sort_small_stack(a);
 	pa(a, b);
 	pa(a, b);
 } */
-
-void sort_five(t_lst **a, t_lst **b)
+void	sort_five(t_lst **a, t_lst **b)
 {
 	while ((*a)->index != 1)
-		ra(a);
+		rra(a);
 	pb(a, b);
 	while ((*a)->index != 2)
-		ra(a);
+		rra(a);
 	pb(a, b);
 	sort_small_stack(a);
 	pa(a, b);
 	pa(a, b);
 }
-
 
 void	choose_sort(t_lst **a, t_lst **b, int size)
 {

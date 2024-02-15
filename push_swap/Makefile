@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/15 01:03:30 by baptiste         ###   ########.fr        #
+#    Updated: 2024/02/15 15:09:42 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ valgrind: $(NAME)
 
 norm:
 	@printf "\n$(PROJECT_NAME)[ Norm check : ]\n"
-	@norminette $(SRCS) includes libft get_next_line ft_printf  | grep 'Error'
+	@norminette $(SRCS) includes libft get_next_line ft_printf
 
 tester: checker
 	@git clone https://gitlab.com/hydrasho/push_swap-testeur-max.git
