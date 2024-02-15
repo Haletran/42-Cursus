@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
+#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/07 17:07:24 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/15 01:03:30 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ endif
 
 NAME := push_swap
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g
+CFLAGS := -Wextra -Wall -Werror
 CHECKER_LINK= "https://cdn.intra.42.fr/document/document/23552/checker_linux"
 
 #Var to check leaks instead of using valgrind
@@ -64,6 +64,9 @@ valgrind: $(NAME)
 norm:
 	@printf "\n$(PROJECT_NAME)[ Norm check : ]\n"
 	@norminette $(SRCS) includes libft get_next_line ft_printf  | grep 'Error'
+
+tester: checker
+	@git clone https://gitlab.com/hydrasho/push_swap-testeur-max.git
 
 clean:
 	rm -rf $(OBJS_DIR)

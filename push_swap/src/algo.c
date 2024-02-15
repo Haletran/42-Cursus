@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:35:58 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/14 19:41:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 01:27:37 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,27 +72,21 @@ void	radix_sort(t_lst **a, t_lst **b)
 void	sort_five(t_lst **a, t_lst **b)
 {
 	t_lst	*head_a;
-	t_lst	*prev_a;
-
+	
 	head_a = *a;
-	prev_a = NULL;
-	while ((*a)->next != NULL)
+	while ((*a)->index != 1)
 	{
-		if ((*a)->index != 1)
-			prev_a = *a;
-		else if ((*a)->index == 1)
-			pb(a, b);
-		*a = (*a)->next;
+		head_a = *a;
+		(*a) = (*a)->next;
 	}
+	head_a->next = (*a)->next;
+	if ((*a)->index == 1)
+		pb(a, b);
 	*a = head_a;
-	if (prev_a)
-		prev_a->next = NULL;
 	sort_medium_stack(a, b);
-	while (*b)
-		pa(a, b);
-	print_list("A", *a);
-	print_list("B", *b);
+	pa(a, b);
 }
+
 
 void	choose_sort(t_lst **a, t_lst **b, int size)
 {
