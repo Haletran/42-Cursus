@@ -6,14 +6,11 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/15 15:20:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:33:18 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
-
-/* print_list("A\n", *a);
-print_list("B\n", *b); */
 
 void	*execution(int size, int count, char **arr, int argc)
 {
