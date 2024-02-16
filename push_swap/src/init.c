@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/15 23:28:23 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:04:30 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,46 @@ static int	ft_isabove(char **src)
 		return (0);
 	return (1);
 }
+int	ft_isdigit2(int c)
+{
+	if ((c >= '0' && c <= '9'))
+		return (1);
+	return (0);
+}
+
+int	check_input2(int nb_args, int flag, char **src)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	if (flag == 1)
+		i = 0;
+	if (!src)
+		return (0);
+	while (i != nb_args)
+	{
+		j = 0;
+		while (src[i][j])
+			if (!ft_isdigit2(src[i][j++]))
+				return (0);
+		i++;
+	}
+	if (!src[0])
+		return (0);
+	return (1);
+}
+
 
 int	verif_input(int nb_args, int flag, char **src)
 {
-	if (nb_args >= 2 && check_input(nb_args, flag, src) && check_list(nb_args, flag, src) \
-		&& ft_isabove(src))
-		return (1);
-	return (0);
+	if (!check_input(nb_args, flag, src))
+		return (0);
+	else if (!ft_isabove(src))
+		return (0);
+	else if (!check_list(nb_args, flag, src))
+		return (0);
+	else if (!(nb_args >= 2))
+		return (-1);
+	return (1);
 }

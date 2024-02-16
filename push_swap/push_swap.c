@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/15 23:29:06 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:06:55 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 
 	size = argc;
 	flag = 0;
-	if(argc == 2 && !argv[1][0])
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (ft_error());
 	else if (size == 2)
 	{
@@ -47,14 +47,22 @@ int main(int argc, char **argv)
 	}
 	if (flag == 1)
 		size = get_args(argv);
-	if (verif_input(size, flag, argv))
-		execution(size, argv, flag);
-	else
+	if (verif_input(size, flag, argv) == - 1)
+	{
+		if (!check_input2(size, flag, argv))
+		{
+			ft_free(NULL, NULL, flag, argv);
+			return (ft_error());
+		}
+		ft_free(NULL, NULL, flag, argv);
+		return (0);
+	}
+	else if (verif_input(size, flag, argv) == 0)
 	{
 		ft_free(NULL, NULL, flag, argv);
-		if (argc == 1)
-			return (0);
 		return (ft_error());
 	}
+	execution(size, argv, flag);
 	return (1);
 }
+

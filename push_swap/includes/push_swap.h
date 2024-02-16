@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/15 23:04:00 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:46:18 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		is_sorted_list(t_lst **a);
 void	index_list(t_lst *stack, int index);
 int		is_sorted_list(t_lst **a);
 void	choose_sort(t_lst **a, t_lst **b, int size, int flag);
+int	check_input2(int nb_args, int flag, char **src);
 
 /*OPERATIONS*/
 void	sa(t_lst **a);
