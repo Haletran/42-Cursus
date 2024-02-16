@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 13:06:55 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:14:52 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int main(int argc, char **argv)
 
 	size = argc;
 	flag = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if(argc == 1)
+		return (0);
+	if (argc == 2 && !argv[1][0])
 		return (ft_error());
 	else if (size == 2)
 	{
