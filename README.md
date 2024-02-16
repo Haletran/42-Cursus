@@ -14,4 +14,4 @@ All of my projects during 42 Cursus.
 ## Rank 2
 - [x] so_long : 15/01/2024 -> 30/01/2024 | ✅ 125% |
 - [x] minitalk : 13/12/2023 -> 23/12/2023 | ✅ 125% |
-- [ ] push_swap : 08/01/2024 ->
+- [ ] push_swap : 08/01/2024 -> PROJET TERMINE (NORM A FAIRE)
