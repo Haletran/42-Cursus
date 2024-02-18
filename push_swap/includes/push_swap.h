@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 12:46:18 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:11:48 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,22 @@
 /* FUNCTIONS */
 void	radix_sort(t_lst **a, t_lst **b);
 void	ft_free(t_lst **a, t_lst **b, int size, char **arr);
-int		check_input(int nb_args, int flag, char **src);
 t_lst	*init_stack(t_lst *a, int size, char **arr, int flag);
 int		ft_error(void);
 int		ft_strcmp(char *s1, char *s2);
 int		get_args(char **arr);
-int	verif_input(int nb_args, int flag, char **src);
 void	print_list(char *string, t_lst *lst);
 int		is_sorted_list(t_lst **a);
 void	index_list(t_lst *stack, int index);
 int		is_sorted_list(t_lst **a);
 void	choose_sort(t_lst **a, t_lst **b, int size, int flag);
-int	check_input2(int nb_args, int flag, char **src);
+
+/*PARSING*/
+int global_check(int size, int flag, char **src);
+long long	ft_atoi_max(const char *str, int flag);
+int	check_list(int nb_args, int flag, char **src);
+int	check_input(int nb_args, int flag, char **src);
+int	ft_isabove(char **src);
 
 /*OPERATIONS*/
 void	sa(t_lst **a);

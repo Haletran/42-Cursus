@@ -6,7 +6,7 @@
 #    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/15 22:25:43 by baptiste         ###   ########.fr        #
+#    Updated: 2024/02/18 19:12:48 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,9 @@ DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 CHECKER_LINK= "https://cdn.intra.42.fr/document/document/23552/checker_linux"
 
 SRCS	= src/init.c \
-		  src/parse.c \
-		  src/utils.c \
+		  src/parse_check.c \
+		  src/parse_utils.c \
+		  src/global_utils.c \
 		  src/instructions/ss.c \
 		  src/instructions/pa.c \
 		  src/instructions/rr.c \

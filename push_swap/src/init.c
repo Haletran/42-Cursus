@@ -1,147 +1,78 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/16 13:04:30 by baptiste         ###   ########.fr       */
+/*   Created: 2024/01/09 20:47:27 by codespace         #+#    #+#             */
+/*   Updated: 2024/02/15 22:53:24 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static long long	ft_atoi_test(const char *str, int flag)
+void	index_list(t_lst *stack, int index)
 {
-	int			c;
-	long long	e;
-	char		oe;
+	t_lst	*current;
+	int		smallest;
 
-	c = 0;
-	oe = 1;
-	e = 0;
-	if ((str[c] == 43 || str[c] == 45) && !(str[c + 1] >= '0' && str[c \
-			+ 1] <= '9'))
-		flag++;
-	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
-		c++;
-	if (str[c] == 43 || str[c] == 45)
-		if (str[c++] == 45)
-			oe = -1;
-	while (str[c] >= '0' && str[c] <= '9')
+	current = stack;
+	smallest = INT_MAX;
+	while (current)
 	{
-		e = e * 10 + str[c] - '0';
-		c++;
+		if (smallest >= current->content && current->index == 0)
+			smallest = current->content;
+		current = current->next;
 	}
-	if ((e * oe) > INT_MAX || (e * oe) < INT_MIN)
-		flag++;
-	return (flag);
+	current = stack;
+	while (current->content != smallest)
+		current = current->next;
+	current->index = index;
 }
 
-static int	check_list(int nb_args, int flag, char **src)
+void	ft_index(t_lst **a, int size, int flag)
 {
-	int	i;
+	int	index;
 	int	j;
 
-	i = 1;
-	if (flag == 1)
-		i = 0;
-	if (!src)
-		return (0);
-	while (i < nb_args)
+	index = 1;
+	j = 0;
+	if (flag == 0)
+		j = 1;
+	while (j < size)
 	{
-		j = i + 1;
-		while (j < nb_args)
+		index_list(*a, index);
+		index++;
+		j++;
+	}
+}
+
+t_lst	*init_stack(t_lst *a, int size, char **arr, int flag)
+{
+	t_lst	*start;
+	int		tmp;
+
+	start = NULL;
+	tmp = 1;
+	if(flag == 1)
+		tmp = 0;
+	while (tmp != size)
+	{
+		if (!a)
 		{
-			if (ft_strlen(src[i]) == 0)
-				return (0);
-			if (ft_atoi(src[i]) == ft_atoi(src[j]))
-				return (0);
-			j++;
+			a = ft_lst_new(ft_atoi(arr[tmp]), 0);
+			start = a;
 		}
-		i++;
+		else
+		{
+			while (a && a->next != NULL)
+				a = a->next;
+			ft_lstadd_back(a, ft_atoi(arr[tmp]));
+		}
+		tmp++;
 	}
-	return (1);
-}
-
-int	check_input(int nb_args, int flag, char **src)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	if (flag == 1)
-		i = 0;
-	if (!src)
-		return (0);
-	while (i != nb_args)
-	{
-		j = 0;
-		while (src[i][j])
-			if (!ft_isdigit(src[i][j++]))
-				return (0);
-		i++;
-	}
-	return (1);
-}
-
-static int	ft_isabove(char **src)
-{
-	int	flag;
-	int	i;
-
-	i = 0;
-	flag = 0;
-	while (src[i])
-	{
-		flag = ft_atoi_test(src[i], flag);
-		i++;
-	}
-	if (flag > 0)
-		return (0);
-	return (1);
-}
-int	ft_isdigit2(int c)
-{
-	if ((c >= '0' && c <= '9'))
-		return (1);
-	return (0);
-}
-
-int	check_input2(int nb_args, int flag, char **src)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	if (flag == 1)
-		i = 0;
-	if (!src)
-		return (0);
-	while (i != nb_args)
-	{
-		j = 0;
-		while (src[i][j])
-			if (!ft_isdigit2(src[i][j++]))
-				return (0);
-		i++;
-	}
-	if (!src[0])
-		return (0);
-	return (1);
-}
-
-
-int	verif_input(int nb_args, int flag, char **src)
-{
-	if (!check_input(nb_args, flag, src))
-		return (0);
-	else if (!ft_isabove(src))
-		return (0);
-	else if (!check_list(nb_args, flag, src))
-		return (0);
-	else if (!(nb_args >= 2))
-		return (-1);
-	return (1);
+	a = start;
+	ft_index(&a, size, flag);
+	return (a);
 }

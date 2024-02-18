@@ -6,7 +6,7 @@
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:23:37 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/15 22:34:12 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:25:18 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ static void	ft_free_arr(char **arr, int size)
 	i = 0;
 	if (size == 1)
 	{
-		while (arr[i])
-			free(arr[i++]);
-		free(arr);
+		if (arr)
+		{
+			while (arr[i])
+				free(arr[i++]);
+			free(arr);
+		}
 	}
 }
 
