@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 19:26:14 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:31:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	*sort_stacks(int size, char **arr, int flag)
 
 int	main(int argc, char **argv)
 {
-	int size;
-	int flag;
+	int	size;
+	int	flag;
 
 	size = argc;
 	flag = 0;
@@ -57,5 +57,5 @@ int	main(int argc, char **argv)
 		return (ft_error());
 	}
 	sort_stacks(size, argv, flag);
-	return(1);
+	return (1);
 }

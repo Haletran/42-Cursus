@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 19:09:34 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/18 19:15:41 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:31:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int	check_after_check(int nb_args, int flag, char **src)
 	return (1);
 }
 
-
 int	verif_input(int nb_args, int flag, char **src)
 {
 	if (!check_input(nb_args, flag, src))
@@ -52,9 +51,9 @@ int	verif_input(int nb_args, int flag, char **src)
 	return (1);
 }
 
-int global_check(int size, int flag, char **src)
+int	global_check(int size, int flag, char **src)
 {
-	if (verif_input(size, flag, src) == - 1)
+	if (verif_input(size, flag, src) == -1)
 	{
 		if (!check_after_check(size, flag, src))
 			return (0);
