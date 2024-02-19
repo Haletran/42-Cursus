@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:00:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/19 11:39:28 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:47:08 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	*sort_stacks(int size, char **arr, int flag)
 		return (0);
 	}
 	size = ft_lst_size(*a);
-	print_list("A\n", *a);
 	choose_sort(a, b, size);
 	ft_free(a, b, flag, arr);
 	return (0);
