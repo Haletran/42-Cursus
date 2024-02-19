@@ -6,11 +6,18 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/19 18:07:33 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:42:42 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static int	ft_is_digit(int c)
+{
+	if ((c >= '0' && c <= '9'))
+		return (1);
+	return (0);
+}
 
 long long	ft_atoi_max(const char *str, int flag)
 {
@@ -79,8 +86,16 @@ int	check_input(int nb_args, int flag, char **src)
 	{
 		j = 0;
 		while (src[i][j])
-			if (!ft_isdigit(src[i][j++]))
+		{
+			if (!ft_isdigit(src[i][j]))
 				return (0);
+			if (ft_is_digit(src[i][j]) && (src[i][j + 1] == 32 || ft_is_digit(src[i][j + 1]) || src[i][j + 1] == '\0'))
+				j++;
+			else if ((src[i][j] == '+' || src[i][j] == '-') && !ft_is_digit(src[i][j + 1]))
+				return (0);
+			else
+				j++;
+		}
 		i++;
 	}
 	return (1);
