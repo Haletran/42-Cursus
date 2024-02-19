@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/19 11:12:16 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:07:33 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ long long	ft_atoi_max(const char *str, int flag)
 	while (str[c] >= '0' && str[c] <= '9')
 	{
 		e = e * 10 + str[c] - '0';
+		if ((e * oe) > INT_MAX || (e * oe) < INT_MIN)
+			flag++;
 		c++;
 	}
-	if ((e * oe) > INT_MAX || (e * oe) < INT_MIN)
-		flag++;
 	return (flag);
 }
 
