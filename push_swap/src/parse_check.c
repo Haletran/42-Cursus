@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 19:09:34 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/18 18:31:21 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/19 11:10:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	check_after_check(int nb_args, int flag, char **src)
 		while (src[i][j])
 		{
 			if (!(src[i][j] >= '0' && src[i][j] <= '9'))
+				return (0);
+			else if (src[i][j] == ' ')
 				return (0);
 			j++;
 		}

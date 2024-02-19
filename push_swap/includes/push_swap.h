@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:27:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/18 18:32:03 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/19 11:39:44 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		print_list(char *string, t_lst *lst);
 int			is_sorted_list(t_lst **a);
 void		index_list(t_lst *stack, int index);
 int			is_sorted_list(t_lst **a);
-void		choose_sort(t_lst **a, t_lst **b, int size, int flag);
+void		choose_sort(t_lst **a, t_lst **b, int size);
 
 /*PARSING*/
 int			global_check(int size, int flag, char **src);

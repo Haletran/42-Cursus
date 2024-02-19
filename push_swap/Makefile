@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/18 19:12:48 by baptiste         ###   ########.fr        #
+#    Updated: 2024/02/19 11:28:00 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ norm:
 
 tester: checker
 	@git clone https://gitlab.com/hydrasho/push_swap-testeur-max.git
+	@git clone https://github.com/SimonCROS/push_swap_tester.git
 
 clean:
 	rm -rf $(OBJS_DIR)
@@ -77,6 +78,8 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 	rm -rf checker_linux
+	rm -rf push_swap_tester
+	rm -rf push_swap-testeur-max
 	make -C $(LIBFT_DIR) fclean
 	echo "\033[41m$(NAME) cleaned\033[0m"
 
