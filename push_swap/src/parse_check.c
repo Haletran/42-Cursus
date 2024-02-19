@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 19:09:34 by baptiste          #+#    #+#             */
-/*   Updated: 2024/02/19 16:01:56 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:20:29 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	check_after_check(int nb_args, int flag, char **src)
 		i = 0;
 	if (!src)
 		return (0);
-	if (src[i][0] == '-')
+	if (ft_strlen(src[i]) >= 1 && src[i][0] == '-')
 		return (-1);
 	while (i != nb_args)
 	{
@@ -36,6 +36,8 @@ static int	check_after_check(int nb_args, int flag, char **src)
 		}
 		i++;
 	}
+	if (!src[0])
+		return (0);
 	return (1);
 }
 
@@ -46,8 +48,6 @@ int	verif_input(int nb_args, int flag, char **src)
 	else if (!ft_isabove(src))
 		return (0);
 	else if (!check_list(nb_args, flag, src))
-		return (0);
-	else if (!src[0])
 		return (0);
 	else if (!(nb_args >= 2))
 		return (-1);
