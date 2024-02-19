@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 14:29:01 by codespace         #+#    #+#              #
-#    Updated: 2024/02/19 11:28:00 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/19 15:30:42 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME := push_swap
 CC := cc 
 CFLAGS := -Wextra -Wall -Werror -g
 DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
-CHECKER_LINK= "https://cdn.intra.42.fr/document/document/23552/checker_linux"
+CHECKER_LINK= "https://cdn.intra.42.fr/document/document/24473/checker_linux"
 
 SRCS	= src/init.c \
 		  src/parse_check.c \
@@ -59,9 +59,6 @@ gdb: fclean $(OBJS)
 	$(CC) $(DEBUG_FLAGS) -o $(NAME) $(OBJS) $(LIBFT_TARGET)
 	echo "\033[41mDEGUG MODE : ON\033[0m"
 	@echo -n "Do you want to launch GDB? [y/N] " && read ans && if [ "$${ans:-N}" = 'y' ]; then gdb --tui ./push_swap ; fi
-
-valgrind: $(NAME)
-	valgrind --leak-check=full --track-origins=yes ./push_swap 5 4 3 2 1
 
 norm:
 	@printf "\n$(PROJECT_NAME)[ Norm check : ]\n"
