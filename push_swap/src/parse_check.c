@@ -22,21 +22,20 @@ static int	check_after_check(int nb_args, int flag, char **src)
 		i = 0;
 	if (!src)
 		return (0);
+	if (src[i][0] == '-')
+		return (-1);
 	while (i != nb_args)
 	{
 		j = 0;
-		while (src[i][j])
+		while (src[i][j++])
 		{
 			if (!(src[i][j] >= '0' && src[i][j] <= '9'))
 				return (0);
 			else if (src[i][j] == ' ')
 				return (0);
-			j++;
 		}
 		i++;
 	}
-	if (!src[0])
-		return (0);
 	return (1);
 }
 
@@ -48,6 +47,8 @@ int	verif_input(int nb_args, int flag, char **src)
 		return (0);
 	else if (!check_list(nb_args, flag, src))
 		return (0);
+	else if (!src[0])
+		return (0);
 	else if (!(nb_args >= 2))
 		return (-1);
 	return (1);
@@ -55,6 +56,10 @@ int	verif_input(int nb_args, int flag, char **src)
 
 int	global_check(int size, int flag, char **src)
 {
+	int i;
+	i = 1;
+	if (flag == 1)
+		i = 0;
 	if (verif_input(size, flag, src) == -1)
 	{
 		if (!check_after_check(size, flag, src))
