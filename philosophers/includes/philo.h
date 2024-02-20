@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:06:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/19 13:26:48 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:00:23 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,23 @@ typedef struct s_args
 	int	time_to_eat;
 	int	time_to_sleep;
 	int	must_eat;
-}		t_lst;
+}		t_arg;
+
+typedef	struct s_philo
+{
+	pthread_t philo_id;
+	struct s_philo *next;
+} t_philo;
+
+
 
 /*FUNCTIONS*/
 int		ft_error(int choice);
 int		checker(char **arr);
 int		ft_atoi(const char *str);
-t_lst	init_value(t_lst *args, char **arr);
+t_arg	init_value(t_arg *args, char **arr);
 int	ft_atoi_check(const char *str);
+int	get_args(char **arr);
+int	ft_isdigit(int c);
 
 #endif // !PHILO_H

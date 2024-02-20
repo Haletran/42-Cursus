@@ -6,13 +6,13 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/19 13:21:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:57:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-t_lst	init_value(t_lst *args, char **arr)
+t_arg	init_value(t_arg *args, char **arr)
 {
     args->nb_philo = ft_atoi(arr[1]);
 	args->time_to_die = ft_atoi(arr[2]);
@@ -22,3 +22,5 @@ t_lst	init_value(t_lst *args, char **arr)
 		args->must_eat = ft_atoi(arr[5]);
     return (*args);
 }
+
+

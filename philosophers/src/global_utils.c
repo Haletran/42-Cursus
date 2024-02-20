@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:35:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/19 13:26:42 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:44:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ int	ft_atoi(const char *str)
 	}
 	return (e * oe);
 }
+
+int	ft_isdigit(int c)
+{
+	if ((c >= '1' && c <= '9'))
+		return (1);
+	return (0);
+}
+
 
 int	ft_atoi_check(const char *str)
 {
