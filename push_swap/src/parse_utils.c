@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:21:51 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/19 18:42:42 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:55:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ int	check_input(int nb_args, int flag, char **src)
 	i = 1;
 	if (flag == 1)
 		i = 0;
-	if (!src)
-		return (0);
 	while (i != nb_args)
 	{
 		j = 0;
@@ -89,9 +87,11 @@ int	check_input(int nb_args, int flag, char **src)
 		{
 			if (!ft_isdigit(src[i][j]))
 				return (0);
-			if (ft_is_digit(src[i][j]) && (src[i][j + 1] == 32 || ft_is_digit(src[i][j + 1]) || src[i][j + 1] == '\0'))
+			if (ft_is_digit(src[i][j]) && (src[i][j + 1] == 32
+					|| ft_is_digit(src[i][j + 1]) || src[i][j + 1] == '\0'))
 				j++;
-			else if ((src[i][j] == '+' || src[i][j] == '-') && !ft_is_digit(src[i][j + 1]))
+			else if ((src[i][j] == '+' || src[i][j] == '-')
+				&& !ft_is_digit(src[i][j + 1]))
 				return (0);
 			else
 				j++;
