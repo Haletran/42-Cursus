@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:35:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/20 15:44:40 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:53:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,24 @@ int	ft_atoi_check(const char *str)
 		e = e * 10 + str[c] - '0';
 		c++;
 	}
-	if ((e * oe) > INT_MAX)
+	if ((e * oe) >= INT_MAX)
 		return (-1);
 	return (oe);
 }
+
+void print_args(t_arg *args)
+{
+	printf(RED"[ NUMBERS OF PHILOSOPHERS ] :"RESET" %d\n", args->nb_philo);
+	printf(YELLOW"[ TIME_TO_DIE ] :"RESET" %d\n", args->time_to_die);
+	printf(BLUE"[ TIME_TO_EAT ] :"RESET" %d\n", args->time_to_eat);
+	printf(MAGENTA"[ TIME_TO_SLEEP ] :"RESET" %d", args->time_to_sleep);
+	if (args->must_eat)
+		printf(CYAN"\n[ NBS TIME_TO_EAT ] :"RESET" %d", args->time_to_die);
+	printf("\n\n - STARTING DINNER - \n");
+
+}
+
+
 
 int	ft_error(int choice)
 {
