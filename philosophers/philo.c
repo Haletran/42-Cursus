@@ -6,13 +6,12 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:09:03 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/22 18:12:20 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:30:00 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philo.h"
 
-pthread_mutex_t	my_mutex;
 
 int	main(int argc, char **argv)
 {

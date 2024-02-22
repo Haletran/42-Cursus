@@ -6,11 +6,12 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/22 18:17:56 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:34:03 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+pthread_mutex_t	my_mutex;
 
 void init_value(t_arg **args, char **arr)
 {
@@ -37,8 +38,10 @@ int check_valid_time(t_arg (*args))
 
 static void *runtime()
 {
+	pthread_mutex_lock(&my_mutex);
     pthread_t tid = pthread_self();
     printf("Thread created with id: %lu\n", (unsigned long)tid);
+	pthread_mutex_unlock(&my_mutex);
 	return (0);
 }
 
@@ -52,6 +55,7 @@ int create_thread(t_arg *args, t_philo *philo)
 	i = 0;
 	check = 0;
 	current = philo;
+	pthread_mutex_init(&my_mutex, NULL);
 	while (i != args->nb_philo)
 	{
 		check = pthread_create((pthread_t *)(unsigned long *)&(current->id), NULL, runtime, NULL);
@@ -65,10 +69,3 @@ int create_thread(t_arg *args, t_philo *philo)
 	printf("-> %d threads created\n", i);
 	return (1);
 }
-
-
-
-
-
-
-
