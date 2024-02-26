@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 17:45:29 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:48:58 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	check_valid_time(t_arg(*args))
 	return (1);
 }
 
-static void	*runtime(void)
+static void	*runtime()
 {
 	pthread_t	tid;
 

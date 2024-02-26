@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:09:03 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 17:45:54 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:47:43 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	main(int argc, char **argv)
 		return (0);
 	printf("Join thread : %lu\n", (*philo)->thread_id[0]);
 	pthread_join((*philo)->thread_id[0], NULL);
-	start_dinner(args, philo);
+	//start_dinner(args, philo);
 	return (0);
 }

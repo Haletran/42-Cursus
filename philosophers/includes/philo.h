@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:06:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 17:44:37 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:48:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int					check_valid_time(t_arg *args);
 void				init_value(t_arg **args, char **arr);
 void				print_args(t_arg *args);
 int					create_thread(t_arg *args, t_philo *philo);
-void				*start_dinner(t_args **args, t_philo **philo);
+void				*start_dinner(t_arg **args, t_philo **philo);
 
 #endif

@@ -6,10 +6,10 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:14:44 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 17:46:57 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:48:30 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	*start_dinner(t_args **args, t_philo **philo);
+void	*start_dinner(t_arg **args, t_philo **philo);
