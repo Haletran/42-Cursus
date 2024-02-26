@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:06:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 18:50:26 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 19:18:46 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void	create_thread(t_table **table);
 int	check_valid_time(t_table *table);
 void	init_value(t_table **table, char **arr);
 void	print_table(t_table *table);
+void	*start_dinner(t_table **table);
 
 #endif

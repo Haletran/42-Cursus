@@ -17,3 +17,13 @@
 2. `gettimeofday`
 3. `malloc` `free` `write`
 4. `usleep`
+
+
+## Routine 
+
+- Le philo doit penser / manger / dormir
+jusqu'a que ce que tous le monde ait mange 
+ou que un philo meurt.
+- prendre en compte le dernier parametre si 
+il existe
+- autant de fourchettes que de philos
