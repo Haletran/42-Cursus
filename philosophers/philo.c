@@ -6,12 +6,13 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:09:03 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/22 18:30:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:22:33 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philo.h"
 
+pthread_mutex_t	my_mutex;
 
 int	main(int argc, char **argv)
 {
@@ -36,5 +37,11 @@ int	main(int argc, char **argv)
 	print_args(*args);
 	if (!create_thread(*args, *philo))
 		return (0);
+
+	printf("Join thread : %lu\n", (*philo)->thread_id[0]);
+	pthread_join((*philo)->thread_id[0], NULL);
+	printf("Join thread : %lu\n", (*philo)->thread_id[1]);
+	pthread_join((*philo)->thread_id[1], NULL);
+	//start_dinner(args, philo);
 	return (0);
 }

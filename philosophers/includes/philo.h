@@ -6,23 +6,12 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:06:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/22 18:10:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:15:59 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-
-/*COLORS*/
-# define BLACK "\033[30m"
-# define RED "\033[31m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
-# define BLUE "\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN "\033[36m"
-# define WHITE "\033[37m"
-# define RESET "\033[0m"
 
 /*LIBRAIRIES*/
 # include <limits.h>
@@ -32,6 +21,7 @@
 # include <string.h>
 # include <sys/time.h>
 # include <unistd.h>
+#include "colors.h"
 
 /*STRUCTURES*/
 typedef struct s_args
@@ -50,8 +40,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				is_eating;
-	pthread_t		thread_id;
-	struct s_philo *next;
+	pthread_t		*thread_id;
 }					t_philo;
 
 /*FUNCTIONS*/
@@ -66,4 +55,4 @@ void				init_value(t_arg **args, char **arr);
 void				print_args(t_arg *args);
 int create_thread(t_arg *args, t_philo *philo);
 
-#endif // !PHILO_H
+#endif
