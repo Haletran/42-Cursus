@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:06:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 17:48:40 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:50:26 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "colors.h"
 # include <limits.h>
 # include <pthread.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
@@ -24,36 +25,50 @@
 # include <unistd.h>
 
 /*STRUCTURES*/
-typedef struct s_args
+typedef pthread_mutex_t	t_mtx;
+typedef struct s_table t_table;
+
+typedef struct s_fork
+{
+	t_mtx				fork;
+	int					fork_id;
+}						t_fork;
+
+typedef struct s_philo
+{
+	int					*id;
+	long				meals_counter;
+	long				last_meal_time;
+	t_fork				*right_fork;
+	t_fork				*left_fork;
+	pthread_t			*thread_id;
+	t_table				*table;
+}						t_philo;
+
+struct s_table
 {
 	int				nb_philo;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
-	int				dead;
-	pthread_mutex_t	*right_fork;
-	pthread_mutex_t	*left_fork;
-}					t_arg;
+	int				start_simulation;
+	bool				end_simulation;
+	t_fork				*forks;
+	t_philo				*philos;
 
-typedef struct s_philo
-{
-	int				id;
-	int				is_eating;
-	pthread_t		*thread_id;
-}					t_philo;
+};
 
 /*FUNCTIONS*/
-int					ft_error(int choice);
-int					checker(char **arr);
-int					ft_atoi(const char *str);
-int					ft_atoi_check(const char *str);
-int					get_args(char **arr);
-int					ft_isdigit(int c);
-int					check_valid_time(t_arg *args);
-void				init_value(t_arg **args, char **arr);
-void				print_args(t_arg *args);
-int					create_thread(t_arg *args, t_philo *philo);
-void				*start_dinner(t_arg **args, t_philo **philo);
+int						ft_error(int choice);
+int						checker(char **arr);
+int						ft_atoi(const char *str);
+int						ft_atoi_check(const char *str);
+int						get_args(char **arr);
+int						ft_isdigit(int c);
+void	create_thread(t_table **table);
+int	check_valid_time(t_table *table);
+void	init_value(t_table **table, char **arr);
+void	print_table(t_table *table);
 
 #endif

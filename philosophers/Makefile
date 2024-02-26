@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 12:11:13 by bapasqui          #+#    #+#              #
-#    Updated: 2024/02/26 17:38:22 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/26 18:44:26 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
-    CFLAGS += -g -fsanitize=address
+    CFLAGS += -g
     $(info Debug mode: ON)
 endif
 

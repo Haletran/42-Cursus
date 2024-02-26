@@ -6,31 +6,33 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 17:48:58 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:52:09 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	init_value(t_arg **args, char **arr)
+void	init_value(t_table **table, char **arr)
 {
-	(*args)->nb_philo = ft_atoi(arr[1]);
-	(*args)->time_to_die = ft_atoi(arr[2]);
-	(*args)->time_to_eat = ft_atoi(arr[3]);
-	(*args)->time_to_sleep = ft_atoi(arr[4]);
+    (*table)->philos = malloc(100);
+	(*table)->nb_philo = ft_atoi(arr[1]);
+	(*table)->time_to_die = ft_atoi(arr[2]);
+	(*table)->time_to_eat = ft_atoi(arr[3]);
+	(*table)->time_to_sleep = ft_atoi(arr[4]);
 	if (arr[5])
-		(*args)->must_eat = ft_atoi(arr[5]);
+		(*table)->must_eat = ft_atoi(arr[5]);
+    (*table)->philos->id = malloc(100);
 }
 
-int	check_valid_time(t_arg(*args))
+int	check_valid_time(t_table *table)
 {
-	if (args->time_to_die < 60)
+	if (table->time_to_die < 60)
 		return (0);
-	else if (args->time_to_eat < 60)
+	else if (table->time_to_eat < 60)
 		return (0);
-	else if (args->time_to_sleep < 60)
+	else if (table->time_to_sleep < 60)
 		return (0);
-	else if (args->nb_philo > 200 || args->nb_philo == 0)
+	else if (table->nb_philo > 200 || table->nb_philo == 0)
 		return (0);
 	return (1);
 }
@@ -44,25 +46,23 @@ static void	*runtime()
 	return (NULL);
 }
 
-int	create_thread(t_arg *args, t_philo *philo)
+void create_thread(t_table **table)
 {
-	int	i;
-	int	check;
+    int i;
+    int id;
+    int check;
 
-	i = 0;
-	check = 0;
-	philo->thread_id = malloc(sizeof(t_arg) * args->nb_philo);
-	while (i < args->nb_philo + 1)
-	{
-		check = pthread_create(&philo->thread_id[i], NULL, runtime, NULL);
-		if (check)
-		{
-			printf("ERROR CREATING THREAD");
-			return (0);
-		}
-		usleep(50);
-		i++;
-	}
-	printf("-> %d threads created\n", i);
-	return (1);
+    i = 0;
+    id = 1;
+    check = 0;
+    (*table)->philos->thread_id = malloc(sizeof(t_table) * (*table)->nb_philo);
+    while (i < (*table)->nb_philo + 1)
+    {
+        check = pthread_create(&(*table)->philos->thread_id[i], NULL, runtime, NULL);
+        (*table)->philos->id[i] = id;
+        usleep(50);
+        id++;
+        i++;
+    }
+    printf("-> %d threads created\n", i);
 }

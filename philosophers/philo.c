@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:09:03 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 17:47:43 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:53:03 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_arg	**args;
-	t_philo	**philo;
+	t_table **table;
 	int		i;
 
 	i = 0;
@@ -23,20 +22,15 @@ int	main(int argc, char **argv)
 		return (ft_error(1));
 	if (!checker(argv))
 		return (ft_error(2));
-	args = malloc(sizeof(t_arg));
-	philo = malloc(sizeof(t_philo));
-	if (!args || !philo)
-		return (ft_error(3));
-	*args = calloc(sizeof(t_arg), argc - 1);
-	*philo = calloc(sizeof(t_arg), 100);
-	init_value(args, argv);
-	if (!check_valid_time(*args))
+	table = malloc(sizeof(t_table) * 100);
+	*table = malloc(sizeof(t_table) * 100);
+	init_value(table, argv);
+	if (!check_valid_time(*table))
 		return (ft_error(2));
-	print_args(*args);
-	if (!create_thread(*args, *philo))
-		return (0);
-	printf("Join thread : %lu\n", (*philo)->thread_id[0]);
-	pthread_join((*philo)->thread_id[0], NULL);
+	print_table(*table);
+	create_thread(table);
+	printf("Join thread : %ld id : %d\n", (*table)->philos->thread_id[0], (*table)->philos->id[0]);
+	pthread_join((*table)->philos->thread_id[0], NULL);
 	//start_dinner(args, philo);
 	return (0);
 }
