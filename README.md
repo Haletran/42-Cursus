@@ -15,3 +15,8 @@ All of my projects during 42 Cursus.
 - [x] so_long : 15/01/2024 -> 30/01/2024 | ✅ 125% |
 - [x] minitalk : 13/12/2023 -> 23/12/2023 | ✅ 125% |
 - [x] push_swap : 08/01/2024 -> 22/02/2024 | ✅ 82% |
+- [ ] Exam Rank 02 | ❌ 75% |
+## Rank 3
+- [ ] philosophers : 26/02/2024 ->
+- [ ] minishell :
+- [ ] Exam Rank 03
