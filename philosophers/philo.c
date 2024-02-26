@@ -6,19 +6,17 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:09:03 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 15:22:33 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:45:54 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philo.h"
 
-pthread_mutex_t	my_mutex;
-
 int	main(int argc, char **argv)
 {
-	t_arg		**args;
-	t_philo		**philo;
-	int			i;
+	t_arg	**args;
+	t_philo	**philo;
+	int		i;
 
 	i = 0;
 	if (argc - 1 < 4)
@@ -33,15 +31,12 @@ int	main(int argc, char **argv)
 	*philo = calloc(sizeof(t_arg), 100);
 	init_value(args, argv);
 	if (!check_valid_time(*args))
-		return(ft_error(2));
+		return (ft_error(2));
 	print_args(*args);
 	if (!create_thread(*args, *philo))
 		return (0);
-
 	printf("Join thread : %lu\n", (*philo)->thread_id[0]);
 	pthread_join((*philo)->thread_id[0], NULL);
-	printf("Join thread : %lu\n", (*philo)->thread_id[1]);
-	pthread_join((*philo)->thread_id[1], NULL);
-	//start_dinner(args, philo);
+	start_dinner(args, philo);
 	return (0);
 }
