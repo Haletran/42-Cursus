@@ -6,18 +6,24 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/27 19:13:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:28:50 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	get_time(void)
+unsigned long	get_time(void)
 {
-	struct timeval	tv;
+	struct timeval	time;
+	unsigned long	l;
+	unsigned long	s;
+	unsigned long	u;
 
-	gettimeofday(&tv, NULL);
-	return (tv.tv_sec);
+	gettimeofday(&time, NULL);
+	s = (time.tv_sec * 1000);
+	u = (time.tv_usec / 1000);
+	l = s + u;
+	return (l);
 }
 
 void	init_value(t_table **table, char **arr)

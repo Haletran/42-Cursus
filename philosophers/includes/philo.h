@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:06:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/27 19:06:45 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:29:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ void					ft_free_all(t_table **table);
 void					*runtime(void *param);
 int						ft_usleep(size_t milliseconds);
 size_t					get_current_time(void);
-int						get_time(void);
+unsigned long	get_time(void);
 
 #endif
