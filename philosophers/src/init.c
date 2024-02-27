@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/27 13:30:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:55:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int	check_valid_time(t_table *table)
 	return (1);
 }
 
-static void	*runtime()
+static void	*runtime(void *param)
 {
-	pthread_t	tid;
+	t_table	**table;
 
-	tid = pthread_self();
-	printf("PHILO created with id: %lu\n", (unsigned long)tid);
+	table = param;
+	(void)table;
 	return (NULL);
 }
 
@@ -60,7 +60,7 @@ void	create_thread(t_table **table)
 	while (i < (*table)->nb_philo + 1)
 	{
 		check = pthread_create(&(*table)->philos->thread_id[i], NULL, runtime,
-				NULL);
+				table);
 		if (check)
 		{
 			printf("Error creating thread");
