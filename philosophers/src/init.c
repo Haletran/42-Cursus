@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/27 13:55:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:59:22 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,22 @@ int	check_valid_time(t_table *table)
 
 static void	*runtime(void *param)
 {
-	t_table	**table;
+	t_table		**table;
+	static int	i = 1;
 
 	table = param;
-	(void)table;
+	while (!(*table)->end_simulation)
+	{
+		printf("philosopher %d is thinking\n", (*table)->philos->id[i]);
+		usleep(500);
+		printf("philosopher %d is eating\n", (*table)->philos->id[i]);
+		usleep((*table)->time_to_eat);
+		// mutex des fourchettes
+		printf("philosopher %d is sleeping\n", (*table)->philos->id[i]);
+		usleep((*table)->time_to_sleep);
+		// liberer les mutexs
+	}
+	i++;
 	return (NULL);
 }
 
@@ -59,6 +71,7 @@ void	create_thread(t_table **table)
 			+ 1);
 	while (i < (*table)->nb_philo + 1)
 	{
+		(*table)->philos->id[i] = id;
 		check = pthread_create(&(*table)->philos->thread_id[i], NULL, runtime,
 				table);
 		if (check)
@@ -66,10 +79,8 @@ void	create_thread(t_table **table)
 			printf("Error creating thread");
 			return ;
 		}
-		(*table)->philos->id[i] = id;
-		usleep(50);
+		usleep(500);
 		id++;
 		i++;
 	}
-	printf("-> %d threads created <- \n", i);
 }
