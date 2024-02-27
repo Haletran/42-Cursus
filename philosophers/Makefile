@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 12:11:13 by bapasqui          #+#    #+#              #
-#    Updated: 2024/02/26 19:36:22 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/27 12:36:35 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = src/global_utils.c \
        src/parse.c \
        src/init.c \
 	   src/exec.c \
+	   src/ft_free.c \
        philo.c
 
 OBJS_DIR := obj
