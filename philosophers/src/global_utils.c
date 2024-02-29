@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:35:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/26 19:57:25 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/29 22:39:54 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ int	ft_error(int choice)
 		printf("\033[1m\033[31m[ Error ]\033[0m : Invalid Usage");
 	else if (choice == 2)
 		printf("\033[1m\033[31m[ Error ]\033[0m : Invalid Input");
+	else if (choice == 3)
+		printf("\033[1m\033[31m[ Error ]\033[0m");
 	return (0);
 }

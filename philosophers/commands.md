@@ -19,7 +19,7 @@
 4. `usleep`
 
 
-## Routine 
+## Le projet
 
 - Le philo doit penser / manger / dormir
 jusqu'a que ce que tous le monde ait mange 
@@ -27,3 +27,14 @@ ou que un philo meurt.
 - prendre en compte le dernier parametre si 
 il existe
 - autant de fourchettes que de philos
+- quand un philo a ces deux fourchettes ils mangent obligatoirement 
+et les philos n - 1 && n + 1ne peuvent pas manger car pas de
+fourchettes
+- ajouter des conditions pour le temp de mort et le nb de repas a satisfaire
+- mieux gere les fourchettes ainsi que quelle philo est en train de faire quelque chose
+- gere le temps en ms
+- gere quelle philo a le droit de manger en premier
+- si le dernier param est present le prendre en compte
+- avoir un meilleur print des valeurs de depart
+- comprendre mieux les threads (create, join)
+- 

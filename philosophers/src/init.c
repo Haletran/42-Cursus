@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/27 19:28:50 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/02/29 22:47:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	*runtime(void *param)
 
 	table = param;
 	id = (*table)->philos->id[i];
-	//(*table)->start_simulation = get_time();
 	while (!(*table)->end_simulation)
 	{
 		(*table)->start_simulation = get_time();
@@ -112,10 +111,7 @@ void	create_thread(t_table **table)
 		check = pthread_create(&(*table)->philos->thread_id[i], NULL, runtime,
 				table);
 		if (check)
-		{
-			printf("Error creating thread");
-			return ;
-		}
+			ft_error(3);
 		ft_usleep(50);
 		id++;
 		i++;
