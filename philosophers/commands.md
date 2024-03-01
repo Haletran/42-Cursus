@@ -38,6 +38,7 @@ fourchettes
 - avoir un meilleur print des valeurs de depart
 - comprendre mieux les threads (create, join)
 - l'ordre des philos doit etre defini pour qu'aucun philo ne meure
+- Il ne faut pas qu'ils prennent leurs fouchettes en meme temps sinon deadlock
 
 
 ## Les prints 
