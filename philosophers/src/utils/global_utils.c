@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:35:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/01 14:59:18 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:03:54 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,10 @@ void	print_table(t_table *table)
 		printf(CYAN "\n[ NBS TIME_TO_EAT ] :" RESET " %d", table->time_to_die);
 	printf("\n\n - STARTING DINNER - \n");
 }
+
 /**
  * @brief print an error message
- * 
+ *
  * @param choice 1 is invalid usage 2 is invalid input 3 is just error
  * @return int
  */

@@ -6,12 +6,12 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:36:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/01 14:45:26 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:02:24 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
-#define STRUCT_H
+# define STRUCT_H
 
 # include <pthread.h>
 # include <stdbool.h>

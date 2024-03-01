@@ -6,17 +6,16 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:06:12 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/01 14:42:18 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:02:20 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-#include "philo.h"
 # include "colors.h"
+# include "philo.h"
 # include "struct.h"
-#include "philo.h"
 # include <limits.h>
 # include <pthread.h>
 # include <stdbool.h>
