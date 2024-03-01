@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/14 10:00:31 by tmatis            #+#    #+#              #
-#    Updated: 2024/03/01 14:49:18 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/03/01 14:54:49 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = src/utils/global_utils.c \
        src/execution/init.c \
 	   src/execution/exec.c \
 	   src/end/ft_free.c \
+	   src/utils/time.c \
 	   philo.c
 
 SHELL := /bin/zsh

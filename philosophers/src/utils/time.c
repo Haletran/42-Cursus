@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sleeping.c                                         :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:34:17 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/01 14:34:41 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:54:36 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
+
+unsigned long	get_time(void)
+{
+	struct timeval	time;
+	unsigned long	l;
+	unsigned long	s;
+	unsigned long	u;
+
+	gettimeofday(&time, NULL);
+	s = (time.tv_sec * 1000);
+	u = (time.tv_usec / 1000);
+	l = s + u;
+	return (l);
+}
 
 size_t	get_current_time(void)
 {

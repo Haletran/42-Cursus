@@ -6,25 +6,11 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/01 14:36:03 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:54:25 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
-
-unsigned long	get_time(void)
-{
-	struct timeval	time;
-	unsigned long	l;
-	unsigned long	s;
-	unsigned long	u;
-
-	gettimeofday(&time, NULL);
-	s = (time.tv_sec * 1000);
-	u = (time.tv_usec / 1000);
-	l = s + u;
-	return (l);
-}
 
 void	init_value(t_table **table, char **arr)
 {
@@ -98,19 +84,16 @@ void	create_thread(t_table **table)
 {
 	int	i;
 	int	id;
-	int	check;
 
 	i = 0;
 	id = 1;
-	check = 0;
 	(*table)->philos->thread_id = malloc(sizeof(t_table) * (*table)->nb_philo
 			+ 1);
 	while (i < (*table)->nb_philo + 1)
 	{
 		(*table)->philos->id[i] = id;
-		check = pthread_create(&(*table)->philos->thread_id[i], NULL, runtime,
-				table);
-		if (check)
+		if (pthread_create(&(*table)->philos->thread_id[i], NULL, runtime,
+				table) != 0)
 			ft_error(3);
 		ft_usleep(50);
 		id++;
