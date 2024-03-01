@@ -6,11 +6,11 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:14:44 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/27 19:06:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:36:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../../includes/philo.h"
 
 size_t	get_current_time(void)
 {

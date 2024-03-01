@@ -6,11 +6,11 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:00:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/29 22:47:01 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:36:03 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../../includes/philo.h"
 
 unsigned long	get_time(void)
 {

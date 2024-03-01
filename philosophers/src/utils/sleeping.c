@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   sleeping.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 11:15:31 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/01 14:40:17 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/01 14:34:17 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/01 14:34:41 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
+#include "../../includes/philo.h"
 
-/*COLORS*/
-# define BLACK "\033[30m"
-# define RED "\033[31m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
-# define BLUE "\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN "\033[36m"
-# define WHITE "\033[37m"
-# define RESET "\033[0m"
+size_t	get_current_time(void)
+{
+	struct timeval	time;
 
-#endif
+	if (gettimeofday(&time, NULL) == -1)
+		write(2, "gettimeofday() error\n", 22);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+int	ft_usleep(size_t milliseconds)
+{
+	size_t	start;
+
+	start = get_current_time();
+	while ((get_current_time() - start) < milliseconds)
+		usleep(500);
+	return (0);
+}

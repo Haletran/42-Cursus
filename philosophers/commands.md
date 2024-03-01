@@ -37,4 +37,29 @@ fourchettes
 - si le dernier param est present le prendre en compte
 - avoir un meilleur print des valeurs de depart
 - comprendre mieux les threads (create, join)
+- l'ordre des philos doit etre defini pour qu'aucun philo ne meure
+
+
+## Les prints 
+
+Any state change of a philosopher must be formatted as follows:
+◦ timestamp_in_ms X has taken a fork
+◦ timestamp_in_ms X is eating
+◦ timestamp_in_ms X is sleeping
+◦ timestamp_in_ms X is thinking
+◦ timestamp_in_ms X died
+
+## Avoir un projet propre
+
+- Setup les structures (philos, forks, variables)
+- Setup les threads
+- Setup les mutexs (sur tous)
+- Setup les variables
+- Structure du projet clean ✔️
+
+
+
+## LINKS 
+
+- https://medium.com/swlh/the-dining-philosophers-problem-bbdb92e6b788
 - 

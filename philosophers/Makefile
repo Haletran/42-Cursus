@@ -6,26 +6,14 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/14 10:00:31 by tmatis            #+#    #+#              #
-#    Updated: 2024/02/29 22:34:24 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/03/01 14:49:18 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-################################################################################
-#                                     CONFIG                                   #
-################################################################################
-
 
 NAME	= philosopher
 CC 		= cc
 CFLAGS	= -Wall -Wextra -Werror
-AUTHOR	= bapasqui
-DATE	= 29/02/2024
-
 NOVISU 	= 0
-
-################################################################################
-#                                 PROGRAM'S SRCS                               #
-################################################################################
 
 FILE_EXTENSION	= .c
 
@@ -33,16 +21,12 @@ SRCS_PATH		= ./
 
 INCLUDE_PATH	= includes
 
-SRCS = src/global_utils.c \
-       src/parse.c \
-       src/init.c \
-	   src/exec.c \
-	   src/ft_free.c \
+SRCS = src/utils/global_utils.c \
+       src/parsing/parse.c \
+       src/execution/init.c \
+	   src/execution/exec.c \
+	   src/end/ft_free.c \
 	   philo.c
-
-################################################################################
-#                                  Makefile  objs                              #
-################################################################################
 
 SHELL := /bin/zsh
 OBJS				= $(addprefix objs/, ${SRCS:$(FILE_EXTENSION)=.o})
@@ -60,7 +44,6 @@ NO_COLOR    = \033[m
 
 COM_STRING   = "compiling"
 
-HASH	= 
 
 ifeq ($(detected_OS),Darwin) 
 	RUN_CMD = script -q $@.log $1 > /dev/null; \

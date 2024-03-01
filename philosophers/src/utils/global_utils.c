@@ -6,11 +6,11 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:35:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/02/29 22:39:54 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:34:32 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../../includes/philo.h"
 
 int	ft_atoi(const char *str)
 {
@@ -75,7 +75,12 @@ void	print_table(t_table *table)
 		printf(CYAN "\n[ NBS TIME_TO_EAT ] :" RESET " %d", table->time_to_die);
 	printf("\n\n - STARTING DINNER - \n");
 }
-
+/**
+ * @brief print an error message
+ * 
+ * @param choice 1 is invalid usage 2 is invalid input 3 is just error
+ * @return int
+ */
 int	ft_error(int choice)
 {
 	if (choice == 1)
