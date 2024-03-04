@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:16:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/08 19:06:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/04 08:56:32 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ int	main(int argc, char **argv)
 	signal(SIGUSR1, signal_handler);
 	while (i < (int)ft_strlen(argv[1]))
 	{
-		if (!ft_isdigit(argv[1][i++]))
+		if (pid <= 0)
+			ft_print_error(1);
+		else if (!ft_isdigit(argv[1][i++]))
 			ft_print_error(1);
 	}
 	i = 0;

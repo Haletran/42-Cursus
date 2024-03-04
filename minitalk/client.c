@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:12:56 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/08 19:07:05 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/04 08:55:54 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ int	main(int argc, char **argv)
 	pid = atoi(argv[1]);
 	while (i < (int)ft_strlen(argv[1]))
 	{
-		if (!ft_isdigit(argv[1][i++]))
+		if (pid <= 0)
+			ft_print_error(1);
+		else if (!ft_isdigit(argv[1][i++]))
 			ft_print_error(1);
 	}
 	i = 0;
