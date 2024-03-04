@@ -1,0 +1,58 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/04 18:18:39 by bapasqui          #+#    #+#              #
+#    Updated: 2024/03/04 18:42:12 by bapasqui         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+ifndef VERBOSE
+MAKEFLAGS += --no-print-directory --silent
+endif
+
+NAME := minishell
+CC := cc 
+CFLAGS := -Wextra -Wall -Werror -g -Wno-unused-command-line-argument -lreadline 
+DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
+
+SRCS	= src/main.c \
+		  src/exec.c
+
+OBJS_DIR := obj
+OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
+LIBFT_DIR = libft
+LIBFT_TARGET = $(LIBFT_DIR)/libft.a
+
+all: $(NAME)
+
+$(OBJS_DIR)/%.o: %.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+
+$(NAME): $(OBJS)
+	@make -C libft
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_TARGET)
+	echo "Compiling\033[1m\033[32m" $@ "\033[0m"
+	echo "\033[42mSuccessfully compiled :)\033[0m"
+
+norm:
+	@printf "\n$(PROJECT_NAME)[ Norm check : ]\n"
+	@norminette $(SRCS) includes libft get_next_line ft_printf
+
+clean:
+	rm -rf $(OBJS_DIR)
+	make -C $(LIBFT_DIR) clean
+
+fclean: clean
+	rm -rf $(NAME)
+	make -C $(LIBFT_DIR) fclean
+	echo "\033[41m$(NAME) cleaned\033[0m"
+
+re: fclean all
+
+.PHONY: all clean fclean re norm checker
