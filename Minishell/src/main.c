@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/04 18:53:43 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/04 23:42:37 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void signal_handler(int signalNum)
 {
     if (signalNum == SIGINT)
     {
-        write(1, "\n", 1);
-        rl_replace_line("", 1);
+        rl_replace_line("\n", 1);
         rl_on_new_line();
         rl_redisplay();
     }
@@ -28,24 +27,29 @@ void signal_handler(int signalNum)
     }
 }
 
-int main() 
+int main()
 {
     char *input;
+    char **commands;
 
     while (1)
     {
         signal(SIGINT, signal_handler);
         signal(SIGQUIT, signal_handler);
         input = readline("$> ");
-        if (input == NULL)
+        if (input == NULL) 
+        {
+            free(input);
             exit(0);
-        if (input[0] != '\0') {
-            add_history(input);
         }
-        if (input[0] == 'l')
-            exec(input);
+        if (input[0] != '\0')  {
+            add_history(input);
+            commands = ft_split(input, ' ');
+            exec(commands);
+            free(commands);
+        }
+        free(input);
     }
-    free(input);
     return (0);
 }
 

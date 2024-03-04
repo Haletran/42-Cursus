@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/04 18:49:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/04 23:18:34 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,15 @@
 #include <sys/ioctl.h>  // ioctl
 #include <limits.h>     // PATH_MAX
 #include <readline/readline.h>
+#include <sys/wait.h>
 #include <readline/history.h>
 #include "../libft/libft.h"
 
 
 
 /*FUNCTIONS*/
-void exec();
+int exec();
+void print_commands(char **src);
 
 
 
