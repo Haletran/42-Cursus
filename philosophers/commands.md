@@ -57,6 +57,7 @@ Any state change of a philosopher must be formatted as follows:
 - Setup les mutexs (sur tous)
 - Setup les variables
 - Structure du projet clean ✔️
+- Structurer la routine par plusieurs fonctions (eat, sleep, think, check)
 
 
 
