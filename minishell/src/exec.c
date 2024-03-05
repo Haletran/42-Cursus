@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/05 13:17:49 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:18:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,28 @@ int	exec(char **str)
 {
 	char	*path;
 	char	*cmd;
+	char **test = NULL;
 	char	*full_path;
-	char	*envp[] = {"HOME=/home/baptiste", "PATH=/usr/bin", NULL};
+	char	**envp= NULL;
 	pid_t	pid;
 
-	path = "/bin/";
+	path = getenv("PATH");
 	cmd = str[0];
-	full_path = strjoin(path, cmd);
+	test = ft_split(path, ':');
+	*test = strjoin(*test, "/");
+	full_path = strjoin(*test, cmd);
+	while (*test)
+	{
+		//printf("test %s\n", test[i]);
+		if (access(full_path, F_OK | R_OK) == 0)
+			break;
+		else
+		{
+			*test = strjoin(*test, "/");
+			full_path = strjoin(*test, cmd);
+		}
+		test++;
+	}
 	if (full_path == NULL)
 		return (1);
 	pid = fork();
