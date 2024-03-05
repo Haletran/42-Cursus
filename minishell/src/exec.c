@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/05 14:18:02 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:38:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char	*strjoin(char *s1, char *s2)
 int	check_commands(char **str)
 {
 	char	*cwd;
-
 	if (!ft_strncmp(str[0], "pwd", 3))
 	{
 		cwd = getenv("PWD");
@@ -49,7 +48,10 @@ int	check_commands(char **str)
 		return (1);
 	}
 	else if (!ft_strncmp(str[0], "echo", 4))
+	{
+		ft_echo(str);
 		return (1);
+	}
 	else if (!ft_strncmp(str[0], "cd", 2))
 		return (1);
 	else if (!ft_strncmp(str[0], "export", 6))
@@ -79,7 +81,7 @@ int	exec(char **str)
 	full_path = strjoin(*test, cmd);
 	while (*test)
 	{
-		//printf("test %s\n", test[i]);
+		//printf("test %s\n", test[0]);
 		if (access(full_path, F_OK | R_OK) == 0)
 			break;
 		else

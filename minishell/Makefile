@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 18:18:39 by bapasqui          #+#    #+#              #
-#    Updated: 2024/03/04 18:42:12 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/03/05 19:13:18 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ CFLAGS := -Wextra -Wall -Werror -g -Wno-unused-command-line-argument -lreadline
 DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 
 SRCS	= src/main.c \
+		  src/built-ins/echo.c \
 		  src/exec.c
 
 OBJS_DIR := obj
