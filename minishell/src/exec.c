@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/05 11:04:17 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:17:49 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,32 @@ char	*strjoin(char *s1, char *s2)
 	return (result);
 }
 
+int	check_commands(char **str)
+{
+	char	*cwd;
+
+	if (!ft_strncmp(str[0], "pwd", 3))
+	{
+		cwd = getenv("PWD");
+		if (cwd != NULL)
+			printf("%s\n", cwd);
+		return (1);
+	}
+	else if (!ft_strncmp(str[0], "echo", 4))
+		return (1);
+	else if (!ft_strncmp(str[0], "cd", 2))
+		return (1);
+	else if (!ft_strncmp(str[0], "export", 6))
+		return (1);
+	else if (!ft_strncmp(str[0], "unset", 5))
+		return (1);
+	else if (!ft_strncmp(str[0], "env", 3))
+		return (1);
+	else if (!ft_strncmp(str[0], "exit", 4))
+		exit(0);
+	return (0);
+}
+
 int	exec(char **str)
 {
 	char	*path;
@@ -58,11 +84,10 @@ int	exec(char **str)
 		if (execve(full_path, str, envp) == -1)
 		{
 			perror(full_path);
-			exit(1);
+			exit(127);
 		}
 	}
 	waitpid(pid, NULL, 0);
 	free(full_path);
 	return (0);
 }
-

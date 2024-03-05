@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/05 10:54:03 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:17:51 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void signal_handler(int signalNum)
 		rl_on_new_line();
         rl_replace_line("", 1);
         rl_redisplay();
+		//130
 	}
 	if (signalNum == SIGQUIT)
 	{
 		rl_on_new_line();
 		rl_redisplay();
+		//130
 	}
     usleep(10);
 }
@@ -51,10 +53,11 @@ int	main(int ac, char **av)
 		{
 			add_history(input);
 			commands = ft_split(input, ' ');
-			exec(commands);
-			free(commands);
 		}
+		if (check_commands(commands) == 0)
+			exec(commands);
 		free(input);
+		free(commands);
 	}
 	return (0);
 }
