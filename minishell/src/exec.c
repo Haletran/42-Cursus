@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/05 19:38:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/05 20:10:20 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ int	check_commands(char **str)
 		return (1);
 	}
 	else if (!ft_strncmp(str[0], "cd", 2))
+	{
+		ft_cd(str);
 		return (1);
+	}
 	else if (!ft_strncmp(str[0], "export", 6))
 		return (1);
 	else if (!ft_strncmp(str[0], "unset", 5))

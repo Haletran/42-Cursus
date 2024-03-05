@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/05 19:12:31 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/05 20:11:45 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		exec(char **str);
 void	print_commands(char **src);
 int		check_commands(char **str);
 int ft_echo(char **str);
+int ft_cd(char **str);
 
 
 #endif
