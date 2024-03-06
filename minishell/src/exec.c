@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 12:49:05 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:57:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @param args 
  * @return int (true / false)
  */
-int	check_commands(char **str, t_lst *args)
+int	check_commands(char **str, t_lst *args, char **envp)
 {
 	if (!ft_strncmp(str[0], "pwd", 3))
 	{
@@ -42,7 +42,15 @@ int	check_commands(char **str, t_lst *args)
 	else if (!ft_strncmp(str[0], "unset", 5))
 		return (1);
 	else if (!ft_strncmp(str[0], "env", 3))
-		return (1);
+	{
+		int i = 0;
+		while(envp[i])
+		{
+			printf("%s\n", envp[i]);
+			i++;
+		}
+		return (0);
+	}
 	else if (!ft_strncmp(str[0], "exit", 4))
 		exit(0);
 	return (-1);
