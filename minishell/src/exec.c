@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/05 20:10:20 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 10:12:00 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_commands(char **src)
 
 	i = 0;
 	while (src[i])
-		printf("test : %s\n", src[i++]);
+		printf("commands : %s\n", src[i++]);
 }
 
 char	*strjoin(char *s1, char *s2)
@@ -37,14 +37,11 @@ char	*strjoin(char *s1, char *s2)
 	return (result);
 }
 
-int	check_commands(char **str)
+int	check_commands(char **str, t_lst *args)
 {
-	char	*cwd;
 	if (!ft_strncmp(str[0], "pwd", 3))
 	{
-		cwd = getenv("PWD");
-		if (cwd != NULL)
-			printf("%s\n", cwd);
+		printf("%s\n", args->current_path);
 		return (1);
 	}
 	else if (!ft_strncmp(str[0], "echo", 4))
@@ -68,23 +65,20 @@ int	check_commands(char **str)
 	return (0);
 }
 
-int	exec(char **str)
+int	exec(char **str, t_lst *args)
 {
-	char	*path;
 	char	*cmd;
 	char **test = NULL;
 	char	*full_path;
 	char	**envp= NULL;
 	pid_t	pid;
 
-	path = getenv("PATH");
 	cmd = str[0];
-	test = ft_split(path, ':');
+	test = ft_split(args->env_path, ':');
 	*test = strjoin(*test, "/");
 	full_path = strjoin(*test, cmd);
 	while (*test)
 	{
-		//printf("test %s\n", test[0]);
 		if (access(full_path, F_OK | R_OK) == 0)
 			break;
 		else

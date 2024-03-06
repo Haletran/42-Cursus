@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 20:10:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 10:25:38 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/06 09:54:02 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/06 10:20:07 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "../includes/minishell.h"
 
-//chdir
-int ft_cd(char **str)
+void init_lst(t_lst **args)
 {
-    print_commands(str);
-    char *path;
-    
-    if (!str[1])
-    {
-        path = getenv("HOME");
-        chdir(path);
-    }
-    
-
-    return 0;
+    (*args)->home_path = getenv("HOME");
+    (*args)->env_path = getenv("PATH");
+    (*args)->current_path = getenv("PWD");
 }

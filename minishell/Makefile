@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 18:18:39 by bapasqui          #+#    #+#              #
-#    Updated: 2024/03/05 20:11:34 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/03/06 09:58:35 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 SRCS	= src/main.c \
 		  src/built-ins/echo.c \
 		  src/built-ins/cd.c \
+		  src/utils.c \
+		  src/init.c \
 		  src/exec.c
 
 OBJS_DIR := obj

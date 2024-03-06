@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/05 20:11:45 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 10:00:18 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 /*STRUCTURES*/
 
-typedef struct s_args
+typedef struct s_lst
 {
-    int test;
-
-}		t_args;
+    char *home_path;
+    char *current_path;
+    char *env_path;
+    int exit_code;
+}		t_lst;
 
 /*LIBRAIRIES*/
 # include "../libft/libft.h"
@@ -43,11 +45,17 @@ typedef struct s_args
 # include <unistd.h> // unlink, chdir, getcwd
 
 /*FUNCTIONS*/
-int		exec(char **str);
+int	exec(char **str, t_lst *args);
 void	print_commands(char **src);
-int		check_commands(char **str);
+int	check_commands(char **str, t_lst *args);
 int ft_echo(char **str);
 int ft_cd(char **str);
+int get_nbargs(char **str);
+char	*strjoin(char *s1, char *s2);
 
+
+
+/* FUNCTIONS */
+void init_lst(t_lst **args);
 
 #endif
