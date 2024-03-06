@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 09:09:45 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 11:10:12 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/06 10:30:09 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/06 10:39:39 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int	get_nbargs(char **str)
+void  free_tab(char **str)
 {
-	int	size;
-
-	size = 0;
-	while (*str)
-	{
-		size++;
-		str++;
-	}
-	return (size);
+    while (*str)
+    {
+        free(*str);
+        str++;
+    }
+    //free(str);
 }
 
-void	get_exit_code(t_lst *args)
+void free_list(t_lst **lst)
 {
-	if (WIFEXITED(args->exit_code))
-		args->exit_code = WEXITSTATUS(args->exit_code);
-	else if (WIFSIGNALED(args->exit_code))
-		args->exit_code = WTERMSIG(args->exit_code) + 128;
-	else if (WIFSTOPPED(args->exit_code))
-		args->exit_code = WSTOPSIG(args->exit_code);
+    free(*lst);
+    free(lst);
 }

@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 18:18:39 by bapasqui          #+#    #+#              #
-#    Updated: 2024/03/06 09:58:35 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/03/06 10:31:18 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS	= src/main.c \
 		  src/built-ins/cd.c \
 		  src/utils.c \
 		  src/init.c \
+		  src/free.c \
 		  src/exec.c
 
 OBJS_DIR := obj
