@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 13:57:12 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:58:33 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ int	check_commands(char **str, t_lst *args, char **envp)
 		return (1);
 	else if (!ft_strncmp(str[0], "env", 3))
 	{
-		int i = 0;
-		while(envp[i])
+		while(*envp)
 		{
-			printf("%s\n", envp[i]);
-			i++;
+			printf("%s\n", *envp);
+			envp++;
 		}
 		return (0);
 	}
