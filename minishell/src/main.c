@@ -6,12 +6,20 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 12:03:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:22:05 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
+/**
+ * @Main function
+ * 
+ * @param ac 
+ * @param av
+ * @brief allocate t_lst, handle signal, handle prompt print and history 
+ * @return 0 
+ */
 int	main(int ac, char **av)
 {
 	char	*input;
@@ -23,13 +31,13 @@ int	main(int ac, char **av)
 	if (ac > 1)
 		return (0);
 	args = malloc(sizeof(t_lst));
-	*args = malloc(100);
+	*args = malloc(sizeof(t_lst *) * 4);
 	init_lst(args);
 	while (1)
 	{
 		signal(SIGINT, signal_handler);
 		signal(SIGQUIT, signal_handler);
-		input = readline("$> ");
+		input = readline("MINISHELL$> ");
 		if (input == NULL)
 		{
 			free(input);

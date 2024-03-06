@@ -6,21 +6,25 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:10:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 12:04:18 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:48:43 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	ft_cd(char **str)
+int	ft_cd(char **str, t_lst *lst)
 {
-	char	*path;
-
-	print_commands(str);
+	//print_commands(str);
 	if (!str[1])
-	{
-		path = getenv("HOME");
-		chdir(path);
-	}
-	return (0);
+		chdir(lst->home_path);
+    else
+    {
+        if (get_nbargs(str) > 2)
+        {
+            printf("cd : too many arguments\n");
+            return (1);
+        }
+        chdir(str[1]);
+    }
+    return (0);
 }

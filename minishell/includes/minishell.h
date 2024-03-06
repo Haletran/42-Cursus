@@ -6,22 +6,12 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 10:55:54 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:41:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
-
-/*STRUCTURES*/
-
-typedef struct s_lst
-{
-    char *home_path;
-    char *current_path;
-    char *env_path;
-    int exit_code;
-}		t_lst;
 
 /*LIBRAIRIES*/
 # include "../libft/libft.h"
@@ -44,21 +34,30 @@ typedef struct s_lst
 # include <unistd.h> // write, access, close, fork, execve, dup, dup2, pipe
 # include <unistd.h> // unlink, chdir, getcwd
 
+/*STRUCTURES*/
+typedef struct s_lst
+{
+	char	*home_path;
+	char	*current_path;
+	char	*env_path;
+	int		exit_code;
+}			t_lst;
+
 /*FUNCTIONS*/
-void free_list(t_lst **lst);
-void  free_tab(char **str);
-int	exec(char **str, t_lst *args);
-void	print_commands(char **src);
-int	check_commands(char **str, t_lst *args);
-int ft_echo(char **str);
-int ft_cd(char **str);
-int get_nbargs(char **str);
-char	*strjoin(char *s1, char *s2);
-void init_lst(t_lst **args);
-void	get_exit_code(t_lst *args);
-
-
+char	*ft_join(char *s1, char *s2);
+void		free_list(t_lst **lst);
+void		free_tab(char **str);
+int			exec(char **str, t_lst *args);
+void		print_commands(char **src);
+int			check_commands(char **str, t_lst *args);
+int			ft_echo(char **str);
+int	ft_cd(char **str, t_lst *lst);
+int			get_nbargs(char **str);
+char		*strjoin(char *s1, char *s2);
+void		init_lst(t_lst **args);
+void		get_exit_code(t_lst *args);
+void		print_commands(char **src);
 /* FUNCTIONS */
-void signal_handler(int signalNum);
+void		signal_handler(int signalNum);
 
 #endif

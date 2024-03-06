@@ -6,37 +6,20 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 12:04:05 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:49:05 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	print_commands(char **src)
-{
-	int	i;
 
-	i = 0;
-	while (src[i])
-		printf("commands : %s\n", src[i++]);
-}
-
-char	*strjoin(char *s1, char *s2)
-{
-	int		len1;
-	int		len2;
-	char	*result;
-
-	len1 = strlen(s1);
-	len2 = strlen(s2);
-	result = malloc(len1 + len2 + 1);
-	if (result == NULL)
-		return (NULL);
-	memcpy(result, s1, len1);
-	memcpy(result + len1, s2, len2 + 1);
-	return (result);
-}
-
+/**
+ * @brief Associate commands to built-ins if needed
+ * 
+ * @param str 
+ * @param args 
+ * @return int (true / false)
+ */
 int	check_commands(char **str, t_lst *args)
 {
 	if (!ft_strncmp(str[0], "pwd", 3))
@@ -51,7 +34,7 @@ int	check_commands(char **str, t_lst *args)
 	}
 	else if (!ft_strncmp(str[0], "cd", 2))
 	{
-		ft_cd(str);
+		ft_cd(str, args);
 		return (1);
 	}
 	else if (!ft_strncmp(str[0], "export", 6))
@@ -65,6 +48,13 @@ int	check_commands(char **str, t_lst *args)
 	return (-1);
 }
 
+/**
+ * @brief Main execution ft, check command path and execute
+ * 
+ * @param str 
+ * @param args 
+ * @return int 
+ */
 int	exec(char **str, t_lst *args)
 {
 	char	*cmd;
@@ -76,17 +66,18 @@ int	exec(char **str, t_lst *args)
 	test = NULL;
 	envp = NULL;
 	cmd = str[0];
+	//parse here so that you have a clean command
 	test = ft_split(args->env_path, ':');
-	*test = strjoin(*test, "/");
-	full_path = strjoin(*test, cmd);
+	*test = ft_join(*test, "/");
+	full_path = ft_join(*test, cmd);
 	while (*test)
 	{
 		if (access(full_path, F_OK | R_OK) == 0)
 			break ;
 		else
 		{
-			*test = strjoin(*test, "/");
-			full_path = strjoin(*test, cmd);
+			*test = ft_join(*test, "/");
+			full_path = ft_join(*test, cmd);
 		}
 		test++;
 	}
@@ -106,6 +97,6 @@ int	exec(char **str, t_lst *args)
 	waitpid(pid, &args->exit_code, 0);
 	get_exit_code(args);
 	// printf("EXIT CODE : %d\n", args->exit_code);
-	free(full_path);
+	//free(full_path);
 	return (0);
 }

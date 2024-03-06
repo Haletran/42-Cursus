@@ -6,12 +6,17 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:03:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 12:03:46 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:15:00 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
+/**
+ * @brief Handle CTRL+C and CTRL+\ signal
+ * 
+ * @param signalNum
+ */
 void	signal_handler(int signalNum)
 {
 	if (signalNum == SIGINT)
