@@ -6,24 +6,24 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 10:30:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 10:39:39 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:04:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void  free_tab(char **str)
+void	free_tab(char **str)
 {
-    while (*str)
-    {
-        free(*str);
-        str++;
-    }
-    //free(str);
+	while (*str)
+	{
+		free(*str);
+		str++;
+	}
+	// free(str);
 }
 
-void free_list(t_lst **lst)
+void	free_list(t_lst **lst)
 {
-    free(*lst);
-    free(lst);
+	free(*lst);
+	free(lst);
 }

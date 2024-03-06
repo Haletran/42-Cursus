@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 20:10:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 12:04:18 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/06 12:03:28 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/06 12:03:46 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "../includes/minishell.h"
 
-int	ft_cd(char **str)
+void	signal_handler(int signalNum)
 {
-	char	*path;
-
-	print_commands(str);
-	if (!str[1])
+	if (signalNum == SIGINT)
 	{
-		path = getenv("HOME");
-		chdir(path);
+		ft_putstr_fd("\n", 1);
+		rl_on_new_line();
+		rl_replace_line("", 1);
+		rl_redisplay();
 	}
-	return (0);
+	else if (signalNum == SIGQUIT)
+	{
+		rl_on_new_line();
+		rl_redisplay();
+	}
+	// usleep(10);
 }

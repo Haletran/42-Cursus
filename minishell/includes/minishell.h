@@ -57,4 +57,8 @@ char	*strjoin(char *s1, char *s2);
 void init_lst(t_lst **args);
 void	get_exit_code(t_lst *args);
 
+
+/* FUNCTIONS */
+void signal_handler(int signalNum);
+
 #endif

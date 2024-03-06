@@ -6,42 +6,24 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 10:58:20 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:03:53 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void signal_handler(int signalNum)
-{
-    if (signalNum == SIGINT)
-	{
-        ft_putstr_fd("\n", 1);
-		rl_on_new_line();
-        rl_replace_line("", 1);
-        rl_redisplay();
-		//130
-	}
-	else if (signalNum == SIGQUIT)
-	{
-		rl_on_new_line();
-		rl_redisplay();
-		//130
-	}
-    usleep(10);
-}
-
 int	main(int ac, char **av)
 {
 	char	*input;
 	char	**commands;
-	t_lst **args = NULL;
+	t_lst	**args;
 
+	args = NULL;
 	(void)av;
 	if (ac > 1)
 		return (0);
 	args = malloc(sizeof(t_lst));
-    *args = malloc(100);
+	*args = malloc(100);
 	init_lst(args);
 	while (1)
 	{
@@ -63,7 +45,7 @@ int	main(int ac, char **av)
 				exec(commands, *args);
 			free_tab(commands);
 		}
-		//free(input);
+		// free(input);
 	}
 	return (0);
 }

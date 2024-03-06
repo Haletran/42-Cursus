@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 11:10:36 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:04:05 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	exec(char **str, t_lst *args)
 	}
 	waitpid(pid, &args->exit_code, 0);
 	get_exit_code(args);
-	printf("EXIT CODE : %d\n", args->exit_code);
+	// printf("EXIT CODE : %d\n", args->exit_code);
 	free(full_path);
 	return (0);
 }
