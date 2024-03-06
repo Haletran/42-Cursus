@@ -46,6 +46,7 @@ typedef struct s_lst
 }			t_lst;
 
 /*FUNCTIONS*/
+void	ft_env(char **envp);
 char		*ft_join(char *s1, char *s2);
 void		free_list(t_lst **lst);
 void		free_tab(char **str);

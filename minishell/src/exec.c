@@ -6,18 +6,17 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 13:58:33 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/06 14:04:41 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-
 /**
  * @brief Associate commands to built-ins if needed
- * 
- * @param str 
- * @param args 
+ *
+ * @param str
+ * @param args
  * @return int (true / false)
  */
 int	check_commands(char **str, t_lst *args, char **envp)
@@ -43,11 +42,7 @@ int	check_commands(char **str, t_lst *args, char **envp)
 		return (1);
 	else if (!ft_strncmp(str[0], "env", 3))
 	{
-		while(*envp)
-		{
-			printf("%s\n", *envp);
-			envp++;
-		}
+		ft_env(envp);
 		return (0);
 	}
 	else if (!ft_strncmp(str[0], "exit", 4))
@@ -57,10 +52,10 @@ int	check_commands(char **str, t_lst *args, char **envp)
 
 /**
  * @brief Main execution ft, check command path and execute
- * 
- * @param str 
- * @param args 
- * @return int 
+ *
+ * @param str
+ * @param args
+ * @return int
  */
 int	exec(char **str, t_lst *args)
 {
@@ -73,7 +68,7 @@ int	exec(char **str, t_lst *args)
 	test = NULL;
 	envp = NULL;
 	cmd = str[0];
-	//parse here so that you have a clean command
+	// parse here so that you have a clean command
 	test = ft_split(args->env_path, ':');
 	*test = ft_join(*test, "/");
 	full_path = ft_join(*test, cmd);
@@ -104,6 +99,6 @@ int	exec(char **str, t_lst *args)
 	waitpid(pid, &args->exit_code, 0);
 	get_exit_code(args);
 	// printf("EXIT CODE : %d\n", args->exit_code);
-	//free(full_path);
+	// free(full_path);
 	return (0);
 }

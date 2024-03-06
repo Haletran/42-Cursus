@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 18:18:39 by bapasqui          #+#    #+#              #
-#    Updated: 2024/03/06 13:40:17 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/03/06 14:02:28 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS	= src/main.c \
 		  src/built-ins/cd.c \
 		  src/utils.c \
 		  src/init.c \
+		  src/built-ins/env.c \
 		  src/free.c \
 		  src/signal.c \
 		  src/exec.c
