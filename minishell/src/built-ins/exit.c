@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 09:16:58 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/07 09:23:10 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/07 09:45:29 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int ft_exit(t_lst *args)
 
     code = args->exit_code;
     free(args);
+    //free_tab(args->env_var);
     args = NULL;
     exit(code);    
 }
