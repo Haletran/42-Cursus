@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 10:30:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/07 09:21:44 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/07 09:16:58 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/07 09:23:10 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
-
-void	free_tab(char **str)
+int ft_exit(t_lst *args)
 {
-	while (*str)
-	{
-		free(*str);
-		str++;
-	}
-	// free(str);
-}
+    int code;
 
-void	free_list(t_lst **lst)
-{
-	//free((*lst)->current_path);
-	free(*lst);
-	//free(lst);
+    code = args->exit_code;
+    free(args);
+    args = NULL;
+    exit(code);    
 }

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 13:56:06 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/07 09:42:00 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,27 @@ typedef struct s_lst
 	char	*env_path;
 	char	*username;
 	char	*prompt;
+	char	**env_var;
 	int		exit_code;
 }			t_lst;
 
 /*FUNCTIONS*/
-void	ft_env(char **envp);
+int			ft_exit(t_lst *args);
+void		ft_env(char **envp);
 char		*ft_join(char *s1, char *s2);
 void		free_list(t_lst **lst);
 void		free_tab(char **str);
 int			exec(char **str, t_lst *args);
 void		print_commands(char **src);
-int			check_commands(char **str, t_lst *args, char **envp);
+int			check_commands(char **str, t_lst *args);
 int			ft_echo(char **str);
 int			ft_cd(char **str, t_lst *lst);
 int			get_nbargs(char **str);
 char		*strjoin(char *s1, char *s2);
-void		init_lst(t_lst **args);
+void		init_lst(t_lst **args, char **envp);
 void		get_exit_code(t_lst *args);
 void		print_commands(char **src);
+int			get_len(char **str);
 /* FUNCTIONS */
 void		signal_handler(int signalNum);
 

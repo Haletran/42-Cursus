@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:09:45 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 12:37:48 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/07 09:41:53 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,26 @@ char	*ft_join(char *s1, char *s2)
 	ft_memcpy(result, s1, len1);
 	ft_memcpy(result + len1, s2, len2 + 1);
 	return (result);
+}
+
+int	get_len(char **str)
+{
+	int i;
+	int j;
+	int size;
+
+	i = 0;
+	j = 0;
+	size = 0;
+	while(str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			j++;
+			size++;	
+		}
+		i++;
+	}
+	return (size);
 }
