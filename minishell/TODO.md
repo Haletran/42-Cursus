@@ -6,3 +6,4 @@
 - [] Exit code to store and can echo with $?
 - [] Make command path working
 - [x] PWD command not working properly
+- [] Return value not valid sometimes
