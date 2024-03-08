@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:10:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/07 11:20:03 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/08 09:23:18 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int	ft_echo(char **str)
 	}
 	while (str[i])
 	{
-		if (str[i + 1] == NULL)
+		if (!ft_strncmp(str[i], "$?", 2))
+			printf("%d", g_value);
+		else if (str[i + 1] == NULL)
 			printf("%s", str[i]);
 		else
 			printf("%s ", str[i]);

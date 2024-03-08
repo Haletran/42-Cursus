@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/07 09:42:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/08 09:13:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # include <termios.h> // tcsetattr, tcgetattr
 # include <unistd.h>  // write, access, close, fork, execve, dup, dup2, pipe
 # include <unistd.h>  // unlink, chdir, getcwd
+
+static int	g_value = 0;
 
 /*STRUCTURES*/
 typedef struct s_lst

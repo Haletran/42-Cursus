@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/07 16:08:24 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/08 09:15:31 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	exec(char **str, t_lst *args)
 	test = NULL;
 	envp = NULL;
 	cmd = str[0];
-	// parse here so that you have a clean command
+	// parse here so that you have a clean command a the end
 	test = ft_split(args->env_path, ':');
 	*test = ft_join(*test, "/");
 	full_path = ft_join(*test, cmd);
@@ -93,12 +93,12 @@ int	exec(char **str, t_lst *args)
 		if (execve(full_path, str, envp) == -1)
 		{
 			perror(full_path);
+			g_value = 127;
 			exit(127);
 		}
 	}
 	waitpid(pid, &args->exit_code, 0);
 	get_exit_code(args);
-	// printf("EXIT CODE : %d\n", args->exit_code);
-	// free(full_path);
+	free_tab(test);
 	return (0);
 }
