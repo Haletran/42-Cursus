@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/08 09:30:23 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:32:48 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	check_commands(char **str, t_lst *args)
 {
 	if (!ft_strncmp(str[0], "pwd", 3) && ft_strlen(str[0]) == 3)
 	{
+		args->current_path = getcwd(args->current_path, 1024);
 		printf("%s\n", args->current_path);
 		return (1);
 	}
@@ -42,8 +43,8 @@ int	check_commands(char **str, t_lst *args)
 		return (-1);
 	else if (!ft_strncmp(str[0], "env", 3) && ft_strlen(str[0]) == 3)
 	{
-		ft_env(args->env_var);
-		return (0);
+		ft_env(args->env_var, str);
+		return (1);
 	}
 	else if (!ft_strncmp(str[0], "exit", 4) && ft_strlen(str[0]) == 4)
 		ft_exit(args);

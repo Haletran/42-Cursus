@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/08 09:13:40 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:25:57 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_lst
 
 /*FUNCTIONS*/
 int			ft_exit(t_lst *args);
-void		ft_env(char **envp);
+void	ft_env(char **envp, char **str);
 char		*ft_join(char *s1, char *s2);
 void		free_list(t_lst **lst);
 void		free_tab(char **str);
