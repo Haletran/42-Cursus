@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:09:45 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/07 09:41:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:12:22 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_commands(char **src)
 
 	i = 0;
 	while (src[i])
-		printf("commands : %s\n", src[i++]);
+		printf("%s\n", src[i++]);
 }
 
 char	*ft_join(char *s1, char *s2)

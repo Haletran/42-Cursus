@@ -49,6 +49,7 @@ typedef struct s_lst
 }			t_lst;
 
 /*FUNCTIONS*/
+void ft_export(char **envp, char **str);
 int			ft_exit(t_lst *args);
 void	ft_env(char **envp, char **str);
 char		*ft_join(char *s1, char *s2);
