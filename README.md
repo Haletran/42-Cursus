@@ -3,7 +3,6 @@ All of my projects during 42 Cursus.
 
 <img src="https://badges.pufler.dev/visits/Haletran/42-Cursus" alt="https://github.com/Haletran/42-Cursus"> </img>
 <img src="https://badges.pufler.dev/created/Haletran/42-Cursus" alt="https://github.com/Haletran/42-Cursus"> </img>
-<img align="right" src="https://badges.pufler.dev/commits/monthly/Haletran" alt="https://github.com/Haletran/42-Cursus"> </img>
 
 ## Rank 0
 - [x] libft : 30/09/2023 -> 12/11/2023 | ✅ 100% |
