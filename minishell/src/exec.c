@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 11:29:24 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:25:16 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,14 @@ int	check_commands(char **str, t_lst *args)
 	return (-1);
 }
 
+/**
+ * @brief Path check if access is ok and loop until it test all path available
+ * 
+ * @param str 
+ * @param args 
+ * @param nb 
+ * @return char* 
+ */
 char	*check_path(char **str, t_lst *args, int nb)
 {
 	char	*cmd;
@@ -90,6 +98,14 @@ char	*check_path(char **str, t_lst *args, int nb)
 	return (full_path);
 }
 
+/**
+ * @brief Execute the command after checking the path
+ * 
+ * @param str 
+ * @param args 
+ * @param full_path 
+ * @return int 
+ */
 int	exec_command(char **str, t_lst *args, char *full_path)
 {
 	pid_t	pid;
@@ -121,17 +137,21 @@ int	exec(char **str, t_lst *args)
 {
 	char	*full_path;
 	char	**envp;
-	char *test;
+	char	*test;
 
 	envp = NULL;
 	if (ft_strchr(str[0], '/'))
 	{
-		if (access(full_path, F_OK | R_OK) == 0)
-			return (0);
-		else
+		if (access(str[0], F_OK) == 0)
 		{
 			test = ft_strrchr(str[0], '/');
 			str[0] = ft_strdup(test);
+		}
+		else
+		{
+			perror(str[0]);
+			g_value = 127;
+			return (127);
 		}
 	}
 	full_path = check_path(str, args, 0);

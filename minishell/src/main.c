@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 10:50:02 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:16:41 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	main(int ac, char **av, char **envp)
 	prompt = (*args)->prompt;
 	while (1)
 	{
-		signal(SIGINT, signal_handler);
 		signal(SIGQUIT, signal_handler);
+		signal(SIGINT, signal_handler);
 		input = readline(prompt);
 		if (input == NULL)
 		{

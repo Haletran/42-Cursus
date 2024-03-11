@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 10:04:37 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:18:48 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct s_lst
 }			t_lst;
 
 /*FUNCTIONS*/
-void	ft_unset(char **str, t_lst *args);
-char	*str_capitalizer(char *str);
+void		ft_unset(char **str, t_lst *args);
+char		*str_capitalizer(char *str);
 void		ft_export(char **envp, char **str);
 int			ft_exit(t_lst *args);
 void		ft_env(char **envp, char **str);
@@ -69,6 +69,6 @@ void		get_exit_code(t_lst *args);
 void		print_commands(char **src);
 int			get_len(char **str);
 /* FUNCTIONS */
-void		signal_handler(int signalNum);
+void	signal_handler(int signalNum);
 
 #endif

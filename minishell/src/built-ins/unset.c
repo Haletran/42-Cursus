@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:12:03 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 10:54:15 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:38:47 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_unset(char **str, t_lst *args)
 {
-    (void)args;
-    printf("%s\n", getenv(str_capitalizer(str[1])));
+	(void)args;
+	printf("%s\n", getenv(str_capitalizer(str[1])));
 }
