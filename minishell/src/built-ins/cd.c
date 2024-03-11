@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:10:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/08 10:21:42 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:45:37 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	ft_cd(char **str, t_lst *lst)
 {
-	//print_commands(str);
+    int valid;
+
+    valid = 0;
 	if (!str[1])
 		chdir(lst->home_path);
     else
@@ -24,7 +26,9 @@ int	ft_cd(char **str, t_lst *lst)
             printf("cd : too many arguments\n");
             return (1);
         }
-        chdir(str[1]);
+        valid = chdir(str[1]);
+        if (valid)
+            perror(str[1]);
     }
     return (0);
 }

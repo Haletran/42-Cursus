@@ -7,3 +7,4 @@
 - [] Make command path working
 - [x] PWD command not working properly
 - [] Return value not valid sometimes
+- [] Make env var working

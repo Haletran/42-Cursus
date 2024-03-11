@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/08 10:16:50 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:40:57 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	main(int ac, char **av, char **envp)
 		if (input == NULL)
 		{
 			free(input);
-			exit(0);
+			g_value = 0;
+			exit(g_value);
 		}
 		else if (input[0] == '\0')
 			rl_on_new_line();
