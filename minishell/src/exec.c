@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 09:29:17 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:04:51 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	*check_path(char **str, t_lst *args, int nb)
 	return (full_path);
 }
 
-int exec_command(char **str, t_lst *args, char *full_path)
+int	exec_command(char **str, t_lst *args, char *full_path)
 {
 	pid_t	pid;
 

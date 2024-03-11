@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:49:49 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 09:02:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:03:58 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,15 @@ char	*make_str(char **src)
 
 void	ft_export(char **envp, char **str)
 {
+	char	**to_add;
+	char	*stock;
+	int		len_env;
+	int		args_len;
+	int		i;
+
 	if (envp)
 	{
-		char **to_add;
-		char *stock;
-		int len_env;
-		int args_len;
-		int i = 1;
+		i = 1;
 		len_env = get_nbargs(envp);
 		to_add = malloc(sizeof(char) * ft_strlen(str[1]) + 1);
 		while (str[i])
@@ -75,7 +77,7 @@ void	ft_export(char **envp, char **str)
 			// printf("%s", to_add[1]);
 			stock = make_str(to_add);
 			envp[len_env] = ft_strjoin(envp[len_env], stock);
-            len_env++;
+			len_env++;
 			i++;
 		}
 		// print_commands(to_add);

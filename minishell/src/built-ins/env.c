@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:59:39 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/08 11:20:36 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:05:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_env(char **envp, char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (ft_strlen(str[1]) > 0)
@@ -27,7 +27,7 @@ void	ft_env(char **envp, char **str)
 		while (envp[i])
 		{
 			printf("%s\n", envp[i]);
-			i++;;
+			i++;
 		}
 	}
 }

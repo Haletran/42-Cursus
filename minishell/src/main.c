@@ -6,28 +6,27 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 08:40:57 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:47:18 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-
 /**
  * @Main function
- * 
- * @param ac 
+ *
+ * @param ac
  * @param av
- * @brief allocate t_lst, handle signal, handle prompt print and history 
- * @return 0 
+ * @brief allocate t_lst, handle signal, handle prompt print and history
+ * @return 0
  */
 int	main(int ac, char **av, char **envp)
 {
 	char	*input;
 	char	**commands;
 	t_lst	**args;
-	char *prompt;
- 
+	char	*prompt;
+
 	(void)av;
 	if (ac > 1)
 		return (0);
