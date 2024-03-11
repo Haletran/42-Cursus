@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 17:18:48 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:26:14 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_lst
 }			t_lst;
 
 /*FUNCTIONS*/
+int check_space(char *str);
 void		ft_unset(char **str, t_lst *args);
 char		*str_capitalizer(char *str);
 void		ft_export(char **envp, char **str);

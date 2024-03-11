@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:09:45 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 10:05:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:35:45 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,24 @@ int	get_len(char **str)
 	}
 	return (size);
 }
+
+int check_space(char *str)
+{
+	int i;
+	int space;
+
+	i = 0;
+	space = 0;
+
+	while (str[i])
+	{
+		if(str[i] == 32)
+			space++;
+		i++;
+	}
+	if (space == i)
+		return (1);
+	return (0);
+}
+
+

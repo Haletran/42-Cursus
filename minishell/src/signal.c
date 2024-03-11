@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:03:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 17:09:37 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:29:49 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /**
  * @brief Handle CTRL+C and CTRL+\ signal
- * 
+ *
  * @param signalNum
  */
 void	signal_handler(int signalNum)
@@ -25,8 +25,7 @@ void	signal_handler(int signalNum)
 		rl_on_new_line();
 		rl_replace_line("", 1);
 		rl_redisplay();
-		g_value = 130;
-	} 	
+	}
 	else if (signalNum == SIGQUIT)
 		signal(SIGQUIT, SIG_IGN);
 }
