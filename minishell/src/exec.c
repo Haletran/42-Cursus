@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 17:40:19 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:05:10 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,16 +143,14 @@ int	exec_command(char **str, t_lst *args, char *full_path)
 int	exec(char **str, t_lst *args)
 {
 	char	*full_path;
-	char	**envp;
-	char	*test;
+	char	*tmp;
 
-	envp = NULL;
 	if (ft_strchr(str[0], '/'))
 	{
 		if (access(str[0], F_OK) == 0)
 		{
-			test = ft_strrchr(str[0], '/');
-			str[0] = ft_strdup(test);
+			tmp = ft_strrchr(str[0], '/');
+			str[0] = ft_strdup(tmp);
 		}
 		else
 		{

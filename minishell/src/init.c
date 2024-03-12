@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:54:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 17:27:16 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:11:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_lst(t_lst **args, char **envp)
 		(*args)->env_var[i] = envp[i];
 		i++;
 	}
-	(*args)->prompt = ft_join((*args)->username, "$> ");
+	(*args)->prompt = ft_join((*args)->username, MAGENTA"$> "RESET);
 	(*args)->exit_code = 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 09:54:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 17:42:43 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:07:41 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,30 +107,6 @@ int	pipe_creation(char **commands, char **path, t_lst *args)
 	waitpid(pid1, &status, 0);
 	waitpid(pid2, &status, 0);
 	return (0);
-}
-char	**get_real_path(char **path, char *remove)
-{
-	int		i;
-	int		j;
-	int		size;
-	char	**dest;
-
-	dest = malloc(1000);
-	i = 0;
-	j = 0;
-	size = ft_strlen(remove);
-	while (path[i])
-	{
-		if (ft_strncmp(path[i], remove, size))
-		{
-			dest[j] = ft_strdup(path[i]);
-			i++;
-			j++;
-		}
-		else
-			i++;
-	}
-	return (dest);
 }
 
 int	exec_pipe(char **str, t_lst *args)
