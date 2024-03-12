@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:09:45 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 12:50:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:19:10 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,17 +101,14 @@ int check_space(char *str)
 	return (0);
 }
 
-int check_one_space(char *str)
+int check_char(char *str, char c)
 {
 	int i;
-	int space;
 
 	i = 0;
-	space = 0;
-
 	while (str[i])
 	{
-		if(str[i] == 32)
+		if(str[i] == c)
 			return(1);
 		i++;
 	}

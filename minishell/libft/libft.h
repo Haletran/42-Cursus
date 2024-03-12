@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:40:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/06 12:30:45 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:02:54 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include "../ft_printf/ft_printf.h"
+# include "../includes/minishell.h"
+#include "../includes/struct.h"
 # include <stdlib.h>
 
 int		ft_isalpha(int c);
@@ -34,7 +36,7 @@ void	*ft_memmove(void *dest, const void *src, size_t size);
 void	*ft_memchr(const void *mem, int srh, size_t size);
 char	*ft_strdup(const char *src);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
@@ -54,7 +56,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strrchr(const char *s, int c);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
+void	*ft_lstnew(int content);
 char	*get_next_line(int fd);
 char	*ft_strcpy(char *dest, char *src);
+void	*ft_lstadd_back(t_com *lst, int value);
+void	ft_lst_add_front(t_com **a, t_com *new);
+int		ft_lst_size(t_com *a);
+void	*ft_lst_new(int content, int index);
 
 #endif

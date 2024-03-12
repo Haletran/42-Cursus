@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 14:41:26 by bapasqui          #+#    #+#              #
-#    Updated: 2024/03/04 18:47:00 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/02/06 23:41:56 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,12 +47,17 @@ SRCS =		ft_isalpha.c	\
 			ft_strtrim.c	\
 			ft_split.c		\
 			ft_itoa.c		\
+			ft_lstnew.c		\
 			ft_strmapi.c	\
 			ft_striteri.c	\
 			ft_putchar_fd.c	\
 			ft_putstr_fd.c	\
 			ft_putendl_fd.c	\
 			ft_strcpy.c		\
+			ft_lstnew.c		\
+			ft_lst_add_back.c \
+			ft_lst_add_front.c \
+			ft_lst_size.c \
 			ft_putnbr_fd.c
 
 

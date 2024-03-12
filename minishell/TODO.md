@@ -8,7 +8,7 @@
 - [x] PWD command not working properly
 - [] Return value not valid sometimes
 - [x] Make env var working
-- [] Add pipe
+- [] Add pipe (IN CONSTRUCTION)
 - [] Unset command
 
 //open in a fork

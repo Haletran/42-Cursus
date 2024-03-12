@@ -6,62 +6,70 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 09:54:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 12:51:14 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:54:48 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-char **ft_split2(char *str, char *delim)
+char	**ft_split2(char *str, char *delim)
 {
-    int i, j, k;
-    int num_words = 0;
-    char **words;
-    char *start, *end;
+	int		num_words;
+	char	**words;
 
-    // Count the number of words in the string
-    i = 0;
-    while (str[i] != '\0') {
-        if (strstr(&str[i], delim) == &str[i]) {
-            i += ft_strlen(delim);
-        } else if (str[i] != '\0') {
-            num_words++;
-            while (str[i] != '\0' && strstr(&str[i], delim) != &str[i]) {
-                i++;
-            }
-        }
-    }
-
-    // Allocate memory for the array of words
-    words = (char **)malloc((num_words + 1) * sizeof(char *));
-    if (words == NULL) {
-        return NULL;
-    }
-
-    // Extract the words from the string
-    i = 0;
-    j = 0;
-    while (j < num_words) {
-        while (str[i] != '\0' && strstr(&str[i], delim) == &str[i]) {
-            i += ft_strlen(delim);
-        }
-        start = &str[i];
-        while (str[i] != '\0' && strstr(&str[i], delim) != &str[i]) {
-            i++;
-        }
-        end = &str[i];
-        k = end - start;
-        words[j] = (char *)malloc((k + 1) * sizeof(char));
-        if (words[j] == NULL) {
-            return NULL;
-        }
-        strncpy(words[j], start, k);
-        words[j][k] = '\0';
-        j++;
-    }
-    words[j] = NULL;
-
-    return words;
+	int i, j, k;
+	num_words = 0;
+	char *start, *end;
+	// Count the number of words in the string
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (strstr(&str[i], delim) == &str[i])
+		{
+			i += ft_strlen(delim);
+		}
+		else if (str[i] != '\0')
+		{
+			num_words++;
+			while (str[i] != '\0' && strstr(&str[i], delim) != &str[i])
+			{
+				i++;
+			}
+		}
+	}
+	// Allocate memory for the array of words
+	words = (char **)malloc((num_words + 1) * sizeof(char *));
+	if (words == NULL)
+	{
+		return (NULL);
+	}
+	// Extract the words from the string
+	i = 0;
+	j = 0;
+	while (j < num_words)
+	{
+		while (str[i] != '\0' && strstr(&str[i], delim) == &str[i])
+		{
+			i += ft_strlen(delim);
+		}
+		start = &str[i];
+		while (str[i] != '\0' && strstr(&str[i], delim) != &str[i])
+		{
+			i++;
+		}
+		end = &str[i];
+		k = end - start;
+		words[j] = (char *)malloc((k + 1) * sizeof(char));
+		if (words[j] == NULL)
+		{
+			return (NULL);
+		}
+		strncpy(words[j], start, k);
+		words[j][k] = '\0';
+		j++;
+	}
+	words[j] = NULL;
+	return (words);
 }
 
 int	pipe_creation(char **commands, char **path, t_lst *args)
@@ -84,7 +92,7 @@ int	pipe_creation(char **commands, char **path, t_lst *args)
 		close(fd[0]);
 		close(fd[1]);
 		execve(path[0], &commands[0], args->env_var);
-        exit(1);
+		exit(1);
 	}
 	pid2 = fork();
 	if (pid2 < 0)
@@ -95,7 +103,7 @@ int	pipe_creation(char **commands, char **path, t_lst *args)
 		close(fd[0]);
 		close(fd[1]);
 		execve(path[1], &commands[1], args->env_var);
-        exit(1);
+		exit(1);
 	}
 	close(fd[0]);
 	close(fd[1]);
@@ -103,37 +111,56 @@ int	pipe_creation(char **commands, char **path, t_lst *args)
 	waitpid(pid2, &status, 0);
 	return (0);
 }
+char	**get_real_path(char **path, char *remove)
+{
+	int		i;
+	int		j;
+	int		size;
+	char	**dest;
+
+	dest = malloc(1000);
+	i = 0;
+	j = 0;
+	size = ft_strlen(remove);
+	while (path[i])
+	{
+		if (ft_strncmp(path[i], remove, size))
+		{
+			dest[j] = ft_strdup(path[i]);
+			i++;
+			j++;
+		}
+		else
+			i++;
+	}
+	return (dest);
+}
 
 int	exec_pipe(char **str, t_lst *args)
 {
-	char	**full_path; 
-    char *tmp;
+	char	**full_path;
 	int		i;
 
 	i = 0;
 	full_path = malloc(1000);
-    str = ft_split2(str[0], " | ");
+	// str = get_real_path(str, "|");
+	// print_commands(str);
 	while (str[i])
 	{
-        if (check_one_space(str[i]))
-        {
-            tmp = ft_strrchr(str[i], ' ');
-            full_path[i] = check_path(&tmp, args, i);
-            if (full_path[i] == NULL)
-			    return (0);
-
-        }
-        else
-        {
-		    full_path[i] = check_path(str, args, i);
-		    if (full_path[i] == NULL)
-			    return (0);
-        }
+		full_path[i] = check_path(str, args, i);
+		if (access(full_path[i], F_OK | R_OK) != 0)
+		{
+			if (!ft_strncmp(str[i], "|", 1))
+				full_path[i] = "PIPE";
+			else
+				full_path[i] = "FALSE";
+		}
 		i++;
 	}
-    print_commands(str);
-    print_commands(full_path);
-    if (pipe_creation(str, full_path, args))
-		return (1);
+	// str = get_commands(str, full_path);
+	// full_path = get_real_path(full_path, "FALSE");
+	print_commands(full_path);
+	// if (pipe_creation(str, full_path, args))
+	//	return (1);
 	return (0);
 }

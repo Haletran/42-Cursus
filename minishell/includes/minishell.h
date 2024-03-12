@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 12:50:55 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:19:18 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 /*LIBRAIRIES*/
 # include "../libft/libft.h"
+# include "struct.h"
 # include <curses.h> // tgetent, tgetflag, tgetnum, tgetstr, tgoto, tputs
 # include <dirent.h> // opendir, readdir, closedir
 # include <errno.h>  // strerror, perror
@@ -35,20 +36,6 @@
 # include <unistd.h>  // unlink, chdir, getcwd
 
 static int	g_value = 0;
-
-/*STRUCTURES*/
-typedef struct s_lst
-{
-	char	*home_path;
-	char	*current_path;
-	char	*env_path;
-	char	*username;
-	char	*prompt;
-	char	*first_command;
-	char	*second_command;
-	char	**env_var;
-	int		exit_code;
-}			t_lst;
 
 /*FUNCTIONS*/
 int			check_space(char *str);
@@ -74,8 +61,10 @@ void		print_commands(char **src);
 int			get_len(char **str);
 int			exec_pipe(char **str, t_lst *args);
 int			check_if_pipe(char **str);
-int check_one_space(char *str);
+int check_char(char *str, char c);
 /* FUNCTIONS */
 void		signal_handler(int signalNum);
+char		**ft_split2(char *str, char *delim);
+t_com		*init_stack(t_com *com, char **str);
 
 #endif

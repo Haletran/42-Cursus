@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 12:47:30 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:39:54 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,8 @@ int	main(int ac, char **av, char **envp)
 			if (check_commands(commands, *args) == -1)
 			{
 				if (check_if_pipe(commands))
-				{
-					free_tab(commands);
-					*commands = input;
+				{	
+					//commands = ft_split2(input, " ");
 					exec_pipe(commands, *args);
 				}
 				else

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 10:56:21 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:27:07 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char	*check_path(char **str, t_lst *args, int nb)
 	while (*path)
 	{
 		if (access(full_path, F_OK | R_OK) == 0)
-			break ;
+			break;
 		else
 		{
 			*path = ft_join(*path, "/");
