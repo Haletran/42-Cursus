@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:09:45 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 17:15:32 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:22:49 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,16 @@ int	get_len(char **str)
 	return (size);
 }
 
-int check_space(char *str)
+int	check_space(char *str)
 {
-	int i;
-	int space;
+	int	i;
+	int	space;
 
 	i = 0;
 	space = 0;
-
 	while (str[i])
 	{
-		if(str[i] == 32)
+		if (str[i] == 32)
 			space++;
 		i++;
 	}
@@ -101,21 +100,16 @@ int check_space(char *str)
 	return (0);
 }
 
-int check_char(char *str, char c)
+int	check_char(char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if(str[i] == c)
-			return(1);
+		if (str[i] == c)
+			return (1);
 		i++;
 	}
-	printf("jasf\n");
 	return (0);
 }
-
-
-
-

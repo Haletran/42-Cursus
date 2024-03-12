@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:54:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 14:04:07 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:27:16 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,3 @@ t_com	*init_stack(t_com *com, char **str)
 	com = head;
 	return (com);
 }
-

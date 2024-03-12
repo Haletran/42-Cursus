@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:08:47 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 17:12:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:28:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	check_if_and(char **str)
 {
-	int i;
-	
+	int	i;
+
 	i = 1;
 	while (str[i])
 	{
@@ -28,17 +28,17 @@ int	check_if_and(char **str)
 
 int	exec_and(char **str, t_lst *args)
 {
-	int		i;
-    char **tab;
+	int i;
+	char **tab;
 
 	i = 0;
 	while (str[i])
 	{
-        tab = ft_split(str[i], ' ');
-        exec(tab, args);   
+		tab = ft_split(str[i], ' ');
+		exec(tab, args);
 		i++;
-        free_tab(tab);
-        tab = NULL;
+		free_tab(tab);
+		tab = NULL;
 	}
 	return (0);
 }

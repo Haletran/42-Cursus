@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 09:16:58 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 10:06:16 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:26:30 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_exit(t_lst *args)
 {
-	int code;
+	int	code;
 
 	code = args->exit_code;
 	free(args);

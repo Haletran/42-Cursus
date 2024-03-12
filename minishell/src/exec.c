@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 17:12:51 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:40:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	check_if_pipe(char **str)
 {
-	int i;
-	
+	int	i;
+
 	i = 1;
 	while (str[i])
 	{
@@ -74,11 +74,11 @@ int	check_commands(char **str, t_lst *args)
 
 /**
  * @brief Path check if access is ok and loop until it test all path available
- * 
- * @param str 
- * @param args 
- * @param nb 
- * @return char* 
+ *
+ * @param str
+ * @param args
+ * @param nb
+ * @return char*
  */
 char	*check_path(char **str, t_lst *args, int nb)
 {
@@ -94,7 +94,7 @@ char	*check_path(char **str, t_lst *args, int nb)
 	while (*path)
 	{
 		if (access(full_path, F_OK | R_OK) == 0)
-			break;
+			break ;
 		else
 		{
 			*path = ft_join(*path, "/");
@@ -107,11 +107,11 @@ char	*check_path(char **str, t_lst *args, int nb)
 
 /**
  * @brief Execute the command after checking the path
- * 
- * @param str 
- * @param args 
- * @param full_path 
- * @return int 
+ *
+ * @param str
+ * @param args
+ * @param full_path
+ * @return int
  */
 int	exec_command(char **str, t_lst *args, char *full_path)
 {
