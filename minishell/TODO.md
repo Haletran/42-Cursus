@@ -12,3 +12,8 @@
 - [] Unset command
 
 //open in a fork
+
+# BONUS
+
+- [] && and & working properly
+- [] wildcard for echo working (echo *)

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 09:54:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 14:54:48 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:40:53 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,29 +138,17 @@ char	**get_real_path(char **path, char *remove)
 
 int	exec_pipe(char **str, t_lst *args)
 {
-	char	**full_path;
 	int		i;
+    char **tab;
 
 	i = 0;
-	full_path = malloc(1000);
-	// str = get_real_path(str, "|");
-	// print_commands(str);
 	while (str[i])
 	{
-		full_path[i] = check_path(str, args, i);
-		if (access(full_path[i], F_OK | R_OK) != 0)
-		{
-			if (!ft_strncmp(str[i], "|", 1))
-				full_path[i] = "PIPE";
-			else
-				full_path[i] = "FALSE";
-		}
+        tab = ft_split(str[i], ' ');
+        exec(tab, args);   
 		i++;
+        free_tab(tab);
+        tab = NULL;
 	}
-	// str = get_commands(str, full_path);
-	// full_path = get_real_path(full_path, "FALSE");
-	print_commands(full_path);
-	// if (pipe_creation(str, full_path, args))
-	//	return (1);
 	return (0);
 }

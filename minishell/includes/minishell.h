@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 14:19:18 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:10:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,12 @@ void		print_commands(char **src);
 int			get_len(char **str);
 int			exec_pipe(char **str, t_lst *args);
 int			check_if_pipe(char **str);
-int check_char(char *str, char c);
+int			check_char(char *str, char c);
 /* FUNCTIONS */
 void		signal_handler(int signalNum);
 char		**ft_split2(char *str, char *delim);
 t_com		*init_stack(t_com *com, char **str);
+int			check_if_and(char **str);
+int			exec_and(char **str, t_lst *args);
 
 #endif

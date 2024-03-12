@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:09:45 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 14:19:10 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:15:32 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,10 @@ int check_char(char *str, char c)
 			return(1);
 		i++;
 	}
+	printf("jasf\n");
 	return (0);
 }
+
 
 
 
