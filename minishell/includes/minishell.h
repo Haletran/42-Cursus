@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 19:26:14 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 12:50:55 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ typedef struct s_lst
 	char	*env_path;
 	char	*username;
 	char	*prompt;
+	char	*first_command;
+	char	*second_command;
 	char	**env_var;
 	int		exit_code;
 }			t_lst;
 
 /*FUNCTIONS*/
-int check_space(char *str);
+int			check_space(char *str);
 void		ft_unset(char **str, t_lst *args);
 char		*str_capitalizer(char *str);
 void		ft_export(char **envp, char **str);
@@ -66,10 +68,14 @@ int			ft_cd(char **str, t_lst *lst);
 int			get_nbargs(char **str);
 char		*strjoin(char *s1, char *s2);
 void		init_lst(t_lst **args, char **envp);
+char		*check_path(char **str, t_lst *args, int nb);
 void		get_exit_code(t_lst *args);
 void		print_commands(char **src);
 int			get_len(char **str);
+int			exec_pipe(char **str, t_lst *args);
+int			check_if_pipe(char **str);
+int check_one_space(char *str);
 /* FUNCTIONS */
-void	signal_handler(int signalNum);
+void		signal_handler(int signalNum);
 
 #endif

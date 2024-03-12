@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 19:29:06 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 10:56:21 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 int	check_if_pipe(char **str)
 {
-	if (ft_strchr(str[2], '|'))
-		return (1);
+	int i;
+	
+	i = 1;
+	while (str[i])
+	{
+		if (ft_strchr(str[i], '|'))
+			return (1);
+		i++;
+	}
 	return (0);
 }
 
