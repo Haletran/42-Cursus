@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 18:34:06 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:40:16 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char **av, char **envp)
 	if (ac > 1)
 		return (0);
 	args = malloc(sizeof(t_lst));
-	*args = malloc(sizeof(t_lst *) * 10);
+	*args = malloc(sizeof(t_lst *) * 100);
 	init_lst(args, envp);
 	prompt = (*args)->prompt;
 	while (1)
@@ -39,13 +39,12 @@ int	main(int ac, char **av, char **envp)
 		signal(SIGQUIT, signal_handler);
 		signal(SIGINT, signal_handler);
 		input = readline(prompt);
-		if (input == NULL)
+		if (!input)
 		{
-			free(input);
 			g_value = 0;
 			exit(g_value);
 		}
-		else if (input[0] == '\0' || check_space(input))
+		if (input[0] == '\0' || check_space(input))
 			rl_on_new_line();
 		else if (input[0] != '\0')
 		{
@@ -69,7 +68,7 @@ int	main(int ac, char **av, char **envp)
 				else
 					exec(commands, *args);
 			}
-			free_tab(commands);
+			//free_tab(commands);
 		}
 	}
 	return (0);

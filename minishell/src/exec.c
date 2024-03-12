@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 18:35:26 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:44:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ int	exec_command(char **str, t_lst *args, char *full_path)
 		return (1);
 	else if (pid == 0)
 	{
+		args->pid = &pid;
 		if (execve(full_path, str, args->env_var) == -1)
 		{
 			perror(full_path);
@@ -138,30 +139,43 @@ int	exec_command(char **str, t_lst *args, char *full_path)
  *
  * @param str
  * @param args
- * @return int
+ * @return int                                                                                 
  */
 int	exec(char **str, t_lst *args)
 {
-	char	*full_path;
+	char	*full_path = NULL;
 	char	*tmp;
+	int i;
 
-	if (ft_strchr(str[0], '/'))
+	i = 0;
+	if (!ft_strncmp(str[i], "./", 2))
 	{
-		if (access(str[0], F_OK) == 0)
+		if (access(str[i], F_OK) == 0)
+		{
+			full_path = str[i];
+			str[i] = ft_strrchr(str[i], '/');
+		}
+	}
+	else if (ft_strchr(str[i], '/'))
+	{
+		if (access(str[i], F_OK) == 0)
 		{
 			tmp = ft_strrchr(str[0], '/');
-			str[0] = ft_strdup(tmp);
+			str[i] = ft_strdup(tmp);
 		}
 		else
 		{
-			perror(str[0]);
+			perror(str[i]);
 			g_value = 127;
 			return (127);
 		}
 	}
-	full_path = check_path(str, args, 0);
-	if (full_path == NULL)
-		return (1);
+	else
+	{
+		full_path = check_path(str, args, 0);
+		if (full_path == NULL)
+			return (1);
+	}
 	exec_command(str, args, full_path);
 	return (0);
 }

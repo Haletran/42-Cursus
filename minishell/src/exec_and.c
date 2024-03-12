@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:08:47 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 17:28:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:39:33 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	exec_and(char **str, t_lst *args)
 		tab = ft_split(str[i], ' ');
 		exec(tab, args);
 		i++;
-		free_tab(tab);
-		tab = NULL;
+		//free_tab(tab);
+		//tab = NULL;
 	}
 	return (0);
 }
