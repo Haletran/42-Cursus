@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:10:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/13 12:01:06 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:57:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,7 @@ int	ft_echo(char **str)
 			var = ft_split(str[i], '$');
 			if (ft_strlen(str[1]) > 1)
 			{
-				if (!ft_strncmp(str[1], "$$", 2))
-					printf("%s", getenv("SYSTEMD_EXEC_PID"));
-				else
+				if (var[0])
 					printf("%s", getenv(var[0]));
 			}
 			else

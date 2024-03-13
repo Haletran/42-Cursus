@@ -10,6 +10,7 @@
 - [x] Make env var working
 - [] Add pipe (IN CONSTRUCTION)
 - [] Unset command
+- [x] Segfault if $$
 
 //open in a fork
 
