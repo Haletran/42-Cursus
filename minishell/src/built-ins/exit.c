@@ -6,18 +6,16 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 09:16:58 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/13 10:42:11 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:15:42 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	ft_exit(t_lst *args)
+int	ft_exit(char *code, t_lst *args)
 {
-	int	code;
-
-	code = args->exit_code;
-	free(args);
-	args = NULL;
-	exit(code);
+	args->exit_code = ft_atoi(code);
+	//free(args);
+	//args = NULL;
+	exit(args->exit_code);
 }

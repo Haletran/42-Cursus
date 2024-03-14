@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 15:19:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:14:34 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	check_commands(char **str, t_lst *args)
 		return (1);
 	}
 	else if (!ft_strncmp(str[0], "exit", 4) && ft_strlen(str[0]) == 4)
-		ft_exit(args);
+		ft_exit(str[1], args);
 	return (NOT_FOUND);
 }
 

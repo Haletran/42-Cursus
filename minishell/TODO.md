@@ -13,8 +13,10 @@
 - [] Parsing
 - [] Unset command
 - [x] Segfault if $$
+- [] Exit code and exit function fix 
+- [] Quotes and double quotes
 
-//open in a fork
+//use open in a fork
 
 # BONUS
 

@@ -6,27 +6,25 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:49:49 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 15:16:39 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:09:08 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char	*str_capitalizer(char *str)
+int check_if_alpha(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
+		if(!ft_isalpha(str[i]))
+			return (ERROR);
 		i++;
 	}
-	return (str);
+	return (SUCCESS);
 }
-
-#include <stdlib.h>
 
 char	*make_str(char **src)
 {
@@ -73,6 +71,12 @@ void	ft_export(t_lst *args, char **str)
 	{
 		while (args->env_var[i])
 			printf("declare -x %s\n", args->env_var[i++]);
+		return ;
+	}
+	if (check_if_alpha(str[1]) == ERROR)
+	{
+		printf("not a valid identifier\n");
+		g_value = 1;
 		return ;
 	}
 	if (!ft_strchr(str[1], '='))
