@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 08:42:27 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:36:54 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static int	g_value = 0;
 # define RESET_SIG SIG_IGN
 # define CTRL_C SIGINT
 # define CTRL_BACKSLACH SIGQUIT
-#define NOT_FOUND -5
+# define NOT_FOUND -5
+# define ERROR -1
 
 /*FUNCTIONS*/
 int			check_space(char *str);

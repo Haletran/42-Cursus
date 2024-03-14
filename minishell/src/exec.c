@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 11:28:37 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:55:16 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	exec_command(char **str, t_lst *args, char *full_path)
 
 	pid = fork();
 	if (pid == -1)
-		return (1);
+		return (ERROR);
 	else if (pid == 0)
 	{
 		args->pid = &pid;
