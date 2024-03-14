@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 08:00:21 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 08:42:27 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	g_value = 0;
 # define RESET_SIG SIG_IGN
 # define CTRL_C SIGINT
 # define CTRL_BACKSLACH SIGQUIT
+#define NOT_FOUND -5
 
 /*FUNCTIONS*/
 int			check_space(char *str);
@@ -66,7 +67,6 @@ int			get_len(char **str);
 int			exec_pipe(char **str, t_lst *args);
 int			check_if_pipe(char **str);
 int			check_char(char *str, char c);
-/* FUNCTIONS */
 char		**ft_split2(char *str, char *delim);
 t_com		*init_stack(t_com *com, char **str);
 int			check_if_and(char **str);
