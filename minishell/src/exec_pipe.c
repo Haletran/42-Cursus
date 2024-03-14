@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 09:54:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 13:52:39 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:30:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	piping(char **str, t_lst *args, char *full_path)
 		return (1);
 	else if (pid == 0)
 	{
-		dup2(fd[1], STDOUT_FILENO);
+		dup2(fd[1], STDOUT_FILENO); // that's dumb because no redirection
 		close(fd[0]);              
 		close(fd[1]);
 		if (execve(full_path, str, args->env_var) == -1)
@@ -132,7 +132,7 @@ int	test_exec(char **str, t_lst **args)
 	}
 	else
 	{
-		full_path = check_path(str, *args, 0);
+		full_path = check_path(str, *args, 0); // path not working don't know why
 		if (full_path == NULL)
 			return (1);
 	}

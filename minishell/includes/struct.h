@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:58:27 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 08:34:34 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:21:07 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ typedef struct s_lst
 	int				*pid;
 	char			*username;
 	char			*prompt;
-	char			*first_command;
-	char			*second_command;
 	char			**env_var;
 	int				exit_code;
 }					t_lst;

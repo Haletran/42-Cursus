@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:54:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 14:46:04 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:26:26 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ void	init_lst(t_lst **args, char **envp)
 	(*args)->home_path = getenv("HOME");
 	(*args)->username = getenv("USER");
 	(*args)->env_path = getenv("PATH");
-	(*args)->env_var = malloc(get_len(envp));
+	(*args)->env_var = malloc(sizeof(char) * get_len(envp));
 	while (envp[i])
 	{
 		(*args)->env_var[i] = envp[i];
 		i++;
 	}
 	(*args)->prompt = ft_join((*args)->username, MAGENTA"$> "RESET);
-	(*args)->exit_code = 0;
 }
 
 /* t_com	*init_stack(t_com *com, char **str)
