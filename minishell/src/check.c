@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 07:54:21 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 08:44:18 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:22:50 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void	choose(char *input, char **commands, t_lst **args)
 				commands = ft_split(input, '|');
 				exec_pipe(commands, *args);
 			}
-			else if (ft_strncmp(input, "&&", 2) || ft_strncmp(input, "& ", 2))
+/* 			else if (!ft_strncmp(input, "&&", 2) || !ft_strncmp(input, "& ", 2))
 			{
-				if (ft_strncmp(input, " & ", 3))
+				if (!ft_strncmp(input, " & ", 3))
 					commands = ft_split(input, '&');
-				else
+				else if (!ft_strncmp(input, " && ", 4))
 					commands = ft_split2(input, "&&");
 				exec_and(commands, *args);
-			}
+			} */
 			else
 				exec(commands, *args);
 		}

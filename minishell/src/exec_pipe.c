@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 09:54:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 08:04:46 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:15:26 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,33 @@ char	**ft_split2(char *str, char *delim)
 	return (words);
 }
 
+/* void *piping(char **tab, t_lst *args)
+{
+
+
+
+	
+} */
+
+
+
+
 int	exec_pipe(char **str, t_lst *args)
 {
 	int		i;
 	char	**tab;
 
 	i = 0;
+	(void)args;
 	while (str[i])
 	{
 		tab = ft_split(str[i], ' ');
-		exec(tab, args);
+		//piping(tab, args);
 		i++;
-		free_tab(tab);
-		tab = NULL;
+		// exec(tab, args);
 	}
+	//print_commands(tab);
+	free_tab(tab);
+	tab = NULL;
 	return (0);
 }
