@@ -9,6 +9,8 @@
 - [] Return value not valid sometimes
 - [x] Make env var working
 - [] Add pipe (IN CONSTRUCTION)
+- [] Redirections
+- [] Parsing
 - [] Unset command
 - [x] Segfault if $$
 

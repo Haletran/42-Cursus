@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 11:36:54 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:55:51 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	g_value = 0;
 int			check_space(char *str);
 void		ft_unset(char **str, t_lst *args);
 char		*str_capitalizer(char *str);
-void		ft_export(char **envp, char **str);
+void		ft_export(t_lst *args, char **str);
 int			ft_exit(t_lst *args);
 void		ft_env(char **envp, char **str);
 char		*ft_join(char *s1, char *s2);

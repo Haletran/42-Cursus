@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 09:54:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 13:16:58 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:52:39 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,16 @@ int	piping(char **str, t_lst *args, char *full_path)
 	pid_t	pid;
 	int		fd[2];
 
+	if (pipe(fd) == -1)
+		return (1);
 	pid = fork();
 	if (pid == -1)
 		return (1);
 	else if (pid == 0)
 	{
 		dup2(fd[1], STDOUT_FILENO);
-		close(fd[0]);
-		// close(fd[1]);
+		close(fd[0]);              
+		close(fd[1]);
 		if (execve(full_path, str, args->env_var) == -1)
 		{
 			perror(full_path);
@@ -89,10 +91,52 @@ int	piping(char **str, t_lst *args, char *full_path)
 			exit(127);
 		}
 	}
-	// close(fd[0]);
-	// close(fd[1]);
-	waitpid(pid, &g_value, 0);
-	// waitpid(pid2, &status, 0);
+	else
+	{
+		close(fd[1]);
+		waitpid(pid, &g_value, 0);
+	}
+	return (0);
+}
+
+int	test_exec(char **str, t_lst **args)
+{
+	char	*full_path;
+	char	*tmp;
+	int		i;
+
+	full_path = NULL;
+	i = 0;
+	if (!ft_strncmp(str[i], "./", 2))
+	{
+		if (access(str[i], F_OK) == 0)
+		{
+			full_path = str[i];
+			str[i] = ft_strrchr(str[i], '/');
+		}
+	}
+	else if (ft_strchr(str[i], '/'))
+	{
+		if (access(str[i], F_OK) == 0)
+		{
+			full_path = str[i];
+			tmp = ft_strrchr(str[i], '/');
+			str[i] = ft_strdup(tmp);
+		}
+		else
+		{
+			perror(str[i]);
+			g_value = 127;
+			return (127);
+		}
+	}
+	else
+	{
+		full_path = check_path(str, *args, 0);
+		if (full_path == NULL)
+			return (1);
+	}
+	piping(str, *args, full_path);
 	return (0);
 }
 
@@ -100,19 +144,15 @@ int	exec_pipe(char **str, t_lst *args)
 {
 	int		i;
 	char	**tab;
-	char	*full_path;
 
 	i = 0;
 	while (str[i])
 	{
 		tab = ft_split(str[i], ' ');
-		full_path = check_path(tab, args, i);
-		piping(tab, args, full_path);
-		free(full_path);
-		full_path = NULL;
+		test_exec(tab, &args);
 		i++;
+		free_tab(tab);
+		tab = NULL;
 	}
-	free_tab(tab);
-	tab = NULL;
 	return (0);
 }
