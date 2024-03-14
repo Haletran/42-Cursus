@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signal.c                                           :+:      :+:    :+:   */
+/*   exec_and.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 12:03:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 19:38:15 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/12 17:08:47 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/14 08:04:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-/**
- * @brief Handle CTRL+C and CTRL+\ signal
- *
- * @param signalNum
- */
-void	signal_handler(int signalNum)
+int	check_if_and(char **str)
 {
-	if (signalNum == SIGINT)
+	int	i;
+
+	i = 1;
+	while (str[i])
 	{
-		ft_putstr_fd("\n", 1);
-		rl_on_new_line();
-		rl_replace_line("", 1);
-		rl_redisplay();
+		if (ft_strchr(str[i], '&'))
+			return (1);
+		i++;
 	}
-	else if (signalNum == SIGQUIT)
-		signal(SIGQUIT, SIG_IGN);
+	return (0);
+}
+
+int	exec_and(char **str, t_lst *args)
+{
+	int		i;
+	char	**tab;
+
+	i = 0;
+	while (str[i])
+	{
+		tab = ft_split(str[i], ' ');
+		exec(tab, args);
+		i++;
+	}
+	return (0);
 }

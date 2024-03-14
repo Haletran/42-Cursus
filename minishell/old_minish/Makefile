@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 18:18:39 by bapasqui          #+#    #+#              #
-#    Updated: 2024/03/12 17:10:55 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/03/14 07:56:27 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS	= src/main.c \
 		  src/exec_and.c \
 		  src/exec_pipe.c \
 		  src/signal.c \
+		  src/check.c \
 		  src/exec.c
 
 OBJS_DIR := obj

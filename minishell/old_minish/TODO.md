@@ -16,5 +16,5 @@
 
 # BONUS
 
-- [] && and & working properly
-- [] wildcard for echo working (echo *)
+- [x] && and & working properly
+- [x] wildcard for echo working (echo *)

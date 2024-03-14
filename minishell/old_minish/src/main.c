@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/13 15:41:45 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 08:03:14 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int ac, char **av, char **envp)
 	t_lst	**args;
 	char	*prompt;
 
+	commands = NULL;
 	(void)av;
 	if (ac > 1)
 		return (0);
@@ -36,40 +37,14 @@ int	main(int ac, char **av, char **envp)
 	prompt = (*args)->prompt;
 	while (1)
 	{
-		signal(SIGQUIT, signal_handler);
-		signal(SIGINT, signal_handler);
+		handle_sig();
 		input = readline(prompt);
 		if (!input)
 		{
 			g_value = 0;
 			exit(g_value);
 		}
-		if (input[0] == '\0' || check_space(input))
-			rl_on_new_line();
-		else if (input[0] != '\0')
-		{
-			add_history(input);
-			commands = ft_split(input, ' ');
-			if (check_commands(commands, *args) == -1)
-			{
-				if (check_if_pipe(commands))
-				{
-					commands = ft_split(input, '|');
-					exec_pipe(commands, *args);
-				}
-				else if (ft_strncmp(input, "&&", 2) || ft_strncmp(input, "& ", 2))
-				{
-					if (ft_strncmp(input, " & ", 3))
-						commands = ft_split2(input, "&");
-					else
-						commands = ft_split2(input, "&&");
-					exec_and(commands, *args);
-				}
-				else
-					exec(commands, *args);
-			}
-			//free_tab(commands);
-		}
+		choose(input, commands, args);
 	}
 	return (0);
 }

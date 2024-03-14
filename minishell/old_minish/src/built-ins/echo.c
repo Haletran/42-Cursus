@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:10:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/13 15:57:01 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 08:03:17 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_echo(char **str)
 			}
 			else
 				printf("$");
-			break;
+			break ;
 		}
 		else if (!ft_strncmp(str[i], "*", 1))
 			print_current();

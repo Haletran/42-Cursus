@@ -6,14 +6,13 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:40:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 17:23:09 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 07:52:13 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "../ft_printf/ft_printf.h"
 # include "../includes/minishell.h"
 # include "../includes/struct.h"
 # include <stdlib.h>

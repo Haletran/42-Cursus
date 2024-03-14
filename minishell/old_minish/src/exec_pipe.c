@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 09:54:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 19:28:04 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/14 08:04:46 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,46 +67,6 @@ char	**ft_split2(char *str, char *delim)
 	}
 	words[j] = NULL;
 	return (words);
-}
-
-int	pipe_creation(char **commands, char **path, t_lst *args)
-{
-	int	fd[2];
-	int	pid1;
-	int	pid2;
-	int	status;
-
-	pid1 = 0;
-	pid2 = 0;
-	if (pipe(fd) == -1)
-		return (-1);
-	pid1 = fork();
-	if (pid1 < 0)
-		return (-1);
-	if (pid1 == 0)
-	{
-		dup2(fd[1], STDOUT_FILENO);
-		close(fd[0]);
-		close(fd[1]);
-		execve(path[0], &commands[0], args->env_var);
-		exit(1);
-	}
-	pid2 = fork();
-	if (pid2 < 0)
-		return (-1);
-	if (pid2 == 0)
-	{
-		dup2(fd[0], STDIN_FILENO);
-		close(fd[0]);
-		close(fd[1]);
-		execve(path[1], &commands[1], args->env_var);
-		exit(1);
-	}
-	close(fd[0]);
-	close(fd[1]);
-	waitpid(pid1, &status, 0);
-	waitpid(pid2, &status, 0);
-	return (0);
 }
 
 int	exec_pipe(char **str, t_lst *args)
