@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 13:58:27 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/15 15:12:00 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/15 14:52:52 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/15 15:15:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#include "../includes/minishell.h"
 
-# include "lexer.h"
-
-typedef struct s_lst
+void	show_token(char **commands, t_com **com)
 {
-	char			*home_path;
-	char			*current_path;
-	char			*env_path;
-	int				*pid;
-	char			*username;
-	char			*prompt;
-	char			**env_var;
-	int				exit_code;
-}					t_lst;
+    (void)com;
+/* 	int i;
 
-typedef struct s_com
-{
-	char			*command;
-	int				token;
-	struct s_com	*next;
-}					t_com;
+	i = 0;
+	t_com *head;
+	com = malloc(1000);
+    head = (*com);
 
-#endif
+	while (commands[i])
+	{
+        *com = malloc(100);
+        
+        printf("%c TOKEN IS %d", input[i], (*com)->token);
+		(*com) = (*com)->next;
+		i++;
+	}
+    (*com) = head;
+} */
+    print_commands(commands);
+}
