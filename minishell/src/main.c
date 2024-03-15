@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:19:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/15 15:13:25 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:48:41 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 int	main(int ac, char **av, char **envp)
 {
 	char	*input;
-	t_com **com = NULL;
 	char	**commands;
 	t_lst	**args;
 	char	*prompt;
@@ -38,7 +37,7 @@ int	main(int ac, char **av, char **envp)
 	prompt = (*args)->prompt;
 	while (1)
 	{
-		handle_sig();
+		handle_sig(0);
 		input = readline(prompt);
 		if (!input)
 		{
@@ -46,9 +45,9 @@ int	main(int ac, char **av, char **envp)
 			exit(g_value);
 		}
 		add_history(input);
-		commands = ft_split(input, ' ');
-		show_token(commands, com);
-		//choose(input, commands, args);
+		//commands = ft_split(input, ' ');
+		//show_token(commands, com);
+		choose(input, commands, args);
 	}
 	return (0);
 }

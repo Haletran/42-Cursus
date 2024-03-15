@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:03:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/14 08:21:23 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:55:47 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,22 @@ static void	sig_ctrl_c(int signum)
 	rl_redisplay();
 }
 
+void heredoc_handler(int signum)
+{
+	(void)signum;
+	exit(1);
+}
+
 /**
  * @brief Handle CTRL+C and CTRL+\ signal
  *
  * @param signalNum
  */
-void	handle_sig(void)
+void	handle_sig(int check)
 {
-	signal(CTRL_C, sig_ctrl_c);
+	if (check == 1)
+		signal(CTRL_C, heredoc_handler);
+	else
+		signal(CTRL_C, sig_ctrl_c);
 	signal(CTRL_BACKSLACH, RESET_SIG);
 }
