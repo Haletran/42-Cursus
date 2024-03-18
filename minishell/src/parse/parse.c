@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.c                                              :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 13:59:39 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:37:34 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/15 14:52:52 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/18 13:49:51 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	ft_env(char **envp, char **str)
+void	show_token(char **commands, t_com **com)
 {
-	int	i;
+    (void)com;
+/* 	int i;
 
 	i = 0;
-	if (!envp || !str)
-		return (1);
-	if (ft_strlen(str[1]) > 0)
+	t_com *head;
+	com = malloc(1000);
+    head = (*com);
+
+	while (commands[i])
 	{
-		printf("env : '%s': No such file or directory\n", str[1]);
-		g_value = 127;
-		return (ERROR);
+        *com = malloc(100);
+        
+        printf("%c TOKEN IS %d", input[i], (*com)->token);
+		(*com) = (*com)->next;
+		i++;
 	}
-	else
-	{
-		while (envp[i])
-		{
-			printf("%s\n", envp[i]);
-			i++;
-		}
-	}
-	return (SUCCESS);
+    (*com) = head;
+} */
+    print_commands(commands);
 }

@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 14:52:52 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/15 15:15:19 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/03/18 13:42:19 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/03/18 13:45:14 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
-void	show_token(char **commands, t_com **com)
+int	ft_heredoc(char **str)
 {
-    (void)com;
-/* 	int i;
-
-	i = 0;
-	t_com *head;
-	com = malloc(1000);
-    head = (*com);
-
-	while (commands[i])
+	char *input;
+	while (1)
 	{
-        *com = malloc(100);
-        
-        printf("%c TOKEN IS %d", input[i], (*com)->token);
-		(*com) = (*com)->next;
-		i++;
-	}
-    (*com) = head;
-} */
-    print_commands(commands);
+		input = readline("> ");
+		if (!ft_strncmp(input, str[1], ft_strlen(str[1]))
+			&& ft_strlen(str[1]) == ft_strlen(input))
+			return (SUCCESS);
+    }
+    return(ERROR);
 }

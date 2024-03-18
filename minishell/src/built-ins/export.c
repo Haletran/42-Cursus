@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:49:49 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 09:35:04 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:37:15 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,27 +101,28 @@ void	add_var(t_lst *args, char **str)
 	}
 }
 
-void	ft_export(t_lst *args, char **str)
+int	ft_export(t_lst *args, char **str)
 {
 	int	i;
 
 	i = 0;
 	if (!args->env_var)
-		return ;
+		return (ERROR);
 	if (!str[1])
 	{
 		while (args->env_cpy[i])
 			printf("declare -x %s\n", args->env_cpy[i++]);
-		return ;
+		return (1);
 	}
 	if (check_if_alpha(str[1]) == ERROR)
 	{
 		printf("not a valid identifier\n");
 		g_value = 1;
-		return ;
+		return (ERROR);
 	}
 	if (!ft_strchr(str[1], '='))
 		add_var_no_input(args, str);
 	else
 		add_var(args, str);
+	return (SUCCESS);
 }

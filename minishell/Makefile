@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 18:18:39 by bapasqui          #+#    #+#              #
-#    Updated: 2024/03/18 13:30:12 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/03/18 13:51:14 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,20 +23,22 @@ DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 SRCS	= src/main.c \
 		  src/built-ins/echo.c \
 		  src/built-ins/cd.c \
-		  src/utils.c \
-		  src/init.c \
+		  src/utils/utils.c \
+		  src/utils/utils2.c \
+		  src/parse/init.c \
 		  src/built-ins/env.c \
 		  src/built-ins/export.c \
 		  src/built-ins/exit.c \
 		  src/built-ins/unset.c \
 		  src/built-ins/pwd.c \
-		  src/free.c \
-		  src/parse.c \
-		  src/exec_and.c \
-		  src/exec_pipe.c \
-		  src/signal.c \
-		  src/check.c \
-		  src/exec.c
+		  src/built-ins/heredoc.c \
+		  src/utils/free.c \
+		  src/parse/parse.c \
+		  src/execution/exec_and.c \
+		  src/execution/exec_pipe.c \
+		  src/execution/signal.c \
+		  src/execution/check.c \
+		  src/execution/exec.c
 
 OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))

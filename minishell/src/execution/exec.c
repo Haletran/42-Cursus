@@ -6,25 +6,11 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:33:15 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:50:03 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
-
-int	check_if_pipe(char **str)
-{
-	int	i;
-
-	i = 1;
-	while (str[i])
-	{
-		if (ft_strchr(str[i], '|'))
-			return (1);
-		i++;
-	}
-	return (0);
-}
+#include "../../includes/minishell.h"
 
 /**
  * @brief Associate commands to built-ins if needed
@@ -36,50 +22,21 @@ int	check_if_pipe(char **str)
 int	check_commands(char **str, t_lst *args)
 {
 	if (!ft_strncmp(str[0], "pwd", 3) && ft_strlen(str[0]) == 3)
-	{
-		pwd(args);
-		return (1);
-	}
+		return (pwd(args));
 	else if (!ft_strncmp(str[0], "echo", 4) && ft_strlen(str[0]) == 4)
-	{
-		ft_echo(str);
-		return (1);
-	}
+		return (ft_echo(str));
 	else if (!ft_strncmp(str[0], "cd", 2) && ft_strlen(str[0]) == 2)
-	{
-		ft_cd(str, args);
-		return (1);
-	}
+		return (ft_cd(str, args));
 	else if (!ft_strncmp(str[0], "export", 6) && ft_strlen(str[0]) == 6)
-	{
-		ft_export(args, str);
-		return (1);
-	}
+		return (ft_export(args, str));
 	else if (!ft_strncmp(str[0], "unset", 5) && ft_strlen(str[0]) == 5)
-	{
-		ft_unset(str, args);
-		return (1);
-	}
+		return (ft_unset(str, args));
 	else if (!ft_strncmp(str[0], "env", 3) && ft_strlen(str[0]) == 3)
-	{
-		ft_env(args->env_var, str);
-		return (1);
-	}
+		return (ft_env(args->env_var, str));
 	else if (!ft_strncmp(str[0], "exit", 4) && ft_strlen(str[0]) == 4)
-	{
-		ft_exit(str[1], args);
-		return (1);
-	}
+		return (ft_exit(str[1], args));
 	else if (!ft_strncmp(str[0], "<<", 2) && ft_strlen(str[0]) == 2)
-	{
-		char *input;
-		while (1)
-		{
-			input = readline("> ");
-			if (!ft_strncmp(input, str[1], ft_strlen(str[1])) && ft_strlen(str[1]) == ft_strlen(input))
-				return (1);
-		}
-	}
+		return(ft_heredoc(str));
 	return (NOT_FOUND);
 }
 

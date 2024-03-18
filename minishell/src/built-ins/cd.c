@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:10:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:15:46 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:38:13 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_cd(char **str, t_lst *lst)
 		if (get_nbargs(str) > 2)
 		{
 			printf("cd : too many arguments\n");
-			return (1);
+			return (ERROR);
 		}
 		getcwd(curr_path, 1024);
 		ft_strcpy(old_path, curr_path);
@@ -41,5 +41,5 @@ int	ft_cd(char **str, t_lst *lst)
 	}
 	if (valid)
 		perror(str[1]);
-	return (0);
+	return (SUCCESS);
 }
