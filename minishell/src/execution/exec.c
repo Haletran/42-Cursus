@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 17:42:47 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 19:02:38 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ char	*check_path(char **str, t_lst *args, int nb)
 		}
 		path++;
 	}
+	free_tab(path);
 	return (full_path);
 }
 
@@ -95,6 +96,7 @@ int	exec_command(char **str, t_lst *args, char *full_path)
 		{
 			perror(full_path);
 			g_value = 127;
+			free_tab(str);
 			exit(127);
 		}
 	}
@@ -137,20 +139,17 @@ int	exec(char **str, t_lst *args)
 		{
 			perror(str[i]);
 			g_value = 127;
+			//free_tab(str);
 			return (127);
 		}
 	}
-	else
+	else if (check_commands(str, args) == NOT_FOUND)
 	{
-		if (check_commands(str, args) == NOT_FOUND)
-		{
-			full_path = check_path(str, args, 0);
-			if (full_path == NULL)
-				return (ERROR);
-			exec_command(str, args, full_path);
-		}
-		else
-			free_tab(str);
+		full_path = check_path(str, args, 0);
+		if (full_path == NULL)
+			return (ERROR);
 	}
+	exec_command(str, args, full_path);
+	//free_tab(str);
 	return (SUCCESS);
 }
