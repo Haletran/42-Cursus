@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:03:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:50:07 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:59:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	sig_ctrl_c(int signum)
 	rl_redisplay();
 }
 
-void heredoc_handler(int signum)
+void	heredoc_handler(int signum)
 {
 	(void)signum;
 	exit(1);

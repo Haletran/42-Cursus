@@ -32,3 +32,47 @@ As beautiful as a shell..
 - [x] wildcard for echo working (echo *)
 
  </details>
+
+## To keep if needed
+
+
+ ```C
+else if (!ft_strncmp(input, "&&", 2) || !ft_strncmp(input, "& ", 2))
+{
+	if (!ft_strncmp(input, " & ", 3))
+		commands = ft_split(input, '&');
+	else if (!ft_strncmp(input, " && ", 4))
+		commands = ft_split2(input, "&&");
+	exec_and(commands, *args);
+}
+ ```
+
+
+```C
+t_com	*init_stack(t_com *com, char **str)
+{
+	t_com	*head;
+	int		tmp;
+
+	head = NULL;
+	tmp = 0;
+	while (tmp != get_nbargs(str))
+	{
+		if (!com)
+		{
+			com = ft_lst_new(ft_atoi(str[tmp]), 0);
+			head = com;
+		}
+		else
+		{
+			while (com && com->next != NULL)
+				com = com->next;
+			ft_lstadd_back(com, ft_atoi(str[tmp]));
+		}
+		tmp++;
+	}
+	com = head;
+	return (com);
+}
+
+```

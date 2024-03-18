@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:49:49 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:37:15 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:01:53 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	add_var_no_input(t_lst *args, char **str)
 	while (args->env_cpy[len_env])
 		len_env++;
 	args->env_cpy[len_env] = str[1];
-	return;
+	return ;
 }
 
 void	add_var(t_lst *args, char **str)
@@ -76,7 +76,7 @@ void	add_var(t_lst *args, char **str)
 	char	*stock;
 	int		len_env;
 	int		args_len;
-	int len_env_cpy;
+	int		len_env_cpy;
 	int		i;
 
 	i = 1;

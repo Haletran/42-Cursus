@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:46:22 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:47:19 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:05:14 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	get_exit_code(t_lst *args)
 	else if (WIFSTOPPED(args->exit_code))
 		args->exit_code = WSTOPSIG(args->exit_code);
 }
-
 
 int	check_if_pipe(char **str)
 {

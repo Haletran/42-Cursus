@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:50:03 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:59:32 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	check_commands(char **str, t_lst *args)
 	else if (!ft_strncmp(str[0], "exit", 4) && ft_strlen(str[0]) == 4)
 		return (ft_exit(str[1], args));
 	else if (!ft_strncmp(str[0], "<<", 2) && ft_strlen(str[0]) == 2)
-		return(ft_heredoc(str));
+		return (ft_heredoc(str));
 	return (NOT_FOUND);
 }
 
@@ -99,7 +99,7 @@ int	exec_command(char **str, t_lst *args, char *full_path)
 		}
 	}
 	waitpid(pid, &g_value, 0);
-	return (0);
+	return (SUCCESS);
 }
 
 /**
@@ -142,10 +142,13 @@ int	exec(char **str, t_lst *args)
 	}
 	else
 	{
-		full_path = check_path(str, args, 0);
-		if (full_path == NULL)
-			return (1);
+		if (check_commands(str, args) == NOT_FOUND)
+		{
+			full_path = check_path(str, args, 0);
+			if (full_path == NULL)
+				return (ERROR);
+			exec_command(str, args, full_path);
+		}
 	}
-	exec_command(str, args, full_path);
-	return (0);
+	return (SUCCESS);
 }
