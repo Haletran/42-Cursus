@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:03:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:59:35 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:17:59 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	sig_ctrl_c(int signum)
 {
 	(void)signum;
 	ft_putstr_fd("\n", 1);
-	rl_on_new_line();
+	rl_on_new_line(); // double prompt if fork is running
 	rl_replace_line("", 1);
 	rl_redisplay();
 }

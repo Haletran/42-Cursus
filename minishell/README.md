@@ -18,7 +18,9 @@ As beautiful as a shell..
 - [ ] Add pipe (IN CONSTRUCTION)
 - [ ] Redirections
 - [ ] Parsing
-- [ ] Unset command
+- [ ] Sort in ascii when exporting a variable
+- [x] Sort in ascii if export without args
+- [x] Unset command
 - [x] Segfault if $$
 - [] Exit code and exit function fix 
 - [] Quotes and double quotes
