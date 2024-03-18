@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 10:30:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 14:05:01 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:27:57 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,19 @@
 
 void	free_tab(char **str)
 {
-	while (*str)
+	int	i;
+	int	size;
+
+	if (str == NULL)
+		return ;
+	i = 0;
+	size = get_nbargs(str);
+	while (i < size)
 	{
-		free(*str);
-		str++;
+		free(str[i]);
+		i++;
 	}
+	free(str);
 }
 
 void	free_list(t_lst **lst)

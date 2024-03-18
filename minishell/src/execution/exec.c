@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 13:59:32 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:44:23 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_commands(char **str, t_lst *args)
 	if (!ft_strncmp(str[0], "pwd", 3) && ft_strlen(str[0]) == 3)
 		return (pwd(args));
 	else if (!ft_strncmp(str[0], "echo", 4) && ft_strlen(str[0]) == 4)
-		return (ft_echo(str));
+		return (ft_echo(str, args));
 	else if (!ft_strncmp(str[0], "cd", 2) && ft_strlen(str[0]) == 2)
 		return (ft_cd(str, args));
 	else if (!ft_strncmp(str[0], "export", 6) && ft_strlen(str[0]) == 6)
@@ -149,6 +149,8 @@ int	exec(char **str, t_lst *args)
 				return (ERROR);
 			exec_command(str, args, full_path);
 		}
+		else
+			free_tab(str);
 	}
 	return (SUCCESS);
 }

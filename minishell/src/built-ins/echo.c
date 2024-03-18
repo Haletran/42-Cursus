@@ -6,11 +6,41 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:10:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 14:02:27 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:50:39 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+static int	search_path(char *str, t_lst *args)
+{
+	int		i;
+	char	**var;
+
+	i = 0;
+	while (args->env_var[i])
+	{
+		if (!ft_strncmp(args->env_var[i], str, ft_strlen(str)))
+		{
+			if (getenv(str) != NULL)
+			{
+				printf("%s", getenv(str));
+				return (SUCCESS);
+			}
+			else
+			{
+				var = ft_split(args->env_var[i], '=');
+				printf("%s", var[1]);
+				free_tab(var);
+				var = NULL;
+				return (SUCCESS);
+			}
+		}
+		i++;
+	}
+	printf("\n");
+	return (ERROR);
+}
 
 static void	print_current(void)
 {
@@ -31,7 +61,7 @@ static void	print_current(void)
 	}
 }
 
-int	ft_echo(char **str)
+int	ft_echo(char **str, t_lst *args)
 {
 	int		i;
 	char	**var;
@@ -62,7 +92,7 @@ int	ft_echo(char **str)
 			if (ft_strlen(str[1]) > 1)
 			{
 				if (var[0])
-					printf("%s", getenv(var[0]));
+					search_path(var[0], args);
 			}
 			else
 				printf("$");

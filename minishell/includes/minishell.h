@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 14:00:36 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:39:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void		show_token(char **commands, t_com **com);
 /*BUILTS-INS*/
 int			pwd(t_lst *args);
 int			ft_cd(char **str, t_lst *lst);
-int			ft_echo(char **str);
+int	ft_echo(char **str, t_lst *args);
 int			ft_exit(char *exit, t_lst *args);
 int			ft_env(char **envp, char **str);
 int			ft_export(t_lst *args, char **str);
