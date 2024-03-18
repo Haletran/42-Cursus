@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:59:39 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/11 10:05:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 08:58:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_env(char **envp, char **str)
 	int	i;
 
 	i = 0;
+	if (!envp || !str)
+		return ;
 	if (ft_strlen(str[1]) > 0)
 	{
 		printf("env : '%s': No such file or directory\n", str[1]);

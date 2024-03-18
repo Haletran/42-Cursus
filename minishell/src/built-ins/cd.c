@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:10:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/12 18:09:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 11:06:18 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,20 @@
 
 int	ft_cd(char **str, t_lst *lst)
 {
-	int	valid;
+	int		valid;
+	char	*old_path;
+	char	curr_path[1024];
 
+	old_path = getenv("OLDPWD");
 	valid = 0;
-	if (!str[1])
+	if (!str[1] || !ft_strncmp(str[1], "--", -1))
 		chdir(lst->home_path);
+	else if (!ft_strncmp(str[1], "-", 1) && ft_strlen(str[1]) == 1)
+	{
+		getcwd(curr_path, 1024);
+		printf("%s\n", old_path);
+		chdir(old_path);
+	}
 	else
 	{
 		if (get_nbargs(str) > 2)
@@ -26,9 +35,11 @@ int	ft_cd(char **str, t_lst *lst)
 			printf("cd : too many arguments\n");
 			return (1);
 		}
+		getcwd(curr_path, 1024);
+		ft_strcpy(old_path, curr_path);
 		valid = chdir(str[1]);
-		if (valid)
-			perror(str[1]);
 	}
+	if (valid)
+		perror(str[1]);
 	return (0);
 }

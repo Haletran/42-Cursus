@@ -15,6 +15,7 @@
 - [x] Segfault if $$
 - [] Exit code and exit function fix 
 - [] Quotes and double quotes
+- [] Cd with ~
 
 //use open in a fork
 

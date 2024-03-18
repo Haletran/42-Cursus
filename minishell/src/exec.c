@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/15 15:55:42 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 10:50:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	check_commands(char **str, t_lst *args)
 		while (1)
 		{
 			input = readline("> ");
-			//print_commands(str);
 			if (!ft_strncmp(input, str[1], ft_strlen(str[1])) && ft_strlen(str[1]) == ft_strlen(input))
 				return (1);
 		}
