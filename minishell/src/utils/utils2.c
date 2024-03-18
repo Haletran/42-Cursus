@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:46:22 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 14:05:14 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:13:44 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,29 @@ int	check_if_pipe(char **str)
 	}
 	return (0);
 }
+
+char **sort_in_ascii(char **arr)
+{
+    int i;
+    int j;
+    char *tmp;
+
+    i = 0;
+    while (arr[i] != NULL)
+    {
+        j = i + 1;
+        while (arr[j] != NULL)
+        {
+            if (ft_strcmp(arr[i], arr[j]) > 0)
+            {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+            j++;
+        }
+        i++;
+    }
+    return (arr);
+}
+

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:49:49 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/18 14:33:30 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:13:36 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ int	ft_export(t_lst *args, char **str)
 		return (ERROR);
 	if (!str[1])
 	{
+		sort_in_ascii(args->env_cpy);
 		while (args->env_cpy[i])
 			printf("declare -x %s\n", args->env_cpy[i++]);
 		return (1);
