@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:46:22 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/15 14:53:05 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:16:07 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef enum s_tokens
 	ARG,
 	PIPE,
 	PATH,
-    EXEC,
+	EXEC,
 }	t_tokenType;
 
 #endif

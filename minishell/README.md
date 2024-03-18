@@ -1,4 +1,11 @@
-# TO-FIX
+# MINISHELL
+
+As beautiful as a shell..
+
+
+<details><summary>TODO</summary>
+
+## TO-FIX
 
 - [x] Fix when there is space and then enter is press
 - [ ] Fix double prompt if CTRL+C during command execution
@@ -17,9 +24,11 @@
 - [] Quotes and double quotes
 - [] Cd with ~
 
-//use open in a fork same for heredoc
+//use open in a fork
 
-# BONUS
+## BONUS
 
 - [x] && and & working properly
 - [x] wildcard for echo working (echo *)
+
+ </details>

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/15 15:48:39 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:16:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 /*LIBRAIRIES*/
 # include "../libft/libft.h"
-#include "lexer.h"
 # include "colors.h"
+# include "lexer.h"
 # include "struct.h"
 # include <curses.h> // tgetent, tgetflag, tgetnum, tgetstr, tgoto, tputs
 # include <dirent.h> // opendir, readdir, closedir
@@ -74,8 +74,8 @@ char		**ft_split2(char *str, char *delim);
 t_com		*init_stack(t_com *com, char **str);
 int			check_if_and(char **str);
 int			exec_and(char **str, t_lst *args);
-void	handle_sig(int check);
+void		handle_sig(int check);
 void		choose(char *input, char **commands, t_lst **args);
-void	show_token(char **commands, t_com **com);
+void		show_token(char **commands, t_com **com);
 
 #endif
