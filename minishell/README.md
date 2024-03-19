@@ -8,7 +8,7 @@ As beautiful as a shell..
 ## TO-FIX
 
 - [x] Fix when there is space and then enter is press
-- [ ] Fix double prompt if CTRL+C during command execution
+- [x] Fix double prompt if CTRL+C during command execution
 - [x] The MAKE command not working properly
 - [x] Exit code to store and can echo with $?
 - [x] Make command path working
