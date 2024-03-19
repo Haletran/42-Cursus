@@ -18,7 +18,7 @@ As beautiful as a shell..
 - [ ] Add pipe (IN CONSTRUCTION)
 - [ ] Redirections
 - [ ] Parsing
-- [ ] Sort in ascii when exporting a variable
+- [x] Sort in ascii when exporting a variable
 - [x] Sort in ascii if export without args
 - [x] Unset command
 - [x] Segfault if $$
