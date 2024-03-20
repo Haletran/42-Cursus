@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:52:09 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/20 15:00:58 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:32:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void ft_redirection(char **str, t_lst *args)
 {
     (void)args;
-    if (!str[2])
+    if (!str[2] || !str[1])
         return ;
     if (!ft_strncmp(str[2], ">", 1) || !ft_strncmp(str[2], ">>", 2))
         printf("redirection\n");
