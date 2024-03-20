@@ -17,7 +17,7 @@ As beautiful as a shell..
 - [x] Make env var working
 - [ ] Add pipe (IN CONSTRUCTION)
 - [ ] Redirections
-- [ ] Parsing
+- [ ] Parsing (lexer, tokenisation)
 - [x] Sort in ascii when exporting a variable
 - [x] Sort in ascii if export without args
 - [x] Unset command
