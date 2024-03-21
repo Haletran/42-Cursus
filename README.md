@@ -18,4 +18,4 @@ All of my projects during 42 Cursus.
 ## Rank 3
 - [ ] philosophers : 26/02/2024 ->
 - [ ] minishell :
-- [ ] Exam Rank 03 : | ❌ 0% |
+- [ ] Exam Rank 03 : | ✅ 100% |
