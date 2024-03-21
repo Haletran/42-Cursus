@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/20 15:01:37 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/21 10:31:58 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	exec(char **str, t_lst *args)
 	if (!ft_strncmp(str[i], "./", 2))
 	{
 		if (access(str[i], F_OK) == 0)
-		{
+		{ 
 			full_path = str[i];
 			str[i] = ft_strrchr(str[i], '/');
 		}
