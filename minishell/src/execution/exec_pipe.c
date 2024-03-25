@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 09:54:32 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/25 14:10:09 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:19:58 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	piping(char **str, t_lst **args)
 	back = 0;
 	signal(CTRL_C, sig_command_is_running);
 	signal(CTRL_BACKSLACH, sig_ctrl_back);
+	//(*args)->fd[0] = open((*args)->fd[1], O_RDONLY, 0777);
+	//(*args)->fd[1] = open((*args)->fd[1], O_CREAT | O_RDWR | O_TRUNC, 0777);
 	i = 0;
 	if (pipe((*args)->fd) == -1)
 		return ;
@@ -51,7 +53,6 @@ void	piping(char **str, t_lst **args)
 	}
 	else
 	{
-		waitpid(pid, &g_value, 0);
 		close((*args)->fd[1]);
 		back = (*args)->fd[0];
 	}
@@ -110,5 +111,7 @@ int	exec_pipe(char **str, t_lst *args)
 		else
 			return (ERROR);
 	}
+	waitpid(-1, &g_value, 0);
+	waitpid(-1, &g_value, 0);
 	return (0);
 }
