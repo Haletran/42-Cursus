@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:30:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/25 13:45:12 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:44:33 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	exec_command(char **str, t_lst *args, char *full_path)
 {
 	pid_t	pid;
 
+	args->env_var[get_nbargs(args->env_var)] = NULL;
 	signal(CTRL_C, sig_command_is_running);
 	signal(CTRL_BACKSLACH, sig_ctrl_back);
 	pid = fork();
