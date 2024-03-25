@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:18:10 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/20 18:33:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:27:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ int			ft_unset(char **str, t_lst *args);
 int			ft_heredoc(char **str);
 void		sig_command_is_running(int signum);
 void		ft_redirection(char **str, t_lst *args);
+void sig_ctrl_back(int signum);
 
 #endif
