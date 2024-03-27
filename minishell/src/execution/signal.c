@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:03:28 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/26 11:52:31 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/03/27 12:30:45 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void	sig_command_is_running(int signum)
 void	heredoc_handler(int signum)
 {
 	(void)signum;
-	exit(1);
+	signal(SIGINT, SIG_IGN);
+	signal(SIGQUIT, SIG_IGN);
+	exit(EXIT_SUCCESS);
 }
 
 void sig_ctrl_back(int signum)
@@ -51,7 +53,10 @@ void sig_ctrl_back(int signum)
 void	handle_sig(int check)
 {
 	if (check == 1)
+	{
 		signal(CTRL_C, heredoc_handler);
+		signal(CTRL_BACKSLACH, heredoc_handler);
+	}
 	else if (check == 0)
 	{
 		signal(CTRL_C, sig_ctrl_c);
