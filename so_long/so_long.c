@@ -85,9 +85,9 @@ int	main(int argc, char **argv)
 {
 	t_mlx	*mlx;
 
-	mlx = malloc(sizeof(t_mlx));
 	if (argc != 2 || argc > 3)
 		return (ft_error(2));
+	mlx = malloc(sizeof(t_mlx));
 	mlx->fd = open(argv[1], O_RDONLY);
 	mlx->fd_tmp = open(argv[1], O_RDONLY);
 	if (mlx->fd < 0 || !check_file(argv[1]))
