@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:25:15 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/17 16:46:18 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:01:08 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,10 @@ void draw_map(t_mlx *mlx)
         i++;
     }
 }
+
+/* void drawRays(t_mlx *mlx)
+{
+
+
+    
+} */

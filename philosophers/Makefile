@@ -6,11 +6,11 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/14 10:00:31 by tmatis            #+#    #+#              #
-#    Updated: 2024/03/01 14:54:49 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/04/18 12:44:13 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= philosopher
+NAME	= philo
 CC 		= cc
 CFLAGS	= -Wall -Wextra -Werror
 NOVISU 	= 0

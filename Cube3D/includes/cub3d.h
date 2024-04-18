@@ -82,6 +82,7 @@ typedef struct s_ray
 }					t_ray;
 
 /* FUNCTIONS */
+void drawRays(t_mlx *mlx);
 void draw_map(t_mlx *mlx);
 void init_map(t_mlx *mlx);
 t_mlx				*rotate_player(t_mlx *mlx, int angle);

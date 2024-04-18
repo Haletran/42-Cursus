@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:13:14 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/17 16:57:41 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/18 20:06:17 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,15 @@ int	key_hook(int key, void *param)
     }
     printf("DEBUG : \nx: %f, y: %f, angle: %f\n", mlx->player->x, mlx->player->y, mlx->player->angle);
     mlx_clear_window(mlx->mlx, mlx->win);
+    int steps = 20; // Augmentez le nombre de pas pour dessiner une ligne plus longue
+    double m = mlx->player->delta_y / mlx->player->delta_x; // Calculez la pente de la ligne
+    int i = 0;
+    while (i < steps + 50) {
+        double x = mlx->player->x + i * mlx->player->delta_x / steps; // Réduisez delta_x et delta_y
+        double y = mlx->player->y + m * i * mlx->player->delta_x / steps;
+        mlx_pixel_put(mlx->mlx, mlx->win, x + 7, y + 6, 0xFFE8FF00);
+        i++;
+    }
     draw_map(mlx);
     render_player(mlx);
 	return (0);
