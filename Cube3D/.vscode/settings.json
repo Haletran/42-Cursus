@@ -9,5 +9,6 @@
         "numeric": "c",
         "ostream": "c",
         "sstream": "c"
-    }
+    },
+    "cmake.configureOnOpen": true
 }

@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_player.c                                    :+:      :+:    :+:   */
+/*   free_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 11:25:19 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/18 23:31:57 by baptiste         ###   ########.fr       */
+/*   Created: 2024/04/18 23:42:08 by baptiste          #+#    #+#             */
+/*   Updated: 2024/04/18 23:42:28 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void    render_player(t_mlx *mlx)
+void   free_tab(char **tab)
 {
-    mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, mlx->player->x, mlx->player->y);
+    int i = 0;
+    while (tab[i]) {
+        free(tab[i]);
+        i++;
+    }
+    free(tab);
 }

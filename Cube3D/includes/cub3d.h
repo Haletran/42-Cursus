@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:02:49 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/17 16:24:11 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/19 01:00:04 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
 # define UP_ARROW 82
 # define DOWN_ARROW 81
 
-# define MAP_PATH "/sgoinfre/goinfre/Perso/bapasqui/Common-Core/Cube3D/maps/map.cub"
 
 /*STRUCTURES*/
 
@@ -71,6 +70,7 @@ typedef struct s_map
 	char			**map;
 	int				width;
 	int				height;
+	char *path;
 }					t_map;
 
 typedef struct s_ray
@@ -85,9 +85,10 @@ typedef struct s_ray
 void drawRays(t_mlx *mlx);
 void draw_map(t_mlx *mlx);
 void init_map(t_mlx *mlx);
-t_mlx				*rotate_player(t_mlx *mlx, int angle);
+void rotate_player(t_mlx *mlx);
+void   free_tab(char **tab);
 void				render_player(t_mlx *mlx);
-t_mlx				*init(t_mlx *mlx);
+t_mlx	*init(t_mlx *mlx, char **str);
 int					window_hook(int event, void *param);
 int					key_hook(int key, void *param);
 

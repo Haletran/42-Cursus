@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:25:15 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/18 19:01:08 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/19 01:25:23 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void init_map(t_mlx *mlx)
     int i;
 
     i = 0;
-    mlx->map = ft_calloc(1, sizeof(t_map));
-    mlx->map->map = malloc(sizeof(char *) * 1000);
-    fd = open(MAP_PATH, O_RDONLY);
+    fd = open(mlx->map->path, O_RDONLY);
+    if (!fd)
+        return ;
     while (1)
     {
         mlx->map->map[i] = get_next_line(fd);
@@ -37,14 +37,14 @@ void draw_map(t_mlx *mlx)
     int i;
     int j;
 
-    i = 0; 
+    i = 0;
     while (mlx->map->map[i])
     {
         j = 0;
         while (mlx->map->map[i][j])
         {
             if (mlx->map->map[i][j] == '1')
-                mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->wall, j * 32, i * 32);
+                mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->wall, j * 33, i * 33);
             else if (mlx->map->map[i][j] == 'W')
                 mlx->player->angle = 3 * PI / 2;
             j++;

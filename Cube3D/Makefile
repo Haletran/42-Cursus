@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
+#    By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 10:49:06 by bapasqui          #+#    #+#              #
-#    Updated: 2024/04/17 15:43:02 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/04/19 00:22:54 by baptiste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,19 @@ ifndef VERBOSE
 MAKEFLAGS += --no-print-directory --silent
 endif
 
-# Makefile vars                                                                  
+MAKEFLAGS += -j
+
+# Makefile vars
+CC := clang                                                             
 NAME    := cube3d
-CFLAGS  := -Wextra -Wall -Werror -g
+CFLAGS  := -Wextra -Wall -Werror -g #-fsanitize=address -fsanitize=undefined
 SRCS    := src/main.c \
 		   src/interaction/event.c \
 		   src/init/init_mlx.c \
 		   src/render/render_player.c \
 		   src/render/render_map.c \
 		   src/interaction/movement.c \
+		   src/utils/free_tab.c \
 
 
 OBJS_DIR := obj
@@ -55,6 +59,8 @@ fclean: clean
 	@make fclean -C MacroLibX
 	@rm -rf $(NAME)
 
-re: clean all
+re:
+	$(MAKE) fclean
+	$(MAKE) -j$(nproc)
 
 .PHONY: all clean fclean re gt
