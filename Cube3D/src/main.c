@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 10:49:02 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/19 01:22:55 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:40:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ int main(int argc, char **argv)
     
     mlx = ft_calloc(1, sizeof(t_mlx));
     mlx->mlx = mlx_init();
-    mlx->win = mlx_new_window(mlx->mlx, 18 * 50, 7 * 39 , "Cub3D");
+    mlx->win = mlx_new_window(mlx->mlx, 18 * 33, 7 * 33 , "Cub3D");
     
     printf("%s", argv[1]);
     mlx = init(mlx, argv);
     init_map(mlx);
     rotate_player(mlx);
     render_player(mlx);
-    //draw_rays(mlx);
     
     mlx_set_fps_goal(mlx->mlx, 60);
 	mlx_on_event(mlx->mlx, mlx->win, MLX_KEYDOWN, key_hook, mlx);

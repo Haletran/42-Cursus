@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:13:14 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/19 00:09:40 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:41:01 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	key_hook(int key, void *param)
     }
 	if ((key == KEY_A || key == LEFT_ARROW))
     {
-        mlx->player->angle -= 0.1;
+        mlx->player->angle -= 0.2;
         if (mlx->player->angle < 0)
             mlx->player->angle += 2 * PI;
         mlx->player->delta_x = cos(mlx->player->angle) * 5;
@@ -39,17 +39,17 @@ int	key_hook(int key, void *param)
     }
 	if ((key == KEY_D || key == RIGHT_ARROW))
     {
-        mlx->player->angle += 0.1;
+        mlx->player->angle += 0.2;
         if (mlx->player->angle > 2 * PI)
             mlx->player->angle -= 2 * PI;
         mlx->player->delta_x = cos(mlx->player->angle) * 5;
         mlx->player->delta_y = sin(mlx->player->angle) * 5;
     }
-    printf("DEBUG : \nx: %f, y: %f, angle: %f\n", mlx->player->x, mlx->player->y, mlx->player->angle);
     mlx_clear_window(mlx->mlx, mlx->win);
     rotate_player(mlx);
     draw_map(mlx);
     render_player(mlx);
+    draw_rays(mlx);
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:02:49 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/19 01:00:04 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:22:16 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include "../MacroLibX/includes/mlx.h"
 # include "../lib/libft/libft.h"
 # include <errno.h>
+# include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <fcntl.h>
 
 /* DEFINE */
 # define FOV 60
@@ -37,7 +37,6 @@
 # define RIGHT_ARROW 79
 # define UP_ARROW 82
 # define DOWN_ARROW 81
-
 
 /*STRUCTURES*/
 
@@ -70,25 +69,28 @@ typedef struct s_map
 	char			**map;
 	int				width;
 	int				height;
-	char *path;
+	char			*path;
 }					t_map;
 
 typedef struct s_ray
 {
-	double			x;
-	double			y;
+	int				rayon;
+	float			x;
+	float			y;
+	float			raise_angle;
+	float aTan;
 	double			dir;
 	double			dist;
 }					t_ray;
 
 /* FUNCTIONS */
-void drawRays(t_mlx *mlx);
-void draw_map(t_mlx *mlx);
-void init_map(t_mlx *mlx);
-void rotate_player(t_mlx *mlx);
-void   free_tab(char **tab);
+void				draw_rays(t_mlx *mlx);
+void 				draw_map(t_mlx *mlx);
+void				init_map(t_mlx *mlx);
+void				rotate_player(t_mlx *mlx);
+void				free_tab(char **tab);
 void				render_player(t_mlx *mlx);
-t_mlx	*init(t_mlx *mlx, char **str);
+t_mlx				*init(t_mlx *mlx, char **str);
 int					window_hook(int event, void *param);
 int					key_hook(int key, void *param);
 
