@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 11:15:31 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/03/01 15:02:28 by bapasqui         ###   ########.fr       */
+/*   Created: 2024/04/18 13:42:13 by bapasqui          #+#    #+#             */
+/*   Updated: 2024/04/18 13:45:34 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
+#include "../../includes/philo.h"
 
-/*COLORS*/
-# define BLACK "\033[30m"
-# define RED "\033[31m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
-# define BLUE "\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN "\033[36m"
-# define WHITE "\033[37m"
-# define RESET "\033[0m"
-
-#endif
+int print_error(char *str)
+{
+    printf(RED"Error :"RESET" %s\n", str);
+    return (FAILURE);
+}
