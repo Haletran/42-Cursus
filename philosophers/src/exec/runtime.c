@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 16:18:18 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:50:04 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,11 @@ void	*monitoring(void *params)
 		{
 			if (philos->infos->end_of_simulation != 1)
 			{
-				pthread_mutex_lock(&server->print_mutex);
 				philos->status = DEAD;
 				philos->infos->end_of_simulation = 1;
 				print_status(philos);
-				pthread_mutex_unlock(&server->print_mutex);
 				break ;
-			}
+			} 
 		}
 		if (philos->is_full == true && philos->check == false)
 		{
@@ -61,7 +59,7 @@ void	*monitoring(void *params)
 			pthread_mutex_unlock(&server->print_mutex);
 		}
 	}
-	pthread_mutex_destroy(&server->print_mutex);
+	//pthread_mutex_destroy(&server->print_mutex);
 	return (SUCCESS);
 }
 
