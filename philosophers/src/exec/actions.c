@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:16:59 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 12:33:28 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:54:40 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void is_eating(t_philo *philo)
 {
     philo->status = EATING;
-    pthread_mutex_lock(philo->fork);
-    pthread_mutex_lock(philo->next->fork);
+    //pthread_mutex_lock(philo->fork);
+    //pthread_mutex_lock(philo->next->fork);
     philo->eat_count += 1;
     print_status(philo);
     usleep(philo->infos->t_eat);
-    pthread_mutex_unlock(philo->fork);
-    pthread_mutex_unlock(philo->next->fork);
+    //pthread_mutex_unlock(philo->fork);
+    //pthread_mutex_unlock(philo->next->fork);
 }
 
 
