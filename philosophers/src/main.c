@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:01:38 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/19 15:58:25 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:27:49 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     if (table == NULL)
         return (print_error("Invalid arguments"));
     if (setup_philo(table) == FAILURE)
-        return (print_error("Philos setup failed"));
+       return (print_error("Philos setup failed"));
     ft_free(&table);
     return (0);
 }

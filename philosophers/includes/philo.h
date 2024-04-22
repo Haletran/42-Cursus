@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:01:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/19 18:37:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:20:06 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ typedef struct s_philo
 	int					id;
 	int					time;
 	int					eat_count;
+	int					last;
 	t_status			status;
 	int					is_full;
 	pthread_mutex_t		*fork;
 	pthread_t			philos;
 	struct s_infos		*infos;
 	struct s_philo		*next;
+	struct s_philo		*prev;
 }						t_philo;
 
 typedef struct s_monitor
@@ -82,7 +84,7 @@ int						parse_input(char **argv);
 int						setup_philo(t_table *table);
 void					*routine(void *params);
 void					ft_join(t_philo *philo);
-void print_status(t_philo *philos);
+void					print_status(t_philo *philos);
 
 /*LIB*/
 int						ft_isdigit(int c);
@@ -95,7 +97,12 @@ void					print_lst(t_philo *philo);
 
 /*LST*/
 void					*ft_lst_new(int content, t_table *table);
-void					*ft_lstadd_back(t_philo *lst, int value,
+t_philo					*ft_lstadd_back(t_philo *lst, int value,
 							t_table *table);
+
+/*ACTIONS*/
+void					is_thinking(t_philo *philo);
+void					is_eating(t_philo *philo);
+void					is_sleeping(t_philo *philo);
 
 #endif

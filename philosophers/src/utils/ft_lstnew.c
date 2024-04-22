@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:41:44 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/19 18:01:15 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:20:10 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	*ft_lst_new(int content, t_table *table)
     philo->fork = ft_calloc(1, sizeof(pthread_mutex_t));
     pthread_mutex_init(philo->fork, NULL);
     philo->time = 0;
+	philo->prev = NULL;
+	philo->last = 1;
 	philo->next = NULL;
 	return (philo);
 }

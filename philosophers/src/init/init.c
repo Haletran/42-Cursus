@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:14:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/19 17:53:07 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:34:50 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 t_philo	*init_stack(t_philo *a, int nb_philo, t_table *table)
 {
-	t_philo	*start;
-	int		id;
+    t_philo	*start;
+    int		id;
 
-	start = NULL;
-	id = 1;
-	while (id <= nb_philo)
-	{
-		if (!a)
-		{
-			a = ft_lst_new(id, table);
-			start = a;
-		}
-		else
-		{
-			while (a && a->next != NULL)
-				a = a->next;
-			ft_lstadd_back(a, id, table);
-		}
-		id++;
-	}
-	a = start;
-	return (a);
+    start = NULL;
+    id = 1;
+    while (id <= nb_philo)
+    {
+        if (!a)
+        {
+            a = ft_lst_new(id, table);
+            start = a;
+        }
+        else
+            a = ft_lstadd_back(a, id, table);
+        id++;
+    }
+	a->next = start;
+    a = start;
+    return (a);
 }
 
 

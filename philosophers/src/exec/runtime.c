@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/19 18:52:41 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:35:19 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,14 @@ void	*routine(void *params)
 	
 	philo = params;
 	head = philo;
-	while(philo->infos->end_of_simulation != 1)
+	philo->time = 0;
+	while(1)
 	{
-		printf("time %d message\n", philo->id);
 		if (philo->infos->end_of_simulation == 1)
-			break;
+			break ;
+		is_eating(philo);
+		is_sleeping(philo);
+		is_thinking(philo);
 		usleep(100);
 	}
 	return (SUCCESS);
@@ -78,10 +81,13 @@ int	setup_philo(t_table *table)
 	{
 		if (pthread_create(&head->philos, NULL, routine, head) != 0)
 			return (FAILURE);
+		if (head->id % 2 == 0 || head->infos->nb_philo % 2 != 0)
+			usleep(20);
+		else
+			usleep(40);
 		if (pthread_create(&table->server->monitor, NULL, monitoring, head) != 0)
 			return (FAILURE);
 		head = head->next;
-		usleep(20);
 	}
 	return (SUCCESS);
 }
