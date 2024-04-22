@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   runtime.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 17:59:53 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 20:44:49 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,8 @@ void	*monitoring(void *params)
 int	setup_philo(t_table *table)
 {
 	t_philo *head;
-	t_philo *tmp;
 
 	head = table->philo;
-	tmp = head;
 	while (1)
 	{
 		if (head->id % 2 == 0 || head->infos->nb_philo % 2 != 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_addback.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:44:04 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 12:20:33 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 20:44:54 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 t_philo	*ft_lstadd_back(t_philo *lst, int value, t_table *table)
 {
-    t_philo	*head;
     t_philo *tmp;
 
-    head = lst;
     if (lst == NULL)
     {
         lst = ft_lst_new(value, table);
