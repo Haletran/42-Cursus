@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 13:05:32 by bapasqui          #+#    #+#              #
-#    Updated: 2024/04/20 17:31:11 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/04/22 13:04:37 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS	= 	src/main.c \
 			src/utils/ft_lst_addback.c \
 			src/exec/status.c \
 			src/exec/actions.c \
+			src/utils/time.c \
 
 OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))

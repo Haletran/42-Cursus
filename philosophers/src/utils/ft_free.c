@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 12:27:04 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:17:20 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void ft_free_lst(t_philo *philo)
 void	ft_free(t_table **table)
 {
     ft_join((*table)->philo);
+    ft_join_server((*table)->server->monitor);
     free((*table)->infos);
     free((*table)->server);
     ft_free_lst((*table)->philo);

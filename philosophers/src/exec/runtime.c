@@ -6,31 +6,22 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 12:54:20 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:18:18 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-// %  2 = impair
-// si impair on commence par pair
-// si pair on commence par impair
 void	*routine(void *params)
 {
 	t_philo	*philo;
-	t_philo *head;
 	
 	philo = params;
-	head = philo;
-	philo->time = 0;
-	while(1)
+	while(philo->infos->end_of_simulation != 1)
 	{
-		if (philo->infos->end_of_simulation == 1)
-			break ;
 		is_eating(philo);
 		is_sleeping(philo);
 		is_thinking(philo);
-		usleep(100);
 	}
 	return (SUCCESS);
 }
@@ -45,26 +36,30 @@ void	*monitoring(void *params)
 	pthread_mutex_init(&server->print_mutex, NULL);
 	while(1)
 	{
-		if (philos->time > philos->infos->t_eat)
+		if ((actual_time() - philos->infos->start_time) - philos->last_meal > philos->infos->t_die)
 		{
-			philos->status = DEAD;
-			philos->infos->end_of_simulation = 1;
-			pthread_mutex_lock(&server->print_mutex);
-			print_status(philos);
-			pthread_mutex_unlock(&server->print_mutex);
-			break ;
+			if (philos->infos->end_of_simulation != 1)
+			{
+				pthread_mutex_lock(&server->print_mutex);
+				philos->status = DEAD;
+				philos->infos->end_of_simulation = 1;
+				print_status(philos);
+				pthread_mutex_unlock(&server->print_mutex);
+				break ;
+			}
 		}
-		if (philos->eat_count == philos->infos->nb_meals)
+		if (philos->is_full == true && philos->check == false)
 		{
-			if (server->nb_meals == philos->eat_count)
-				server->nb_meals += 1;
-			else if (server->nb_meals == philos->infos->nb_meals)
+			pthread_mutex_lock(&server->print_mutex);
+			philos->check = true;
+			philos->infos->counter++;
+			if (philos->infos->counter == philos->infos->nb_philo)
 			{
 				philos->infos->end_of_simulation = 1;
-				break;
+				break ;
 			}
-		}	
-		usleep(100);
+			pthread_mutex_unlock(&server->print_mutex);
+		}
 	}
 	pthread_mutex_destroy(&server->print_mutex);
 	return (SUCCESS);
@@ -77,16 +72,16 @@ int	setup_philo(t_table *table)
 
 	head = table->philo;
 	tmp = head;
-	while (head)
+	while (1)
 	{
+		if (head->id % 2 == 0 || head->infos->nb_philo % 2 != 0)
+			ft_usleep(20);
 		if (pthread_create(&head->philos, NULL, routine, head) != 0)
 			return (FAILURE);
-		if (head->id % 2 == 0 || head->infos->nb_philo % 2 != 0)
-			usleep(20);
-		else
-			usleep(40);
 		if (pthread_create(&table->server->monitor, NULL, monitoring, head) != 0)
 			return (FAILURE);
+		if (head->last == 1)
+			break ;
 		head = head->next;
 	}
 	return (SUCCESS);

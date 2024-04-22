@@ -6,23 +6,20 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:01:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 11:20:06 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:07:46 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
+# include "colors.h"
 # include <pthread.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/time.h>
 # include <unistd.h>
-
-# define RED "\033[0;31m"
-# define GREEN "\033[0;32m"
-# define RESET "\033[0m"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -39,10 +36,12 @@ typedef struct s_philo
 {
 	int					id;
 	int					time;
+	long int			last_meal;
 	int					eat_count;
 	int					last;
 	t_status			status;
-	int					is_full;
+	bool				is_full;
+	bool				check;
 	pthread_mutex_t		*fork;
 	pthread_t			philos;
 	struct s_infos		*infos;
@@ -61,13 +60,15 @@ typedef struct s_monitor
 
 typedef struct s_infos
 {
+	long int			start_time;
 	int					nb_philo;
 	int					t_die;
 	int					t_eat;
 	int					t_sleep;
-	int					n_eat;
 	int					nb_meals;
+	int					counter;
 	volatile int		end_of_simulation;
+	pthread_mutex_t		print_mutex;
 }						t_infos;
 
 typedef struct s_table
@@ -94,6 +95,7 @@ int						print_error(char *str);
 void					*ft_calloc(size_t elementCount, size_t elementSize);
 void					ft_free(t_table **table);
 void					print_lst(t_philo *philo);
+void					print_info(t_infos *infos);
 
 /*LST*/
 void					*ft_lst_new(int content, t_table *table);
@@ -104,5 +106,7 @@ t_philo					*ft_lstadd_back(t_philo *lst, int value,
 void					is_thinking(t_philo *philo);
 void					is_eating(t_philo *philo);
 void					is_sleeping(t_philo *philo);
+void					ft_usleep(long int time_in_ms);
+long int				actual_time(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:14:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 12:34:50 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:08:22 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,18 @@ void *init_table(char **argv, t_table *table)
     if (!table)
         return (NULL);
     table->infos->nb_philo = ft_atoi(argv[1]);
+	table->infos->start_time = actual_time();
 	table->infos->t_die = ft_atoi(argv[2]);
     table->infos->t_eat = ft_atoi(argv[3]);
     table->infos->t_sleep = ft_atoi(argv[4]);
+	table->infos->counter = 0;
+	pthread_mutex_init(&table->infos->print_mutex, NULL);
     if (argv[5])
-        table->infos->n_eat = ft_atoi(argv[5]);
+        table->infos->nb_meals = ft_atoi(argv[5]);
     table->infos->end_of_simulation = 0;
     table->philo = init_stack(table->philo, table->infos->nb_philo, table);
     table->server = ft_calloc(1, sizeof(t_monitor));
+	table->server->nb_meals = 0;
     table->server->monitor = 0;
     return (table);
 }
