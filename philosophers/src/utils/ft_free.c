@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 16:33:41 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:40:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void ft_free_lst(t_philo *philo)
             break ;
         philo = philo->next;
         free(tmp->fork);
+        pthread_mutex_destroy(tmp->fork);
+        pthread_mutex_destroy(&tmp->infos->print_mutex);
         free(tmp);
     }
     free(tmp->fork);

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 17:14:00 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:52:30 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	setup_philo(t_table *table)
 	while (1)
 	{
 		if (head->id % 2 == 0 || head->infos->nb_philo % 2 != 0)
-			ft_usleep(20);
+			ft_usleep(10);
 		if (pthread_create(&head->philos, NULL, routine, head) != 0)
 			return (FAILURE);
 		if (pthread_create(&table->server->monitor, NULL, monitoring, head) != 0)
