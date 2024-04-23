@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/23 13:19:03 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/23 14:28:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	*monitoring(void *params)
 			pthread_mutex_unlock(&server->print_mutex);
 		}
 	}
+	pthread_mutex_unlock(&philos->infos->print_mutex);
 	free(server);
 	return (SUCCESS);
 }

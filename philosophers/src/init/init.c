@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:14:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 18:05:27 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/23 14:27:32 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,12 @@ int parse_input(char **str)
         {
             if (ft_isdigit(str[i][j]) == FAILURE)
                 return (FAILURE);
+            if (str[i][j] == '-' && j != 0)
+                return (FAILURE);
             j++;
         }
+        if (ft_atoi(str[i]) <= 0)
+            return (FAILURE);
         i++;
     }
     return (SUCCESS);

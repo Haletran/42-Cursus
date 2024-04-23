@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:16:59 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 18:05:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/23 14:23:58 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,23 @@ void is_eating(t_philo *philo)
 
 void is_thinking(t_philo *philo)
 {
+    pthread_mutex_lock(&philo->infos->print_mutex);
     if (philo->infos->end_of_simulation != 1)
     {
         philo->status = THINKING;
-        //pthread_mutex_lock(&philo->infos->print_mutex);
+        pthread_mutex_unlock(&philo->infos->print_mutex);
         print_status(philo);
-      //  pthread_mutex_unlock(&philo->infos->print_mutex);
     }
 }
 
 void is_sleeping(t_philo *philo)
 {
+    pthread_mutex_lock(&philo->infos->print_mutex);
     if (philo->infos->end_of_simulation != 1)
     {
         philo->status = SLEEPING;
-       // pthread_mutex_lock(&philo->infos->print_mutex);
+        pthread_mutex_unlock(&philo->infos->print_mutex);
         print_status(philo);
         ft_usleep(philo->infos->t_sleep);
-        //pthread_mutex_unlock(&philo->infos->print_mutex);
     }
 }
