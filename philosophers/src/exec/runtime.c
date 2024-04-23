@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/23 17:20:27 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:30:02 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,8 @@ void	*routine(void *params)
 void	*monitoring(void *params)
 {
 	t_philo	*philos;
-	t_monitor *server;
 
 	philos = params;
-	server = ft_calloc(1, sizeof(t_monitor));
-	pthread_mutex_init(&server->print_mutex, NULL);
 	while(1)
 	{
 		pthread_mutex_lock(&philos->infos->print_mutex);
@@ -69,7 +66,6 @@ void	*monitoring(void *params)
 		}
 		pthread_mutex_unlock(&philos->infos->print_mutex);
 	}
-	pthread_mutex_destroy(&server->print_mutex);
 	return (SUCCESS);
 }
 

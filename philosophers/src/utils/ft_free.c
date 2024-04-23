@@ -6,25 +6,25 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/23 16:23:21 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:17:42 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-#include "../../includes/philo.h"
-
 void ft_join(t_philo *philo)
 {
+    t_philo *tmp;
+
+    tmp = philo;
 	while (1)
 	{
-        if (philo->last == 1)
+        if (tmp->last == 1)
             break ;
-		pthread_join(philo->philos, NULL);
-        free(philo->fork);
-		philo = philo->next;
+		pthread_join(tmp->philos, NULL);
+		tmp = tmp->next;
 	}
-    pthread_join(philo->philos, NULL);
+    pthread_join(tmp->philos, NULL);
 }
 
 void ft_join_server(t_table *table)
@@ -40,8 +40,8 @@ void ft_join_server(t_table *table)
         philo = philo->next;
     }
     pthread_join(table->server->monitor, NULL);
-}
 
+}
 
 void ft_free_lst(t_philo *philo)
 {
@@ -50,8 +50,9 @@ void ft_free_lst(t_philo *philo)
     tmp = philo;
     while (1)
     {
-        if (philo->last == 1)
+        if (tmp->last == 1)
             break ;
+        pthread_mutex_unlock(tmp->fork);
         pthread_mutex_destroy(tmp->fork);
         free(tmp->fork);
         pthread_mutex_destroy(&tmp->infos->print_mutex);
@@ -65,6 +66,7 @@ void ft_free_lst(t_philo *philo)
 void	ft_free(t_table **table)
 {
     ft_join((*table)->philo);
+    printf("free philo\n");
     ft_join_server((*table));
     free((*table)->infos);
     free((*table)->server);
