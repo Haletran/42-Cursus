@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/23 13:18:21 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:23:21 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void ft_join(t_philo *philo)
             break ;
 		pthread_join(philo->philos, NULL);
         free(philo->fork);
-        //pthread_mutex_destroy(&philo->infos->print_mutex);
 		philo = philo->next;
 	}
     pthread_join(philo->philos, NULL);

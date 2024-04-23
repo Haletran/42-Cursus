@@ -18,29 +18,6 @@
 3. `malloc` `free` `write`
 4. `usleep`
 
-
-## Le projet
-
-- Le philo doit penser / manger / dormir
-jusqu'a que ce que tous le monde ait mange 
-ou que un philo meurt.
-- prendre en compte le dernier parametre si 
-il existe
-- autant de fourchettes que de philos
-- quand un philo a ces deux fourchettes ils mangent obligatoirement 
-et les philos n - 1 && n + 1ne peuvent pas manger car pas de
-fourchettes
-- ajouter des conditions pour le temp de mort et le nb de repas a satisfaire
-- mieux gere les fourchettes ainsi que quelle philo est en train de faire quelque chose
-- gere le temps en ms
-- gere quelle philo a le droit de manger en premier
-- si le dernier param est present le prendre en compte
-- avoir un meilleur print des valeurs de depart
-- comprendre mieux les threads (create, join)
-- l'ordre des philos doit etre defini pour qu'aucun philo ne meure
-- Il ne faut pas qu'ils prennent leurs fouchettes en meme temps sinon deadlock
-
-
 ## Les prints 
 
 Any state change of a philosopher must be formatted as follows:
@@ -50,18 +27,19 @@ Any state change of a philosopher must be formatted as follows:
 ◦ timestamp_in_ms X is thinking
 ◦ timestamp_in_ms X died
 
-## Avoir un projet propre
+## TEST
 
-- Setup les structures (philos, forks, variables)
-- Setup les threads
-- Setup les mutexs (sur tous)
-- Setup les variables
-- Structure du projet clean ✔️
-- Structurer la routine par plusieurs fonctions (eat, sleep, think, check)
-
-
-
-## LINKS 
-
-- https://medium.com/swlh/the-dining-philosophers-problem-bbdb92e6b788
-- 
+- ./philo 1 200 200 200	philo 1 ne prend qu'une fourchette et meurt au bout de 200 ms
+- ./philo 2 800 200 200	personne ne meurt
+- ./philo 5 800 200 200	personne ne meurt
+- ./philo 5 800 200 200 7	la simulation s'arrete quand chaque philo a mange 7 fois
+- ./philo 4 410 200 200	personne ne meurt
+- ./philo 4 310 200 200	un philo meurt
+- ./philo 4 500 200 1.2	argument invalide
+- ./philo 4 0 200 200	argument invalide
+- ./philo 4 -500 200 200	argument invalide
+- ./philo 4 500 200 2147483647	un philo meurt au bout de 500 ms
+- ./philo 4 2147483647 200 200	personne ne meurt
+- ./philo 4 214748364732 200 200	argument invalide
+- ./philo 4 200 210 200	un philo meurt, il faut afficher la mort avant 210 ms
+- valgrind --tool=helgrind ou valgrind --tool=drd

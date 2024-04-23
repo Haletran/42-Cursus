@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 13:05:32 by bapasqui          #+#    #+#              #
-#    Updated: 2024/04/23 14:20:19 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/04/23 17:20:31 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ endif
 
 NAME := philo
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g #-fsanitize=thread -pthread
+CFLAGS := -Wextra -Wall -Werror -g #-fsanitize=thread
 DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 
 SRCS	= 	src/main.c \

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/23 14:28:12 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:20:27 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@ void	*routine(void *params)
 	t_philo	*philo;
 	
 	philo = params;
-	while(philo->infos->end_of_simulation != 1)
+	while(1)
 	{
+		if (philo->id % 2 == 0)
+			ft_usleep(10);
+		pthread_mutex_lock(&philo->infos->print_mutex);
+		if (philo->infos->end_of_simulation == 1)
+			break ;
+		pthread_mutex_unlock(&philo->infos->print_mutex);
 		is_eating(philo);
 		is_sleeping(philo);
 		is_thinking(philo);
@@ -44,25 +50,26 @@ void	*monitoring(void *params)
 				philos->status = DEAD;
 				philos->infos->end_of_simulation = 1;
 				print_status(philos);
+				pthread_mutex_unlock(&philos->infos->print_mutex);
 				break ;
 			} 
 		}
 		pthread_mutex_unlock(&philos->infos->print_mutex);
+		pthread_mutex_lock(&philos->infos->print_mutex);
 		if (philos->is_full == true && philos->check == false)
 		{
-			pthread_mutex_lock(&server->print_mutex);
 			philos->check = true;
 			philos->infos->counter++;
 			if (philos->infos->counter == philos->infos->nb_philo)
 			{
 				philos->infos->end_of_simulation = 1;
+				pthread_mutex_unlock(&philos->infos->print_mutex);
 				break ;
 			}
-			pthread_mutex_unlock(&server->print_mutex);
 		}
+		pthread_mutex_unlock(&philos->infos->print_mutex);
 	}
-	pthread_mutex_unlock(&philos->infos->print_mutex);
-	free(server);
+	pthread_mutex_destroy(&server->print_mutex);
 	return (SUCCESS);
 }
 
@@ -73,8 +80,6 @@ int	setup_philo(t_table *table)
 	head = table->philo;
 	while (1)
 	{
-		if (head->id % 2 == 0 || head->infos->nb_philo % 2 != 0)
-			ft_usleep(10);
 		if (pthread_create(&head->philos, NULL, routine, head) != 0)
 			return (FAILURE);
 		if (pthread_create(&table->server->monitor, NULL, monitoring, head) != 0)
