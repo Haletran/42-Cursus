@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:25:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 13:48:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:01:12 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void print_status(t_philo *philos)
 {
-    //pthread_mutex_lock(&philos->status_mutex);
     if (philos->status == EATING)
         printf("%ld %d "YELLOW"is eating\n"RESET, actual_time() - philos->infos->start_time, philos->id);
     else if (philos->status == SLEEPING)
@@ -23,5 +22,4 @@ void print_status(t_philo *philos)
         printf("%ld %d "CYAN"is thinking\n"RESET, actual_time() - philos->infos->start_time, philos->id);
     else if (philos->status == DEAD && philos->infos->end_of_simulation == 1)
         printf("%ld %d "RED"is dead\n"RESET, actual_time() - philos->infos->start_time, philos->id);
-    //pthread_mutex_unlock(&philos->status_mutex);
 }   

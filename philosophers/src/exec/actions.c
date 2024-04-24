@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:16:59 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 15:33:37 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:21:13 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,37 @@ int is_eating(t_philo *philo)
     pthread_mutex_lock(&philo->infos->print_mutex);
     if (philo->infos->end_of_simulation == 1)
     {
-        pthread_mutex_unlock(philo->fork);
         pthread_mutex_unlock(&philo->infos->print_mutex);
+        pthread_mutex_unlock(philo->fork);
         return (END_OF_SIMULATION);
     }
     printf("%ld %d has taken a fork\n", actual_time() - philo->infos->start_time, philo->id);
+    pthread_mutex_unlock(&philo->infos->print_mutex);
+    pthread_mutex_lock(&philo->infos->print_mutex);
+    if (philo->infos->nb_philo == 1)
+    {
+		pthread_mutex_unlock(philo->fork);
+        pthread_mutex_unlock(&philo->infos->print_mutex);
+        return (END_OF_SIMULATION);
+    }
     pthread_mutex_unlock(&philo->infos->print_mutex);
     pthread_mutex_lock(philo->next->fork);
     pthread_mutex_lock(&philo->infos->print_mutex);
     if (philo->infos->end_of_simulation == 1)
     {
+        pthread_mutex_unlock(&philo->infos->print_mutex);
+        pthread_mutex_unlock(philo->next->fork);
         pthread_mutex_unlock(philo->fork);
         return (END_OF_SIMULATION);
     }
-    printf("%ld %d has taken a fork\n", actual_time() - philo->infos->start_time, philo->id);
     pthread_mutex_unlock(&philo->infos->print_mutex);
     pthread_mutex_lock(&philo->infos->print_mutex);
+    printf("%ld %d has taken a fork\n", actual_time() - philo->infos->start_time, philo->id);
     if (philo->infos->end_of_simulation == 1)
     {
-        pthread_mutex_unlock(philo->fork);
-        pthread_mutex_unlock(philo->next->fork);
         pthread_mutex_unlock(&philo->infos->print_mutex);
+        pthread_mutex_unlock(philo->next->fork);
+        pthread_mutex_unlock(philo->fork);
         return (END_OF_SIMULATION);
     }
     pthread_mutex_unlock(&philo->infos->print_mutex);
@@ -53,13 +63,6 @@ int is_eating(t_philo *philo)
     ft_usleep(philo->infos->t_eat);
     pthread_mutex_unlock(philo->fork);
     pthread_mutex_unlock(philo->next->fork);
-    pthread_mutex_lock(&philo->infos->print_mutex);
-    if (philo->infos->end_of_simulation == 1)
-    {
-        pthread_mutex_unlock(&philo->infos->print_mutex);
-        return (END_OF_SIMULATION);
-    }
-    pthread_mutex_unlock(&philo->infos->print_mutex);
     return (SUCCESS);
 }
 
