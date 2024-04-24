@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 13:51:17 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:43:25 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ft_join(t_philo *philo)
 		pthread_join(tmp->philos, NULL);
 		tmp = tmp->next;
 	}
-    pthread_join(tmp->philos, NULL);
+    //pthread_join(tmp->philos, NULL);
 }
 
 void ft_join_server(t_table *table)
@@ -61,10 +61,11 @@ void ft_join_server(t_table *table)
     {
         if (philo->last == 1)
             break ;
-        pthread_join(table->server->monitor, NULL);
         philo = philo->next;
     }
     pthread_join(table->server->monitor, NULL);
+
+    //pthread_join(table->server->monitor, NULL);
 
 }
 
