@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:01:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 17:58:14 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:53:35 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 # define SUCCESS 0
 # define FAILURE 1
+#define END_OF_SIMULATION 2
 
 typedef enum e_status
 {
@@ -43,6 +44,7 @@ typedef struct s_philo
 	bool				is_full;
 	bool				check;
 	pthread_mutex_t		*fork;
+	pthread_mutex_t     status_mutex;
 	pthread_t			philos;
 	struct s_infos		*infos;
 	struct s_philo		*next;
@@ -53,9 +55,7 @@ typedef struct s_monitor
 {
 	int					nb_meals;
 	pthread_t			monitor;
-	pthread_mutex_t		*forks_mutex;
 	pthread_mutex_t		print_mutex;
-	pthread_mutex_t		*monitor_mutex;
 }						t_monitor;
 
 typedef struct s_infos
@@ -94,6 +94,7 @@ void					print_tab(char **tab);
 int						print_error(char *str);
 void					*ft_calloc(size_t elementCount, size_t elementSize);
 void					ft_free(t_table **table);
+void					destroy_mutex(t_philo *philo);
 void					print_lst(t_philo *philo);
 void					print_info(t_infos *infos);
 
@@ -103,9 +104,9 @@ t_philo					*ft_lstadd_back(t_philo *lst, int value,
 							t_table *table);
 
 /*ACTIONS*/
-void					is_thinking(t_philo *philo);
-void					is_eating(t_philo *philo);
-void					is_sleeping(t_philo *philo);
+int					is_thinking(t_philo *philo);
+int					is_eating(t_philo *philo);
+int					is_sleeping(t_philo *philo);
 void					ft_usleep(long int time_in_ms);
 long int				actual_time(void);
 

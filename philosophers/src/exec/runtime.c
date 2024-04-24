@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/23 19:30:02 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:52:30 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ void	*routine(void *params)
 	{
 		if (philo->id % 2 == 0)
 			ft_usleep(10);
-		pthread_mutex_lock(&philo->infos->print_mutex);
-		if (philo->infos->end_of_simulation == 1)
+		if (is_eating(philo) == END_OF_SIMULATION)
 			break ;
-		pthread_mutex_unlock(&philo->infos->print_mutex);
-		is_eating(philo);
-		is_sleeping(philo);
-		is_thinking(philo);
+		if (is_sleeping(philo) == END_OF_SIMULATION)
+			break;
+		if (is_thinking(philo) == END_OF_SIMULATION)
+			break;
 	}
 	return (SUCCESS);
 }
@@ -49,7 +48,7 @@ void	*monitoring(void *params)
 				print_status(philos);
 				pthread_mutex_unlock(&philos->infos->print_mutex);
 				break ;
-			} 
+			}
 		}
 		pthread_mutex_unlock(&philos->infos->print_mutex);
 		pthread_mutex_lock(&philos->infos->print_mutex);
@@ -65,7 +64,16 @@ void	*monitoring(void *params)
 			}
 		}
 		pthread_mutex_unlock(&philos->infos->print_mutex);
+		pthread_mutex_lock(&philos->infos->print_mutex);
+		if (philos->infos->end_of_simulation == 1)
+		{
+			pthread_mutex_unlock(&philos->infos->print_mutex);
+			break ;
+		}
+		pthread_mutex_unlock(&philos->infos->print_mutex);
 	}
+	if (philos->status == DEAD)
+		pthread_mutex_unlock(philos->fork);
 	return (SUCCESS);
 }
 
