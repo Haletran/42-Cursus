@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:27:19 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/18 13:27:27 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:29:17 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,26 @@
 
 int	ft_atoi(const char *str)
 {
-	int		c;
-	int		d;
-	int		e;
-	char	oe;
+	int	int_dest;
+	int	sign;
 
-	c = 0;
-	oe = 1;
-	d = 0;
-	e = 0;
-	if (!str)
-		return (0);
-	while (str[c] == 32 || (str[c] >= 9 && str[c] <= 13))
-		c++;
-	if (str[c] == 43 || str[c] == 45)
+	sign = 1;
+	int_dest = 0;
+	while (*str == ' ' || (*str > 8 && *str < 14))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		if (str[c] == 45)
-			d++;
-		c++;
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
-	while (str[c] >= '0' && str[c] <= '9')
+	while (*str != 0)
 	{
-		e = e * 10 + str[c] - '0';
-		c++;
+		if (*str > 47 && *str < 58)
+			int_dest = int_dest * 10 + (*str - 48);
+		else
+			return (int_dest * sign);
+		str++;
 	}
-	if (d == 1)
-		oe = -1;
-	return (e * oe);
+	return (int_dest * sign);
 }

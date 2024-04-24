@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 17:18:49 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:32:10 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 void	*routine(void *params)
 {
 	t_philo	*philo;
-	
+
 	philo = params;
-	while(1)
+	while (1)
 	{
 		if (philo->id % 2 == 0)
 			ft_usleep(10);
 		if (is_eating(philo) == END_OF_SIMULATION)
 			break ;
 		if (is_sleeping(philo) == END_OF_SIMULATION)
-			break;
+			break ;
 		if (is_thinking(philo) == END_OF_SIMULATION)
-			break;
+			break ;
 	}
 	return (SUCCESS);
 }
@@ -36,10 +36,11 @@ void	*monitoring(void *params)
 	t_philo	*philos;
 
 	philos = params;
-	while(1)
+	while (1)
 	{
 		pthread_mutex_lock(&philos->infos->print_mutex);
-		if ((actual_time() - philos->infos->start_time) - philos->last_meal > philos->infos->t_die)
+		if ((actual_time() - philos->infos->start_time)
+			- philos->last_meal > philos->infos->t_die)
 		{
 			if (philos->infos->end_of_simulation != 1)
 			{
@@ -84,7 +85,8 @@ int	setup_philo(t_table *table)
 	{
 		if (pthread_create(&head->philos, NULL, routine, head) != 0)
 			return (FAILURE);
-		if (pthread_create(&table->server->monitor, NULL, monitoring, head) != 0)
+		if (pthread_create(&table->server->monitor, NULL, monitoring,
+				head) != 0)
 			return (FAILURE);
 		if (head->last == 1)
 			break ;

@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 13:05:32 by bapasqui          #+#    #+#              #
-#    Updated: 2024/04/24 14:40:46 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/04/24 17:33:26 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,19 +17,17 @@ endif
 
 NAME := philo
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g #-fsanitize=thread
+CFLAGS := -Wextra -Wall -Werror -g -fsanitize=thread
 DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 
 SRCS	= 	src/main.c \
 			src/init/init.c \
 			src/utils/ft_is_digit.c \
 			src/utils/ft_atoi.c \
-			src/utils/ft_print_tab.c \
 			src/utils/print_error.c \
 			src/utils/ft_calloc.c \
 			src/utils/ft_free.c \
 			src/exec/runtime.c \
-			src/utils/print_lst.c \
 			src/utils/ft_lstnew.c \
 			src/utils/ft_lst_addback.c \
 			src/exec/status.c \

@@ -6,20 +6,24 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:25:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 16:01:12 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:26:52 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-void print_status(t_philo *philos)
+void	print_status(t_philo *philos)
 {
-    if (philos->status == EATING)
-        printf("%ld %d "YELLOW"is eating\n"RESET, actual_time() - philos->infos->start_time, philos->id);
-    else if (philos->status == SLEEPING)
-        printf("%ld %d "GREEN"is sleeping\n"RESET, actual_time() - philos->infos->start_time, philos->id);
-    else if (philos->status == THINKING)
-        printf("%ld %d "CYAN"is thinking\n"RESET, actual_time() - philos->infos->start_time, philos->id);
-    else if (philos->status == DEAD && philos->infos->end_of_simulation == 1)
-        printf("%ld %d "RED"is dead\n"RESET, actual_time() - philos->infos->start_time, philos->id);
-}   
+	if (philos->status == EATING)
+		printf("%ld %d " YELLOW "is eating\n" RESET, actual_time()
+			- philos->infos->start_time, philos->id);
+	else if (philos->status == SLEEPING)
+		printf("%ld %d " GREEN "is sleeping\n" RESET, actual_time()
+			- philos->infos->start_time, philos->id);
+	else if (philos->status == THINKING)
+		printf("%ld %d " CYAN "is thinking\n" RESET, actual_time()
+			- philos->infos->start_time, philos->id);
+	else if (philos->status == DEAD && philos->infos->end_of_simulation == 1)
+		printf("%ld %d " RED "is dead\n" RESET, actual_time()
+			- philos->infos->start_time, philos->id);
+}

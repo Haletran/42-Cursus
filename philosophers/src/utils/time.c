@@ -6,20 +6,20 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:03:41 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/22 13:45:33 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:28:28 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-long int		actual_time(void)
+long int	actual_time(void)
 {
-	long int			time;
-	struct timeval		current_time;
+	long int		time;
+	struct timeval	current_time;
 
 	time = 0;
 	if (gettimeofday(&current_time, NULL) == -1)
-		print_error("Gettimeofday returned -1\n");
+		print_error("Gettimeofday error\n");
 	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
 	return (time);
 }
