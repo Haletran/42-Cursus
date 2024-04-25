@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:01:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/25 16:44:30 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/26 00:01:58 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_philo
 typedef struct s_monitor
 {
 	int					nb_meals;
-	pthread_t			*monitor;
+	pthread_t			monitor;
 }						t_monitor;
 
 typedef struct s_infos
@@ -92,6 +92,7 @@ int						check_end_of_simulation(t_philo *philo);
 void					print_fork_taken(t_philo *philo);
 int						check_single_philo(t_philo *philo);
 void					update_eating_status(t_philo *philo);
+int is_end(t_philo *philo);
 
 /*LIB*/
 int						ft_isdigit(int c);

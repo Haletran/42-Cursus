@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/25 18:40:50 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/26 00:02:04 by baptiste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,6 @@ void	ft_join(t_table *table)
 			break ;
 		philo = philo->next;
 	}
-}
-
-void	ft_join_server(t_table *table)
-{
-	t_philo	*philo;
-	int		i;
-
-	i = 0;
-	philo = table->philo;
-	while (1)
-	{
-		pthread_join(table->server->monitor[i], NULL);
-		if (philo->last == 1)
-			break ;
-		philo = philo->next;
-		i++;
-	}
-	free(table->server->monitor);
 }
 
 void 	ft_free_fork(t_table *table)
@@ -76,7 +58,7 @@ void	ft_free_lst(t_philo *philo)
 void	ft_free(t_table **table)
 {
 	ft_join((*table));
-	ft_join_server((*table));
+	pthread_join((*table)->server->monitor, NULL);
 	ft_free_fork((*table));
 	ft_free_lst((*table)->philo);
 	free((*table)->server);
