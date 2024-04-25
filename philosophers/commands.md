@@ -29,6 +29,7 @@ Any state change of a philosopher must be formatted as follows:
 
 ## TEST
 
+- ./philo 2 250 140 100
 - ./philo 1 200 200 200	philo 1 ne prend qu'une fourchette et meurt au bout de 200 ms
 - ./philo 2 800 200 200	personne ne meurt
 - ./philo 5 800 200 200	personne ne meurt

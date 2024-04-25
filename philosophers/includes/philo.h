@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:01:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/25 16:35:50 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:44:30 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,11 @@ void					ft_join_server(t_table *table);
 int						check_end_simulation(t_philo *philos);
 int						check_fullness(t_philo *philos);
 int						check_death(t_philo *philos);
-int					print_forks(t_philo *philos);
+int						print_forks(t_philo *philos);
+int						check_end_of_simulation(t_philo *philo);
+void					print_fork_taken(t_philo *philo);
+int						check_single_philo(t_philo *philo);
+void					update_eating_status(t_philo *philo);
 
 /*LIB*/
 int						ft_isdigit(int c);

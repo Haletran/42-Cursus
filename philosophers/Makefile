@@ -6,7 +6,7 @@
 #    By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 13:05:32 by bapasqui          #+#    #+#              #
-#    Updated: 2024/04/25 16:18:00 by bapasqui         ###   ########.fr        #
+#    Updated: 2024/04/25 16:44:50 by bapasqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS	= 	src/main.c \
 			src/exec/actions.c \
 			src/utils/time.c \
 			src/exec/monitoring.c \
+			src/exec/eating.c \
 
 OBJS_DIR := obj
 OBJS    := $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
