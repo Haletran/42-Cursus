@@ -6,61 +6,64 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 17:29:54 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:10:24 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-void	ft_join(t_philo *philo)
-{
-	t_philo	*tmp;
-
-	tmp = philo;
-	while (1)
-	{
-		if (tmp->last == 1)
-			break ;
-		pthread_join(tmp->philos, NULL);
-		tmp = tmp->next;
-	}
-}
-
-void	ft_join_server(t_table *table)
+void	ft_join(t_table *table)
 {
 	t_philo	*philo;
 
 	philo = table->philo;
 	while (1)
 	{
+		pthread_join(philo->philos, NULL);
+		free(philo->fork);
 		if (philo->last == 1)
 			break ;
 		philo = philo->next;
 	}
-	pthread_join(table->server->monitor, NULL);
+}
+
+void	ft_join_server(t_table *table)
+{
+	t_philo	*philo;
+	int		i;
+
+	i = 0;
+	philo = table->philo;
+	while (1)
+	{
+		pthread_join(table->server->monitor[i], NULL);
+		if (philo->last == 1)
+			break ;
+		philo = philo->next;
+		i++;
+	}
+	free(table->server->monitor);
 }
 
 void	ft_free_lst(t_philo *philo)
 {
 	t_philo	*tmp;
 
-	tmp = philo;
-	while (1)
+	while (philo->last != 1)
 	{
-		if (tmp->last == 1)
-			break ;
+		tmp = philo;
+		philo = philo->next;
 		free(tmp);
-		tmp = tmp->next;
 	}
-	free(tmp);
+	free(philo);
 }
 
 void	ft_free(t_table **table)
 {
-	ft_join((*table)->philo);
+	ft_join((*table));
 	ft_join_server((*table));
-	free((*table)->infos);
-	free((*table)->server);
 	ft_free_lst((*table)->philo);
+	free((*table)->server);
+	free((*table)->infos);
 	free((*table));
 }

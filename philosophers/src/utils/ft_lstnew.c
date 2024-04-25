@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:41:44 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 17:31:14 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 11:53:20 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	*ft_lst_new(int content, t_table *table)
 	philo->infos = table->infos;
 	philo->fork = ft_calloc(1, sizeof(pthread_mutex_t));
 	pthread_mutex_init(philo->fork, NULL);
-	pthread_mutex_init(&philo->status_mutex, NULL);
 	philo->time = 0;
 	philo->eat_count = 0;
 	philo->is_full = false;

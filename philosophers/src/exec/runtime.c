@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:01:30 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 17:32:10 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:22:04 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,59 +38,36 @@ void	*monitoring(void *params)
 	philos = params;
 	while (1)
 	{
-		pthread_mutex_lock(&philos->infos->print_mutex);
-		if ((actual_time() - philos->infos->start_time)
-			- philos->last_meal > philos->infos->t_die)
-		{
-			if (philos->infos->end_of_simulation != 1)
-			{
-				philos->status = DEAD;
-				philos->infos->end_of_simulation = 1;
-				print_status(philos);
-				pthread_mutex_unlock(&philos->infos->print_mutex);
-				break ;
-			}
-		}
-		pthread_mutex_unlock(&philos->infos->print_mutex);
-		pthread_mutex_lock(&philos->infos->print_mutex);
-		if (philos->is_full == true && philos->check == false)
-		{
-			philos->check = true;
-			philos->infos->counter++;
-			if (philos->infos->counter == philos->infos->nb_philo)
-			{
-				philos->infos->end_of_simulation = 1;
-				pthread_mutex_unlock(&philos->infos->print_mutex);
-				break ;
-			}
-		}
-		pthread_mutex_unlock(&philos->infos->print_mutex);
-		pthread_mutex_lock(&philos->infos->print_mutex);
-		if (philos->infos->end_of_simulation == 1)
-		{
-			pthread_mutex_unlock(&philos->infos->print_mutex);
+		if (check_death(philos) == END_OF_SIMULATION)
 			break ;
-		}
-		pthread_mutex_unlock(&philos->infos->print_mutex);
+		if (check_fullness(philos) == END_OF_SIMULATION)
+			break ;
+		if (check_end_simulation(philos) == END_OF_SIMULATION)
+			break ;
 	}
 	return (SUCCESS);
 }
 
 int	setup_philo(t_table *table)
 {
-	t_philo *head;
+	t_philo	*head;
+	int		i;
 
 	head = table->philo;
+	i = 0;
+	table->server->monitor = ft_calloc(table->infos->nb_philo,
+			sizeof(pthread_t));
 	while (1)
 	{
 		if (pthread_create(&head->philos, NULL, routine, head) != 0)
 			return (FAILURE);
-		if (pthread_create(&table->server->monitor, NULL, monitoring,
+		if (pthread_create(&table->server->monitor[i], NULL, monitoring,
 				head) != 0)
 			return (FAILURE);
 		if (head->last == 1)
 			break ;
 		head = head->next;
+		i++;
 	}
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:14:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 17:26:56 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:10:50 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,14 @@ t_philo	*init_stack(t_philo *a, int nb_philo, t_table *table)
 	return (a);
 }
 
-void	*init_table(char **argv, t_table *table)
+void	*setup_infos(t_table *table, char **argv)
 {
-	if (parse_input(argv) == FAILURE)
-		return (NULL);
-	table = ft_calloc(1, sizeof(t_table));
 	table->infos = ft_calloc(1, sizeof(t_infos));
-	if (!table)
+	if (!table->infos)
 		return (NULL);
 	table->infos->nb_philo = ft_atoi(argv[1]);
+	if (table->infos->nb_philo >= 1000)
+		return (NULL);
 	table->infos->start_time = actual_time();
 	table->infos->t_die = ft_atoi(argv[2]);
 	table->infos->t_eat = ft_atoi(argv[3]);
@@ -52,7 +51,18 @@ void	*init_table(char **argv, t_table *table)
 	pthread_mutex_init(&table->infos->print_mutex, NULL);
 	if (argv[5])
 		table->infos->nb_meals = ft_atoi(argv[5]);
-	table->infos->end_of_simulation = 0;
+	return (table);
+}
+
+void	*init_table(char **argv, t_table *table)
+{
+	if (parse_input(argv) == FAILURE)
+		return (NULL);
+	table = ft_calloc(1, sizeof(t_table));
+	if (!table)
+		return (NULL);
+	if (setup_infos(table, argv) == NULL)
+		return (NULL);
 	table->philo = init_stack(table->philo, table->infos->nb_philo, table);
 	table->server = ft_calloc(1, sizeof(t_monitor));
 	table->server->nb_meals = 0;

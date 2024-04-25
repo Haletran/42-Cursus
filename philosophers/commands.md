@@ -32,7 +32,7 @@ Any state change of a philosopher must be formatted as follows:
 - ./philo 1 200 200 200	philo 1 ne prend qu'une fourchette et meurt au bout de 200 ms
 - ./philo 2 800 200 200	personne ne meurt
 - ./philo 5 800 200 200	personne ne meurt
-- ./philo 5 800 200 200 7	la simulation s'arrete quand chaque philo a mange 7 fois
+- ./philo 5 800 200 200 7 la simulation s'arrete quand chaque philo a mange 7 fois
 - ./philo 4 410 200 200	personne ne meurt
 - ./philo 4 310 200 200	un philo meurt
 - ./philo 4 500 200 1.2	argument invalide

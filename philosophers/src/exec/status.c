@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:25:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 17:26:52 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:37:44 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,19 @@ void	print_status(t_philo *philos)
 	else if (philos->status == DEAD && philos->infos->end_of_simulation == 1)
 		printf("%ld %d " RED "is dead\n" RESET, actual_time()
 			- philos->infos->start_time, philos->id);
+}
+
+int print_forks(t_philo *philos)
+{
+	pthread_mutex_lock(&philos->infos->print_mutex);
+	if (philos->infos->end_of_simulation == 1)
+	{
+		pthread_mutex_unlock(&philos->infos->print_mutex);
+		pthread_mutex_unlock(philos->fork);
+		return (END_OF_SIMULATION);
+	}
+    printf("%ld %d has taken a fork\n", actual_time()
+		- philos->infos->start_time, philos->id);
+	pthread_mutex_unlock(&philos->infos->print_mutex);
+	return (SUCCESS);
 }

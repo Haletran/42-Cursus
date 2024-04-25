@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:01:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/24 17:32:38 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:35:50 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_philo
 	bool				is_full;
 	bool				check;
 	pthread_mutex_t		*fork;
-	pthread_mutex_t		status_mutex;
 	pthread_t			philos;
 	struct s_infos		*infos;
 	struct s_philo		*next;
@@ -54,8 +53,7 @@ typedef struct s_philo
 typedef struct s_monitor
 {
 	int					nb_meals;
-	pthread_t			monitor;
-	pthread_mutex_t		print_mutex;
+	pthread_t			*monitor;
 }						t_monitor;
 
 typedef struct s_infos
@@ -84,19 +82,19 @@ t_philo					*init_stack(t_philo *a, int nb_philo, t_table *table);
 int						parse_input(char **argv);
 int						setup_philo(t_table *table);
 void					*routine(void *params);
-void					ft_join(t_philo *philo);
 void					print_status(t_philo *philos);
+void					ft_join_server(t_table *table);
+int						check_end_simulation(t_philo *philos);
+int						check_fullness(t_philo *philos);
+int						check_death(t_philo *philos);
+int					print_forks(t_philo *philos);
 
 /*LIB*/
 int						ft_isdigit(int c);
 int						ft_atoi(const char *str);
-void					print_tab(char **tab);
 int						print_error(char *str);
 void					*ft_calloc(size_t elementCount, size_t elementSize);
 void					ft_free(t_table **table);
-void					destroy_mutex(t_philo *philo);
-void					print_lst(t_philo *philo);
-void					print_info(t_infos *infos);
 
 /*LST*/
 void					*ft_lst_new(int content, t_table *table);
