@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/25 16:10:24 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 18:40:50 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_join(t_table *table)
 	while (1)
 	{
 		pthread_join(philo->philos, NULL);
-		free(philo->fork);
 		if (philo->last == 1)
 			break ;
 		philo = philo->next;
@@ -45,6 +44,22 @@ void	ft_join_server(t_table *table)
 	free(table->server->monitor);
 }
 
+void 	ft_free_fork(t_table *table)
+{
+	t_philo	*philo;
+
+	philo = table->philo;
+	while (1)
+	{
+		pthread_mutex_destroy(philo->fork);
+		free(philo->fork);
+		if (philo->last == 1)
+			break ;
+		philo = philo->next;
+	}
+}
+
+
 void	ft_free_lst(t_philo *philo)
 {
 	t_philo	*tmp;
@@ -62,6 +77,7 @@ void	ft_free(t_table **table)
 {
 	ft_join((*table));
 	ft_join_server((*table));
+	ft_free_fork((*table));
 	ft_free_lst((*table)->philo);
 	free((*table)->server);
 	free((*table)->infos);
