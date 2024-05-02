@@ -24,7 +24,7 @@ void	print_status(t_philo *philos)
 		printf("%ld %d " CYAN "is thinking\n" RESET, actual_time()
 			- philos->infos->start_time, philos->id);
 	else if (philos->status == DEAD && philos->infos->end_of_simulation == 1)
-		printf("%ld %d " RED "is dead\n" RESET, actual_time()
+		printf("%ld %d " RED "died\n" RESET, actual_time()
 			- philos->infos->start_time, philos->id);
 }
 

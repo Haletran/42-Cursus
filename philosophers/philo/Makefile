@@ -17,7 +17,7 @@ endif
 
 NAME := philo
 CC := cc 
-CFLAGS := -Wextra -Wall -Werror -g #-fsanitize=thread
+CFLAGS := -Wextra -Wall -Werror -g #-pthread
 DEBUG_FLAGS := -Wextra -Wall -Werror -g -fsanitize=address
 
 SRCS	= 	src/main.c \
