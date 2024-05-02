@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:01:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/26 00:01:58 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:03:03 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ int						check_end_of_simulation(t_philo *philo);
 void					print_fork_taken(t_philo *philo);
 int						check_single_philo(t_philo *philo);
 void					update_eating_status(t_philo *philo);
-int is_end(t_philo *philo);
 
 /*LIB*/
 int						ft_isdigit(int c);

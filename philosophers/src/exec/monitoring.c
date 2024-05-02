@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitoring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:16:53 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/26 00:01:42 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:55:24 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_death(t_philo *philos)
 {
 	pthread_mutex_lock(&philos->infos->print_mutex);
 	if ((actual_time() - philos->infos->start_time)
-		- philos->last_meal > philos->infos->t_die)
+		- philos->last_meal >= philos->infos->t_die)
 	{
 		if (philos->infos->end_of_simulation != 1)
 		{
@@ -33,23 +33,17 @@ int	check_death(t_philo *philos)
 
 int	check_fullness(t_philo *philos)
 {
-	int i;
-
-	i = 0;
 	pthread_mutex_lock(&philos->infos->print_mutex);
-	while (1)
+	if (philos->is_full == true && philos->check == false)
 	{
-		if (philos->is_full == true)
-			i++;
-		if (philos->last == 1)
-			break;
-		philos = philos->next;
-	}
-	if (i == philos->infos->nb_philo)
-	{
-		philos->infos->end_of_simulation = 1;
-		pthread_mutex_unlock(&philos->infos->print_mutex);
-		return (END_OF_SIMULATION);
+		philos->check = true;
+		philos->infos->counter++;
+		if (philos->infos->counter == philos->infos->nb_philo)
+		{
+			philos->infos->end_of_simulation = 1;
+			pthread_mutex_unlock(&philos->infos->print_mutex);
+			return (END_OF_SIMULATION);
+		}
 	}
 	pthread_mutex_unlock(&philos->infos->print_mutex);
 	return (SUCCESS);

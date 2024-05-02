@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:04:51 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/26 00:02:04 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/04/25 20:19:00 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_join(t_table *table)
 	}
 }
 
-void 	ft_free_fork(t_table *table)
+void	ft_free_fork(t_table *table)
 {
 	t_philo	*philo;
 
@@ -40,7 +40,6 @@ void 	ft_free_fork(t_table *table)
 		philo = philo->next;
 	}
 }
-
 
 void	ft_free_lst(t_philo *philo)
 {

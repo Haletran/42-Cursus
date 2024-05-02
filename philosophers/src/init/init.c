@@ -6,7 +6,7 @@
 /*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:14:13 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/25 16:10:50 by bapasqui         ###   ########.fr       */
+/*   Updated: 2024/04/25 20:18:32 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	*setup_infos(t_table *table, char **argv)
 	if (!table->infos)
 		return (NULL);
 	table->infos->nb_philo = ft_atoi(argv[1]);
-	if (table->infos->nb_philo >= 1000)
+	if (table->infos->nb_philo >= 500)
 		return (NULL);
 	table->infos->start_time = actual_time();
 	table->infos->t_die = ft_atoi(argv[2]);
@@ -65,6 +65,8 @@ void	*init_table(char **argv, t_table *table)
 		return (NULL);
 	table->philo = init_stack(table->philo, table->infos->nb_philo, table);
 	table->server = ft_calloc(1, sizeof(t_monitor));
+	if (!table->server)
+		return (NULL);
 	table->server->nb_meals = 0;
 	table->server->monitor = 0;
 	return (table);

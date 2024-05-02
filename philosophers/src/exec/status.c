@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   status.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptiste <baptiste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bapasqui <bapasqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:25:33 by bapasqui          #+#    #+#             */
-/*   Updated: 2024/04/26 00:02:30 by baptiste         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:03:44 by bapasqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	print_status(t_philo *philos)
 int	print_forks(t_philo *philos)
 {
 	pthread_mutex_lock(&philos->infos->print_mutex);
-/* 	if (philos->infos->end_of_simulation == 1)
+	if (philos->infos->end_of_simulation == 1)
 	{
 		pthread_mutex_unlock(&philos->infos->print_mutex);
 		pthread_mutex_unlock(philos->fork);
 		return (END_OF_SIMULATION);
-	} */
+	}
 	printf("%ld %d has taken a fork\n", actual_time()
 		- philos->infos->start_time, philos->id);
 	pthread_mutex_unlock(&philos->infos->print_mutex);
