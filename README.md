@@ -2,7 +2,6 @@
 Index Repository of my projects at 42
 
 <img src="https://badges.pufler.dev/visits/Haletran/42-Cursus" alt="https://github.com/Haletran/42-Cursus"> </img>
-<img src="https://badges.pufler.dev/created/Haletran/42-Cursus" alt="https://github.com/Haletran/42-Cursus"> </img>
 
 ## Rank 0
 - [x] <a href="https://github.com/Haletran/42_libft">libft</a> :  ✅ 100% 
@@ -16,9 +15,10 @@ Index Repository of my projects at 42
 - [x] <a href="https://github.com/Haletran/42_push-swap">push_swap</a> : ✅ 82% 
 - [x] Exam Rank 02 | ✅ 100% |
 ## Rank 3
-- [ ] <a href="https://github.com/Haletran/42_Philosophers">philosophers</a> : EN_COURS
-- [ ] <a href="https://github.com/Haletran/42_Minishell">minishell</a> : EN_COURS
+- [ ] <a href="https://github.com/Haletran/42_Philosophers">philosophers</a> : ![95%](https://progress-bar.dev/95)
+- [ ] <a href="https://github.com/Haletran/42_Minishell">minishell</a> : ![80%](https://progress-bar.dev/80)
 - [x] Exam Rank 03 : | ✅ 100% |
 ## Rank 4
-- [ ] <a href="https://github.com/Haletran/42_Cub3D">Cub3D</a> : EN_COURS
-- [ ] <a href="https://github.com/Haletran/42_NetPractice">NetPractice</a> : EN_COURS
+- [ ] <a href="https://github.com/Haletran/42_Cub3D">Cub3D</a> : ![20%](https://progress-bar.dev/20)
+- [ ] <a href="https://github.com/Haletran/42_NetPractice">NetPractice</a> : ![20%](https://progress-bar.dev/20)
+- [ ] Exam Rank 04 : |  |
