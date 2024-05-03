@@ -1,5 +1,5 @@
 # 42-Cursus
-Index Repository of my projets at 42
+Index Repository of my projects at 42
 
 <img src="https://badges.pufler.dev/visits/Haletran/42-Cursus" alt="https://github.com/Haletran/42-Cursus"> </img>
 <img src="https://badges.pufler.dev/created/Haletran/42-Cursus" alt="https://github.com/Haletran/42-Cursus"> </img>
