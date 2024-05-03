@@ -53,3 +53,4 @@ Any state change of a philosopher must be formatted as follows:
 - ./philo 131 599 200 200 un philo meurt (test de raciste)
 - ./philo 50 400 200 200 un philo meurt
 - ./philo 131 596 200 200 10 un philo meurt
+- ./philo 200 410 200 200 aucun philo ne meurt
