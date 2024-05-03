@@ -1,21 +1,24 @@
 # 42-Cursus
-All of my projects during 42 Cursus.
+Index Repository of my projets at 42
 
 <img src="https://badges.pufler.dev/visits/Haletran/42-Cursus" alt="https://github.com/Haletran/42-Cursus"> </img>
 <img src="https://badges.pufler.dev/created/Haletran/42-Cursus" alt="https://github.com/Haletran/42-Cursus"> </img>
 
 ## Rank 0
-- [x] libft : 30/09/2023 -> 12/11/2023 | ✅ 100% |
+- [x] <a href="https://github.com/Haletran/42_libft">libft</a> :  ✅ 100% 
 ## Rank 1
-- [x] Born2beroot : 12/11/2023 -> 27/11/2023 | ✅ 105% |
-- [x] ft_printf : 15/11/2023 -> 29/11/2023 | ✅ 100% |
-- [x] get_next_line : 29/11/2023 -> 13/12/2023 | ✅ 112% |
+- [x] <a href="https://github.com/Haletran/42_Born2beroot">Born2beroot</a> : ✅ 105% 
+- [x] <a href="https://github.com/Haletran/42_ft-printf">ft_printf</a> : ✅ 100% 
+- [x] <a href="https://github.com/Haletran/42_get_next_line">get_next_line</a> : ✅ 112% 
 ## Rank 2
-- [x] so_long : 15/01/2024 -> 30/01/2024 | ✅ 125% |
-- [x] minitalk : 13/12/2023 -> 23/12/2023 | ✅ 125% |
-- [x] push_swap : 08/01/2024 -> 22/02/2024 | ✅ 82% |
+- [x] <a href="https://github.com/Haletran/42_So-long">so_long</a> : ✅ 125% 
+- [x] <a href="https://github.com/Haletran/42_Minitalk">minitalk</a> : ✅ 125% 
+- [x] <a href="https://github.com/Haletran/42_push-swap">push_swap</a> : ✅ 82% 
 - [x] Exam Rank 02 | ✅ 100% |
 ## Rank 3
-- [ ] philosophers : 26/02/2024 ->
-- [ ] minishell :
-- [ ] Exam Rank 03 : | ✅ 100% |
+- [ ] <a href="https://github.com/Haletran/42_Philosophers">philosophers</a> : EN_COURS
+- [ ] <a href="https://github.com/Haletran/42_Minishell">minishell</a> : EN_COURS
+- [x] Exam Rank 03 : | ✅ 100% |
+## Rank 4
+- [ ] <a href="https://github.com/Haletran/42_Cub3D">Cub3D</a> : EN_COURS
+- [ ] <a href="https://github.com/Haletran/42_NetPractice">NetPractice</a> : EN_COURS
