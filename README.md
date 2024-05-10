@@ -15,7 +15,7 @@ Index Repository of my projects at 42
 - [x] <a href="https://github.com/Haletran/42_push-swap">push_swap</a> : ✅ 82% 
 - [x] Exam Rank 02 | ✅ 100% |
 ## Rank 3
-- [ ] <a href="https://github.com/Haletran/42_Philosophers">philosophers</a> : ![95%](https://progress-bar.dev/95)
+- [x] Philosophers : 100% ✅
 - [ ] <a href="https://github.com/Haletran/42_Minishell">minishell</a> : ![80%](https://progress-bar.dev/80)
 - [x] Exam Rank 03 : | ✅ 100% |
 ## Rank 4
