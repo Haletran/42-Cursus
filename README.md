@@ -15,13 +15,13 @@ Index Repository of my projects at 42
 - [x] <a href="https://github.com/Haletran/42_push-swap">push_swap</a> : ✅ 82% 
 - [x] Exam Rank 02 | ✅ 100% |
 ## Rank 3
-- [x] Philosophers :  ✅ 100%
-- [ ] <a href="https://github.com/Haletran/42_Minishell">minishell</a> : ![80%](https://progress-bar.dev/80)
+- [x] <a href="https://github.com/Haletran/42_Philosophers">Philosophers</a> :  ✅ 100%
+- [x] <a href="https://github.com/Haletran/42_Minishell">Minishell</a> : ✅ 97%
 - [x] Exam Rank 03 : | ✅ 100% |
 ## Rank 4
-- [ ] <a href="https://github.com/Haletran/42_Cub3D">Cub3D</a> : ![20%](https://progress-bar.dev/20)
+- [x] <a href="https://github.com/Haletran/42_Cub3D">Cub3D</a> : ✅ 120%
 - [ ] <a href="https://github.com/Haletran/42_NetPractice">NetPractice</a> : ![90%](https://progress-bar.dev/90)
-- [ ] <a href="https://github.com/Haletran/42_NetPractice">CPP00</a> : ![100%](https://progress-bar.dev/100)
-- [ ] <a href="https://github.com/Haletran/42_NetPractice">CPP01</a> : ![100%](https://progress-bar.dev/100)
-- [ ] <a href="https://github.com/Haletran/42_NetPractice">CPP02</a> : ![10%](https://progress-bar.dev/10)
+- [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP00">CPP00</a> : ✅ 80%
+- [ ] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP01">CPP01</a> : ![100%](https://progress-bar.dev/100)
+- [ ] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP02">CPP02</a> : ![10%](https://progress-bar.dev/10)
 - [ ] Exam Rank 04 : |  |
