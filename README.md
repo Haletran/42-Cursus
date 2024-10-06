@@ -25,5 +25,10 @@ Index Repository of my projects at 42
 - [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP01">CPP01</a> : ✅ 85%
 - [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP02">CPP02</a> : ✅ 80%
 - [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP02">CPP03</a> : ✅ 80%
-- [ ] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP04">CPP04</a> : ![100%](https://progress-bar.dev/90)
+- [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP04">CPP04</a> : ✅ 100%
 - [x] Exam Rank 04 : | ✅ 100% |
+## Rank 5
+- [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP05">CPP05</a> : ✅ 100%
+- [ ] <a href="https://github.com/Haletran/42_Inception">Inception</a> : ✅ 125%
+- [ ] <a href="https://github.com/Haletran/42_FT_IRC">IRC</a> : 0%
+- [ ] Exam Rank 05 : | Haven't done it yet |
