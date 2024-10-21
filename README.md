@@ -20,7 +20,7 @@ Index Repository of my projects at 42
 - [x] Exam Rank 03 : | ✅ 100% |
 ## Rank 4
 - [x] <a href="https://github.com/Haletran/42_Cub3D">Cub3D</a> : ✅ 120%
-- [ ] <a href="https://github.com/Haletran/42_NetPractice">NetPractice</a> : ![100%](https://progress-bar.dev/90)
+- [x] <a href="https://github.com/Haletran/42_NetPractice">NetPractice</a> : ✅ 100%
 - [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP00">CPP00</a> : ✅ 80%
 - [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP01">CPP01</a> : ✅ 85%
 - [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP02">CPP02</a> : ✅ 80%
@@ -29,6 +29,7 @@ Index Repository of my projects at 42
 - [x] Exam Rank 04 : | ✅ 100% |
 ## Rank 5
 - [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP05">CPP05</a> : ✅ 100%
+- [ ] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP06">CPP06</a> : ✅ 100%
 - [ ] <a href="https://github.com/Haletran/42_Inception">Inception</a> : ✅ 125%
 - [ ] <a href="https://github.com/Haletran/42_FT_IRC">IRC</a> : 0%
 - [ ] Exam Rank 05 : | Haven't done it yet |
