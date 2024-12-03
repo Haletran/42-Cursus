@@ -34,4 +34,7 @@ Index Repository of my projects at 42
 - [x] <a href="https://github.com/Haletran/42_CPP/tree/main/CPP08">CPP08</a> : ✅ 100%
 - [x] <a href="https://github.com/Haletran/42_Inception">Inception</a> : ✅ 125%
 - [ ] <a href="https://github.com/Haletran/42_FT_IRC">IRC</a> : 0%
-- [ ] Exam Rank 05 : | ❌ 65% |
+- [ ] Exam Rank 05 : |  ✅ 100% |
+## Rank 6
+- [ ] <a href="https://github.com/Haletran/42-Ft_transcendence">Ft_Transcendence</a> : In progress...
+- [ ] Exam Rank 06 : | 0% |
