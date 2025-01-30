@@ -38,4 +38,4 @@ Index Repository of my projects at 42
 - [x] Exam Rank 05 : |  ✅ 100% |
 ## Rank 6
 - [x] <a href="https://github.com/Haletran/42-Ft_transcendence">Ft_Transcendence</a> : ✅ 125%
-- [ ] Exam Rank 06 : | 0% |
+- [ ] Exam Rank 06 : |  ✅ 100% |
